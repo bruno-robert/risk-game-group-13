@@ -8,10 +8,62 @@
 
 /* Begin PBXBuildFile section */
 		15C0D37B1F7DCCF400333A98 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D37A1F7DCCF400333A98 /* main.cpp */; };
+		15C0D3A71F7DCD5D00333A98 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3A51F7DCD5C00333A98 /* Map.cpp */; };
+		15C0D3AA1F7DCE5B00333A98 /* Part1Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3A81F7DCE5B00333A98 /* Part1Driver.cpp */; };
+		15C0D3CD1F7DCFFA00333A98 /* diceDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3C71F7DCF0C00333A98 /* diceDriver.cpp */; };
+		15C0D3CE1F7DCFFC00333A98 /* dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3C61F7DCF0C00333A98 /* dice.cpp */; };
+		15C0D3CF1F7DD00C00333A98 /* Part_4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3C81F7DCF6800333A98 /* Part_4.cpp */; };
+		15C0D3D01F7DD01E00333A98 /* Part5_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3CC1F7DCF6D00333A98 /* Part5_2.cpp */; };
+		15C0D3D11F7DD01E00333A98 /* Part5_Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3CA1F7DCF6D00333A98 /* Part5_Driver.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		15C0D3751F7DCCF400333A98 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		15C0D3831F7DCD0700333A98 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		15C0D38E1F7DCD1300333A98 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		15C0D3991F7DCD3200333A98 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		15C0D3AD1F7DCE7700333A98 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		15C0D3B81F7DCE8200333A98 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -25,10 +77,66 @@
 /* Begin PBXFileReference section */
 		15C0D3771F7DCCF400333A98 /* risk-game-group-13 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "risk-game-group-13"; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C0D37A1F7DCCF400333A98 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		15C0D3851F7DCD0700333A98 /* Part 1 - Map */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Part 1 - Map"; sourceTree = BUILT_PRODUCTS_DIR; };
+		15C0D3901F7DCD1300333A98 /* Part 2 - Map Loader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Part 2 - Map Loader"; sourceTree = BUILT_PRODUCTS_DIR; };
+		15C0D39B1F7DCD3200333A98 /* Part 3 - Dice */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Part 3 - Dice"; sourceTree = BUILT_PRODUCTS_DIR; };
+		15C0D3A21F7DCD5C00333A98 /* Map.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
+		15C0D3A51F7DCD5C00333A98 /* Map.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Map.cpp; sourceTree = "<group>"; };
+		15C0D3A81F7DCE5B00333A98 /* Part1Driver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part1Driver.cpp; sourceTree = "<group>"; };
+		15C0D3A91F7DCE5B00333A98 /* Part1Driver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Part1Driver.h; sourceTree = "<group>"; };
+		15C0D3AF1F7DCE7700333A98 /* Part 4 - Player */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Part 4 - Player"; sourceTree = BUILT_PRODUCTS_DIR; };
+		15C0D3BA1F7DCE8200333A98 /* Part 5 - Cards */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Part 5 - Cards"; sourceTree = BUILT_PRODUCTS_DIR; };
+		15C0D3C11F7DCF0100333A98 /* MapLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapLoader.h; sourceTree = "<group>"; };
+		15C0D3C21F7DCF0100333A98 /* MapLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MapLoader.cpp; sourceTree = "<group>"; };
+		15C0D3C31F7DCF0100333A98 /* Part2Driver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part2Driver.cpp; sourceTree = "<group>"; };
+		15C0D3C41F7DCF0100333A98 /* World.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = World.map; sourceTree = "<group>"; };
+		15C0D3C51F7DCF0C00333A98 /* dice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dice.h; sourceTree = "<group>"; };
+		15C0D3C61F7DCF0C00333A98 /* dice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dice.cpp; sourceTree = "<group>"; };
+		15C0D3C71F7DCF0C00333A98 /* diceDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = diceDriver.cpp; sourceTree = "<group>"; };
+		15C0D3C81F7DCF6800333A98 /* Part_4.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part_4.cpp; sourceTree = "<group>"; };
+		15C0D3C91F7DCF6800333A98 /* Part_4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Part_4.h; sourceTree = "<group>"; };
+		15C0D3CA1F7DCF6D00333A98 /* Part5_Driver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part5_Driver.cpp; sourceTree = "<group>"; };
+		15C0D3CB1F7DCF6D00333A98 /* Part5_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Part5_2.h; sourceTree = "<group>"; };
+		15C0D3CC1F7DCF6D00333A98 /* Part5_2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part5_2.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		15C0D3741F7DCCF400333A98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15C0D3821F7DCD0700333A98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15C0D38D1F7DCD1300333A98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15C0D3981F7DCD3200333A98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15C0D3AC1F7DCE7700333A98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15C0D3B71F7DCE8200333A98 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,6 +150,11 @@
 			isa = PBXGroup;
 			children = (
 				15C0D3791F7DCCF400333A98 /* risk-game-group-13 */,
+				15C0D3861F7DCD0700333A98 /* Part 1 - Map */,
+				15C0D3911F7DCD1400333A98 /* Part 2 - Map Loader */,
+				15C0D39C1F7DCD3200333A98 /* Part 3 - Dice */,
+				15C0D3B01F7DCE7700333A98 /* Part 4 - Player */,
+				15C0D3BB1F7DCE8200333A98 /* Part 5 - Cards */,
 				15C0D3781F7DCCF400333A98 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +163,11 @@
 			isa = PBXGroup;
 			children = (
 				15C0D3771F7DCCF400333A98 /* risk-game-group-13 */,
+				15C0D3851F7DCD0700333A98 /* Part 1 - Map */,
+				15C0D3901F7DCD1300333A98 /* Part 2 - Map Loader */,
+				15C0D39B1F7DCD3200333A98 /* Part 3 - Dice */,
+				15C0D3AF1F7DCE7700333A98 /* Part 4 - Player */,
+				15C0D3BA1F7DCE8200333A98 /* Part 5 - Cards */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,6 +178,57 @@
 				15C0D37A1F7DCCF400333A98 /* main.cpp */,
 			);
 			path = "risk-game-group-13";
+			sourceTree = "<group>";
+		};
+		15C0D3861F7DCD0700333A98 /* Part 1 - Map */ = {
+			isa = PBXGroup;
+			children = (
+				15C0D3A51F7DCD5C00333A98 /* Map.cpp */,
+				15C0D3A21F7DCD5C00333A98 /* Map.h */,
+				15C0D3A81F7DCE5B00333A98 /* Part1Driver.cpp */,
+				15C0D3A91F7DCE5B00333A98 /* Part1Driver.h */,
+			);
+			path = "Part 1 - Map";
+			sourceTree = "<group>";
+		};
+		15C0D3911F7DCD1400333A98 /* Part 2 - Map Loader */ = {
+			isa = PBXGroup;
+			children = (
+				15C0D3C21F7DCF0100333A98 /* MapLoader.cpp */,
+				15C0D3C11F7DCF0100333A98 /* MapLoader.h */,
+				15C0D3C31F7DCF0100333A98 /* Part2Driver.cpp */,
+				15C0D3C41F7DCF0100333A98 /* World.map */,
+			);
+			path = "Part 2 - Map Loader";
+			sourceTree = "<group>";
+		};
+		15C0D39C1F7DCD3200333A98 /* Part 3 - Dice */ = {
+			isa = PBXGroup;
+			children = (
+				15C0D3C61F7DCF0C00333A98 /* dice.cpp */,
+				15C0D3C51F7DCF0C00333A98 /* dice.h */,
+				15C0D3C71F7DCF0C00333A98 /* diceDriver.cpp */,
+			);
+			path = "Part 3 - Dice";
+			sourceTree = "<group>";
+		};
+		15C0D3B01F7DCE7700333A98 /* Part 4 - Player */ = {
+			isa = PBXGroup;
+			children = (
+				15C0D3C81F7DCF6800333A98 /* Part_4.cpp */,
+				15C0D3C91F7DCF6800333A98 /* Part_4.h */,
+			);
+			path = "Part 4 - Player";
+			sourceTree = "<group>";
+		};
+		15C0D3BB1F7DCE8200333A98 /* Part 5 - Cards */ = {
+			isa = PBXGroup;
+			children = (
+				15C0D3CC1F7DCF6D00333A98 /* Part5_2.cpp */,
+				15C0D3CB1F7DCF6D00333A98 /* Part5_2.h */,
+				15C0D3CA1F7DCF6D00333A98 /* Part5_Driver.cpp */,
+			);
+			path = "Part 5 - Cards";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,6 +251,91 @@
 			productReference = 15C0D3771F7DCCF400333A98 /* risk-game-group-13 */;
 			productType = "com.apple.product-type.tool";
 		};
+		15C0D3841F7DCD0700333A98 /* Part 1 - Map */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15C0D3891F7DCD0700333A98 /* Build configuration list for PBXNativeTarget "Part 1 - Map" */;
+			buildPhases = (
+				15C0D3811F7DCD0700333A98 /* Sources */,
+				15C0D3821F7DCD0700333A98 /* Frameworks */,
+				15C0D3831F7DCD0700333A98 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Part 1 - Map";
+			productName = "Part 1 - Map";
+			productReference = 15C0D3851F7DCD0700333A98 /* Part 1 - Map */;
+			productType = "com.apple.product-type.tool";
+		};
+		15C0D38F1F7DCD1300333A98 /* Part 2 - Map Loader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15C0D3941F7DCD1400333A98 /* Build configuration list for PBXNativeTarget "Part 2 - Map Loader" */;
+			buildPhases = (
+				15C0D38C1F7DCD1300333A98 /* Sources */,
+				15C0D38D1F7DCD1300333A98 /* Frameworks */,
+				15C0D38E1F7DCD1300333A98 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Part 2 - Map Loader";
+			productName = "Part 2 - Map Loader";
+			productReference = 15C0D3901F7DCD1300333A98 /* Part 2 - Map Loader */;
+			productType = "com.apple.product-type.tool";
+		};
+		15C0D39A1F7DCD3200333A98 /* Part 3 - Dice */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15C0D39F1F7DCD3200333A98 /* Build configuration list for PBXNativeTarget "Part 3 - Dice" */;
+			buildPhases = (
+				15C0D3971F7DCD3200333A98 /* Sources */,
+				15C0D3981F7DCD3200333A98 /* Frameworks */,
+				15C0D3991F7DCD3200333A98 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Part 3 - Dice";
+			productName = "Part 3 - Dice";
+			productReference = 15C0D39B1F7DCD3200333A98 /* Part 3 - Dice */;
+			productType = "com.apple.product-type.tool";
+		};
+		15C0D3AE1F7DCE7700333A98 /* Part 4 - Player */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15C0D3B31F7DCE7700333A98 /* Build configuration list for PBXNativeTarget "Part 4 - Player" */;
+			buildPhases = (
+				15C0D3AB1F7DCE7700333A98 /* Sources */,
+				15C0D3AC1F7DCE7700333A98 /* Frameworks */,
+				15C0D3AD1F7DCE7700333A98 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Part 4 - Player";
+			productName = "Part 4 - Player";
+			productReference = 15C0D3AF1F7DCE7700333A98 /* Part 4 - Player */;
+			productType = "com.apple.product-type.tool";
+		};
+		15C0D3B91F7DCE8200333A98 /* Part 5 - Cards */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15C0D3BE1F7DCE8200333A98 /* Build configuration list for PBXNativeTarget "Part 5 - Cards" */;
+			buildPhases = (
+				15C0D3B61F7DCE8200333A98 /* Sources */,
+				15C0D3B71F7DCE8200333A98 /* Frameworks */,
+				15C0D3B81F7DCE8200333A98 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Part 5 - Cards";
+			productName = "Part 5 - Cards";
+			productReference = 15C0D3BA1F7DCE8200333A98 /* Part 5 - Cards */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -92,6 +346,26 @@
 				ORGANIZATIONNAME = "Bruno Robert";
 				TargetAttributes = {
 					15C0D3761F7DCCF400333A98 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					15C0D3841F7DCD0700333A98 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					15C0D38F1F7DCD1300333A98 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					15C0D39A1F7DCD3200333A98 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					15C0D3AE1F7DCE7700333A98 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					15C0D3B91F7DCE8200333A98 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 					};
@@ -110,6 +384,11 @@
 			projectRoot = "";
 			targets = (
 				15C0D3761F7DCCF400333A98 /* risk-game-group-13 */,
+				15C0D3841F7DCD0700333A98 /* Part 1 - Map */,
+				15C0D38F1F7DCD1300333A98 /* Part 2 - Map Loader */,
+				15C0D39A1F7DCD3200333A98 /* Part 3 - Dice */,
+				15C0D3AE1F7DCE7700333A98 /* Part 4 - Player */,
+				15C0D3B91F7DCE8200333A98 /* Part 5 - Cards */,
 			);
 		};
 /* End PBXProject section */
@@ -120,6 +399,48 @@
 			buildActionMask = 2147483647;
 			files = (
 				15C0D37B1F7DCCF400333A98 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15C0D3811F7DCD0700333A98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15C0D3AA1F7DCE5B00333A98 /* Part1Driver.cpp in Sources */,
+				15C0D3A71F7DCD5D00333A98 /* Map.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15C0D38C1F7DCD1300333A98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15C0D3971F7DCD3200333A98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15C0D3CE1F7DCFFC00333A98 /* dice.cpp in Sources */,
+				15C0D3CD1F7DCFFA00333A98 /* diceDriver.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15C0D3AB1F7DCE7700333A98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15C0D3CF1F7DD00C00333A98 /* Part_4.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15C0D3B61F7DCE8200333A98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15C0D3D11F7DD01E00333A98 /* Part5_Driver.cpp in Sources */,
+				15C0D3D01F7DD01E00333A98 /* Part5_2.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +568,96 @@
 			};
 			name = Release;
 		};
+		15C0D38A1F7DCD0700333A98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		15C0D38B1F7DCD0700333A98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		15C0D3951F7DCD1400333A98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		15C0D3961F7DCD1400333A98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		15C0D3A01F7DCD3200333A98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		15C0D3A11F7DCD3200333A98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		15C0D3B41F7DCE7700333A98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		15C0D3B51F7DCE7700333A98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		15C0D3BF1F7DCE8200333A98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		15C0D3C01F7DCE8200333A98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -264,6 +675,51 @@
 			buildConfigurations = (
 				15C0D37F1F7DCCF400333A98 /* Debug */,
 				15C0D3801F7DCCF400333A98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15C0D3891F7DCD0700333A98 /* Build configuration list for PBXNativeTarget "Part 1 - Map" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15C0D38A1F7DCD0700333A98 /* Debug */,
+				15C0D38B1F7DCD0700333A98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15C0D3941F7DCD1400333A98 /* Build configuration list for PBXNativeTarget "Part 2 - Map Loader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15C0D3951F7DCD1400333A98 /* Debug */,
+				15C0D3961F7DCD1400333A98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15C0D39F1F7DCD3200333A98 /* Build configuration list for PBXNativeTarget "Part 3 - Dice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15C0D3A01F7DCD3200333A98 /* Debug */,
+				15C0D3A11F7DCD3200333A98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15C0D3B31F7DCE7700333A98 /* Build configuration list for PBXNativeTarget "Part 4 - Player" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15C0D3B41F7DCE7700333A98 /* Debug */,
+				15C0D3B51F7DCE7700333A98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15C0D3BE1F7DCE8200333A98 /* Build configuration list for PBXNativeTarget "Part 5 - Cards" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15C0D3BF1F7DCE8200333A98 /* Debug */,
+				15C0D3C01F7DCE8200333A98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
