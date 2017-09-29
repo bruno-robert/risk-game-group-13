@@ -141,7 +141,6 @@ public:
 	void addAdjCount(CountryNode* countNode);				//add adjacent country 
 	
 	//getters and setters
-
     //removes the country from it's previous continent then add's it to the given continent
     void setContinent(ContinentNode* continent) {
         if(this->continent != NULL) {
