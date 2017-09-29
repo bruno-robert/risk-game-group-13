@@ -144,7 +144,10 @@ public:
 
     //removes the country from it's previous continent then add's it to the given continent
     void setContinent(ContinentNode* continent) {
-        this->continent -> removeCountry(this);
+        if(this->continent != NULL) {
+            this->continent -> removeCountry(this);
+
+        }
         this -> continent = continent;
         continent -> addCountry(this);
     }
