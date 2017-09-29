@@ -15,6 +15,9 @@
 		15C0D3CF1F7DD00C00333A98 /* Part_4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3C81F7DCF6800333A98 /* Part_4.cpp */; };
 		15C0D3D01F7DD01E00333A98 /* Part5_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3CC1F7DCF6D00333A98 /* Part5_2.cpp */; };
 		15C0D3D11F7DD01E00333A98 /* Part5_Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3CA1F7DCF6D00333A98 /* Part5_Driver.cpp */; };
+		15C0D3D21F7DD34600333A98 /* MapLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3C21F7DCF0100333A98 /* MapLoader.cpp */; };
+		15C0D3D31F7DD34600333A98 /* Part2Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3C31F7DCF0100333A98 /* Part2Driver.cpp */; };
+		15C0D3D41F7DD3F900333A98 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3A51F7DCD5C00333A98 /* Map.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -415,6 +418,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15C0D3D41F7DD3F900333A98 /* Map.cpp in Sources */,
+				15C0D3D21F7DD34600333A98 /* MapLoader.cpp in Sources */,
+				15C0D3D31F7DD34600333A98 /* Part2Driver.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
