@@ -7,7 +7,7 @@
 		<key>Part 1 - Map.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
 		</dict>
 		<key>Part 2 - Map Loader.xcscheme</key>
 		<dict>
@@ -29,10 +29,15 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>main game loop.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>risk-game-group-13.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
 	</dict>
 </dict>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		152B9A801F8431A700BAA7DF /* GameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 152B9A7E1F8431A700BAA7DF /* GameLoop.cpp */; };
 		1590B7391F840A6300644921 /* dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3C61F7DCF0C00333A98 /* dice.cpp */; };
 		1590B73B1F840A7F00644921 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3A51F7DCD5C00333A98 /* Map.cpp */; };
 		1590B73C1F840A9200644921 /* Part5_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859221F7EAA4200939833 /* Part5_2.cpp */; };
@@ -23,6 +24,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		152B9A751F84316D00BAA7DF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		15C0D3751F7DCCF400333A98 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -80,6 +90,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		152B9A771F84316D00BAA7DF /* main game loop */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "main game loop"; sourceTree = BUILT_PRODUCTS_DIR; };
+		152B9A7E1F8431A700BAA7DF /* GameLoop.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameLoop.cpp; sourceTree = "<group>"; };
+		152B9A7F1F8431A700BAA7DF /* GameLoop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameLoop.h; sourceTree = "<group>"; };
 		1590B7421F840BB700644921 /* MapLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapLoader.h; sourceTree = "<group>"; };
 		1590B7431F840BB700644921 /* Part2Driver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part2Driver.cpp; sourceTree = "<group>"; };
 		1590B7441F840BB700644921 /* MapLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MapLoader.cpp; sourceTree = "<group>"; };
@@ -107,6 +120,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		152B9A741F84316D00BAA7DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		15C0D3741F7DCCF400333A98 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -152,6 +172,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		152B9A781F84316D00BAA7DF /* main game loop */ = {
+			isa = PBXGroup;
+			children = (
+				152B9A7E1F8431A700BAA7DF /* GameLoop.cpp */,
+				152B9A7F1F8431A700BAA7DF /* GameLoop.h */,
+			);
+			path = "main game loop";
+			sourceTree = "<group>";
+		};
 		15C0D36E1F7DCCF300333A98 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +190,7 @@
 				15C0D39C1F7DCD3200333A98 /* Part 3 - Dice */,
 				15C0D3B01F7DCE7700333A98 /* Part 4 - Player */,
 				15C0D3BB1F7DCE8200333A98 /* Part 5 - Cards */,
+				152B9A781F84316D00BAA7DF /* main game loop */,
 				15C0D3781F7DCCF400333A98 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -174,6 +204,7 @@
 				15C0D39B1F7DCD3200333A98 /* Part 3 - Dice */,
 				15C0D3AF1F7DCE7700333A98 /* Part 4 - Player */,
 				15C0D3BA1F7DCE8200333A98 /* Part 5 - Cards */,
+				152B9A771F84316D00BAA7DF /* main game loop */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -241,6 +272,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		152B9A761F84316D00BAA7DF /* main game loop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 152B9A7D1F84316D00BAA7DF /* Build configuration list for PBXNativeTarget "main game loop" */;
+			buildPhases = (
+				152B9A731F84316D00BAA7DF /* Sources */,
+				152B9A741F84316D00BAA7DF /* Frameworks */,
+				152B9A751F84316D00BAA7DF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "main game loop";
+			productName = "main game loop";
+			productReference = 152B9A771F84316D00BAA7DF /* main game loop */;
+			productType = "com.apple.product-type.tool";
+		};
 		15C0D3761F7DCCF400333A98 /* risk-game-group-13 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15C0D37E1F7DCCF400333A98 /* Build configuration list for PBXNativeTarget "risk-game-group-13" */;
@@ -352,6 +400,10 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Bruno Robert";
 				TargetAttributes = {
+					152B9A761F84316D00BAA7DF = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
 					15C0D3761F7DCCF400333A98 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -396,11 +448,20 @@
 				15C0D39A1F7DCD3200333A98 /* Part 3 - Dice */,
 				15C0D3AE1F7DCE7700333A98 /* Part 4 - Player */,
 				15C0D3B91F7DCE8200333A98 /* Part 5 - Cards */,
+				152B9A761F84316D00BAA7DF /* main game loop */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		152B9A731F84316D00BAA7DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				152B9A801F8431A700BAA7DF /* GameLoop.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		15C0D3731F7DCCF400333A98 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -459,6 +520,24 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		152B9A7B1F84316D00BAA7DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		152B9A7C1F84316D00BAA7DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		15C0D37C1F7DCCF400333A98 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -673,6 +752,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		152B9A7D1F84316D00BAA7DF /* Build configuration list for PBXNativeTarget "main game loop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				152B9A7B1F84316D00BAA7DF /* Debug */,
+				152B9A7C1F84316D00BAA7DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		15C0D3721F7DCCF300333A98 /* Build configuration list for PBXProject "risk-game-group-13" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
