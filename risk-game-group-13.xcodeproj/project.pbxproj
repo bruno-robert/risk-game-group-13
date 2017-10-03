@@ -20,8 +20,6 @@
 		15D8591E1F7EA92000939833 /* Part_4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859191F7EA91500939833 /* Part_4.cpp */; };
 		15D859231F7EAA4600939833 /* Part5_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859221F7EAA4200939833 /* Part5_2.cpp */; };
 		15D859241F7EAA4600939833 /* Part5_Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859211F7EAA4200939833 /* Part5_Driver.cpp */; };
-		15D859291F7EAADD00939833 /* MapLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859251F7EAACC00939833 /* MapLoader.cpp */; };
-		15D8592A1F7EAADD00939833 /* Part2Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859271F7EAACD00939833 /* Part2Driver.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -82,6 +80,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1590B7421F840BB700644921 /* MapLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapLoader.h; sourceTree = "<group>"; };
+		1590B7431F840BB700644921 /* Part2Driver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part2Driver.cpp; sourceTree = "<group>"; };
+		1590B7441F840BB700644921 /* MapLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MapLoader.cpp; sourceTree = "<group>"; };
 		15C0D3771F7DCCF400333A98 /* risk-game-group-13 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "risk-game-group-13"; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C0D37A1F7DCCF400333A98 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		15C0D3851F7DCD0700333A98 /* Part 1 - Map */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Part 1 - Map"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,9 +104,6 @@
 		15D859201F7EAA4200939833 /* Part5_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Part5_2.h; sourceTree = "<group>"; };
 		15D859211F7EAA4200939833 /* Part5_Driver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part5_Driver.cpp; sourceTree = "<group>"; };
 		15D859221F7EAA4200939833 /* Part5_2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part5_2.cpp; sourceTree = "<group>"; };
-		15D859251F7EAACC00939833 /* MapLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MapLoader.cpp; sourceTree = "<group>"; };
-		15D859261F7EAACC00939833 /* MapLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapLoader.h; sourceTree = "<group>"; };
-		15D859271F7EAACD00939833 /* Part2Driver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part2Driver.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,9 +200,9 @@
 		15C0D3911F7DCD1400333A98 /* Part 2 - Map Loader */ = {
 			isa = PBXGroup;
 			children = (
-				15D859251F7EAACC00939833 /* MapLoader.cpp */,
-				15D859261F7EAACC00939833 /* MapLoader.h */,
-				15D859271F7EAACD00939833 /* Part2Driver.cpp */,
+				1590B7441F840BB700644921 /* MapLoader.cpp */,
+				1590B7421F840BB700644921 /* MapLoader.h */,
+				1590B7431F840BB700644921 /* Part2Driver.cpp */,
 				15C0D3C41F7DCF0100333A98 /* World.map */,
 			);
 			path = "Part 2 - Map Loader";
@@ -425,8 +423,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				15C0D3D41F7DD3F900333A98 /* Map.cpp in Sources */,
-				15D859291F7EAADD00939833 /* MapLoader.cpp in Sources */,
-				15D8592A1F7EAADD00939833 /* Part2Driver.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

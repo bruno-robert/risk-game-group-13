@@ -11,7 +11,7 @@
 
 using namespace std;
 
-int main() {
+void main() {
 
 	cout << "Testing the Card, Deck and Hand class...\n" << endl;
 
@@ -84,5 +84,4 @@ int main() {
 		cout << "\nnumber of card in the players hand: " << player1Hand.getSize() << endl;
 		cout << "number of unit returned: " << player1Hand.exchange() << "\n"<<endl;
 	}
-    return 0;
 };
