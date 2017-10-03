@@ -1,13 +1,17 @@
-//------------------------------------------------
-//Comp 345-D
-//Assignment 1 - Part 5 version 2
-//Simon Roy - Team 13 - ID 40030996
-//------------------------------------------------
-#include <iostream>
+//============================================================================
+// Name        : Part5_Driver.cpp
+// Team        : Group 13
+// Team members: Bruno Robert 40003443, Chao Yue 27282516, Jeffrey Maher 40018878, Sabrina Rieck 40032864, Simon Roy 40030996
+// Version     : 0.3
+// Copyright   : GNU Public license 3
+// Description : Driver for Part5 of A1. It's purpose is to test the Card, Deck and Hand class and their core functions(draw and exchange)
+//============================================================================
+
 #include "Part5_2.h"
+
 using namespace std;
 
-void main() {
+int main() {
 
 	cout << "Testing the Card, Deck and Hand class...\n" << endl;
 
@@ -63,10 +67,13 @@ void main() {
 	//Testing the Hand method
 
 
-	cout << " How many countries are in the map?\n" << endl;
+	cout << "How many countries are in the map?\n" << endl;
 	int countries2;
 	cin >> countries2;
 	Deck deck2 = Deck(countries2);		//Building a deck from a user given size
+
+
+	cout << "The hand will receive up to four cards from the deck then call the exchange method. This will be done a total of 4 times...\n" << endl;
 
 	Hand player1Hand;
 	for (int i = 0; i < 4;i++) {		//Calling the exchange method 4 time
@@ -77,4 +84,5 @@ void main() {
 		cout << "\nnumber of card in the players hand: " << player1Hand.getSize() << endl;
 		cout << "number of unit returned: " << player1Hand.exchange() << "\n"<<endl;
 	}
+    return 0;
 };

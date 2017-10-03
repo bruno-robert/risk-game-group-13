@@ -1,5 +1,13 @@
-#include <iostream>
-#include <vector>
+//============================================================================
+// Name        : Part_4.cpp
+// Team        : Group 13
+// Team members: Bruno Robert 40003443, Chao Yue 27282516, Jeffrey Maher 40018878, Sabrina Rieck 40032864, Simon Roy 40030996
+// Version     : 1
+// Copyright   : GNU Public license 3
+// Description : Player class responsible for creating player object which owns a hand of cards, a dice rolling facility, and a collection of occupied countries.
+//               Implementing reinforce(), attack(), fortify() player actions according to official game rule.
+//============================================================================
+
 #include "Part_4.h"
 
 
@@ -8,26 +16,39 @@ using namespace std;
 // Player Class
 
 
-Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, int playerID){
+Player::Player(){ //Default constructor create empty players
+
+};
+
+Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice){
 	this->ownedCountry = ownedCountry;
 	this->hand = hand;
 	this->dice = dice;
-	this->playerID = playerID;
-}
+};
 
 
-void Player::reinforce(int army, CountryNode countryNode){
+void Player::reinforce(){
 	
-	cout << "You are reinforcing " << countryNode.getCountName() << "by " << army << " units" << endl;
-}
+	cout << "You are reinforcing. " << endl;
+};
 
-void Player::attack(CountryNode countryNode){
+void Player::attack(){
 
-	cout << "You are attacking " << countryNode.getCountName() << endl;
-}
+	cout << "You are attacking. " << endl;
+};
 
-void Player::fortify(CountryNode fromCountry, CountryNode toCountry){
+void Player::fortify(){
 
-	cout << "You are moving armies from " << fromCountry.getCountName() << " to " << toCountry.getCountName() << endl;
-}
+	cout << "You are fortifying. " << endl;
+};
 
+vector<CountryNode *> Player::getCountry(){
+
+	return ownedCountry;
+};
+Hand Player::getHand(){
+	return this->hand;
+};
+Dice Player::getDice(){
+	return this->dice;
+};

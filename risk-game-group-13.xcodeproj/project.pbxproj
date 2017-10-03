@@ -7,17 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1590B7391F840A6300644921 /* dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3C61F7DCF0C00333A98 /* dice.cpp */; };
+		1590B73B1F840A7F00644921 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3A51F7DCD5C00333A98 /* Map.cpp */; };
+		1590B73C1F840A9200644921 /* Part5_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859221F7EAA4200939833 /* Part5_2.cpp */; };
 		15C0D37B1F7DCCF400333A98 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D37A1F7DCCF400333A98 /* main.cpp */; };
 		15C0D3A71F7DCD5D00333A98 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3A51F7DCD5C00333A98 /* Map.cpp */; };
 		15C0D3AA1F7DCE5B00333A98 /* Part1Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3A81F7DCE5B00333A98 /* Part1Driver.cpp */; };
 		15C0D3CD1F7DCFFA00333A98 /* diceDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3C71F7DCF0C00333A98 /* diceDriver.cpp */; };
 		15C0D3CE1F7DCFFC00333A98 /* dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3C61F7DCF0C00333A98 /* dice.cpp */; };
-		15C0D3CF1F7DD00C00333A98 /* Part_4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3C81F7DCF6800333A98 /* Part_4.cpp */; };
-		15C0D3D01F7DD01E00333A98 /* Part5_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3CC1F7DCF6D00333A98 /* Part5_2.cpp */; };
-		15C0D3D11F7DD01E00333A98 /* Part5_Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3CA1F7DCF6D00333A98 /* Part5_Driver.cpp */; };
-		15C0D3D21F7DD34600333A98 /* MapLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3C21F7DCF0100333A98 /* MapLoader.cpp */; };
-		15C0D3D31F7DD34600333A98 /* Part2Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3C31F7DCF0100333A98 /* Part2Driver.cpp */; };
 		15C0D3D41F7DD3F900333A98 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3A51F7DCD5C00333A98 /* Map.cpp */; };
+		15D8591D1F7EA92000939833 /* Part_4_Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859171F7EA91500939833 /* Part_4_Driver.cpp */; };
+		15D8591E1F7EA92000939833 /* Part_4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859191F7EA91500939833 /* Part_4.cpp */; };
+		15D859231F7EAA4600939833 /* Part5_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859221F7EAA4200939833 /* Part5_2.cpp */; };
+		15D859241F7EAA4600939833 /* Part5_Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859211F7EAA4200939833 /* Part5_Driver.cpp */; };
+		15D859291F7EAADD00939833 /* MapLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859251F7EAACC00939833 /* MapLoader.cpp */; };
+		15D8592A1F7EAADD00939833 /* Part2Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859271F7EAACD00939833 /* Part2Driver.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,18 +93,19 @@
 		15C0D3A91F7DCE5B00333A98 /* Part1Driver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Part1Driver.h; sourceTree = "<group>"; };
 		15C0D3AF1F7DCE7700333A98 /* Part 4 - Player */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Part 4 - Player"; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C0D3BA1F7DCE8200333A98 /* Part 5 - Cards */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Part 5 - Cards"; sourceTree = BUILT_PRODUCTS_DIR; };
-		15C0D3C11F7DCF0100333A98 /* MapLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapLoader.h; sourceTree = "<group>"; };
-		15C0D3C21F7DCF0100333A98 /* MapLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MapLoader.cpp; sourceTree = "<group>"; };
-		15C0D3C31F7DCF0100333A98 /* Part2Driver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part2Driver.cpp; sourceTree = "<group>"; };
 		15C0D3C41F7DCF0100333A98 /* World.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = World.map; sourceTree = "<group>"; };
 		15C0D3C51F7DCF0C00333A98 /* dice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dice.h; sourceTree = "<group>"; };
 		15C0D3C61F7DCF0C00333A98 /* dice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dice.cpp; sourceTree = "<group>"; };
 		15C0D3C71F7DCF0C00333A98 /* diceDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = diceDriver.cpp; sourceTree = "<group>"; };
-		15C0D3C81F7DCF6800333A98 /* Part_4.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part_4.cpp; sourceTree = "<group>"; };
-		15C0D3C91F7DCF6800333A98 /* Part_4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Part_4.h; sourceTree = "<group>"; };
-		15C0D3CA1F7DCF6D00333A98 /* Part5_Driver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part5_Driver.cpp; sourceTree = "<group>"; };
-		15C0D3CB1F7DCF6D00333A98 /* Part5_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Part5_2.h; sourceTree = "<group>"; };
-		15C0D3CC1F7DCF6D00333A98 /* Part5_2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part5_2.cpp; sourceTree = "<group>"; };
+		15D859131F7EA91400939833 /* Part_4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Part_4.h; sourceTree = "<group>"; };
+		15D859171F7EA91500939833 /* Part_4_Driver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part_4_Driver.cpp; sourceTree = "<group>"; };
+		15D859191F7EA91500939833 /* Part_4.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part_4.cpp; sourceTree = "<group>"; };
+		15D859201F7EAA4200939833 /* Part5_2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Part5_2.h; sourceTree = "<group>"; };
+		15D859211F7EAA4200939833 /* Part5_Driver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part5_Driver.cpp; sourceTree = "<group>"; };
+		15D859221F7EAA4200939833 /* Part5_2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part5_2.cpp; sourceTree = "<group>"; };
+		15D859251F7EAACC00939833 /* MapLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MapLoader.cpp; sourceTree = "<group>"; };
+		15D859261F7EAACC00939833 /* MapLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapLoader.h; sourceTree = "<group>"; };
+		15D859271F7EAACD00939833 /* Part2Driver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part2Driver.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,9 +202,9 @@
 		15C0D3911F7DCD1400333A98 /* Part 2 - Map Loader */ = {
 			isa = PBXGroup;
 			children = (
-				15C0D3C21F7DCF0100333A98 /* MapLoader.cpp */,
-				15C0D3C11F7DCF0100333A98 /* MapLoader.h */,
-				15C0D3C31F7DCF0100333A98 /* Part2Driver.cpp */,
+				15D859251F7EAACC00939833 /* MapLoader.cpp */,
+				15D859261F7EAACC00939833 /* MapLoader.h */,
+				15D859271F7EAACD00939833 /* Part2Driver.cpp */,
 				15C0D3C41F7DCF0100333A98 /* World.map */,
 			);
 			path = "Part 2 - Map Loader";
@@ -218,8 +223,9 @@
 		15C0D3B01F7DCE7700333A98 /* Part 4 - Player */ = {
 			isa = PBXGroup;
 			children = (
-				15C0D3C81F7DCF6800333A98 /* Part_4.cpp */,
-				15C0D3C91F7DCF6800333A98 /* Part_4.h */,
+				15D859171F7EA91500939833 /* Part_4_Driver.cpp */,
+				15D859191F7EA91500939833 /* Part_4.cpp */,
+				15D859131F7EA91400939833 /* Part_4.h */,
 			);
 			path = "Part 4 - Player";
 			sourceTree = "<group>";
@@ -227,9 +233,9 @@
 		15C0D3BB1F7DCE8200333A98 /* Part 5 - Cards */ = {
 			isa = PBXGroup;
 			children = (
-				15C0D3CC1F7DCF6D00333A98 /* Part5_2.cpp */,
-				15C0D3CB1F7DCF6D00333A98 /* Part5_2.h */,
-				15C0D3CA1F7DCF6D00333A98 /* Part5_Driver.cpp */,
+				15D859221F7EAA4200939833 /* Part5_2.cpp */,
+				15D859201F7EAA4200939833 /* Part5_2.h */,
+				15D859211F7EAA4200939833 /* Part5_Driver.cpp */,
 			);
 			path = "Part 5 - Cards";
 			sourceTree = "<group>";
@@ -419,8 +425,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				15C0D3D41F7DD3F900333A98 /* Map.cpp in Sources */,
-				15C0D3D21F7DD34600333A98 /* MapLoader.cpp in Sources */,
-				15C0D3D31F7DD34600333A98 /* Part2Driver.cpp in Sources */,
+				15D859291F7EAADD00939833 /* MapLoader.cpp in Sources */,
+				15D8592A1F7EAADD00939833 /* Part2Driver.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,7 +443,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15C0D3CF1F7DD00C00333A98 /* Part_4.cpp in Sources */,
+				1590B73B1F840A7F00644921 /* Map.cpp in Sources */,
+				15D8591E1F7EA92000939833 /* Part_4.cpp in Sources */,
+				1590B7391F840A6300644921 /* dice.cpp in Sources */,
+				1590B73C1F840A9200644921 /* Part5_2.cpp in Sources */,
+				15D8591D1F7EA92000939833 /* Part_4_Driver.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,8 +455,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15C0D3D11F7DD01E00333A98 /* Part5_Driver.cpp in Sources */,
-				15C0D3D01F7DD01E00333A98 /* Part5_2.cpp in Sources */,
+				15D859241F7EAA4600939833 /* Part5_Driver.cpp in Sources */,
+				15D859231F7EAA4600939833 /* Part5_2.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

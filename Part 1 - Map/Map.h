@@ -145,10 +145,12 @@ public:
     void setContinent(ContinentNode* continent) {
         if(this->continent != NULL) {
             this->continent -> removeCountry(this);
-
         }
         this -> continent = continent;
-        continent -> addCountry(this);
+        if(continent != NULL) {
+            continent -> addCountry(this);
+        }
+        
     }
     
     ContinentNode* getContinent() {

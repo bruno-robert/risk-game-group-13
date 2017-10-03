@@ -160,6 +160,7 @@ void MapLoader::ReadFile(string FileName)
 
 // This function is used to facilitate returning v
 string MapLoader::ExtractValue(string line)
+
 {
 	return line.substr(line.find('=')+1);
 }

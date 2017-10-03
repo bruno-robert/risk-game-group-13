@@ -1,22 +1,24 @@
-//------------------------------------------------
-//Comp 345-D
-//Assignment 1 - Part 5 version 2
-//Simon Roy - Team 13 - ID 40030996
-//------------------------------------------------
-
+//============================================================================
+// Name        : Part5_2.cpp
+// Team        : Group 13
+// Team members: Bruno Robert 40003443, Chao Yue 27282516, Jeffrey Maher 40018878, Sabrina Rieck 40032864, Simon Roy 40030996
+// Version     : 0.3
+// Copyright   : GNU Public license 3
+// Description : Source file for the Card, Hand and Deck class of Part5. 
+//============================================================================
 //Library usage
 
-#include <random>
-#include <iostream>
-#include <vector>
-#include <ctime>
-using namespace std;
 #include "Part5_2.h"
+
 /* Card class */
 
+//constructors
 
-Card::Card() {};
+Card::Card() {};		
+
 Card::Card(int type) { this->type = type; }
+
+
 
 int Card::getType() {
 	return type;
@@ -34,7 +36,7 @@ Deck::Deck(int countries) {
 	if (countries % 3 == 1) {
 		link.push_back(Card(1));
 	}
-	if (countries % 3 == 2) {						
+	if (countries % 3 == 2) {						//, 	
 		link.push_back(Card(1));
 		link.push_back(Card(2));
 	}
@@ -103,6 +105,9 @@ int Hand::exchange() {
 
 		//The following list of if/else statements are here to select what kind of exchange will be made.
 
+
+		//Infantry check
+
 		if (infantry >= 3) {
 			cout << "\nThe player traded 3 infantry card for " << (numOfExchange * 5) << " units." << endl;		// 3 infantry
 			int num = 0;
@@ -115,6 +120,9 @@ int Hand::exchange() {
 			}
 			return unitReceived = numOfExchange++ * 5;
 		}
+
+		//Cavalry check
+
 		else if (cavalry >= 3) {
 			cout << "\nThe player traded 3 cavalry card for " << (numOfExchange * 5) << " units." << endl;		// 3 cavalry
 			int num = 0;
@@ -127,6 +135,9 @@ int Hand::exchange() {
 			}
 			return unitReceived = numOfExchange++ * 5;
 		}
+
+		//Artillery check
+
 		else if (artillery >= 3) {
 			cout << "\nThe player traded 3 artillery card for " << (numOfExchange * 5) << " units." << endl;		// 3 artillery
 			int num = 0;
@@ -139,6 +150,9 @@ int Hand::exchange() {
 			}
 			return unitReceived = numOfExchange++ * 5;
 		}
+
+		//One of each check
+
 		else if (infantry >= 1 && cavalry >= 1 && artillery >= 1) {
 			cout << "\nThe player traded 1 card of each type for " << (numOfExchange * 5) << " units." << endl;		// 1 of each
 			int num = 0;
@@ -155,8 +169,10 @@ int Hand::exchange() {
 			return unitReceived = numOfExchange++ * 5;
 		}
 
+		//If none of the combination worked 
+
 		else
-			cout << "you do not have the right combination of cards to make an exchange." << endl;	//If none of the combination worked 
+			cout << "you do not have the right combination of cards to make an exchange." << endl;	
 		return 0;
 		
 	}
@@ -168,4 +184,5 @@ int Hand::exchange() {
 //Add() and getSize() methods
 
 void Hand::add(Card card) { playerHand.push_back(card); };		//Allows for the adition of a card to the hand
+
 int Hand::getSize() { return playerHand.size(); };				
