@@ -10,7 +10,7 @@
 #include "Part_4.h"
 using namespace std;
 
-void main(){
+int main(){
 
 	cout << "This is the driver for Player object.\n\n" << endl;
 
@@ -71,4 +71,5 @@ void main(){
 	player1.fortify();
 
 	system("pause");
+    return 0;
 }

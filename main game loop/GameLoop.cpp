@@ -26,4 +26,54 @@
 #include "GameLoop.h"
 using namespace std;
 
+MainGameLoop::MainGameLoop() {
+    
+}
 
+MainGameLoop::MainGameLoop(int numOfPlayers) {
+    
+}
+
+MainGameLoop::~MainGameLoop() {
+    
+}
+
+void MainGameLoop::startGame(int numberOfPlayers) {
+    srand(time(NULL));
+    int playerTurn = rand() % numberOfPlayers + 1;
+    const int FIRST_PLAYER =  playerTurn;
+    Map m;
+    
+    {   //startup phase
+        //this is where each player chooses his/her countries
+        int remainingCountries = m.getCountryList().size();
+        while(remainingCountries > 0) {
+            int chosenCountry;
+            cout <<"player no: "<< playerTurn << " please select a country." << endl;
+            cin >> chosenCountry;
+            
+            if(chosenCountry) {
+                
+            }
+            
+            playerTurn++;
+            remainingCountries--;
+        }
+    }
+    
+    //game loop
+    while (!isGameEnd) {
+        playerTurn = FIRST_PLAYER; //first player goes again
+        
+//        reinforce();
+//        attack();
+//        fortify();
+        
+        
+        
+        
+        
+        playerTurn++;
+        isGameEnd = true;
+    }
+}

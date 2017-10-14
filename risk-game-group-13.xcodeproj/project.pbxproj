@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		151BEE341F8FB51D0028B88F /* FortificationPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 151BEE321F8FB51D0028B88F /* FortificationPhase.cpp */; };
+		151BEE361F8FBFD10028B88F /* Part_4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859191F7EA91500939833 /* Part_4.cpp */; };
+		151BEE371F8FC0BC0028B88F /* Part_4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859191F7EA91500939833 /* Part_4.cpp */; };
+		151BEE381F8FC1180028B88F /* dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3C61F7DCF0C00333A98 /* dice.cpp */; };
+		151BEE391F8FC1690028B88F /* Part5_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859221F7EAA4200939833 /* Part5_2.cpp */; };
 		152B9A801F8431A700BAA7DF /* GameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 152B9A7E1F8431A700BAA7DF /* GameLoop.cpp */; };
 		1590B7391F840A6300644921 /* dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3C61F7DCF0C00333A98 /* dice.cpp */; };
 		1590B73B1F840A7F00644921 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3A51F7DCD5C00333A98 /* Map.cpp */; };
@@ -18,6 +22,10 @@
 		15C0D3CD1F7DCFFA00333A98 /* diceDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3C71F7DCF0C00333A98 /* diceDriver.cpp */; };
 		15C0D3CE1F7DCFFC00333A98 /* dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3C61F7DCF0C00333A98 /* dice.cpp */; };
 		15C0D3D41F7DD3F900333A98 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3A51F7DCD5C00333A98 /* Map.cpp */; };
+		15C5E6181F90658900FEC4CE /* Part2Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1590B7431F840BB700644921 /* Part2Driver.cpp */; };
+		15C5E6191F90658E00FEC4CE /* MapLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1590B7441F840BB700644921 /* MapLoader.cpp */; };
+		15C5E61A1F9065AD00FEC4CE /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3A51F7DCD5C00333A98 /* Map.cpp */; };
+		15C5E61D1F90671300FEC4CE /* DriverMainGameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C5E61B1F90671300FEC4CE /* DriverMainGameLoop.cpp */; };
 		15D8591D1F7EA92000939833 /* Part_4_Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859171F7EA91500939833 /* Part_4_Driver.cpp */; };
 		15D8591E1F7EA92000939833 /* Part_4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859191F7EA91500939833 /* Part_4.cpp */; };
 		15D859231F7EAA4600939833 /* Part5_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859221F7EAA4200939833 /* Part5_2.cpp */; };
@@ -124,6 +132,8 @@
 		15C0D3C51F7DCF0C00333A98 /* dice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dice.h; sourceTree = "<group>"; };
 		15C0D3C61F7DCF0C00333A98 /* dice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dice.cpp; sourceTree = "<group>"; };
 		15C0D3C71F7DCF0C00333A98 /* diceDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = diceDriver.cpp; sourceTree = "<group>"; };
+		15C5E61B1F90671300FEC4CE /* DriverMainGameLoop.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DriverMainGameLoop.cpp; sourceTree = "<group>"; };
+		15C5E61C1F90671300FEC4CE /* DriverMainGameLoop.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DriverMainGameLoop.hpp; sourceTree = "<group>"; };
 		15D859131F7EA91400939833 /* Part_4.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Part_4.h; sourceTree = "<group>"; };
 		15D859171F7EA91500939833 /* Part_4_Driver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part_4_Driver.cpp; sourceTree = "<group>"; };
 		15D859191F7EA91500939833 /* Part_4.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part_4.cpp; sourceTree = "<group>"; };
@@ -205,6 +215,8 @@
 			isa = PBXGroup;
 			children = (
 				152B9A7E1F8431A700BAA7DF /* GameLoop.cpp */,
+				15C5E61B1F90671300FEC4CE /* DriverMainGameLoop.cpp */,
+				15C5E61C1F90671300FEC4CE /* DriverMainGameLoop.hpp */,
 				152B9A7F1F8431A700BAA7DF /* GameLoop.h */,
 			);
 			path = "main game loop";
@@ -512,6 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				151BEE341F8FB51D0028B88F /* FortificationPhase.cpp in Sources */,
+				151BEE371F8FC0BC0028B88F /* Part_4.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,7 +532,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15C5E61D1F90671300FEC4CE /* DriverMainGameLoop.cpp in Sources */,
 				152B9A801F8431A700BAA7DF /* GameLoop.cpp in Sources */,
+				15C5E61A1F9065AD00FEC4CE /* Map.cpp in Sources */,
+				151BEE391F8FC1690028B88F /* Part5_2.cpp in Sources */,
+				151BEE361F8FBFD10028B88F /* Part_4.cpp in Sources */,
+				151BEE381F8FC1180028B88F /* dice.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +563,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				15C0D3D41F7DD3F900333A98 /* Map.cpp in Sources */,
+				15C5E6191F90658E00FEC4CE /* MapLoader.cpp in Sources */,
+				15C5E6181F90658900FEC4CE /* Part2Driver.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,11 +10,22 @@
 #ifndef GameLoop_h
 #define GameLoop_h
 
+#include <ctime>
+#include <cstdlib>
+
+#include "Part_4.h"
+
 using namespace std;
 class MainGameLoop {
 private:
-     int numOfPlayers;
+    int numOfPlayers;
+    vector <Player*> playerLsit;
+    bool isGameEnd = false;
 public:
+    MainGameLoop();
+    MainGameLoop(int numOfPlayers);
+    ~MainGameLoop();
+    void startGame(int numberOfPlayers); //starts the game loop
     
 };
 
