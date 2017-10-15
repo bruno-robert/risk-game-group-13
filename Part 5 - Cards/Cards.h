@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : Part5_2.h
+// Name        : Cards.h
 // Team        : Group 13
 // Team members: Bruno Robert 40003443, Chao Yue 27282516, Jeffrey Maher 40018878, Sabrina Rieck 40032864, Simon Roy 40030996
 // Version     : 0.3

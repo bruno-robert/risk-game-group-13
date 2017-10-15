@@ -12,7 +12,7 @@
 #include <vector>
 #include "Map.h" //Part 1
 #include "dice.h" //Part 3
-#include "Part5_2.h" //Part 5
+#include "Cards.h" //Part 5
 
 #ifndef __Player_H_INCLUDED__
 #define __Player_H_INCLUDED__
