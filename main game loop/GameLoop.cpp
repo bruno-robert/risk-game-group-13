@@ -37,7 +37,7 @@ MainGameLoop::~MainGameLoop() {
 //checks if
 
 
-void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, bool test) {
+void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, bool test, vector<Player *> playerList) {
     const int FIRST_PLAYER =  playerTurn;
     vector<bool> eliminationList;
     int turnCounter = 0;
@@ -69,9 +69,10 @@ void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, bool t
             
             cout << "player " << playerTurn << "'s turn:" << endl;
             cout << "reinforce stage \nattack stage \nfortify stage\n\n" << endl;
-            //        reinforce();
-            //        attack();
-            //        fortify();
+#warning commented out for demo
+//            playerList.at(playerTurn)->reinforce();
+//            playerList.at(playerTurn)->attack();
+//            playerList.at(playerTurn)->fortify();
             
         }
         

@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : Part_4.h
+// Name        : Player.cpp
 // Team        : Group 13
 // Team members: Bruno Robert 40003443, Chao Yue 27282516, Jeffrey Maher 40018878, Sabrina Rieck 40032864, Simon Roy 40030996
 // Version     : 1
@@ -8,34 +8,47 @@
 //               Implementing reinforce(), attack(), fortify() player actions according to official game rule.
 //============================================================================
 
-#include <iostream>
-#include <vector>
-#include "Map.h" //Part 1
-#include "dice.h" //Part 3
-#include "Part5_2.h" //Part 5
+#include "Player.h"
 
-#ifndef __Part_4_H_INCLUDED__
-#define __Part_4_H_INCLUDED__
 
 using namespace std;
 
-class Player{
-public:
-
-	Player(); //Default Constructor
-	Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice); //Complete Constructor
-	vector<CountryNode *> getCountry(); //Getters
-	Hand getHand();
-	Dice getDice();
-	void reinforce();//Player action methods
-	void attack();
-	void fortify();
+// Player Class
 
 
-private:
-	vector<CountryNode *> ownedCountry; //Vector of player's occupied countries
-	Hand hand;
-	Dice dice;
+Player::Player(){ //Default constructor create empty players
+
 };
 
-#endif
+Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice){
+	this->ownedCountry = ownedCountry;
+	this->hand = hand;
+	this->dice = dice;
+};
+
+
+void Player::reinforce(){
+	
+	cout << "You are reinforcing. " << endl;
+};
+
+void Player::attack(){
+
+	cout << "You are attacking. " << endl;
+};
+
+void Player::fortify(){
+
+	cout << "You are fortifying. " << endl;
+};
+
+vector<CountryNode *> Player::getCountry(){
+
+	return ownedCountry;
+};
+Hand Player::getHand(){
+	return this->hand;
+};
+Dice Player::getDice(){
+	return this->dice;
+};

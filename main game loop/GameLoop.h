@@ -10,7 +10,7 @@
 #ifndef GameLoop_h
 #define GameLoop_h
 
-#include "Part_4.h"
+#include "Player.h"
 
 using namespace std;
 class MainGameLoop {
@@ -20,7 +20,7 @@ private:
 public:
     MainGameLoop();
     ~MainGameLoop();
-    void startGame(Map* m ,int numberOfPlayers, int playerTurn, bool test); //starts the game loop
+    void startGame(Map* m ,int numberOfPlayers, int playerTurn, bool test, vector<Player *> playerList); //starts the game loop
     
 };
 
