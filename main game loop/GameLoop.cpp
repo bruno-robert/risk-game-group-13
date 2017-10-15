@@ -30,50 +30,86 @@ MainGameLoop::MainGameLoop() {
     
 }
 
-MainGameLoop::MainGameLoop(int numOfPlayers) {
-    
-}
-
 MainGameLoop::~MainGameLoop() {
     
 }
 
-void MainGameLoop::startGame(int numberOfPlayers) {
-    srand(time(NULL));
-    int playerTurn = rand() % numberOfPlayers + 1;
+//checks if
+
+
+void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, bool test) {
     const int FIRST_PLAYER =  playerTurn;
-    Map m;
+    vector<bool> eliminationList;
+    int turnCounter = 0;
     
-    {   //startup phase
-        //this is where each player chooses his/her countries
-        int remainingCountries = m.getCountryList().size();
-        while(remainingCountries > 0) {
-            int chosenCountry;
-            cout <<"player no: "<< playerTurn << " please select a country." << endl;
-            cin >> chosenCountry;
-            
-            if(chosenCountry) {
-                
-            }
-            
-            playerTurn++;
-            remainingCountries--;
+    //give ownership to players if this is a demo
+    if(test){
+        vector<CountryNode *> countryList = m->getCountryList();
+        int i = 0;
+        for(vector<CountryNode *>::iterator iter = countryList.begin(); iter != countryList.end(); iter++, i++) {
+            (*iter)->setOwnedBy((i%2) + 1);
         }
+    }
+    
+    
+    //initialising the elimination list to to false
+    for(int i = 0; i < numberOfPlayers; i++) {
+        eliminationList.push_back(false);
     }
     
     //game loop
     while (!isGameEnd) {
-        playerTurn = FIRST_PLAYER; //first player goes again
+        turnCounter++; //incrementing the turn counter
+        //if player isn't elliminated then let him/her play turn
+        if(m->getNumberOfcountriesOwnedById(playerTurn) == 0) {
+            eliminationList.at(playerTurn-1) = true;
+            cout << "player " << playerTurn << " is elliminated" << endl;
+        }
+        if(eliminationList.at(playerTurn-1) == false) {
+            
+            cout << "player " << playerTurn << "'s turn:" << endl;
+            cout << "reinforce stage \nattack stage \nfortify stage\n\n" << endl;
+            //        reinforce();
+            //        attack();
+            //        fortify();
+            
+        }
         
-//        reinforce();
-//        attack();
-//        fortify();
-        
-        
-        
-        
-        
+        //incrementing the player turn
         playerTurn++;
-        isGameEnd = true;
+        if(playerTurn > numberOfPlayers) {
+            playerTurn = 1;
+        }
+        
+        //checks if there are more than 1 player that are still not elliminated
+        int ctr = 0;
+        for(vector<bool>::iterator iter = eliminationList.begin(); iter != eliminationList.end(); iter++) {
+            if (*iter == false){
+                ctr++;
+            }
+        }
+        if( ctr <= 1) {
+            //1 player left, the game is over
+            isGameEnd = true;
+            int i = 1;
+            for(vector<bool>::iterator iter = eliminationList.begin(); iter != eliminationList.end(); iter++, i++) {
+                if(!(*iter)){
+                    cout << "player " << i << " wins the game!!!" << endl;
+                }
+            }
+        }
+        
+        //sets the ownership of all countries to player 1
+        #warning this part should be removed after the demo
+        if(test && turnCounter > 10) {
+            vector<CountryNode *> countryList = m->getCountryList();
+            for(vector<CountryNode *>::iterator iter = countryList.begin(); iter != countryList.end(); iter++) {
+                (*iter)->setOwnedBy(1);
+            }
+        }
+        
+        
+        
+        
     }
 }

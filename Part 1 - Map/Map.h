@@ -239,13 +239,32 @@ public:
 		this->continentList = continentList;
 	}
 
-	const vector<CountryNode*>& getCountryList() const {
+    vector<CountryNode*>& getCountryList() {
 		return countryList;
 	}
 
 	void setCountryList(const vector<CountryNode*>& countryList) {
 		this->countryList = countryList;
 	}
+    
+    CountryNode* getcoutryById(int ID) {
+        for (vector<CountryNode*>::iterator iter = countryList.begin(); iter != countryList.end(); iter++) {
+            if((*iter)->getCountryId() == ID) {
+                return *iter;
+            }
+        }
+        return NULL;
+    }
+    
+    int getNumberOfcountriesOwnedById(int ID) {
+        int ctr = 0;
+        for (vector<CountryNode*>::iterator iter = countryList.begin(); iter != countryList.end(); iter++) {
+            if((*iter)->getOwnedBy() == ID) {
+                ctr++;
+            }
+        }
+        return ctr;
+    }
 	
 
 };

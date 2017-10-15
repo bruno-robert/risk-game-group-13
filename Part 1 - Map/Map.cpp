@@ -72,6 +72,7 @@ CountryNode::CountryNode() {
     countryID = numOfCount;
     ownedBy = -1;
     numOfCount++;
+    ownedBy = -1;
 }
 
 
