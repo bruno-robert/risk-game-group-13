@@ -10,5 +10,17 @@
 #define FortificationPhase_hpp
 
 #include <stdio.h>
+#include "Player.h"
+using namespace std;
+
+class FortificationPhase {
+    vector <Player *> playerList;
+public:
+    FortificationPhase();
+    ~FortificationPhase();
+    void fortify(int player, Map& m );
+};
+
+
 
 #endif /* FortificationPhase_hpp */
