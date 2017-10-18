@@ -138,7 +138,17 @@ public:
 	CountryNode(string name, ContinentNode* continent);	//construct
     CountryNode();  //default constructor
 	virtual ~CountryNode();									//deconstruct
-	void addAdjCount(CountryNode* countNode);				//add adjacent country 
+	void addAdjCount(CountryNode* countNode);				//add adjacent country
+    bool isCountAdjacent(int countID) {
+        for(vector<CountryNode *>::iterator country = adjCount.begin(); country !=adjCount.end(); country++){
+            if((*country)->getCountryId() == countID){
+                return true;
+            }
+            
+        }
+        
+        return false;
+    }
 	
 	//getters and setters
     //removes the country from it's previous continent then add's it to the given continent
