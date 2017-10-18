@@ -43,7 +43,7 @@ int main() {
 
 
 	int infantry = 0, cavalry = 0, artillery = 0;
-	
+
 	for (int i = 0; i < countries;i++) {	//Draw all of the cards of my deck
 		Card drew = deck.draw();
 
@@ -84,5 +84,9 @@ int main() {
 		cout << "\nnumber of card in the players hand: " << player1Hand.getSize() << endl;
 		cout << "number of unit returned: " << player1Hand.exchange() << "\n"<<endl;
 	}
+<<<<<<< HEAD
     return 0;
 };
+=======
+};
+>>>>>>> master

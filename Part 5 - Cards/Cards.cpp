@@ -4,7 +4,7 @@
 // Team members: Bruno Robert 40003443, Chao Yue 27282516, Jeffrey Maher 40018878, Sabrina Rieck 40032864, Simon Roy 40030996
 // Version     : 0.3
 // Copyright   : GNU Public license 3
-// Description : Source file for the Card, Hand and Deck class of Part5. 
+// Description : Source file for the Card, Hand and Deck class of Part5.
 //============================================================================
 //Library usage
 
@@ -14,7 +14,7 @@
 
 //constructors
 
-Card::Card() {};		
+Card::Card() {};
 
 Card::Card(int type) { this->type = type; }
 
@@ -36,7 +36,7 @@ Deck::Deck(int countries) {
 	if (countries % 3 == 1) {
 		link.push_back(Card(1));
 	}
-	if (countries % 3 == 2) {						//, 	
+	if (countries % 3 == 2) {						//,
 		link.push_back(Card(1));
 		link.push_back(Card(2));
 	}
@@ -89,9 +89,9 @@ int Hand::exchange() {
 	int unitReceived;
 	int size = getSize();
 	if (size > 2) {				//Makes sure that I have enough card to try an exchange
-		
+
 		int infantry = 0, cavalry = 0, artillery = 0;
-		
+
 		for (int i = 0;i < size;i++) {					//Gathers what kind of card is my hand made of
 			switch (playerHand.at(i).getType()) {
 			case 1:infantry++;
@@ -169,12 +169,12 @@ int Hand::exchange() {
 			return unitReceived = numOfExchange++ * 5;
 		}
 
-		//If none of the combination worked 
+		//If none of the combination worked
 
 		else
-			cout << "you do not have the right combination of cards to make an exchange." << endl;	
+			cout << "you do not have the right combination of cards to make an exchange." << endl;
 		return 0;
-		
+
 	}
 	else
 		cout << "you do not have enough card to make an exchange." << endl;		//If I do not have enough cards to make an exchange
@@ -185,4 +185,4 @@ int Hand::exchange() {
 
 void Hand::add(Card card) { playerHand.push_back(card); };		//Allows for the adition of a card to the hand
 
-int Hand::getSize() { return playerHand.size(); };				
+int Hand::getSize() { return playerHand.size(); };
