@@ -1,9 +1,11 @@
-/* 
- * File:   dice.cpp
- * Author: Sabrina Rieck, 40032864
- * 
- * Created on September 23, 2017, 1:15 PM
- */
+//============================================================================
+// Name        : Dice.cpp
+// Team        : Group 13
+// Team members: Bruno Robert 40003443, Chao Yue 27282516, Jeffrey Maher 40018878, Sabrina Rieck 40032864, Simon Roy 40030996
+// Version     : 0.3
+// Copyright   : GNU Public license 3
+// Description : Class used to create a Dice object in which the dice are rolled during a players turn
+//============================================================================
 
 
 #include <ctime>
@@ -121,7 +123,7 @@ int Dice::getDiceAmount() {
 
 /*Roll function used*/
 void Dice::roll(int arr[], int amountOfDice) {
-    diceToZero(); //reset dice to null
+    diceToZero(); //reset dice to zero, the unrolled value
 
     switch (amountOfDice) {
         case 3:

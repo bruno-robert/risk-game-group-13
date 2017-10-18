@@ -1,9 +1,11 @@
-/* 
- * File:   diceDriver.cpp
- * Author: Sabrina Rieck, 40032864
- *
- * Created on September 24, 2017, 6:21 PM
- */
+//============================================================================
+// Name        : DiceDriver.cpp
+// Team        : Group 13
+// Team members: Bruno Robert 40003443, Chao Yue 27282516, Jeffrey Maher 40018878, Sabrina Rieck 40032864, Simon Roy 40030996
+// Version     : 0.3
+// Copyright   : GNU Public license 3
+// Description : Driver for the Dice class. Shows that all is working correctly.
+//============================================================================
 
 #include <cstdlib>
 #include <iostream>
