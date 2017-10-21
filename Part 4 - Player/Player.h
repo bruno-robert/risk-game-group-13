@@ -30,6 +30,7 @@ public:
 	void reinforce();//Player action methods
 	void attack();
 	void fortify();
+        void setCountry(vector<CountryNode *> ownedCountry);
 
 
 private:
