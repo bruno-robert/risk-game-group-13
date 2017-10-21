@@ -266,6 +266,15 @@ public:
         return NULL;
     }
     
+    CountryNode* getCountryByName(string name) {
+        for (vector<CountryNode*>::iterator iter = countryList.begin(); iter != countryList.end(); iter++) {
+            if((*iter)->getCountName() == name) {
+                return *iter;
+            }
+        }
+        return NULL;
+    }
+    
     int getNumberOfcountriesOwnedById(int ID) {
         int ctr = 0;
         for (vector<CountryNode*>::iterator iter = countryList.begin(); iter != countryList.end(); iter++) {
