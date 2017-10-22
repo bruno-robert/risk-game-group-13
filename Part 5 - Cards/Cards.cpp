@@ -31,6 +31,13 @@ int Card::getType() {
 	//Constructor for Deck
 
 Deck::Deck(int countries) {
+	fillDeck(countries);
+}
+
+Deck::Deck() {}
+
+void Deck::fillDeck(int countries)
+{
 	cout << "\nCreating a deck of size " << countries << " using my defined constructor..." << endl;
 
 	if (countries % 3 == 1) {
@@ -41,7 +48,7 @@ Deck::Deck(int countries) {
 		link.push_back(Card(2));
 	}
 
-	for (int i = 0; i < (countries / 3);i++) {		//Splits the deck 3 way for the 3 types of card
+	for (int i = 0; i < (countries / 3); i++) {		//Splits the deck 3 way for the 3 types of card
 		link.push_back(Card(1));
 		link.push_back(Card(2));
 		link.push_back(Card(3));
