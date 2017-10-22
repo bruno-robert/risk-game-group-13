@@ -7,10 +7,10 @@
 // Description : Demo driver for Part 4.
 //============================================================================
 
-#include "Part_4.h"
+#include "Player.h"
 using namespace std;
 
-void main(){
+int main(){
 
 	cout << "This is the driver for Player object.\n\n" << endl;
 
@@ -71,4 +71,5 @@ void main(){
 	player1.fortify();
 
 	system("pause");
+    return 0;
 }

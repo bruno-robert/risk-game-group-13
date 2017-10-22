@@ -4,35 +4,53 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Part 1 - Map.xcscheme</key>
+		<key>Assignment 2 - part 6 - main game loop: fortification phase.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>7</integer>
 		</dict>
-		<key>Part 2 - Map Loader.xcscheme</key>
+		<key>Part 1 - Map.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>Part 3 - Dice.xcscheme</key>
+		<key>Part 2 - Map Loader.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>Part 4 - Player.xcscheme</key>
+		<key>Part 3 - Dice.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>Part 5 - Cards.xcscheme</key>
+		<key>Part 4 - Player.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>5</integer>
+		</dict>
+		<key>Part 5 - Cards.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>main game loop.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
 		</dict>
 		<key>risk-game-group-13.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>152B9A761F84316D00BAA7DF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

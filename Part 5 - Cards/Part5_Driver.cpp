@@ -7,11 +7,11 @@
 // Description : Driver for Part5 of A1. It's purpose is to test the Card, Deck and Hand class and their core functions(draw and exchange)
 //============================================================================
 
-#include "Part5_2.h"
+#include "Cards.h"
 
 using namespace std;
 
-void main() {
+int main() {
 
 	cout << "Testing the Card, Deck and Hand class...\n" << endl;
 
@@ -43,7 +43,7 @@ void main() {
 
 
 	int infantry = 0, cavalry = 0, artillery = 0;
-	
+
 	for (int i = 0; i < countries;i++) {	//Draw all of the cards of my deck
 		Card drew = deck.draw();
 
@@ -84,4 +84,9 @@ void main() {
 		cout << "\nnumber of card in the players hand: " << player1Hand.getSize() << endl;
 		cout << "number of unit returned: " << player1Hand.exchange() << "\n"<<endl;
 	}
+<<<<<<< HEAD
+    return 0;
 };
+=======
+};
+>>>>>>> master
