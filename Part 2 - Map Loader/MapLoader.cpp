@@ -138,6 +138,8 @@ void MapLoader::ReadFile(string FileName)
 						countryList.at(i)->addAdjCount(adjacentCountry);
 				}
 			}
+			// Check connectivity of the map!
+			if (!map->checkConnectivity(countryList.at(0), 0)) throw MapLoaderException("Map is not properly connected!");
 		}
 		else
 		{
@@ -160,6 +162,7 @@ void MapLoader::ReadFile(string FileName)
 
 // This function is used to facilitate returning v
 string MapLoader::ExtractValue(string line)
+
 {
 	return line.substr(line.find('=')+1);
 }
@@ -209,10 +212,8 @@ MapLoader::~MapLoader()
 	delete map;
 }
 
-MapLoaderException::MapLoaderException(char const* const message) throw() : std::runtime_error(message)
-{
+MapLoaderException::MapLoaderException(char const* const message) throw() : std::runtime_error(message) {}
 
-}
 char const* MapLoaderException::what() const throw()
 {
 	return std::runtime_error::what();
