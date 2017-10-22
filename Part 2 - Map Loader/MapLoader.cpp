@@ -57,7 +57,7 @@ void MapLoader::ReadFile(string FileName)
 				// Split string from the token "=":
 				string continentName = currentLine.substr(0, currentLine.find('='));
 				if (continentName == "") throw MapLoaderException("Continent with empty name was provided.");
-				
+
 				int continentValue = stoi(currentLine.substr(currentLine.find('=') + 1)); // Grabs string after the = and converts to an integer
 				// The above line will throw std::invalid_argument if the continentValue contains text.
 				if (continentValue < 0) throw MapLoaderException("Negative continent value was provided.");
@@ -197,7 +197,7 @@ void MapLoader::printMap()
 	{
 		cout << "Country: " << cn->getCountName() << endl;
 		cout << "Neighbor List" << endl;
-		
+
 		vector<CountryNode*> neighbors = cn->getAdjCount();
 		for (CountryNode* n : neighbors)
 		{

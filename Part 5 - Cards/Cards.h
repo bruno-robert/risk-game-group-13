@@ -4,7 +4,7 @@
 // Team members: Bruno Robert 40003443, Chao Yue 27282516, Jeffrey Maher 40018878, Sabrina Rieck 40032864, Simon Roy 40030996
 // Version     : 0.3
 // Copyright   : GNU Public license 3
-// Description : Header file for the Card, Hand and Deck class of Part5. 
+// Description : Header file for the Card, Hand and Deck class of Part5.
 //============================================================================
 #pragma once
 
@@ -26,7 +26,7 @@ public:
 	int getType();
 
 private:
-	int type;				
+	int type;
 };
 
 class Deck {				//The deck is a vector of card.
@@ -37,6 +37,7 @@ public:
 	Card draw();			//Allows the removal of a random card from the vector.
 	int getSize();			//Returns the size of the vector
 	void fillDeck(int countries);
+
 
 private:
 	vector<Card> link;
