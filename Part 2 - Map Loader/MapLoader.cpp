@@ -57,7 +57,7 @@ void MapLoader::ReadFile(string FileName)
 				// Split string from the token "=":
 				string continentName = currentLine.substr(0, currentLine.find('='));
 				if (continentName == "") throw MapLoaderException("Continent with empty name was provided.");
-				
+
 				int continentValue = stoi(currentLine.substr(currentLine.find('=') + 1)); // Grabs string after the = and converts to an integer
 				// The above line will throw std::invalid_argument if the continentValue contains text.
 				if (continentValue < 0) throw MapLoaderException("Negative continent value was provided.");
@@ -138,6 +138,8 @@ void MapLoader::ReadFile(string FileName)
 						countryList.at(i)->addAdjCount(adjacentCountry);
 				}
 			}
+			// Check connectivity of the map!
+			if (!map->checkConnectivity(countryList.at(0), 0)) throw MapLoaderException("Map is not properly connected!");
 		}
 		else
 		{
@@ -195,7 +197,7 @@ void MapLoader::printMap()
 	{
 		cout << "Country: " << cn->getCountName() << endl;
 		cout << "Neighbor List" << endl;
-		
+
 		vector<CountryNode*> neighbors = cn->getAdjCount();
 		for (CountryNode* n : neighbors)
 		{
@@ -210,10 +212,8 @@ MapLoader::~MapLoader()
 	delete map;
 }
 
-MapLoaderException::MapLoaderException(char const* const message) throw() : std::runtime_error(message)
-{
+MapLoaderException::MapLoaderException(char const* const message) throw() : std::runtime_error(message) {}
 
-}
 char const* MapLoaderException::what() const throw()
 {
 	return std::runtime_error::what();
