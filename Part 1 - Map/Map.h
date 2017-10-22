@@ -203,7 +203,7 @@ public:
 		this->numberOfTroups = numberOfTroups;
 	}
 
-	int getNumberOfTroups() const {
+	int getNumberOfTroops() const {
 		return numberOfTroups;
 	}
 

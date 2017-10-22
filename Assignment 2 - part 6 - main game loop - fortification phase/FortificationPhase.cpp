@@ -29,13 +29,15 @@ FortificationPhase::~FortificationPhase() {
 void FortificationPhase::fortify(int player, Map& m ) {
     int startingCountry;
     int destinationCountry;
-    int numberOfTroups;
+    int numberOfTroops;
     bool troupsMoved = false;
     while(!troupsMoved) {
         //Getting and checking starting country
         cout << "please select a starting country" << endl;
         while(true) {
             cin >> startingCountry;
+            
+            //checks if the starting coutry is valid
             if((startingCountry >= 1) && (m.getcoutryById(startingCountry) != NULL)) {
                 break;
             }
@@ -54,16 +56,16 @@ void FortificationPhase::fortify(int player, Map& m ) {
             cout << "Sorry, the value you entered is not valid, please try again:" << endl;
         }
 
-        //checking if the countries are adjacent
+        //checking if the countries are adjacent and if they are owned by the player
         if((m.getcoutryById(startingCountry)->getOwnedBy() == player) && m.getcoutryById(startingCountry)->isCountAdjacent(destinationCountry)) {
-            cout << "please enter the number of troups you want to move:" << endl;
+            cout << "please enter the number of troops you want to move:" << endl;
             while(true) {
                 
-                cin >> numberOfTroups;
-                if((numberOfTroups >= 1) && (numberOfTroups < m.getcoutryById(startingCountry)->getNumberOfTroups() ) ){
+                cin >> numberOfTroops;
+                if((numberOfTroops >= 1) && (numberOfTroops < m.getcoutryById(startingCountry)->getNumberOfTroops() ) ){
                     cout << "troups moved!" << endl;
                     troupsMoved = true;
-                    break;
+                    break; // TODO:
                 }
                 
                 
@@ -71,7 +73,9 @@ void FortificationPhase::fortify(int player, Map& m ) {
             }
         }
         
-        cout << "Sorry, the two countries are not adjacent" << endl;
+        if(!troupsMoved) {
+            cout << "Sorry, the two countries are not adjacent" << endl;
+        }
 
     }
     
