@@ -2,17 +2,24 @@
 
 // The main constructors for GameStart.
 GameStart::GameStart() {}
-GameStart::GameStart(string mapName)
-{
-	setGameStart(mapName);
-}
 
-void GameStart::setGameStart(string mapName)
+bool GameStart::setGameStart(string mapName) // Returns true if the GameStart is successfully initiated, or false if there was an error.
 {
-	loader.ReadFile(mapName);
+	try
+	{
+		loader.ReadFile(mapName);
+	}
+
+	catch (MapLoaderException mle)
+	{
+		cout << "-------ERROR-------" << endl;
+		cout << mle.what() << endl;
+		return false;
+	}
 
 	int noCountries = getMap()->getCountryList().size();
 	this->cardDeck = Deck(noCountries);
+	return true;
 }
 
 // Returns true if the creation was successful; false otherwise.

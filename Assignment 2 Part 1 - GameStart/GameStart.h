@@ -14,8 +14,7 @@ private:
 	Deck cardDeck;
 public:
 	GameStart();
-	GameStart(string mapName);
-	void setGameStart(string mapName);
+	bool setGameStart(string mapName);
 	Map* getMap();
 	void setPlayers(int noPlayers);
 	vector<Player*> getPlayers();
