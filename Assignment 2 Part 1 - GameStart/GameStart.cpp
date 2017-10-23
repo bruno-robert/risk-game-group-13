@@ -23,10 +23,13 @@ bool GameStart::setGameStart(string mapName) // Returns true if the GameStart is
 }
 
 // Returns true if the creation was successful; false otherwise.
-void GameStart::setPlayers(int noPlayers)
+bool GameStart::setPlayers(int noPlayers)
 {
-	if (noPlayers < 2 || noPlayers > 6) cout << "ERROR: The player number is invalid. There must be between 2 and 6 players." << endl
-											 << "The players were not created successfully." << endl;
+	if (noPlayers < 2 || noPlayers > 6)
+	{
+		cout << "ERROR: The player number is invalid. There must be between 2 and 6 players." << endl;
+		return false;
+	}
 	else
 	{
 		for (int i = 0; i < noPlayers; ++i)
@@ -38,11 +41,17 @@ void GameStart::setPlayers(int noPlayers)
 			players.push_back(player);
 		}
 	}
+	return true;
 }
 
 Map* GameStart::getMap()
 {
 	return loader.getMap();
+}
+
+Deck* GameStart::getDeck()
+{
+	return &cardDeck;
 }
 
 GameStart::~GameStart()

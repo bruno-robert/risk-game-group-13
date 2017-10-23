@@ -16,7 +16,8 @@ public:
 	GameStart();
 	bool setGameStart(string mapName);
 	Map* getMap();
-	void setPlayers(int noPlayers);
+	bool setPlayers(int noPlayers);
 	vector<Player*> getPlayers();
+	Deck* getDeck();
 	~GameStart();
 };
