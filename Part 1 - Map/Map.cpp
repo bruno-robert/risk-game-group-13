@@ -102,7 +102,7 @@ Map::~Map() {
 	//        
 	//    }
 	//    countryList.clear();
-	cout << "map destroyed" << endl;
+	
 }
 
 //add a country to the map
