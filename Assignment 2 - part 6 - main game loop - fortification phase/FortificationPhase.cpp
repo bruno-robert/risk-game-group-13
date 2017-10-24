@@ -1,10 +1,11 @@
-//
-//  FortificationPhase.cpp
-//  Assignment 2 - part 6 - main game loop: fortification phase
-//
-//  Created by Bruno Robert on 12/10/2017.
-//  Copyright © 2017 Bruno Robert. All rights reserved.
-//
+//============================================================================
+// Name        : FortificationPhase.cpp
+// Team        : Group 13
+// Team members: Bruno Robert 40003443, Chao Yue 27282516, Jeffrey Maher 40018878, Sabrina Rieck 40032864, Simon Roy 40030996
+// Version     : 1.0
+// Copyright   : GNU Public license 3
+// Description : Moves troups from one country to another during the fortification phase of a player's turn
+//============================================================================
 
 #include "FortificationPhase.hpp"
 
@@ -26,16 +27,27 @@ FortificationPhase::~FortificationPhase() {
     
 }
 
+/**
+ The fortify method takes 2 arguments:
+ int player: the ID of the player that is fortifying
+ Map& m: The Game map object that is being used this game
+ 
+ The Fortify method will ask the player for input on a starting and destination country. It will check if the inputs are valid.
+ It will then ask for a number of troups to move and check if that number is valid.
+ It will then proceded to moving the right number of troups from the starting country to the destination coutry.
+ */
 void FortificationPhase::fortify(int player, Map& m ) {
     int startingCountry;
     int destinationCountry;
-    int numberOfTroups;
-    bool troupsMoved = false;
+    int numberOfTroops;
+    bool troupsMoved = false;//true once the troups are moved
     while(!troupsMoved) {
         //Getting and checking starting country
         cout << "please select a starting country" << endl;
         while(true) {
             cin >> startingCountry;
+            
+            //checks if the starting coutry is valid
             if((startingCountry >= 1) && (m.getcoutryById(startingCountry) != NULL)) {
                 break;
             }
@@ -54,13 +66,17 @@ void FortificationPhase::fortify(int player, Map& m ) {
             cout << "Sorry, the value you entered is not valid, please try again:" << endl;
         }
 
-        //checking if the countries are adjacent
+        //checking if the countries are adjacent and if they are owned by the player
         if((m.getcoutryById(startingCountry)->getOwnedBy() == player) && m.getcoutryById(startingCountry)->isCountAdjacent(destinationCountry)) {
-            cout << "please enter the number of troups you want to move:" << endl;
+            cout << "please enter the number of troops you want to move:" << endl;
             while(true) {
                 
-                cin >> numberOfTroups;
-                if((numberOfTroups >= 1) && (numberOfTroups < m.getcoutryById(startingCountry)->getNumberOfTroups() ) ){
+                cin >> numberOfTroops;
+                if((numberOfTroops >= 1) && (numberOfTroops < m.getcoutryById(startingCountry)->getNumberOfTroops() ) ){
+                    //removing troups from starting country
+                    m.getcoutryById(startingCountry)->setNumberOfTroops(m.getcoutryById(startingCountry)->getNumberOfTroops() - numberOfTroops);
+                    //adding troups to destination country
+                    m.getcoutryById(destinationCountry)->setNumberOfTroops(m.getcoutryById(destinationCountry)->getNumberOfTroops() + numberOfTroops);
                     cout << "troups moved!" << endl;
                     troupsMoved = true;
                     break;
@@ -71,7 +87,9 @@ void FortificationPhase::fortify(int player, Map& m ) {
             }
         }
         
-        cout << "Sorry, the two countries are not adjacent" << endl;
+        if(!troupsMoved) {
+            cout << "Sorry, the two countries are not adjacent" << endl;
+        }
 
     }
     

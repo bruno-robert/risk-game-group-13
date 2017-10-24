@@ -52,3 +52,7 @@ Hand Player::getHand(){
 Dice Player::getDice(){
 	return this->dice;
 };
+
+void Player::setCountry(vector<CountryNode *> ownedCountry){
+	this->ownedCountry = ownedCountry;
+};
