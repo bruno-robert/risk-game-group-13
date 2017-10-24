@@ -26,11 +26,20 @@ FortificationPhase::~FortificationPhase() {
     
 }
 
+/**
+ The fortify method takes 2 arguments:
+ int player: the ID of the player that is fortifying
+ Map& m: The Game map object that is being used this game
+ 
+ The Fortify method will ask the player for input on a starting and destination country. It will check if the inputs are valid.
+ It will then ask for a number of troups to move and check if that number is valid.
+ It will then proceded to moving the right number of troups from the starting country to the destination coutry.
+ */
 void FortificationPhase::fortify(int player, Map& m ) {
     int startingCountry;
     int destinationCountry;
     int numberOfTroops;
-    bool troupsMoved = false;
+    bool troupsMoved = false;//true once the troups are moved
     while(!troupsMoved) {
         //Getting and checking starting country
         cout << "please select a starting country" << endl;
@@ -63,9 +72,13 @@ void FortificationPhase::fortify(int player, Map& m ) {
                 
                 cin >> numberOfTroops;
                 if((numberOfTroops >= 1) && (numberOfTroops < m.getcoutryById(startingCountry)->getNumberOfTroops() ) ){
+                    //removing troups from starting country
+                    m.getcoutryById(startingCountry)->setNumberOfTroups(m.getcoutryById(startingCountry)->getNumberOfTroops() - numberOfTroops);
+                    //adding troups to destination country
+                    m.getcoutryById(destinationCountry)->setNumberOfTroups(m.getcoutryById(destinationCountry)->getNumberOfTroops() + numberOfTroops);
                     cout << "troups moved!" << endl;
                     troupsMoved = true;
-                    break; // TODO:
+                    break;
                 }
                 
                 
