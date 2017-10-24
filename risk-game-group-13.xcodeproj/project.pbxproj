@@ -29,7 +29,7 @@
 		15CC305E1F969E8400D0B26C /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3A51F7DCD5C00333A98 /* Map.cpp */; };
 		15CC305F1F969ECA00D0B26C /* Cards.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859221F7EAA4200939833 /* Cards.cpp */; };
 		15CC30601F969ED200D0B26C /* dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3C61F7DCF0C00333A98 /* dice.cpp */; };
-		15CC30631F969F1D00D0B26C /* fortificationPhaseDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15CC30611F969F1D00D0B26C /* fortificationPhaseDriver.cpp */; };
+		15CC30631F969F1D00D0B26C /* FortificationPhaseDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15CC30611F969F1D00D0B26C /* FortificationPhaseDriver.cpp */; };
 		15D8591D1F7EA92000939833 /* Part_4_Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859171F7EA91500939833 /* Part_4_Driver.cpp */; };
 		15D8591E1F7EA92000939833 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859191F7EA91500939833 /* Player.cpp */; };
 		15D859231F7EAA4600939833 /* Cards.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859221F7EAA4200939833 /* Cards.cpp */; };
@@ -138,8 +138,8 @@
 		15C0D3C71F7DCF0C00333A98 /* diceDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = diceDriver.cpp; sourceTree = "<group>"; };
 		15C5E61B1F90671300FEC4CE /* DriverMainGameLoop.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DriverMainGameLoop.cpp; sourceTree = "<group>"; };
 		15C5E61C1F90671300FEC4CE /* DriverMainGameLoop.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DriverMainGameLoop.hpp; sourceTree = "<group>"; };
-		15CC30611F969F1D00D0B26C /* fortificationPhaseDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fortificationPhaseDriver.cpp; sourceTree = "<group>"; };
-		15CC30621F969F1D00D0B26C /* fortificationPhaseDriver.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = fortificationPhaseDriver.hpp; sourceTree = "<group>"; };
+		15CC30611F969F1D00D0B26C /* FortificationPhaseDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FortificationPhaseDriver.cpp; sourceTree = "<group>"; };
+		15CC30621F969F1D00D0B26C /* FortificationPhaseDriver.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FortificationPhaseDriver.hpp; sourceTree = "<group>"; };
 		15D859131F7EA91400939833 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		15D859171F7EA91500939833 /* Part_4_Driver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part_4_Driver.cpp; sourceTree = "<group>"; };
 		15D859191F7EA91500939833 /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
@@ -213,8 +213,8 @@
 			children = (
 				151BEE321F8FB51D0028B88F /* FortificationPhase.cpp */,
 				151BEE331F8FB51D0028B88F /* FortificationPhase.hpp */,
-				15CC30611F969F1D00D0B26C /* fortificationPhaseDriver.cpp */,
-				15CC30621F969F1D00D0B26C /* fortificationPhaseDriver.hpp */,
+				15CC30611F969F1D00D0B26C /* FortificationPhaseDriver.cpp */,
+				15CC30621F969F1D00D0B26C /* FortificationPhaseDriver.hpp */,
 			);
 			path = "Assignment 2 - part 6 - main game loop - fortification phase";
 			sourceTree = "<group>";
@@ -534,7 +534,7 @@
 				15CC305E1F969E8400D0B26C /* Map.cpp in Sources */,
 				151BEE341F8FB51D0028B88F /* FortificationPhase.cpp in Sources */,
 				151BEE371F8FC0BC0028B88F /* Player.cpp in Sources */,
-				15CC30631F969F1D00D0B26C /* fortificationPhaseDriver.cpp in Sources */,
+				15CC30631F969F1D00D0B26C /* FortificationPhaseDriver.cpp in Sources */,
 				15CC30601F969ED200D0B26C /* dice.cpp in Sources */,
 				15CC305F1F969ECA00D0B26C /* Cards.cpp in Sources */,
 			);
