@@ -199,7 +199,7 @@ public:
 		countryID = countryId;
 	}
 
-	void setNumberOfTroups(const int numberOfTroups) {
+	void setNumberOfTroops(const int numberOfTroups) {
 		this->numberOfTroups = numberOfTroups;
 	}
 

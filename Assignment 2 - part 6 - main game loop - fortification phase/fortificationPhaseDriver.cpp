@@ -58,11 +58,11 @@ int main() {
     spain.setOwnedBy(1);
     china.setOwnedBy(1);
     
-    mongolia.setNumberOfTroups(10);
-    france.setNumberOfTroups(10);
-    uk.setNumberOfTroups(10);
-    spain.setNumberOfTroups(10);
-    china.setNumberOfTroups(10);
+    mongolia.setNumberOfTroops(10);
+    france.setNumberOfTroops(10);
+    uk.setNumberOfTroops(10);
+    spain.setNumberOfTroops(10);
+    china.setNumberOfTroops(10);
     
     fp.fortify(1, map);
     return 0;

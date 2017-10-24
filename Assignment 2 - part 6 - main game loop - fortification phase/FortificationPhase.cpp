@@ -73,9 +73,9 @@ void FortificationPhase::fortify(int player, Map& m ) {
                 cin >> numberOfTroops;
                 if((numberOfTroops >= 1) && (numberOfTroops < m.getcoutryById(startingCountry)->getNumberOfTroops() ) ){
                     //removing troups from starting country
-                    m.getcoutryById(startingCountry)->setNumberOfTroups(m.getcoutryById(startingCountry)->getNumberOfTroops() - numberOfTroops);
+                    m.getcoutryById(startingCountry)->setNumberOfTroops(m.getcoutryById(startingCountry)->getNumberOfTroops() - numberOfTroops);
                     //adding troups to destination country
-                    m.getcoutryById(destinationCountry)->setNumberOfTroups(m.getcoutryById(destinationCountry)->getNumberOfTroops() + numberOfTroops);
+                    m.getcoutryById(destinationCountry)->setNumberOfTroops(m.getcoutryById(destinationCountry)->getNumberOfTroops() + numberOfTroops);
                     cout << "troups moved!" << endl;
                     troupsMoved = true;
                     break;
