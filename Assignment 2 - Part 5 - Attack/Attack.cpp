@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : Attack.h
+// Name        : Attack.cpp
 // Team        : Group 13
 // Team members: Bruno Robert 40003443, C Jeffrey Maher 40018878, Sabrina Rieck 40032864, Simon Roy 40030996
 // Version     : 1
