@@ -1,3 +1,12 @@
+//============================================================================
+// Name        : Attack.h
+// Team        : Group 13
+// Team members: Bruno Robert 40003443, C Jeffrey Maher 40018878, Sabrina Rieck 40032864, Simon Roy 40030996
+// Version     : 1
+// Copyright   : GNU Public license 3
+// Description : Attack class is responsible for players choosing from which country to attack from, choosing, which country to attack,
+//               choosing how many dice to roll, comparing the rolled dice, and adding/removing troops as necessary 
+//============================================================================
 
 #include "Attack.h"
     
