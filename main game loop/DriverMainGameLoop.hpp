@@ -12,5 +12,6 @@
 
 #include <stdio.h>
 #include "GameLoop.h"
+#include "Player.h"
 
 #endif /* DriverMainGameLoop_hpp */

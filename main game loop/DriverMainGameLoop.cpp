@@ -51,7 +51,13 @@ int main() {
     map.addCountry(&spain);
     map.addCountry(&china);
     
+    Player * p1 = new Player();
+    Player * p2 = new Player();
+    vector <Player*> playerList;
+    playerList.push_back(p1);
+    playerList.push_back(p2);
+    
     MainGameLoop mgl;
-    mgl.startGame(&map, 2, 1, true);
+    mgl.startGame(&map, 2, 1, true, playerList);
     return 0;
 }
