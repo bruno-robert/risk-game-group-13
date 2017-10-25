@@ -7,7 +7,7 @@
 // Description : Driver for the demo of the fortification phase
 //============================================================================
 
-#include "FortificationPhaseDriver.hpp"
+#include "fortificationPhaseDriver.hpp"
 using namespace std;
 
 int main() {
