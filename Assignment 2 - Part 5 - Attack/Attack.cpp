@@ -357,8 +357,8 @@
         reverseSortDiceResults(defenderDice);
         
         //Compare pairwise
-        int attackerLoses;
-        int defenderLoses;
+        int attackerLoses = 0;
+        int defenderLoses = 0;
         
         for(int i=0; i<index; i++){
             if(attackerDice[i]>defenderDice[i])
@@ -461,7 +461,18 @@
         attackersCountries.push_back(defendingCountry);
         attacker.setCountry(attackersCountries);
         
-        cout << "Country Ownership has been transfered" << endl;       
+        cout << "Country Ownership has been transfered" << endl;   
+
+		cout << "\n -------------- \n" << endl;
+		cout << "After running the attack loop:" << endl;
+
+		cout << "Player one owns:" << endl;
+		for (CountryNode* c : attackersCountries)
+			cout << c->getCountName() << " which has " << c->getNumberOfTroops() << " armies" << endl;
+
+		cout << "\nPlayer two owns:" << endl;
+		for (CountryNode* c : defendersCountries)
+			cout << c->getCountName() << " which has " << c->getNumberOfTroops() << " armies" << endl;
         
     }
     
