@@ -16,9 +16,7 @@
     
     bool Attack::yesNoQuestion(string question)
     {
-        bool done=false;
-        
-        while(!done)
+        while(true)
         {
             cout << question << "y/n" << endl;
             
@@ -42,6 +40,7 @@
                 cout << "Please input either Yes or No as your answer." << endl;
             }
         }
+        return false;
     }
     
     void Attack::attackLoop(vector<Player> playerList, Player attacker, Map map){
@@ -59,7 +58,7 @@
             string defendingCountry = toAttack(playerList, attacker, map, attackFrom);
             CountryNode* attackTo = map.getCountryByName(defendingCountry);
             
-            Player defender = getAssociatedPlayer(playerList, defendingCountry);
+            Player * defender = getAssociatedPlayer(playerList, defendingCountry);
             
             while(continueAttack){
                 //Get attacker's dice amount
@@ -72,7 +71,7 @@
                 int attackerDiceResults[3];
                 int defenderDiceResults[3];
                 attacker.getDice().roll(attackerDiceResults, attackerDiceAmount);
-                defender.getDice().roll(defenderDiceResults, defenderDiceAmount);
+                defender->getDice().roll(defenderDiceResults, defenderDiceAmount);
                 
                 //Print dice results
                 cout << "Attacker rolled" << endl;
@@ -357,8 +356,8 @@
         reverseSortDiceResults(defenderDice);
         
         //Compare pairwise
-        int attackerLoses;
-        int defenderLoses;
+        int attackerLoses = 0;
+        int defenderLoses = 0;
         
         for(int i=0; i<index; i++){
             if(attackerDice[i]>defenderDice[i])
@@ -407,7 +406,7 @@
         diceResults[2] = temp3;
     }
     
-    void Attack::conqueredCountry(CountryNode* attackingCountry, CountryNode* defendingCountry, Player attacker, Player defender){
+    void Attack::conqueredCountry(CountryNode* attackingCountry, CountryNode* defendingCountry, Player attacker, Player * defender){
         
         //get amount of troops left on attacking country
         int amountOfTroops = attackingCountry->getNumberOfTroops();
@@ -452,9 +451,9 @@
         
         //Change country ownership
         //Remove country from defender's ownership
-        vector<CountryNode *> defendersCountries = defender.getCountry();
+        vector<CountryNode *> defendersCountries = defender->getCountry();
         defendersCountries.erase(remove(defendersCountries.begin(), defendersCountries.end(), defendingCountry), defendersCountries.end());
-        defender.setCountry(defendersCountries);
+        defender->setCountry(defendersCountries);
         
         //Add country to attacker's ownership
         vector<CountryNode *> attackersCountries = attacker.getCountry();
@@ -465,10 +464,12 @@
         
     }
     
-    Player Attack::getAssociatedPlayer(vector<Player> playerList, string country){
+    Player * Attack::getAssociatedPlayer(vector<Player> playerList, string country){
         
         for (Player p : playerList)
             if(verifyBelonging(p, country))
-                return p;
+                return &p;
+        
+        return NULL;
     }
     

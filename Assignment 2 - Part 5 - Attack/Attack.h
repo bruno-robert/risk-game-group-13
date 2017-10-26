@@ -33,8 +33,8 @@ public:
     void compareDice(int attackerDice[], int defenderDice[], int attackerDiceAmount, int defenderDiceAmount);
     void printDiceResults(int results[], int amountOfDice);
     void reverseSortDiceResults(int diceResults[]);
-    void conqueredCountry(CountryNode* attackingCountry, CountryNode* defendingCountry, Player attacker, Player defender);
-    Player getAssociatedPlayer(vector<Player> playerList, string country);
+    void conqueredCountry(CountryNode* attackingCountry, CountryNode* defendingCountry, Player attacker, Player * defender);
+    Player * getAssociatedPlayer(vector<Player> playerList, string country);
             
 };
 
