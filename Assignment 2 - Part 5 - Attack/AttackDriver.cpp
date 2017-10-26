@@ -107,7 +107,7 @@ int main() {
     cout << "U.K. which has "<< uk.getNumberOfTroops() << " armies\n" <<endl;
     
     cout << "\n -------------- \n" << endl;
-    
+	
     //Verify that country belongs to player
     cout << "Does player 1 own Mongolia?" << endl;
     bool question1 = game.verifyBelonging(player1, "Mongolia");
@@ -153,12 +153,32 @@ int main() {
     cout << "\n -------------- \n" << endl;
     
     //Testing attack loop
-    game.attackLoop(playerList, player1, map);
-    
+    //game.attackLoop(playerList, player1, map);
+
+	//Comparing Dice
+	int attackerDiceResults[3];
+	int defenderDiceResults[3];
+	player1.getDice().roll(attackerDiceResults, 3);
+	player2.getDice().roll(defenderDiceResults, 2);
+	cout << "Player 1 rolls 3 dice, player 2 rolls 2 dice" << endl;
+	cout << "Player 1 results" << endl;
+	game.printDiceResults(attackerDiceResults, 3);
+	cout << "Player 2 results" << endl;
+	game.printDiceResults(defenderDiceResults, 2);
+	game.compareDice(attackerDiceResults, defenderDiceResults, 3, 2);
+
+	cout << "\n------------\n" << endl;
+
+	//Testing the conquering
+	game.conqueredCountry(&france, &spain, player1, player2);
+
+	
+
+	/*
     //Checking country updates
     vector<CountryNode *> player1CountriesAfterGame = player1.getCountry();
     vector<CountryNode *> player2CountriesAfterGame = player2.getCountry();
-    
+	
     cout << "\n -------------- \n" << endl;
     cout << "After running the attack loop:" << endl;
     
@@ -169,7 +189,8 @@ int main() {
     cout << "\nPlayer two owns:" << endl;
     for(CountryNode* c : player2CountriesAfterGame)
         cout << c->getCountName() <<" which has "<< c->getNumberOfTroops() << " armies" <<endl;
-    
+    */
+	system("pause");
         
     return 0;
 }
