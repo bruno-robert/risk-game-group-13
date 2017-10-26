@@ -1,3 +1,13 @@
+//============================================================================
+// Name        : GameStartDriver.cpp
+// Team        : Group 13
+// Team members: Bruno Robert 40003443, Jeffrey Maher 40018878, Sabrina Rieck 40032864, Simon Roy 40030996
+// Version     : 1.0
+// Copyright   : GNU Public license 3
+// Description : The driver that tests the correct creation of a Map inside
+//				 the GameStart, and tests whether the Players function correctly.
+//============================================================================
+
 #include "GameStart.h"
 
 int main()
@@ -20,7 +30,7 @@ int main()
 				cin.clear();
 				cin.ignore(10000, '\n'); // We skip everything up until the next newline character.
 				cout << "Set the number of players: ";
-				cin >> playerNo; // Possible problem: Non-int input
+				cin >> playerNo;
 			}
 			while (!game.setPlayers(playerNo));
 
@@ -33,6 +43,7 @@ int main()
 
 		vector<Player*> players = game.getPlayers();
 		int i = 1;
+		// Testing the die for each player, and the deck:
 		for (Player *p : players)
 		{
 			cout << "Player #" << i << endl;
