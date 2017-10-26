@@ -75,7 +75,7 @@ void Reinforce::reinforceDistributions(Player& player) {
 	
 	while(units != 0) {
 		for (int i = 0; i < player.getCountry().size() && units != 0;i++) {
-			player.getCountryByRef().at(i)->setNumberOfTroups(player.getCountryByRef().at(i)->getNumberOfTroops() + 1);
+			player.getCountryByRef().at(i)->setNumberOfTroops(player.getCountryByRef().at(i)->getNumberOfTroops() + 1);
 			units--;
 		};
 	}
