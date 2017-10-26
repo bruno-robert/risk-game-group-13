@@ -2,7 +2,7 @@
 // Name        : Attack.cpp
 // Team        : Group 13
 // Team members: Bruno Robert 40003443, C Jeffrey Maher 40018878, Sabrina Rieck 40032864, Simon Roy 40030996
-// Version     : 1
+// Version     : 1.2
 // Copyright   : GNU Public license 3
 // Description : Attack class is responsible for players choosing from which country to attack from, choosing, which country to attack,
 //               choosing how many dice to roll, comparing the rolled dice, and adding/removing troops as necessary 
@@ -107,15 +107,15 @@
                 cout << "Defender loses " << defenderLoses << " army personnel" << endl;
                 
                 //Remove appropriate amount of troops from countries according to results of the attack
-                attackFrom->setNumberOfTroups(attackFrom->getNumberOfTroups()-attackerLoses);
-                attackTo->setNumberOfTroups(attackTo->getNumberOfTroups()-defenderLoses);
+                attackFrom->setNumberOfTroops(attackFrom->getNumberOfTroops()-attackerLoses);
+                attackTo->setNumberOfTroops(attackTo->getNumberOfTroops()-defenderLoses);
                 
-                if(attackFrom->getNumberOfTroups()==1){
+                if(attackFrom->getNumberOfTroops()==1){
                     cout << "Attacker has only one troop left on attacking country" << endl;
                     cout << "You cannot continue this attack" << endl;
                     continueAttack = false;
                 }
-                else if(attackTo->getNumberOfTroups()<1){
+                else if(attackTo->getNumberOfTroops()<1){
                     cout << "Defender has no more troops left" << endl;
                     cout << "Country has been conquered by attacker!" << endl;
                     conqueredCountry(attackFrom, attackTo, attacker, defender);
@@ -153,7 +153,7 @@
                 CountryNode* attackTo = map.getCountryByName(answer);
                 
                 //Verify that request country has more than 1 army personnel on it
-                int amountOfArmies = attackTo->getNumberOfTroups();
+                int amountOfArmies = attackTo->getNumberOfTroops();
                 
                 if(amountOfArmies<2){
                     cout << answer << " doesn't have enough army personnel to launch an attack" << endl;
@@ -211,7 +211,8 @@
             
             //If they aren't neighbours
             if(!neighbours){
-                cout << answer << "isn't a neighbouring country of " << attackingCountry->getCountName() << "." << endl;
+                cout << answer << " isn't a neighbouring country of " << attackingCountry->getCountName() << "." << endl;
+                validCountry = false;
                 continue;
             }
                                    
@@ -235,7 +236,7 @@
     
     int Attack::attackerAmountOfDice(CountryNode* country){
         //Get amount of armies on the country
-        int armyAmount = country->getNumberOfTroups() ;
+        int armyAmount = country->getNumberOfTroops() ;
         
         //Set possible answers
         string possibilities;
@@ -295,7 +296,7 @@
     
     int Attack::defenderAmountOfDice(CountryNode* country){
         //Get amount of armies on the country
-        int armyAmount = country->getNumberOfTroups();
+        int armyAmount = country->getNumberOfTroops();
         
         //Set possible answers
         string possibilities;
@@ -409,7 +410,7 @@
     void Attack::conqueredCountry(CountryNode* attackingCountry, CountryNode* defendingCountry, Player attacker, Player defender){
         
         //get amount of troops left on attacking country
-        int amountOfTroops = attackingCountry->getNumberOfTroups();
+        int amountOfTroops = attackingCountry->getNumberOfTroops();
         int max = amountOfTroops-1;
         int answer;
         string answerString = " ";
@@ -444,10 +445,10 @@
         }while(!done);
         
         //remove troops from attacking country
-        attackingCountry->setNumberOfTroups(amountOfTroops-answer);
+        attackingCountry->setNumberOfTroops(amountOfTroops-answer);
         
         //Add troops to conquered country
-        defendingCountry->setNumberOfTroups(answer);
+        defendingCountry->setNumberOfTroops(answer);
         
         //Change country ownership
         //Remove country from defender's ownership
