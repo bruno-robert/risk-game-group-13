@@ -66,7 +66,7 @@ void Startup::unitDistribution(vector<Player>& players) {
 		int tempUnits = units;
 		while (tempUnits > 0) {
 			for (int j = 0; j < players.at(i).getCountry().size() && tempUnits > 0;j++) {
-				players.at(i).getCountryByRef().at(j)->setNumberOfTroups(players.at(i).getCountryByRef().at(j)->getNumberOfTroops() + 1);
+				players.at(i).getCountryByRef().at(j)->setNumberOfTroops(players.at(i).getCountryByRef().at(j)->getNumberOfTroops() + 1);
 				tempUnits--;
 			};
 		}
