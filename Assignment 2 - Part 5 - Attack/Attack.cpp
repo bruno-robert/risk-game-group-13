@@ -43,7 +43,7 @@
         return false;
     }
     
-    void Attack::attackLoop(vector<Player> playerList, Player attacker, Map map){
+    void Attack::attackLoop(vector<Player *> playerList, Player attacker, Map map){
         
         bool wantsToAttack = yesNoQuestion("Do you wish to attack?");
         
@@ -167,7 +167,7 @@
         return answer;
     }
     
-    string Attack::toAttack(vector<Player> playerList, Player attacker, Map map, CountryNode* attackingCountry){
+    string Attack::toAttack(vector<Player *> playerList, Player attacker, Map map, CountryNode* attackingCountry){
         
         string answer;
         
@@ -179,8 +179,8 @@
             cin >> answer;
             
             //Verify that the input country is a valid country
-            for (Player p : playerList){
-                bool check = verifyBelonging(p, answer);
+            for (Player * p : playerList){
+                bool check = verifyBelonging(*p, answer);
                 if (check == true) 
                     validCountry=true;
             }
@@ -224,7 +224,7 @@
     {
         bool belongs = false;
         
-        vector<CountryNode *> ownedCountries = caller.getCountry();
+        vector<CountryNode *> ownedCountries = caller->getCountry();
         
         for (CountryNode* c : ownedCountries)
             if (c->getCountName() == country)
@@ -464,11 +464,16 @@
         
     }
     
-    Player * Attack::getAssociatedPlayer(vector<Player> playerList, string country){
+    Player * Attack::getAssociatedPlayer(vector<Player*> playerList, string country){
         
-        for (Player p : playerList)
-            if(verifyBelonging(p, country))
-                return &p;
+        for (Player * p : playerList) {
+            if(p != NULL) {
+                if(verifyBelonging(*p, country))
+                    return p;
+            }
+        }
+        
+        
         
         return NULL;
     }

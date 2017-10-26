@@ -22,6 +22,7 @@
 		15AA152C1FA267D7005E1805 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3A51F7DCD5C00333A98 /* Map.cpp */; };
 		15AA152D1FA267DA005E1805 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D859191F7EA91500939833 /* Player.cpp */; };
 		15AA152E1FA268D7005E1805 /* dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3C61F7DCF0C00333A98 /* dice.cpp */; };
+		15AA15361FA26B82005E1805 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15AA15351FA26B82005E1805 /* main.cpp */; };
 		15C0D37B1F7DCCF400333A98 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D37A1F7DCCF400333A98 /* main.cpp */; };
 		15C0D3A71F7DCD5D00333A98 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3A51F7DCD5C00333A98 /* Map.cpp */; };
 		15C0D3AA1F7DCE5B00333A98 /* Part1Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15C0D3A81F7DCE5B00333A98 /* Part1Driver.cpp */; };
@@ -61,6 +62,15 @@
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 		15AA151E1FA267B1005E1805 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		15AA15311FA26B81005E1805 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -140,6 +150,8 @@
 		15AA15271FA267BF005E1805 /* Attack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Attack.cpp; sourceTree = "<group>"; };
 		15AA15281FA267BF005E1805 /* Attack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attack.h; sourceTree = "<group>"; };
 		15AA15291FA267BF005E1805 /* AttackDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AttackDriver.cpp; sourceTree = "<group>"; };
+		15AA15331FA26B81005E1805 /* Assignment 2 - Part 4 - Reinforce */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Assignment 2 - Part 4 - Reinforce"; sourceTree = BUILT_PRODUCTS_DIR; };
+		15AA15351FA26B82005E1805 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		15C0D3771F7DCCF400333A98 /* risk-game-group-13 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "risk-game-group-13"; sourceTree = BUILT_PRODUCTS_DIR; };
 		15C0D37A1F7DCCF400333A98 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		15C0D3851F7DCD0700333A98 /* Part 1 - Map */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Part 1 - Map"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +194,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		15AA151D1FA267B1005E1805 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15AA15301FA26B81005E1805 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -265,6 +284,14 @@
 			path = "Assignment 2 - Part 5 - Attack";
 			sourceTree = "<group>";
 		};
+		15AA15341FA26B81005E1805 /* Assignment 2 - Part 4 - Reinforce */ = {
+			isa = PBXGroup;
+			children = (
+				15AA15351FA26B82005E1805 /* main.cpp */,
+			);
+			path = "Assignment 2 - Part 4 - Reinforce";
+			sourceTree = "<group>";
+		};
 		15C0D36E1F7DCCF300333A98 = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +304,7 @@
 				152B9A781F84316D00BAA7DF /* main game loop */,
 				151BEE2C1F8FB4EE0028B88F /* Assignment 2 - part 6 - main game loop - fortification phase */,
 				15AA15211FA267B1005E1805 /* Assignment 2 - Part 5 - Attack */,
+				15AA15341FA26B81005E1805 /* Assignment 2 - Part 4 - Reinforce */,
 				15C0D3781F7DCCF400333A98 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -293,6 +321,7 @@
 				152B9A771F84316D00BAA7DF /* main game loop */,
 				151BEE2B1F8FB4EE0028B88F /* Assignment 2 - part 6 - main game loop: fortification phase */,
 				15AA15201FA267B1005E1805 /* Assignment 2 - Part 5 - Attack */,
+				15AA15331FA26B81005E1805 /* Assignment 2 - Part 4 - Reinforce */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -409,6 +438,23 @@
 			name = "Assignment 2 - Part 5 - Attack";
 			productName = "Assignment 2 - Part 5 - Attack";
 			productReference = 15AA15201FA267B1005E1805 /* Assignment 2 - Part 5 - Attack */;
+			productType = "com.apple.product-type.tool";
+		};
+		15AA15321FA26B81005E1805 /* Assignment 2 - Part 4 - Reinforce */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15AA15371FA26B82005E1805 /* Build configuration list for PBXNativeTarget "Assignment 2 - Part 4 - Reinforce" */;
+			buildPhases = (
+				15AA152F1FA26B81005E1805 /* Sources */,
+				15AA15301FA26B81005E1805 /* Frameworks */,
+				15AA15311FA26B81005E1805 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Assignment 2 - Part 4 - Reinforce";
+			productName = "Assignment 2 - Part 4 - Reinforce";
+			productReference = 15AA15331FA26B81005E1805 /* Assignment 2 - Part 4 - Reinforce */;
 			productType = "com.apple.product-type.tool";
 		};
 		15C0D3761F7DCCF400333A98 /* risk-game-group-13 */ = {
@@ -534,6 +580,10 @@
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
 					};
+					15AA15321FA26B81005E1805 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
 					15C0D3761F7DCCF400333A98 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -581,6 +631,7 @@
 				152B9A761F84316D00BAA7DF /* main game loop */,
 				151BEE2A1F8FB4EE0028B88F /* Assignment 2 - part 6 - main game loop: fortification phase */,
 				15AA151F1FA267B1005E1805 /* Assignment 2 - Part 5 - Attack */,
+				15AA15321FA26B81005E1805 /* Assignment 2 - Part 4 - Reinforce */,
 			);
 		};
 /* End PBXProject section */
@@ -621,6 +672,14 @@
 				15AA152A1FA267BF005E1805 /* Attack.cpp in Sources */,
 				15AA152E1FA268D7005E1805 /* dice.cpp in Sources */,
 				15AA152B1FA267BF005E1805 /* AttackDriver.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15AA152F1FA26B81005E1805 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15AA15361FA26B82005E1805 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,6 +789,24 @@
 			name = Debug;
 		};
 		15AA15251FA267B1005E1805 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		15AA15381FA26B82005E1805 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		15AA15391FA26B82005E1805 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -975,6 +1052,15 @@
 			buildConfigurations = (
 				15AA15241FA267B1005E1805 /* Debug */,
 				15AA15251FA267B1005E1805 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15AA15371FA26B82005E1805 /* Build configuration list for PBXNativeTarget "Assignment 2 - Part 4 - Reinforce" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15AA15381FA26B82005E1805 /* Debug */,
+				15AA15391FA26B82005E1805 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

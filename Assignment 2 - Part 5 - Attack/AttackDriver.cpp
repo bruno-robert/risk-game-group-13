@@ -107,51 +107,51 @@ int main() {
     cout << "U.K. which has "<< uk.getNumberOfTroops() << " armies\n" <<endl;
     
     cout << "\n -------------- \n" << endl;
-    
-    //Verify that country belongs to player
-    cout << "Does player 1 own Mongolia?" << endl;
-    bool question1 = game.verifyBelonging(player1, "Mongolia");
-    cout << question1 << endl;
-    
-    cout << "Does player 1 own Canada?" << endl;
-    bool question2 = game.verifyBelonging(player1, "Canada");
-    cout << question2 <<endl;
-    
-    cout << "\n -------------- \n" << endl;
-    
-    //Testing AttackFrom
-    cout << "Testing the that only valid attacks can be declared. Player1 is attacking." << endl;
-    string question3 = game.attackFrom(player1, map);
-    cout << "Attack from " << question3 << endl;
-    
-    cout << "\n -------------- \n" << endl;
-    
-    //Testing AttackTo
-    CountryNode* countryQuestion4;
-    countryQuestion4 = &spain;
-    cout << "Testing the that only valid countries to attack can be declared" << endl;
-    cout << "Note: Here we are attacking from Spain, which has France as a neighbour." << endl;
-    string question4 = game.toAttack(playerList, player2, map, &spain);
-    cout << "Attack " << question4 << endl; 
-    
-    cout << "\n -------------- \n" << endl;
-    
-    //Testing amount of dice when attacking from spain
-    cout << "Testing how many dice can be requested when attacking from Spain" << endl;
-    cout << "Note: Spain has " << spain.getNumberOfTroops() << " troops on the country." << endl;
-    int question5 = game.attackerAmountOfDice(countryQuestion4);
-    cout << "Roll " << question5 << " dice" << endl;
-    
-    cout << "\n -------------- \n" << endl;
-    
-    //Testing amount of dice when defending from spain
-    cout << "Testing how many dice can be requested when defending Spain" << endl;
-    cout << "Note: Spain has " << spain.getNumberOfTroops() << " troops on the country." << endl;
-    int question6 = game.defenderAmountOfDice(countryQuestion4);
-     cout << "Roll " << question6 << " dice" << endl;
-    
-    cout << "\n -------------- \n" << endl;
-    
+//
+//    //Verify that country belongs to player
+//    cout << "Does player 1 own Mongolia?" << endl;
+//    bool question1 = game.verifyBelonging(player1, "Mongolia");
+//    cout << question1 << endl;
+//
+//    cout << "Does player 1 own Canada?" << endl;
+//    bool question2 = game.verifyBelonging(player1, "Canada");
+//    cout << question2 <<endl;
+//
+//    cout << "\n -------------- \n" << endl;
+//
+//    //Testing AttackFrom
+//    cout << "Testing the that only valid attacks can be declared. Player1 is attacking." << endl;
+//    string question3 = game.attackFrom(player1, map);
+//    cout << "Attack from " << question3 << endl;
+//
+//    cout << "\n -------------- \n" << endl;
+//
+//    //Testing AttackTo
+//    CountryNode* countryQuestion4;
+//    countryQuestion4 = &spain;
+//    cout << "Testing the that only valid countries to attack can be declared" << endl;
+//    cout << "Note: Here we are attacking from Spain, which has France as a neighbour." << endl;
+//    string question4 = game.toAttack(playerList, player2, map, &spain);
+//    cout << "Attack " << question4 << endl;
+//
+//    cout << "\n -------------- \n" << endl;
+//
+//    //Testing amount of dice when attacking from spain
+//    cout << "Testing how many dice can be requested when attacking from Spain" << endl;
+//    cout << "Note: Spain has " << spain.getNumberOfTroops() << " troops on the country." << endl;
+//    int question5 = game.attackerAmountOfDice(countryQuestion4);
+//    cout << "Roll " << question5 << " dice" << endl;
+//
+//    cout << "\n -------------- \n" << endl;
+//
+//    //Testing amount of dice when defending from spain
+//    cout << "Testing how many dice can be requested when defending Spain" << endl;
+//    cout << "Note: Spain has " << spain.getNumberOfTroops() << " troops on the country." << endl;
+//    int question6 = game.defenderAmountOfDice(countryQuestion4);
+//     cout << "Roll " << question6 << " dice" << endl;
+//
+//    cout << "\n -------------- \n" << endl;
+//
     //Testing attack loop
     game.attackLoop(playerList, player1, map);
     
