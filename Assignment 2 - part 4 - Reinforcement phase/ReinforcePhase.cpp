@@ -7,7 +7,7 @@
 // Description : implementing all the methods for the reinforce phase 
 //============================================================================
 
-#include "../Part 4 - Player/Player.h"
+#include "Player.h"
 #include "ReinforcePhase.h"
 #include <algorithm>
 

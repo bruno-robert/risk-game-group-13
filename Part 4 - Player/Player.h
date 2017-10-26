@@ -10,9 +10,9 @@
 
 #include <iostream>
 #include <vector>
-#include "../Part 1 - Map/Map.h" //Part 1
-#include "../Part 3 - Dice/dice.h" //Part 3
-#include "../Part 5 - Cards/Cards.h" //Part 5
+#include "Map.h" //Part 1
+#include "dice.h" //Part 3
+#include "Cards.h" //Part 5
 
 #ifndef __Player_H_INCLUDED__
 #define __Player_H_INCLUDED__

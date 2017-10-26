@@ -10,7 +10,7 @@
 
 #pragma once
 
-#include "../Part 4 - Player/Player.h"
+#include "Player.h"
 
 class Reinforce{
 
