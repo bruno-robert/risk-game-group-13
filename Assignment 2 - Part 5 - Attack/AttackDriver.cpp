@@ -2,7 +2,7 @@
 // Name        : AttackDriver.cpp
 // Team        : Group 13
 // Team members: Bruno Robert 40003443, C Jeffrey Maher 40018878, Sabrina Rieck 40032864, Simon Roy 40030996
-// Version     : 1
+// Version     : 1.2
 // Copyright   : GNU Public license 3
 // Description : Tests that Attack.h is working correctly
 //============================================================================
@@ -70,11 +70,11 @@ int main() {
     player2Countries.push_back(&spain);
     
     //Assigning army personnel to countries
-    china.setNumberOfTroups(1);
-    mongolia.setNumberOfTroups(5);
-    france.setNumberOfTroups(2);
-    spain.setNumberOfTroups(4);
-    uk.setNumberOfTroups(10);
+    china.setNumberOfTroops(1);
+    mongolia.setNumberOfTroops(5);
+    france.setNumberOfTroops(6);
+    spain.setNumberOfTroops(4);
+    uk.setNumberOfTroops(10);
     
     //Creating dice for players
     Dice dice1, dice2;
@@ -98,13 +98,13 @@ int main() {
     //TESTING PHASE
     //Declarations
     cout << "Player one owns:" << endl;
-    cout << "Mongolia which has "<< mongolia.getNumberOfTroups() << " armies" <<endl;
-    cout << "China which has "<< china.getNumberOfTroups() << " armies" <<endl;
-    cout << "France which has "<< france.getNumberOfTroups() << " armies\n" <<endl;
+    cout << "Mongolia which has "<< mongolia.getNumberOfTroops() << " armies" <<endl;
+    cout << "China which has "<< china.getNumberOfTroops() << " armies" <<endl;
+    cout << "France which has "<< france.getNumberOfTroops() << " armies\n" <<endl;
     
     cout << "Player two owns:" << endl;
-    cout << "Spain which has "<< spain.getNumberOfTroups() << " armies" <<endl;
-    cout << "U.K. which has "<< uk.getNumberOfTroups() << " armies\n" <<endl;
+    cout << "Spain which has "<< spain.getNumberOfTroops() << " armies" <<endl;
+    cout << "U.K. which has "<< uk.getNumberOfTroops() << " armies\n" <<endl;
     
     cout << "\n -------------- \n" << endl;
     
@@ -138,7 +138,7 @@ int main() {
     
     //Testing amount of dice when attacking from spain
     cout << "Testing how many dice can be requested when attacking from Spain" << endl;
-    cout << "Note: Spain has " << spain.getNumberOfTroups() << " troops on the country." << endl;
+    cout << "Note: Spain has " << spain.getNumberOfTroops() << " troops on the country." << endl;
     int question5 = game.attackerAmountOfDice(countryQuestion4);
     cout << "Roll " << question5 << " dice" << endl;
     
@@ -146,7 +146,7 @@ int main() {
     
     //Testing amount of dice when defending from spain
     cout << "Testing how many dice can be requested when defending Spain" << endl;
-    cout << "Note: Spain has " << spain.getNumberOfTroups() << " troops on the country." << endl;
+    cout << "Note: Spain has " << spain.getNumberOfTroops() << " troops on the country." << endl;
     int question6 = game.defenderAmountOfDice(countryQuestion4);
      cout << "Roll " << question6 << " dice" << endl;
     
@@ -164,11 +164,11 @@ int main() {
     
     cout << "Player one owns:" << endl;
     for(CountryNode* c : player1CountriesAfterGame)
-        cout << c->getCountName() <<" which has "<< c->getNumberOfTroups() << " armies" <<endl;
+        cout << c->getCountName() <<" which has "<< c->getNumberOfTroops() << " armies" <<endl;
     
     cout << "\nPlayer two owns:" << endl;
     for(CountryNode* c : player2CountriesAfterGame)
-        cout << c->getCountName() <<" which has "<< c->getNumberOfTroups() << " armies" <<endl;
+        cout << c->getCountName() <<" which has "<< c->getNumberOfTroops() << " armies" <<endl;
     
         
     return 0;
