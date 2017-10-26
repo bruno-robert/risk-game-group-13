@@ -1,3 +1,12 @@
+//============================================================================
+// Name        : GameStart.cpp
+// Team        : Group 13
+// Team members: Bruno Robert 40003443, Jeffrey Maher 40018878, Sabrina Rieck 40032864, Simon Roy 40030996
+// Version     : 1.0
+// Copyright   : GNU Public license 3
+// Description : The implementation of the GameStart class.
+//============================================================================
+
 #include "GameStart.h"
 
 // The main constructors for GameStart.
@@ -32,6 +41,7 @@ bool GameStart::setPlayers(int noPlayers)
 	}
 	else
 	{
+		// Player creation loop
 		for (int i = 0; i < noPlayers; ++i)
 		{
 			vector<CountryNode*> owned;
@@ -44,6 +54,7 @@ bool GameStart::setPlayers(int noPlayers)
 	return true;
 }
 
+// Getters
 Map* GameStart::getMap()
 {
 	return loader.getMap();
@@ -54,12 +65,13 @@ Deck* GameStart::getDeck()
 	return &cardDeck;
 }
 
+// Destructor
 GameStart::~GameStart()
 {
 	for (Player* p : players)
 		delete p;
 }
-
+// Getter
 vector<Player*> GameStart::getPlayers()
 {
 	return players;
