@@ -44,7 +44,7 @@
         }
     }
     
-    void Attack::attackLoop(vector<Player> playerList, Player attacker, Map map){
+    void Attack::attackLoop(vector<Player*> playerList, Player* attacker, Map* map){
         
         bool wantsToAttack = yesNoQuestion("Do you wish to attack?");
         
@@ -53,13 +53,13 @@
             
             //Get country to attack from
             string attackingCountry = attackFrom(attacker, map);
-            CountryNode* attackFrom = map.getCountryByName(attackingCountry);
+            CountryNode* attackFrom = map->getCountryByName(attackingCountry);
             
             //Get country to attack
             string defendingCountry = toAttack(playerList, attacker, map, attackFrom);
-            CountryNode* attackTo = map.getCountryByName(defendingCountry);
+            CountryNode* attackTo = map->getCountryByName(defendingCountry);
             
-            Player defender = getAssociatedPlayer(playerList, defendingCountry);
+            Player* defender = getAssociatedPlayer(playerList, defendingCountry);
             
             while(continueAttack){
                 //Get attacker's dice amount
@@ -71,8 +71,8 @@
                 //players role dice
                 int attackerDiceResults[3];
                 int defenderDiceResults[3];
-                attacker.getDice().roll(attackerDiceResults, attackerDiceAmount);
-                defender.getDice().roll(defenderDiceResults, defenderDiceAmount);
+                attacker->getDice().roll(attackerDiceResults, attackerDiceAmount);
+                defender->getDice().roll(defenderDiceResults, defenderDiceAmount);
                 
                 //Print dice results
                 cout << "Attacker rolled" << endl;
@@ -129,7 +129,7 @@
         }
     }
     
-    string Attack::attackFrom(Player attacker, Map map){
+    string Attack::attackFrom(Player* attacker, Map* map){
         bool done = false;
         string answer;
         
@@ -150,7 +150,7 @@
             //Verify that request country has more than 1 army personnel on it
             else {
                 //Get CountryNode from answer
-                CountryNode* attackTo = map.getCountryByName(answer);
+                CountryNode* attackTo = map->getCountryByName(answer);
                 
                 //Verify that request country has more than 1 army personnel on it
                 int amountOfArmies = attackTo->getNumberOfTroops();
@@ -168,7 +168,7 @@
         return answer;
     }
     
-    string Attack::toAttack(vector<Player> playerList, Player attacker, Map map, CountryNode* attackingCountry){
+    string Attack::toAttack(vector<Player*> playerList, Player* attacker, Map* map, CountryNode* attackingCountry){
         
         string answer;
         
@@ -180,7 +180,7 @@
             cin >> answer;
             
             //Verify that the input country is a valid country
-            for (Player p : playerList){
+            for (Player* p : playerList){
                 bool check = verifyBelonging(p, answer);
                 if (check == true) 
                     validCountry=true;
@@ -204,7 +204,7 @@
             }
             
             //Get CountryNode from answer
-            CountryNode* defendingCountry = map.getCountryByName(answer);
+            CountryNode* defendingCountry = map->getCountryByName(answer);
             
             //Verify that country is a neighbour of the country being attacked from
             bool neighbours = attackingCountry->isCountAdjacent(defendingCountry->getCountryId());
@@ -221,11 +221,11 @@
         return answer;
     }
     
-    bool Attack::verifyBelonging(Player caller, string country)
+    bool Attack::verifyBelonging(Player* caller, string country)
     {
         bool belongs = false;
         
-        vector<CountryNode *> ownedCountries = caller.getCountry();
+        vector<CountryNode *> ownedCountries = caller->getCountry();
         
         for (CountryNode* c : ownedCountries)
             if (c->getCountName() == country)
@@ -407,7 +407,7 @@
         diceResults[2] = temp3;
     }
     
-    void Attack::conqueredCountry(CountryNode* attackingCountry, CountryNode* defendingCountry, Player attacker, Player defender){
+    void Attack::conqueredCountry(CountryNode* attackingCountry, CountryNode* defendingCountry, Player* attacker, Player* defender){
         
         //get amount of troops left on attacking country
         int amountOfTroops = attackingCountry->getNumberOfTroops();
@@ -435,11 +435,13 @@
             
             if(answer>max){ //too large a number was entered
                 cout << "You don't have enough troops. Please input an amount equal or lower than " << max << "." << endl;
+                done = false;
                 continue;
             }
             
-            if(answer==0){  //0 was entered
+            if(answer<=0){  //0 was entered
                 cout << "You must move at least one soldier" << endl;
+                done = false;
                 continue;
             }
         }while(!done);
@@ -452,15 +454,15 @@
         
         //Change country ownership
         //Remove country from defender's ownership
-        vector<CountryNode *> defendersCountries = defender.getCountry();
+        vector<CountryNode *> defendersCountries = defender->getCountry();
         defendersCountries.erase(remove(defendersCountries.begin(), defendersCountries.end(), defendingCountry), defendersCountries.end());
-        defender.setCountry(defendersCountries);
+        defender->setCountry(defendersCountries);
         
         //Add country to attacker's ownership
-        vector<CountryNode *> attackersCountries = attacker.getCountry();
+        vector<CountryNode *> attackersCountries = attacker->getCountry();
         attackersCountries.push_back(defendingCountry);
-        attacker.setCountry(attackersCountries);
-        
+        attacker->setCountry(attackersCountries);
+        /*
         cout << "Country Ownership has been transfered" << endl;   
 
 		cout << "\n -------------- \n" << endl;
@@ -473,12 +475,12 @@
 		cout << "\nPlayer two owns:" << endl;
 		for (CountryNode* c : defendersCountries)
 			cout << c->getCountName() << " which has " << c->getNumberOfTroops() << " armies" << endl;
-        
+        */
     }
     
-    Player Attack::getAssociatedPlayer(vector<Player> playerList, string country){
+    Player* Attack::getAssociatedPlayer(vector<Player*> playerList, string country){
         
-        for (Player p : playerList)
+        for (Player* p : playerList)
             if(verifyBelonging(p, country))
                 return p;
     }
