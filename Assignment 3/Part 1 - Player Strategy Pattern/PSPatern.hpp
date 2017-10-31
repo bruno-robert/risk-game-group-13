@@ -10,5 +10,18 @@
 #define PSPatern_hpp
 
 #include <stdio.h>
+//this is to be the parent class of Human Agressive and Benevolent
+class PlayerStrategyPattern {
+public:
+    PlayerStrategyPattern();
+    ~PlayerStrategyPattern();
+};
+//subclass of PlayerStrategyPattern
+class Human;
+//subclass of PlayerStrategyPattern
+class Agressive;
+//subclass of PlayerStrategyPattern
+class Benevolent;
+
 
 #endif /* PSPatern_hpp */
