@@ -42,7 +42,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1560464A1FA3A4250081DD71 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1560464D1FA3A4250081DD71 /* GameStartDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameStartDriver.cpp; sourceTree = "<group>"; };
 		1560464E1FA3A4250081DD71 /* GameStart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameStart.h; sourceTree = "<group>"; };
 		1560464F1FA3A4250081DD71 /* GameStart.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameStart.cpp; sourceTree = "<group>"; };
@@ -80,6 +79,9 @@
 		1560467A1FA3A4250081DD71 /* Part1Driver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Part1Driver.h; sourceTree = "<group>"; };
 		1560467B1FA3A4250081DD71 /* Part1Driver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part1Driver.cpp; sourceTree = "<group>"; };
 		1560467C1FA3A4250081DD71 /* Map.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Map.cpp; sourceTree = "<group>"; };
+		158080FD1FA91C8500677348 /* PSPatern.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PSPatern.hpp; sourceTree = "<group>"; };
+		158080FE1FA91C8500677348 /* PSPatern.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PSPatern.cpp; sourceTree = "<group>"; };
+		158080FF1FA91C8500677348 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		158CA0E31FA3A47800920974 /* Cards Target */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Cards Target"; sourceTree = BUILT_PRODUCTS_DIR; };
 		159BA1011FA3A1EE006D4512 /* Risk-fresh-start */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Risk-fresh-start"; sourceTree = BUILT_PRODUCTS_DIR; };
 		159BA10F1FA3A328006D4512 /* Map Target */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Map Target"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,14 +112,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		156046491FA3A4250081DD71 /* Assignment 3 */ = {
-			isa = PBXGroup;
-			children = (
-				1560464A1FA3A4250081DD71 /* README.md */,
-			);
-			path = "Assignment 3";
-			sourceTree = "<group>";
-		};
 		1560464B1FA3A4250081DD71 /* Assignment 2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,12 +251,46 @@
 			path = "Part 1 - Map";
 			sourceTree = "<group>";
 		};
+		158080FB1FA91C8500677348 /* Assignment 3 */ = {
+			isa = PBXGroup;
+			children = (
+				158080FC1FA91C8500677348 /* Part 1 - Player Strategy Pattern */,
+				158080FF1FA91C8500677348 /* README.md */,
+				158081001FA91C8500677348 /* Part 2 - Phase Observer */,
+				158081011FA91C8500677348 /* Part 3 - Game Statistics Observer */,
+			);
+			path = "Assignment 3";
+			sourceTree = "<group>";
+		};
+		158080FC1FA91C8500677348 /* Part 1 - Player Strategy Pattern */ = {
+			isa = PBXGroup;
+			children = (
+				158080FD1FA91C8500677348 /* PSPatern.hpp */,
+				158080FE1FA91C8500677348 /* PSPatern.cpp */,
+			);
+			path = "Part 1 - Player Strategy Pattern";
+			sourceTree = "<group>";
+		};
+		158081001FA91C8500677348 /* Part 2 - Phase Observer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Part 2 - Phase Observer";
+			sourceTree = "<group>";
+		};
+		158081011FA91C8500677348 /* Part 3 - Game Statistics Observer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Part 3 - Game Statistics Observer";
+			sourceTree = "<group>";
+		};
 		159BA0F81FA3A1EE006D4512 = {
 			isa = PBXGroup;
 			children = (
 				156046661FA3A4250081DD71 /* Assignment 1 */,
 				1560464B1FA3A4250081DD71 /* Assignment 2 */,
-				156046491FA3A4250081DD71 /* Assignment 3 */,
+				158080FB1FA91C8500677348 /* Assignment 3 */,
 				159BA1021FA3A1EE006D4512 /* Products */,
 			);
 			sourceTree = "<group>";
