@@ -51,6 +51,7 @@ private:
 public:
 	ContinentNode(string name, int contScore);	//construct
 	ContinentNode();
+    // FIXME: why is this deconstructor virtual ?
 	virtual ~ContinentNode();					//deconstruct
 	void addAdjCont(ContinentNode* countNode);	//add adjacent continent
 
