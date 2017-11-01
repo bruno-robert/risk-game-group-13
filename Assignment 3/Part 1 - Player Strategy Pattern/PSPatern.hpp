@@ -14,10 +14,13 @@
 class PlayerStrategyPattern {
 public:
     PlayerStrategyPattern();
-    ~PlayerStrategyPattern();
+    virtual ~PlayerStrategyPattern();
 };
 //subclass of PlayerStrategyPattern
-class Human;
+class Human : public PlayerStrategyPattern{
+public:
+    
+};
 //subclass of PlayerStrategyPattern
 class Agressive;
 //subclass of PlayerStrategyPattern
