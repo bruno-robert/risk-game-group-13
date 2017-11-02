@@ -9,7 +9,11 @@
 #include "PSPatern.hpp"
 using namespace std;
 
-Human::Human() {
+PlayerStrategyPattern::PlayerStrategyPattern() {
+    
+}
+
+Human::Human() : PlayerStrategyPattern(){
     
 }
 
@@ -24,7 +28,7 @@ Human::~Human() {
  @param m Map Object
  @return the ID of the country with name countryName. If the country doesn't exist, returns -1
  */
-int countryNameToID(string countryName, Map& m){
+int countryNameToID(string countryName, Map& m){// TODO: test functionality
     vector<CountryNode*> cl = m.getCountryList();
     for (vector<CountryNode*>::iterator country = cl.begin(); country != cl.end(); country++) {
         if((*country)->getCountName() == countryName) {
