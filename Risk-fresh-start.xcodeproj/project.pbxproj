@@ -10,6 +10,8 @@
 		158CA0DD1FA3A45C00920974 /* Part1Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467B1FA3A4250081DD71 /* Part1Driver.cpp */; };
 		158CA0DE1FA3A45C00920974 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467C1FA3A4250081DD71 /* Map.cpp */; };
 		159DAA061FAA64D30068EE78 /* PSPatern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 158080FE1FA91C8500677348 /* PSPatern.cpp */; };
+		159DAA071FAB63120068EE78 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467C1FA3A4250081DD71 /* Map.cpp */; };
+		159DAA0A1FAB69220068EE78 /* PSPDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 159DAA081FAB69220068EE78 /* PSPDriver.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -96,6 +98,8 @@
 		159BA1011FA3A1EE006D4512 /* Risk-fresh-start */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Risk-fresh-start"; sourceTree = BUILT_PRODUCTS_DIR; };
 		159BA10F1FA3A328006D4512 /* Map Target */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Map Target"; sourceTree = BUILT_PRODUCTS_DIR; };
 		159DA9FF1FAA64B60068EE78 /* PSP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PSP; sourceTree = BUILT_PRODUCTS_DIR; };
+		159DAA081FAB69220068EE78 /* PSPDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PSPDriver.cpp; sourceTree = "<group>"; };
+		159DAA091FAB69220068EE78 /* PSPDriver.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PSPDriver.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +289,8 @@
 			children = (
 				158080FD1FA91C8500677348 /* PSPatern.hpp */,
 				158080FE1FA91C8500677348 /* PSPatern.cpp */,
+				159DAA081FAB69220068EE78 /* PSPDriver.cpp */,
+				159DAA091FAB69220068EE78 /* PSPDriver.hpp */,
 			);
 			path = "Part 1 - Player Strategy Pattern";
 			sourceTree = "<group>";
@@ -470,6 +476,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				159DAA071FAB63120068EE78 /* Map.cpp in Sources */,
+				159DAA0A1FAB69220068EE78 /* PSPDriver.cpp in Sources */,
 				159DAA061FAA64D30068EE78 /* PSPatern.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
