@@ -7,3 +7,12 @@
 //
 
 #include "PSPDriver.hpp"
+
+int main() {
+    
+    Human h;
+    
+    
+    
+    return 0;
+}

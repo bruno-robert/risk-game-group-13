@@ -10,5 +10,6 @@
 #define PSPDriver_hpp
 
 #include <stdio.h>
+#include "PSPatern.hpp"
 
 #endif /* PSPDriver_hpp */
