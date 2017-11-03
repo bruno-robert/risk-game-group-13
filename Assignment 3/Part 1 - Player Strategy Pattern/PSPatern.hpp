@@ -26,7 +26,7 @@ public:
 };
 //subclass of PlayerStrategyPattern
 class Human : public PlayerStrategyPattern{
-    int countryNameToID(string countryName);
+    static int countryNameToID(string countryName, Map& m);
 public:
     
     Human();

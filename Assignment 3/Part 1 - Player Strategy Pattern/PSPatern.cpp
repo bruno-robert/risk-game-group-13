@@ -13,6 +13,10 @@ PlayerStrategyPattern::PlayerStrategyPattern() {
     
 }
 
+PlayerStrategyPattern::~PlayerStrategyPattern() {
+    
+}
+
 Human::Human() : PlayerStrategyPattern(){
     
 }
@@ -28,7 +32,7 @@ Human::~Human() {
  @param m Map Object
  @return the ID of the country with name countryName. If the country doesn't exist, returns -1
  */
-int countryNameToID(string countryName, Map& m){// TODO: test functionality
+int Human::countryNameToID(string countryName, Map& m){// TODO: test functionality
     vector<CountryNode*> cl = m.getCountryList();
     for (vector<CountryNode*>::iterator country = cl.begin(); country != cl.end(); country++) {
         if((*country)->getCountName() == countryName) {
@@ -59,7 +63,7 @@ bool Human::getFortifyValues(int *startingCountry, int *destinationCountry, int 
         int tempInt2= 0;
         while(true) {
             cin >> inputString;
-            tempInt = countryNameToID(inputString);
+            tempInt = countryNameToID(inputString, m);
             
             //checks if the starting coutry is valid
             if((tempInt >= 1) && (m.getcoutryById(tempInt) != NULL) && (m.getcoutryById(tempInt)->getOwnedBy() == player) && (m.getcoutryById(tempInt)->getNumberOfTroops() > 1)) {
@@ -74,7 +78,7 @@ bool Human::getFortifyValues(int *startingCountry, int *destinationCountry, int 
         cout << "please select the destination country" << endl;
         while(true) {
             cin >> inputString;
-            tempInt2 = countryNameToID(inputString);
+            tempInt2 = countryNameToID(inputString, m);
             
             if((tempInt2 >= 1) && (m.getcoutryById(tempInt2) != NULL)&& (m.getcoutryById(tempInt)->getOwnedBy() == player)) {
                 *destinationCountry = tempInt2;//settings destinationCountry
@@ -107,4 +111,12 @@ bool Human::getFortifyValues(int *startingCountry, int *destinationCountry, int 
     
     
     return false;
+}
+
+void Human::getAttackValues() {
+    
+}
+
+void Human::getReinforceValues() {
+    
 }
