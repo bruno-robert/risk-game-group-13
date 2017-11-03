@@ -20,6 +20,10 @@
 using namespace std;
 
 class Player{
+    vector<CountryNode *> ownedCountry; //Vector of player's occupied countries
+    Hand hand;
+    Dice dice;
+    int playerID;
 public:
 
 	Player(); //Default Constructor
@@ -36,12 +40,6 @@ public:
 	void fortify();
     void setCountry(vector<CountryNode *> ownedCountry);
 	void setPlayerID(int id);
-
-private:
-	vector<CountryNode *> ownedCountry; //Vector of player's occupied countries
-	Hand hand;
-	Dice dice;
-	int playerID;
 };
 
 #endif

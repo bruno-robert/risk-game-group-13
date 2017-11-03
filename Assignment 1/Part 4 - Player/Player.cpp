@@ -18,56 +18,56 @@ using namespace std;
 
 Player::Player(){ //Default constructor create empty players
 
-};
+}
 
 Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice){
 	this->ownedCountry = ownedCountry;
 	this->hand = hand;
 	this->dice = dice;
-};
+}
 
 
 void Player::reinforce(){
 	
 	cout << "You are reinforcing. " << endl;
-};
+}
 
 void Player::attack(){
 
 	cout << "You are attacking. " << endl;
-};
+}
 
 void Player::fortify(){
 
 	cout << "You are fortifying. " << endl;
-};
+}
 
 vector<CountryNode *> Player::getCountry(){
 
 	return ownedCountry;
-};
+}
 Hand Player::getHand(){
 	return this->hand;
-};
+}
 Dice Player::getDice(){
 	return this->dice;
-};
+}
 int Player::getPlayerID() {
 	return this->playerID;
-};
+}
 Hand& Player::getHandByRef() {
 	return this->hand;
-};
+}
 Dice& Player::getDiceByRef() {
 	return this->dice;
-};
+}
 vector<CountryNode *>& Player::getCountryByRef() {
 
 	return ownedCountry;
-};
+}
 void Player::setCountry(vector<CountryNode *> ownedCountry){
 	this->ownedCountry = ownedCountry;
-};
+}
 void Player::setPlayerID(int id) {
 	this->playerID = id;
-};
+}
