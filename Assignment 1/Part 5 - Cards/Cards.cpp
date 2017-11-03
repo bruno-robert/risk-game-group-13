@@ -43,7 +43,7 @@ void Deck::fillDeck(int countries)
 	if (countries % 3 == 1) {
 		link.push_back(Card(1));
 	}
-	if (countries % 3 == 2) {						//,
+	if (countries % 3 == 2) {
 		link.push_back(Card(1));
 		link.push_back(Card(2));
 	}
@@ -59,11 +59,11 @@ void Deck::fillDeck(int countries)
 
 Card Deck::draw() {
 	Card drew;
-	int size = link.size();
+	int size = (int)link.size();
 	if (size > 0) {
 
-		srand(time(NULL));		//Random generation part. Gets me a random adress in my vector
-		rand() % size;
+		srand((int)time(NULL));		//Random generation part. Gets me a random adress in my vector
+        rand() % size;// FIXME: un-used expression result
 		int luck = rand() % size;
 
 		drew = link.at(luck);
@@ -87,7 +87,7 @@ Card Deck::draw() {
 
 //getSize method for Deck
 
-int Deck::getSize() { return link.size(); };
+int Deck::getSize() { return (int)link.size(); };
 
 
 /* Hand class methods and the exchange method */
@@ -192,4 +192,4 @@ int Hand::exchange() {
 
 void Hand::add(Card card) { playerHand.push_back(card); };		//Allows for the adition of a card to the hand
 
-int Hand::getSize() { return playerHand.size(); };
+int Hand::getSize() { return (int)playerHand.size(); };
