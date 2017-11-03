@@ -8,22 +8,28 @@
 //               Implementing reinforce(), attack(), fortify() player actions according to official game rule.
 //============================================================================
 
+#ifndef __Player_H_INCLUDED__
+#define __Player_H_INCLUDED__
+
 #include <iostream>
 #include <vector>
 #include "Map.h" //Part 1
 #include "dice.h" //Part 3
 #include "Cards.h" //Part 5
-
-#ifndef __Player_H_INCLUDED__
-#define __Player_H_INCLUDED__
+#include "PSPatern.hpp"
 
 using namespace std;
 
 class Player{
+    vector<CountryNode *> ownedCountry; //Vector of player's occupied countries
+    Hand hand;
+    Dice dice;
+    int playerID;
+    PlayerStrategyPattern * psp;
 public:
 
 	Player(); //Default Constructor
-	Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice); //Complete Constructor
+	Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, PlayerStrategyPattern * psp); //Complete Constructor
 	vector<CountryNode *> getCountry(); //Getters
 	Hand getHand();
 	Dice getDice();
@@ -33,15 +39,9 @@ public:
 	vector<CountryNode *>& getCountryByRef();
 	void reinforce();//Player action methods
 	void attack();
-	void fortify();
+	bool fortify(int startingCountry, int destinationCountry, int numberOfTroopsToMove, Map& m);
     void setCountry(vector<CountryNode *> ownedCountry);
 	void setPlayerID(int id);
-
-private:
-	vector<CountryNode *> ownedCountry; //Vector of player's occupied countries
-	Hand hand;
-	Dice dice;
-	int playerID;
 };
 
 #endif

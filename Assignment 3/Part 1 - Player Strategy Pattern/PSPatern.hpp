@@ -20,7 +20,7 @@ class PlayerStrategyPattern {
 public:
     PlayerStrategyPattern();
     virtual ~PlayerStrategyPattern();
-    virtual bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOftroupsToMove, Map& m, int player)= 0;
+    virtual bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOfTroopsToMove, Map& m, int player)= 0;
     virtual void getAttackValues()= 0;
     virtual void getReinforceValues()= 0;
 };
@@ -32,7 +32,7 @@ public:
     Human();
     ~Human();
     //Takes human input to changes the values of the given variables pointed to pointers. Before returning the function verifies that the given values are valid.
-    bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOftroupsToMove, Map& m, int player);
+    bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOftroopsToMove, Map& m, int player);
     void getAttackValues();
     void getReinforceValues();
     

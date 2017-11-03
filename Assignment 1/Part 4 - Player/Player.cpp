@@ -18,56 +18,71 @@ using namespace std;
 
 Player::Player(){ //Default constructor create empty players
 
-};
+}
 
-Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice){
+Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, PlayerStrategyPattern *psp){
 	this->ownedCountry = ownedCountry;
 	this->hand = hand;
 	this->dice = dice;
-};
+    this-> psp = psp;
+}
 
 
 void Player::reinforce(){
-	
+
 	cout << "You are reinforcing. " << endl;
-};
+}
 
 void Player::attack(){
 
 	cout << "You are attacking. " << endl;
-};
+}
 
-void Player::fortify(){
+bool Player::fortify(int startingCountry, int destinationCountry, int numberOfTroopsToMove, Map& m){
+    bool tempBool = false;
 
-	cout << "You are fortifying. " << endl;
-};
+    if(psp != NULL) {
+        tempBool = psp->getFortifyValues(&startingCountry, &destinationCountry, &numberOfTroopsToMove, m, playerID);
+    }
+    if(tempBool) {
+        //removing troups from starting country
+        m.getcoutryById(startingCountry)->setNumberOfTroops(m.getcoutryById(startingCountry)->getNumberOfTroops() - numberOfTroopsToMove);
+        
+        //adding troups to destinationCountry
+        m.getcoutryById(destinationCountry)->setNumberOfTroops(m.getcoutryById(destinationCountry)->getNumberOfTroops() + numberOfTroopsToMove);
+        
+        return true;
+    }
+    
+    return false;
+}
 
 vector<CountryNode *> Player::getCountry(){
 
 	return ownedCountry;
-};
+}
 Hand Player::getHand(){
 	return this->hand;
-};
+}
 Dice Player::getDice(){
 	return this->dice;
-};
+}
 int Player::getPlayerID() {
 	return this->playerID;
-};
+}
 Hand& Player::getHandByRef() {
 	return this->hand;
-};
+}
 Dice& Player::getDiceByRef() {
 	return this->dice;
-};
+}
 vector<CountryNode *>& Player::getCountryByRef() {
 
 	return ownedCountry;
-};
+}
 void Player::setCountry(vector<CountryNode *> ownedCountry){
 	this->ownedCountry = ownedCountry;
-};
+}
 void Player::setPlayerID(int id) {
 	this->playerID = id;
-};
+}

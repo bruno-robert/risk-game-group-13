@@ -45,14 +45,14 @@ int Human::countryNameToID(string countryName, Map& m){// TODO: test functionali
 
 /**
  Human fortification method, asks for starting and destiantion countries. Checks if the entered coutries are valid.
- If the values are valid, it will prompt user for a number of troups to move and checks if that value is valid.
- If will then return (via given pointer parameters) the starting country id and destination coutry id as well as the number of troups to move.
+ If the values are valid, it will prompt user for a number of troop to move and checks if that value is valid.
+ If will then return (via given pointer parameters) the starting country id and destination coutry id as well as the number of troop to move.
  @param startingCountry startingCoutry pointer, used to return starting coutry ID
  @param destinationCountry destinationCountry pointer, used to return the destination country ID
- @param numberOftroupsToMove numberOftroupsToMove, used to return the number of troups to be moved from start to destination coutry
+ @param numberOfTroopsToMove numberOftroopToMove, used to return the number of troop to be moved from start to destination coutry
  @return returns true if the values given by the user are all correct, false if there was an error picking the values
  */
-bool Human::getFortifyValues(int *startingCountry, int *destinationCountry, int *numberOftroupsToMove, Map& m, int player) {
+bool Human::getFortifyValues(int *startingCountry, int *destinationCountry, int *numberOfTroopsToMove, Map& m, int player) {
     while (true) {
         
         //Getting and checking starting country
@@ -71,7 +71,7 @@ bool Human::getFortifyValues(int *startingCountry, int *destinationCountry, int 
                 break;
             }
             
-            cout << "Sorry, the value you entered is not valid, please try again (the country could have to few troups):" << endl;
+            cout << "Sorry, the value you entered is not valid, please try again (the country could have to few troops):" << endl;
         }
         
         //Getting and checking the destination country
@@ -88,15 +88,15 @@ bool Human::getFortifyValues(int *startingCountry, int *destinationCountry, int 
             cout << "Sorry, the value you entered is not valid, please try again:" << endl;
         }
         
-        //checks the adjacency of both countries and promtps user for number of troups to move
+        //checks the adjacency of both countries and promtps user for number of troop to move
         if (m.getcoutryById(*startingCountry)->isCountAdjacent(*destinationCountry)) {
             cout << "please enter the number of troops you want to move (value between 1 and " << m.getcoutryById(*startingCountry)->getNumberOfTroops() << ":" << endl;
             while(true) {
                 
-                cin >> *numberOftroupsToMove;
-                //if the number of troups is between 1 and the the number of troups in starting country -1
-                if((*numberOftroupsToMove >= 1) &&
-                   (*numberOftroupsToMove < m.getcoutryById(*startingCountry)->getNumberOfTroops() ) ){
+                cin >> *numberOfTroopsToMove;
+                //if the number of troop is between 1 and the the number of troop in starting country -1
+                if((*numberOfTroopsToMove >= 1) &&
+                   (*numberOfTroopsToMove < m.getcoutryById(*startingCountry)->getNumberOfTroops() ) ){
                     return true;
                 }
                 

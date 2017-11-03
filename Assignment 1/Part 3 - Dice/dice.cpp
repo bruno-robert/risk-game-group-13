@@ -57,7 +57,7 @@ Dice::Dice() {
     four = 0;
     five = 0;
     six = 0;
-    srand(time(NULL));
+    srand((int)time(NULL));
 }
 
 /*Dice getters*/
