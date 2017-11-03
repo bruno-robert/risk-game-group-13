@@ -20,10 +20,11 @@ Player::Player(){ //Default constructor create empty players
 
 }
 
-Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice){
+Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, PlayerStrategyPattern *psp){
 	this->ownedCountry = ownedCountry;
 	this->hand = hand;
 	this->dice = dice;
+    this-> psp = psp;
 }
 
 

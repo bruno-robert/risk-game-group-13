@@ -12,6 +12,9 @@
 		159DAA061FAA64D30068EE78 /* PSPatern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 158080FE1FA91C8500677348 /* PSPatern.cpp */; };
 		159DAA071FAB63120068EE78 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467C1FA3A4250081DD71 /* Map.cpp */; };
 		159DAA0A1FAB69220068EE78 /* PSPDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 159DAA081FAB69220068EE78 /* PSPDriver.cpp */; };
+		15EB6E301FACF5A50010C01C /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046711FA3A4250081DD71 /* Player.cpp */; };
+		15EB6E311FACF5C30010C01C /* Cards.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560466D1FA3A4250081DD71 /* Cards.cpp */; };
+		15EB6E321FACF5E50010C01C /* dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046761FA3A4250081DD71 /* dice.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -214,9 +217,9 @@
 			children = (
 				156046781FA3A4250081DD71 /* Part 1 - Map */,
 				156046671FA3A4250081DD71 /* Part 2 - Map Loader */,
-				1560466C1FA3A4250081DD71 /* Part 5 - Cards */,
-				156046701FA3A4250081DD71 /* Part 4 - Player */,
 				156046741FA3A4250081DD71 /* Part 3 - Dice */,
+				156046701FA3A4250081DD71 /* Part 4 - Player */,
+				1560466C1FA3A4250081DD71 /* Part 5 - Cards */,
 			);
 			path = "Assignment 1";
 			sourceTree = "<group>";
@@ -476,6 +479,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15EB6E301FACF5A50010C01C /* Player.cpp in Sources */,
+				15EB6E311FACF5C30010C01C /* Cards.cpp in Sources */,
+				15EB6E321FACF5E50010C01C /* dice.cpp in Sources */,
 				159DAA071FAB63120068EE78 /* Map.cpp in Sources */,
 				159DAA0A1FAB69220068EE78 /* PSPDriver.cpp in Sources */,
 				159DAA061FAA64D30068EE78 /* PSPatern.cpp in Sources */,
