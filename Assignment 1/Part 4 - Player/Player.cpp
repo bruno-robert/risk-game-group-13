@@ -29,7 +29,7 @@ Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, PlayerS
 
 
 void Player::reinforce(){
-	
+
 	cout << "You are reinforcing. " << endl;
 }
 
@@ -38,9 +38,23 @@ void Player::attack(){
 	cout << "You are attacking. " << endl;
 }
 
-void Player::fortify(){
+bool Player::fortify(int startingCountry, int destinationCountry, int numberOfTroopsToMove, Map& m){
+    bool tempBool = false;
 
-	cout << "You are fortifying. " << endl;
+    if(psp != NULL) {
+        tempBool = psp->getFortifyValues(&startingCountry, &destinationCountry, &numberOfTroopsToMove, m, playerID);
+    }
+    if(tempBool) {
+        //removing troups from starting country
+        m.getcoutryById(startingCountry)->setNumberOfTroops(m.getcoutryById(startingCountry)->getNumberOfTroops() - numberOfTroopsToMove);
+        
+        //adding troups to destinationCountry
+        m.getcoutryById(destinationCountry)->setNumberOfTroops(m.getcoutryById(destinationCountry)->getNumberOfTroops() + numberOfTroopsToMove);
+        
+        return true;
+    }
+    
+    return false;
 }
 
 vector<CountryNode *> Player::getCountry(){
