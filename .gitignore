@@ -1,5 +1,4 @@
 .vs
-
 # Created by https://www.gitignore.io/api/c++,xcode
 
 ### C++ ###
@@ -60,6 +59,7 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+*.xcuserstate
 
 ### Xcode Patch ###
 *.xcodeproj/*
