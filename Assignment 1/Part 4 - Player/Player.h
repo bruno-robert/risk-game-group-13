@@ -8,15 +8,15 @@
 //               Implementing reinforce(), attack(), fortify() player actions according to official game rule.
 //============================================================================
 
+#ifndef __Player_H_INCLUDED__
+#define __Player_H_INCLUDED__
+
 #include <iostream>
 #include <vector>
 #include "Map.h" //Part 1
 #include "dice.h" //Part 3
 #include "Cards.h" //Part 5
 #include "PSPatern.hpp"
-
-#ifndef __Player_H_INCLUDED__
-#define __Player_H_INCLUDED__
 
 using namespace std;
 
