@@ -13,13 +13,14 @@
 #include "Map.h" //Part 1
 #include "dice.h" //Part 3
 #include "Cards.h" //Part 5
+#include "Subject.h"
 
 #ifndef __Player_H_INCLUDED__
 #define __Player_H_INCLUDED__
 
 using namespace std;
 
-class Player{
+class Player : public Subject{
 public:
 
 	Player(); //Default Constructor
@@ -34,7 +35,7 @@ public:
 	void reinforce();//Player action methods
 	void attack();
 	void fortify();
-    void setCountry(vector<CountryNode *> ownedCountry);
+        void setCountry(vector<CountryNode *> ownedCountry);
 	void setPlayerID(int id);
 
 private:

@@ -9,6 +9,7 @@
 //============================================================================
 
 #include "Player.h"
+#include "Subject.h"
 
 
 using namespace std;
@@ -46,28 +47,37 @@ vector<CountryNode *> Player::getCountry(){
 
 	return ownedCountry;
 };
+
 Hand Player::getHand(){
 	return this->hand;
 };
+
 Dice Player::getDice(){
 	return this->dice;
 };
+
 int Player::getPlayerID() {
 	return this->playerID;
 };
+
 Hand& Player::getHandByRef() {
 	return this->hand;
 };
+
 Dice& Player::getDiceByRef() {
 	return this->dice;
 };
+
 vector<CountryNode *>& Player::getCountryByRef() {
 
 	return ownedCountry;
 };
+
 void Player::setCountry(vector<CountryNode *> ownedCountry){
 	this->ownedCountry = ownedCountry;
+        notify("map change");
 };
+
 void Player::setPlayerID(int id) {
 	this->playerID = id;
 };
