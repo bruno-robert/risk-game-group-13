@@ -12,6 +12,7 @@
 #define ATTACK_H
 
 #include "Player.h" 
+#include "Subject.h"
 #include "Map.h"    
 #include <iostream>
 #include <vector>
@@ -20,9 +21,10 @@
 #include <sstream>
 using namespace std;
 
-class Attack {
+class Attack : public Subject {
 public:
     Attack();
+    ~Attack();
     bool yesNoQuestion(string question);
     void attackLoop(vector<Player*> playerList, Player* attacker, Map* map);
     string attackFrom(Player* attacker, Map* map);
@@ -35,7 +37,29 @@ public:
     void reverseSortDiceResults(int diceResults[]);
     void conqueredCountry(CountryNode* attackingCountry, CountryNode* defendingCountry, Player* attacker, Player* defender);
     Player* getAssociatedPlayer(vector<Player*> playerList, string country);
-            
+    
+    //Setters and getters
+    void setPlayerListData(vector<Player*> playerListData);
+    void setAttackingCountryData(CountryNode* attackingCountryData);
+    void setDefendingCountryData(CountryNode* defendingCountryData);
+    void setAttackingPlayerData(Player* attackingPlayerData);
+    void setDefendingPlayerData(Player* defendingPlayerData);
+    void setMapData(Map* map);
+    
+    vector<Player*> getPlayerListData();
+    CountryNode* getAttackingCountryData();
+    CountryNode* getDefendingCountryData();
+    Player* getAttackingPlayerData();
+    Player* getDefendingPlayerData();
+    Map* getMapData();
+    
+private:
+    vector<Player*> playerListData;
+    CountryNode* attackingCountryData;
+    CountryNode* defendingCountryData;
+    Player* attackingPlayerData;
+    Player* defendingPlayerData; 
+    Map* mapData;
 };
 
 #endif /* ATTACK_H */
