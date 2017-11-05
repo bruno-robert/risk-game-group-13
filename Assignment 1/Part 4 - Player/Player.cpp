@@ -75,7 +75,6 @@ vector<CountryNode *>& Player::getCountryByRef() {
 
 void Player::setCountry(vector<CountryNode *> ownedCountry){
 	this->ownedCountry = ownedCountry;
-        notify("map change");
 };
 
 void Player::setPlayerID(int id) {
