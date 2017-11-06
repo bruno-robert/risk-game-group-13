@@ -39,7 +39,7 @@ public:
 	vector<CountryNode *>& getCountryByRef();
 	void reinforce();//Player action methods
 	void attack();
-	bool fortify(int startingCountry, int destinationCountry, int numberOfTroopsToMove, Map& m);
+	bool fortify(Map& m);
     void setCountry(vector<CountryNode *> ownedCountry);
 	void setPlayerID(int id);
 };

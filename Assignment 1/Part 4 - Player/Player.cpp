@@ -38,13 +38,20 @@ void Player::attack(){
 	cout << "You are attacking. " << endl;
 }
 
-bool Player::fortify(int startingCountry, int destinationCountry, int numberOfTroopsToMove, Map& m){// TODO: remove params
-    bool tempBool = false;
+/**
+ Players fortify method. Call the appropriate PSP.fortify method to get values, then it moves the troups.
+ 
+ */
+bool Player::fortify(Map& m){
+    bool gotTroops = false;
+    int startingCountry = -1;
+    int destinationCountry = -1;
+    int numberOfTroopsToMove = -1;
 
     if(psp != NULL) {
-        tempBool = psp->getFortifyValues(&startingCountry, &destinationCountry, &numberOfTroopsToMove, m, playerID);
+        gotTroops = psp->getFortifyValues(&startingCountry, &destinationCountry, &numberOfTroopsToMove, m, playerID);
     }
-    if(tempBool) {
+    if(gotTroops) {
         //removing troups from starting country
         m.getcoutryById(startingCountry)->setNumberOfTroops(m.getcoutryById(startingCountry)->getNumberOfTroops() - numberOfTroopsToMove);
         
