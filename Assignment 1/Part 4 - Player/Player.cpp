@@ -38,7 +38,7 @@ void Player::attack(){
 	cout << "You are attacking. " << endl;
 }
 
-bool Player::fortify(int startingCountry, int destinationCountry, int numberOfTroopsToMove, Map& m){
+bool Player::fortify(int startingCountry, int destinationCountry, int numberOfTroopsToMove, Map& m){// TODO: remove params
     bool tempBool = false;
 
     if(psp != NULL) {
