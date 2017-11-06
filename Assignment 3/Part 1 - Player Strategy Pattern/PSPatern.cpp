@@ -120,3 +120,26 @@ void Human::getAttackValues() {
 void Human::getReinforceValues() {
     
 }
+
+//Agressive PSP
+
+Agressive::Agressive() {
+    
+}
+
+Agressive::~Agressive() {
+    
+}
+
+bool Agressive::getFortifyValues(int *startingCountry, int *destinationCountry, int *numberOftroopsToMove, Map &m, int player) {
+    
+    //loop thourgh owned countries and find the bigggest one in terms of troups
+    
+    //If the biggest country is adjacent to an enemy country -> find second biggest owned country
+    // and move troups towards biggest country
+    
+    //If the biggest country is not adjeacent to an enemy country, find closes enemy country and move troups towards that
+    
+    
+    return true;
+}

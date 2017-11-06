@@ -38,7 +38,15 @@ public:
     
 };
 //subclass of PlayerStrategyPattern
-class Agressive;
+class Agressive{
+public:
+    Agressive();
+    ~Agressive();
+    
+    bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOftroopsToMove, Map& m, int player);
+    void getAttackValues();
+    void getReinforceValues();
+};
 //subclass of PlayerStrategyPattern
 class Benevolent;
 
