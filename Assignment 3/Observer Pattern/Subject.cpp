@@ -13,9 +13,11 @@
 Subject::Subject(){
 	observers = new list<Observer*>;
 }
+
 Subject::~Subject(){ 
-	delete observers;
+	observers->clear();
 }
+
 void Subject::attach(Observer* o){
   observers->push_back(o);
 };
