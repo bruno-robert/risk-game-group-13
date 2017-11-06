@@ -17,7 +17,7 @@ class Observer;
 class Subject {
   public:
         Subject();
-	~Subject();
+	virtual ~Subject();
 	virtual void attach(Observer* o);
 	virtual void detach(Observer* o);
 	virtual void notify(string message);

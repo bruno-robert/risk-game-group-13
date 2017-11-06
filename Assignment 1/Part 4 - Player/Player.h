@@ -24,6 +24,7 @@ class Player : public Subject{
 public:
 
 	Player(); //Default Constructor
+	~Player();
 	Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice); //Complete Constructor
 	vector<CountryNode *> getCountry(); //Getters
 	Hand getHand();

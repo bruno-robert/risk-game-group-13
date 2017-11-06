@@ -21,6 +21,11 @@ Player::Player(){ //Default constructor create empty players
 
 };
 
+Player::~Player()
+{
+	
+}
+
 Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice){
 	this->ownedCountry = ownedCountry;
 	this->hand = hand;

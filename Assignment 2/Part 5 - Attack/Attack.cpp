@@ -19,17 +19,7 @@ Attack::Attack(){
 }
 
 Attack::~Attack(){
-    delete attackingCountryData;
-    delete defendingCountryData;
-    delete attackingPlayerData;
-    delete defendingPlayerData; 
-    delete mapData;
-    
-    attackingCountryData = NULL;
-    defendingCountryData = NULL;
-    attackingPlayerData = NULL;
-    defendingPlayerData = NULL;
-    mapData = NULL;
+		
 }
 
 bool Attack::yesNoQuestion(string question)
@@ -67,7 +57,7 @@ void Attack::attackLoop(vector<Player*> playerList, Player* attacker, Map* map){
     setPlayerListData(playerList);
     setAttackingPlayerData(attacker);
     setMapData(map);
-    
+
     bool wantsToAttack = yesNoQuestion("Do you wish to attack?");
     
     while(wantsToAttack){
@@ -82,6 +72,8 @@ void Attack::attackLoop(vector<Player*> playerList, Player* attacker, Map* map){
         string defendingCountry = toAttack(playerList, attacker, map, attackFrom);
         CountryNode* attackTo = map->getCountryByName(defendingCountry);
         setDefendingCountryData(attackTo);
+
+		notify("Attack to/from set");
         
         Player* defender = getAssociatedPlayer(playerList, defendingCountry);
         setDefendingPlayerData(defender);
@@ -128,6 +120,8 @@ void Attack::attackLoop(vector<Player*> playerList, Player* attacker, Map* map){
             }
             
             //Output results of comparing dice
+			string troopsLost = "Troops lost calculated|" + to_string(attackerLoses) + "|" + to_string(defenderLoses);
+			notify(troopsLost);
             cout << "Attacker loses " << attackerLoses << " army personnel" << endl;
             cout << "Defender loses " << defenderLoses << " army personnel" << endl;
             
@@ -139,15 +133,20 @@ void Attack::attackLoop(vector<Player*> playerList, Player* attacker, Map* map){
                 cout << "Attacker has only one troop left on attacking country" << endl;
                 cout << "You cannot continue this attack" << endl;
                 continueAttack = false;
+				notify("Attack ended");
             }
             else if(attackTo->getNumberOfTroops()<1){
                 cout << "Defender has no more troops left" << endl;
                 cout << "Country has been conquered by attacker!" << endl;
                 conqueredCountry(attackFrom, attackTo, attacker, defender);
                 continueAttack = false;
+				notify("Attacker conquered");
             }
-            else
-                continueAttack = yesNoQuestion("Do you wish to continue this attack?");
+			else
+			{
+				continueAttack = yesNoQuestion("Do you wish to continue this attack?");
+				if (!continueAttack) notify("Attack ended");
+			}
         }
         
         wantsToAttack = yesNoQuestion("Do you wish to launch another attack?");
@@ -511,8 +510,8 @@ void Attack::setDefendingCountryData(CountryNode* defendingCountryData){
     this->defendingCountryData = defendingCountryData;
 }
 
-void Attack::setAttackingPlayerData(Player* attackingPlayerData){
-    this->attackingPlayerData = attackingPlayerData;
+void Attack::setAttackingPlayerData(Player* attackingPlayer){
+    this->attackingPlayerData = attackingPlayer;
 }
 
 void Attack::setDefendingPlayerData(Player* defendingPlayerData){
