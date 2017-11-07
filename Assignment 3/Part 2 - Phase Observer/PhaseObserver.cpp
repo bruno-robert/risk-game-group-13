@@ -72,10 +72,10 @@ void PhaseObserver::setReinforcePhaseSubject(Reinforce* reinforce)
 	this->reinforceSubject = reinforce;
 	reinforceSubject->attach(this);
 }
-/*
+
 void PhaseObserver::setFortifyPhaseSubject(FortificationPhase* fortify)
 {
 	this->fortificationSubject = fortify;
 	fortificationSubject->attach(this);
 }
-*/
+

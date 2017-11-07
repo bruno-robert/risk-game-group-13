@@ -20,7 +20,7 @@ int main()
 
 	observer.setAttackPhaseSubject(&attackPhase);
 	observer.setReinforcePhaseSubject(&reinforcePhase);
-	//observer.setFortifyPhaseSubject(&fortificationPhase);
+	observer.setFortifyPhaseSubject(&fortificationPhase);
 
 	Map map;
 
@@ -115,19 +115,37 @@ int main()
 
 	//Assigning countries
 	player1Countries.push_back(&mongolia);
+	mongolia.setOwnedBy(player1.getPlayerID());
 	player1Countries.push_back(&china);
+	china.setOwnedBy(player1.getPlayerID());
 	player1Countries.push_back(&france);
+	france.setOwnedBy(player1.getPlayerID());
 	player2Countries.push_back(&mexico);
+	mexico.setOwnedBy(player2.getPlayerID());
 	player2Countries.push_back(&uk);
+	uk.setOwnedBy(player2.getPlayerID());
 	player2Countries.push_back(&spain);
+	spain.setOwnedBy(player2.getPlayerID());
 	player3Countries.push_back(&canada);
+	canada.setOwnedBy(player3.getPlayerID());
 	player3Countries.push_back(&usa);
+	usa.setOwnedBy(player3.getPlayerID());
 
 	player1.setCountry(player1Countries);
 	player2.setCountry(player2Countries);
 	player3.setCountry(player3Countries);
 		
 	attackPhase.attackLoop(playerList, &player1, &map);
+
 	reinforcePhase.reinforceDistributions(player1);
+
+	mongolia.setNumberOfTroops(10);
+	france.setNumberOfTroops(10);
+	uk.setNumberOfTroops(10);
+	spain.setNumberOfTroops(10);
+	china.setNumberOfTroops(10);
+
+	fortificationPhase.fortify(player1.getPlayerID(), map);
+
 	cout << "End of program!" << endl;
 }

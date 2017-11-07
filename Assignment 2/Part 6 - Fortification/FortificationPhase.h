@@ -14,8 +14,9 @@
 #include "Player.h"
 using namespace std;
 
-class FortificationPhase {
+class FortificationPhase : public Subject {
     vector <Player *> playerList;
+	int inputCountry(Map &m);
 public:
     FortificationPhase();
     ~FortificationPhase();

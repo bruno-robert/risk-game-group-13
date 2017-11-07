@@ -16,20 +16,23 @@ using namespace std;
 
 // Player Class
 
-
 Player::Player(){ //Default constructor create empty players
-
+	players++;
+	playerID = players;
 };
 
 Player::~Player()
 {
-	
+	players--;
 }
 
 Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice){
 	this->ownedCountry = ownedCountry;
 	this->hand = hand;
 	this->dice = dice;
+
+	players++;
+	playerID = players;
 };
 
 
