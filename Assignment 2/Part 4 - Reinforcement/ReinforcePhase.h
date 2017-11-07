@@ -12,15 +12,16 @@
 
 #include "Player.h"
 
-class Reinforce : public Subject {
+class Reinforce{
 
 public:
 	void reinforceDistributions(Player& player);	// This is the only method that needs to be called
 	int totalUnits(Player& player);
-
 //Helper methods
 private:			
+	
 	int  unitsForCountries(Player& player);
 	int  unitsForContinents(Player& player);
 	int  unitsForCards(Player& player);
 };
+

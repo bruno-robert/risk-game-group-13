@@ -10,5 +10,40 @@
 #define PSPatern_hpp
 
 #include <stdio.h>
+#include <vector>
+#include <iostream>
+
+#include "Map.h"
+//#include "Player.h"
+class Player;
+
+using namespace std;
+//this is to be the parent class of Human Agressive and Benevolent
+class PlayerStrategyPattern {
+public:
+    PlayerStrategyPattern();
+    virtual ~PlayerStrategyPattern();
+    virtual void executeFortify(Player& user)= 0;
+    virtual void executeAttack(Player& user)= 0;
+    virtual void executeReinforce(Player& user)= 0;
+};
+//subclass of PlayerStrategyPattern
+class Human : public PlayerStrategyPattern{
+    static int countryNameToID(string countryName, Map& m);
+public:
+    
+    Human();
+    ~Human();
+    //Takes human input to changes the values of the given variables pointed to pointers. Before returning the function verifies that the given values are valid.
+    void executeFortify(Player& user);
+    void executeAttack(Player& user);
+    void executeReinforce(Player& user);
+    
+};
+//subclass of PlayerStrategyPattern
+class Agressive;
+//subclass of PlayerStrategyPattern
+class Benevolent;
+
 
 #endif /* PSPatern_hpp */

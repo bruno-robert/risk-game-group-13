@@ -54,8 +54,6 @@ return units;
 
 int Reinforce::unitsForCards(Player& player) {
 	int units = player.getHandByRef().exchange();
-	string notifyString = "PHASE_OBSERVER|" + player.getHandByRef().getExchangeString();
-	notify(notifyString);
 	cout << "size of the hand: " << player.getHand().getSize() << endl;
 	cout << "The card bonus is of " << units << " units." << endl;
 	return units;
