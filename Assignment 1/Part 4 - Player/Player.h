@@ -25,6 +25,7 @@ class Player{
     Hand hand;
     Dice dice;
     int playerID;
+    static int numberOfPlayers;
     PlayerStrategyPattern * psp;
 public:
 

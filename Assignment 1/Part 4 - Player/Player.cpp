@@ -15,9 +15,10 @@ using namespace std;
 
 // Player Class
 
+int Player::numberOfPlayers = 0;
 
 Player::Player(){ //Default constructor create empty players
-
+    playerID = ++numberOfPlayers;
 }
 
 Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, PlayerStrategyPattern *psp){
@@ -25,6 +26,7 @@ Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, PlayerS
 	this->hand = hand;
 	this->dice = dice;
     this-> psp = psp;
+    playerID = ++numberOfPlayers;
 }
 
 
