@@ -20,7 +20,7 @@ class PhaseObserver : public Observer
 {
 	Attack* attackSubject;
 	Reinforce* reinforceSubject;
-	//FortificationPhase* fortificationSubject;
+	FortificationPhase* fortificationSubject;
 public:
 	PhaseObserver();
 	~PhaseObserver();
@@ -28,6 +28,6 @@ public:
 	void update(string message);
 	void setAttackPhaseSubject(Attack* attack);
 	void setReinforcePhaseSubject(Reinforce* reinforce);
-	//void setFortifyPhaseSubject(FortificationPhase* fortify);
+	void setFortifyPhaseSubject(FortificationPhase* fortify);
 };
 

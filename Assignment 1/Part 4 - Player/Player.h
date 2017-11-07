@@ -20,6 +20,8 @@
 
 using namespace std;
 
+static int players = 0;
+
 class Player : public Subject{
 public:
 
