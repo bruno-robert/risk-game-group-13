@@ -117,7 +117,7 @@ int Hand::exchange() {
 
 		if (infantry >= 3) {
 			cout << "\nThe player traded 3 infantry cards for " << (numOfExchange * 5) << " units." << endl;		// 3 infantry
-			
+
 			exchangeString = ("The player traded 3 infantry cards for " + to_string(numOfExchange * 5) + " units.");
 			int num = 0;
 			while (num < 3) {

@@ -10,6 +10,7 @@
 #include "Player.h"
 #include "ReinforcePhase.h"
 #include <algorithm>
+#include "Subject.h"
 
 int Reinforce::unitsForCountries(Player& player) {
 	int units = player.getCountry().size() / 3;

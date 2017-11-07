@@ -12,8 +12,8 @@
 #include <stdio.h>
 #include <vector>
 #include <iostream>
-
 #include "Map.h"
+
 //#include "Player.h"
 class Player;
 

@@ -53,6 +53,7 @@ void main(){
 	//Creating a player object
 
 	//Aggressive strat;
+
 	PlayerStrategyPattern* strat = new Aggressive;
 
 	Player player1 = Player(player1Set, hand1, dice1, strat);
@@ -63,7 +64,6 @@ void main(){
 		cout << player1.getCountry().at(i)->getCountName() << " has " << player1.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
 	}
 
-	
 	strat->executeReinforce(player1);
 
 	cout << "\nPlayer 1's list of countries and their units: " << endl;

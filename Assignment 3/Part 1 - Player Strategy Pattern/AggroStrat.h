@@ -7,6 +7,7 @@
 #include "Map.h"
 #include "ReinforcePhase.h"
 #include "Attack.h"
+#include "Subject.h"
 
 
 class Aggressive : public PlayerStrategyPattern {

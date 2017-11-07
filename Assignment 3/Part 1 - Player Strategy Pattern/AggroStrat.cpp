@@ -64,22 +64,22 @@ void Aggressive::executeAttack(Player& user) {
 	}
 	CountryNode* attacker = user.getCountryByRef().at(maxIndex);
 		
-	for (int i = 0; i < attacker->getAdjCount().size() && attacker->getNumberOfTroops > 1; i++) {
+	for (int i = 0; i < attacker->getAdjCount().size() && attacker->getNumberOfTroops() > 1; i++) {
 	
 		CountryNode* defender = attacker->getAdjCount().at(i);
 		
-			while (attacker->getNumberOfTroops > 1 && defender->getOwnedBy() != attacker->getOwnedBy()) {
+			while (attacker->getNumberOfTroops() > 1 && defender->getOwnedBy() != attacker->getOwnedBy()) {
 				
 				int attackerDices;
 				
-				if (attacker->getNumberOfTroops > 3)
+				if (attacker->getNumberOfTroops() > 3)
 					attackerDices = 3;
-				if (attacker->getNumberOfTroops == 3)
+				if (attacker->getNumberOfTroops() == 3)
 					attackerDices = 2;
-				if (attacker->getNumberOfTroops == 2)
+				if (attacker->getNumberOfTroops() == 2)
 					attackerDices = 1;
 
-				int defenderDices = defenderAmountOfDice(defender);
+				//int defenderDices = Attack::defenderAmountOfDice(defender);
 
 			}
 		
