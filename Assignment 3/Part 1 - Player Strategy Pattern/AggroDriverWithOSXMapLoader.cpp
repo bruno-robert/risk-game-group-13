@@ -47,6 +47,10 @@ int main(){
     Player player2 = Player(emptyCountryList, hand2, dice2, humanStrat);
     Player player3 = Player(emptyCountryList, hand3, dice3, benevolentStrat);
     
+    vector<Player *> playerList;
+    playerList.push_back(&player1);
+    playerList.push_back(&player2);
+    playerList.push_back(&player3);
     
 	//Creating a vector of CountryNode pointers for my player
 
@@ -59,15 +63,15 @@ int main(){
         (*country)->setNumberOfTroops(5);
         switch (ctr) {
             case 1:
-                player1.addCountryToOwned(*country);
+                player1.addCountryToOwned(*country, playerList);
                 
                 break;
             case 2:
-                player2.addCountryToOwned(*country);
+                player2.addCountryToOwned(*country, playerList);
                 
                 break;
             case 3:
-                player3.addCountryToOwned(*country);
+                player3.addCountryToOwned(*country, playerList);
                 
                 break;
             default:

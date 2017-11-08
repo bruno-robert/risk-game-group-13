@@ -232,7 +232,36 @@ void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
     CountryNode* startingCountry = NULL;
     CountryNode* destinationCountry = NULL;
     int numberOfTroopsToMove;
+    CountryNode * biggest = NULL;
+    CountryNode * secondBiggest = NULL;
     
+    
+    //loop thourgh owned countries and find the bigggest one in terms of troups
+    for(vector<CountryNode*>::iterator country = user.getCountryByRef().begin(); country != user.getCountryByRef().end(); country++){
+        
+        //if this is the first country, it's the biggest for now
+        if(biggest == NULL) {
+            biggest = *country;
+            
+            //if the country has more troops than the current biggest, set it to the biggest
+        } else if ((*country)->getNumberOfTroops() >= biggest->getNumberOfTroops()) {
+            secondBiggest = biggest;
+            biggest = *country;
+        }
+        
+    }
+    
+    //looks at all adjeacent countries to the biggest to check if one or more of them is owned
+        //if yes, move troops from that country to biggest
+        //else, set biggest to second biggest and try again
+    
+    //If the biggest country is adjacent to an enemy country -> find second biggest owned country
+    // and move troups towards biggest country
+    
+    
+    
+    //If the biggest country is not adjeacent to an enemy country, find closes enemy country and move troups towards that
+
     
 
 }
