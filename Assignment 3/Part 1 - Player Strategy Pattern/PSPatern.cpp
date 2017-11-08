@@ -32,7 +32,7 @@ Human::~Human() {
  @param p Player Object
  @return the ID of the country with name countryName. If the country doesn't exist, returns -1
  */
-int Human::countryNameToID(string countryName, Player& p){// TODO: test functionality
+int Human::countryNameToID(string countryName, Player& p){
     vector<CountryNode*> cl = p.getCountryByRef();
     for (vector<CountryNode*>::iterator country = cl.begin(); country != cl.end(); country++) {
         if((*country)->getCountName() == countryName) {
@@ -54,8 +54,8 @@ CountryNode * Human::getCountryById(vector<CountryNode*> countryList, int id) {
 void Human::executeFortify(Player& user) {
     bool troopsMoved = false;
     while(!troopsMoved) {
-        CountryNode* startingCountry;
-        CountryNode* destinationCountry;
+        CountryNode* startingCountry = NULL;
+        CountryNode* destinationCountry = NULL;
         int numberOfTroopsToMove;
         
         //Getting and checking starting country
@@ -63,7 +63,9 @@ void Human::executeFortify(Player& user) {
         //temporary varibales
         string inputString;
         while(true) {
-            cin >> inputString;
+            getline( cin, inputString );
+            cin.ignore();
+            //cin >> inputString;
             int startingCountryID = countryNameToID(inputString, user);
             startingCountry = getCountryById(user.getCountryByRef(), startingCountryID);
             //checks if the starting coutry is valid
@@ -81,7 +83,9 @@ void Human::executeFortify(Player& user) {
         //Getting and checking the destination country
         cout << "please select the destination country" << endl;
         while(true) {
-            cin >> inputString;
+            getline( cin, inputString );
+            cin.ignore();
+            //cin >> inputString;
             int destinationCountryID = countryNameToID(inputString, user);
             
             destinationCountry = getCountryById(user.getCountryByRef(), destinationCountryID);
@@ -89,7 +93,11 @@ void Human::executeFortify(Player& user) {
                 break;
             }
             
-            cout << "Sorry, the value you entered is not valid, please try again:" << endl;
+            if (destinationCountryID == -1) {
+                cout << "We couldn't find your country. Please try again." << endl;
+            } else {
+                cout << "Sorry, the value you entered is not valid, please try again (the country could have to few troops):" << endl;
+            }
         }
         
         //checks the adjacency of both countries and promtps user for number of troop to move
@@ -102,10 +110,10 @@ void Human::executeFortify(Player& user) {
                 if((numberOfTroopsToMove >= 1) &&
                    (numberOfTroopsToMove < startingCountry->getNumberOfTroops() ) ){
                     
-                    //TODO: move the troops
+                    //Removing troups from startingcountry
                     startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
                     
-                    //adding troups to destinationCountry
+                    //Adding troups to destinationCountry
                     destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
                     
                     troopsMoved = true;
@@ -116,8 +124,10 @@ void Human::executeFortify(Player& user) {
                 cout << "Sorry, the number you entered is invalid, please try again:" << endl;
             }
         }
+        if(!troopsMoved) {
+            cout << "Sorry the countries are not adjacent" << endl;
+        }
         
-        cout << "Sorry the countries are not adjacent" << endl;
 
         
         
@@ -218,8 +228,12 @@ void Aggressive::executeAttack(Player& user) {
 	}
 }
 
-void Aggressive::executeFortify(Player& user) {
-
+void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
+    CountryNode* startingCountry = NULL;
+    CountryNode* destinationCountry = NULL;
+    int numberOfTroopsToMove;
+    
+    
 
 }
 
@@ -269,6 +283,6 @@ void Benevolant::executeAttack(Player& user) {
 
 
 void Benevolant::executeFortify(Player& user) {
-
+    //TODO: Implement this @Bruno
 
 }
