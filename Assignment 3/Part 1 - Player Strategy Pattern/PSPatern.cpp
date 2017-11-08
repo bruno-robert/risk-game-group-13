@@ -32,7 +32,7 @@ Human::~Human() {
  @param p Player Object
  @return the ID of the country with name countryName. If the country doesn't exist, returns -1
  */
-int Human::countryNameToID(string countryName, Player& p){// TODO: test functionality
+int Human::countryNameToID(string countryName, Player& p){
     vector<CountryNode*> cl = p.getCountryByRef();
     for (vector<CountryNode*>::iterator country = cl.begin(); country != cl.end(); country++) {
         if((*country)->getCountName() == countryName) {
@@ -110,10 +110,10 @@ void Human::executeFortify(Player& user) {
                 if((numberOfTroopsToMove >= 1) &&
                    (numberOfTroopsToMove < startingCountry->getNumberOfTroops() ) ){
                     
-                    //TODO: move the troops
+                    //Removing troups from startingcountry
                     startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
                     
-                    //adding troups to destinationCountry
+                    //Adding troups to destinationCountry
                     destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
                     
                     troopsMoved = true;
@@ -228,8 +228,12 @@ void Aggressive::executeAttack(Player& user) {
 	}
 }
 
-void Aggressive::executeFortify(Player& user) {
-
+void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
+    CountryNode* startingCountry = NULL;
+    CountryNode* destinationCountry = NULL;
+    int numberOfTroopsToMove;
+    
+    
 
 }
 
@@ -279,6 +283,6 @@ void Benevolant::executeAttack(Player& user) {
 
 
 void Benevolant::executeFortify(Player& user) {
-
+    //TODO: Implement this @Bruno
 
 }
