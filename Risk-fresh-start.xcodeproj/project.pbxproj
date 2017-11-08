@@ -281,8 +281,6 @@
 			children = (
 				158080FC1FA91C8500677348 /* Part 1 - Player Strategy Pattern */,
 				158080FF1FA91C8500677348 /* README.md */,
-				158081001FA91C8500677348 /* Part 2 - Phase Observer */,
-				158081011FA91C8500677348 /* Part 3 - Game Statistics Observer */,
 			);
 			path = "Assignment 3";
 			sourceTree = "<group>";
@@ -296,20 +294,6 @@
 				159DAA091FAB69220068EE78 /* PSPDriver.hpp */,
 			);
 			path = "Part 1 - Player Strategy Pattern";
-			sourceTree = "<group>";
-		};
-		158081001FA91C8500677348 /* Part 2 - Phase Observer */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Part 2 - Phase Observer";
-			sourceTree = "<group>";
-		};
-		158081011FA91C8500677348 /* Part 3 - Game Statistics Observer */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Part 3 - Game Statistics Observer";
 			sourceTree = "<group>";
 		};
 		159BA0F81FA3A1EE006D4512 = {
