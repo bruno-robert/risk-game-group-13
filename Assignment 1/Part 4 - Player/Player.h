@@ -34,7 +34,7 @@ public:
 
 	Player(); //Default Constructor
 	~Player();
-    void addCountryToOwned(CountryNode*);
+    void addCountryToOwned(CountryNode* country, vector<Player*> playerlist);
 	Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, PlayerStrategyPattern * psp); //Complete Constructor
 	vector<CountryNode *> getCountry(); //Getters
 	Hand getHand();

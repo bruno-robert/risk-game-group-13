@@ -35,9 +35,21 @@ Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, PlayerS
     playerID = ++numberOfPlayers;
 }
 
-void Player::addCountryToOwned(CountryNode* country) {
-    ownedCountry.push_back(country);
+void Player::addCountryToOwned(CountryNode* country, vector<Player*> playerList) {
+	
+	Player* playerLost = NULL;
+	for (Player* p : playerList) {
+		if (p->getPlayerID() == country->getOwnedBy())
+			playerLost = p;
+	}
+	if (playerLost != NULL) {
+		vector<CountryNode *> defendersCountries = playerLost->getCountry();
+		defendersCountries.erase(remove(defendersCountries.begin(), defendersCountries.end(), country), defendersCountries.end());
+		playerLost->setCountry(defendersCountries);
+	}
+	ownedCountry.push_back(country);
     country->setOwnedBy(playerID);
+
 }
 
 void Player::reinforce(){

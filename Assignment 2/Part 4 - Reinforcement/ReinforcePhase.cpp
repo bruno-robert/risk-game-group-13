@@ -87,7 +87,8 @@ void Reinforce::reinforceDistributions(Player& player) {
 		CountryNode* reinforcedCountry = NULL;
 
 		while (valid == false) {
-			cin >> entry;
+			std::getline(cin, entry);
+			cin.ignore();
 
 			for (int i = 0; i < player.getCountry().size() && valid == false;i++) {
 				if (entry == player.getCountryByRef().at(i)->getCountName()) {
@@ -110,7 +111,7 @@ void Reinforce::reinforceDistributions(Player& player) {
 			cin.clear();
 			cin.ignore(std::numeric_limits<int>::max(), '\n');
 			cin >> moving;
-			
+
 		}
 
 		reinforcedCountry->setNumberOfTroops(reinforcedCountry->getNumberOfTroops() + moving);
@@ -126,5 +127,5 @@ void Reinforce::reinforceDistributions(Player& player) {
 
 void Reinforce::reinforceNotify(CountryNode* country, int units) {
 	string  message = "PHASE_OBSERVER|" + country->getCountName() + " has received " + to_string(units) + " units.";
-	notify(message);
+	Subject::notify(message);
 }
