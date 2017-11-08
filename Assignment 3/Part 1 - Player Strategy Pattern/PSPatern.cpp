@@ -70,7 +70,12 @@ void Human::executeFortify(Player& user) {
             if((startingCountryID >= 1) && (startingCountry != NULL) && (startingCountry->getOwnedBy() == user.getPlayerID()) && (startingCountry->getNumberOfTroops() > 1)) {
                 break;
             }
-            cout << "Sorry, the value you entered is not valid, please try again (the country could have to few troops):" << endl;
+            if (startingCountryID == -1) {
+                cout << "We couldn't find your country. Please try again." << endl;
+            } else {
+                cout << "Sorry, the value you entered is not valid, please try again (the country could have to few troops):" << endl;
+            }
+            
         }
         
         //Getting and checking the destination country
@@ -78,10 +83,12 @@ void Human::executeFortify(Player& user) {
         while(true) {
             cin >> inputString;
             int destinationCountryID = countryNameToID(inputString, user);
+            
             destinationCountry = getCountryById(user.getCountryByRef(), destinationCountryID);
             if((destinationCountryID >= 1) && (destinationCountry != NULL)&& (destinationCountry->getOwnedBy() == user.getPlayerID())) {
                 break;
             }
+            
             cout << "Sorry, the value you entered is not valid, please try again:" << endl;
         }
         
