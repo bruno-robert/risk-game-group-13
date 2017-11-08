@@ -14,13 +14,13 @@
 		15D2CFA51FB2902E003B1845 /* PhaseObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFA01FB2902E003B1845 /* PhaseObserver.cpp */; };
 		15D2CFAB1FB29069003B1845 /* Subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFA81FB29069003B1845 /* Subject.cpp */; };
 		15D2CFAC1FB29069003B1845 /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFA91FB29069003B1845 /* Observer.cpp */; };
-		15D2CFAE1FB29218003B1845 /* AggroDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFAD1FB29218003B1845 /* AggroDriver.cpp */; };
 		15D2CFAF1FB2948A003B1845 /* ReinforcePhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046641FA3A4250081DD71 /* ReinforcePhase.cpp */; };
 		15D2CFB01FB29490003B1845 /* Attack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046601FA3A4250081DD71 /* Attack.cpp */; };
 		15D2CFBE1FB2AE96003B1845 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467C1FA3A4250081DD71 /* Map.cpp */; };
 		15D2CFC01FB2B637003B1845 /* MapLoaderOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFBF1FB2B637003B1845 /* MapLoaderOSX.cpp */; };
 		15D2CFC21FB2BCAB003B1845 /* MapLoaderOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFBF1FB2B637003B1845 /* MapLoaderOSX.cpp */; };
 		15D2CFC81FB2BD44003B1845 /* Part2DriverOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFC71FB2BD44003B1845 /* Part2DriverOSX.cpp */; };
+		15D2CFCA1FB2BDC8003B1845 /* AggroDriverWithOSXMapLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFC91FB2BDC8003B1845 /* AggroDriverWithOSXMapLoader.cpp */; };
 		15EB6E301FACF5A50010C01C /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046711FA3A4250081DD71 /* Player.cpp */; };
 		15EB6E311FACF5C30010C01C /* Cards.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560466D1FA3A4250081DD71 /* Cards.cpp */; };
 		15EB6E321FACF5E50010C01C /* dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046761FA3A4250081DD71 /* dice.cpp */; };
@@ -136,6 +136,7 @@
 		15D2CFC11FB2B685003B1845 /* MapLoaderOSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapLoaderOSX.h; sourceTree = "<group>"; };
 		15D2CFC51FB2BD34003B1845 /* Part2Driver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Part2Driver.cpp; sourceTree = "<group>"; };
 		15D2CFC71FB2BD44003B1845 /* Part2DriverOSX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Part2DriverOSX.cpp; sourceTree = "<group>"; };
+		15D2CFC91FB2BDC8003B1845 /* AggroDriverWithOSXMapLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AggroDriverWithOSXMapLoader.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +340,7 @@
 				159DAA081FAB69220068EE78 /* PSPDriver.cpp */,
 				159DAA091FAB69220068EE78 /* PSPDriver.hpp */,
 				15D2CFAD1FB29218003B1845 /* AggroDriver.cpp */,
+				15D2CFC91FB2BDC8003B1845 /* AggroDriverWithOSXMapLoader.cpp */,
 			);
 			path = "Part 1 - Player Strategy Pattern";
 			sourceTree = "<group>";
@@ -566,6 +568,7 @@
 			files = (
 				15D2CFC21FB2BCAB003B1845 /* MapLoaderOSX.cpp in Sources */,
 				15EB6E301FACF5A50010C01C /* Player.cpp in Sources */,
+				15D2CFCA1FB2BDC8003B1845 /* AggroDriverWithOSXMapLoader.cpp in Sources */,
 				15EB6E311FACF5C30010C01C /* Cards.cpp in Sources */,
 				15EB6E321FACF5E50010C01C /* dice.cpp in Sources */,
 				15D2CFAB1FB29069003B1845 /* Subject.cpp in Sources */,
@@ -573,7 +576,6 @@
 				15D2CFA51FB2902E003B1845 /* PhaseObserver.cpp in Sources */,
 				15D2CFAC1FB29069003B1845 /* Observer.cpp in Sources */,
 				159DAA061FAA64D30068EE78 /* PSPatern.cpp in Sources */,
-				15D2CFAE1FB29218003B1845 /* AggroDriver.cpp in Sources */,
 				15D2CFAF1FB2948A003B1845 /* ReinforcePhase.cpp in Sources */,
 				15D2CFB01FB29490003B1845 /* Attack.cpp in Sources */,
 			);
