@@ -24,9 +24,8 @@ Attack::~Attack(){
 
 bool Attack::yesNoQuestion(string question)
 {
-    bool done=false;
     
-    while(!done)
+    while(true)
     {
         cout << question << "y/n" << endl;
         
