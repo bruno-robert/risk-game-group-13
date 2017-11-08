@@ -12,10 +12,10 @@
 		159DAA061FAA64D30068EE78 /* PSPatern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 158080FE1FA91C8500677348 /* PSPatern.cpp */; };
 		159DAA071FAB63120068EE78 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467C1FA3A4250081DD71 /* Map.cpp */; };
 		159DAA0A1FAB69220068EE78 /* PSPDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 159DAA081FAB69220068EE78 /* PSPDriver.cpp */; };
-		15D2CFA21FB2902E003B1845 /* GameStatsObserverDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CF9C1FB2902E003B1845 /* GameStatsObserverDriver.cpp */; };
 		15D2CFA31FB2902E003B1845 /* GameStatsObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CF9D1FB2902E003B1845 /* GameStatsObserver.cpp */; };
-		15D2CFA41FB2902E003B1845 /* PhaseObserverDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CF9F1FB2902E003B1845 /* PhaseObserverDriver.cpp */; };
 		15D2CFA51FB2902E003B1845 /* PhaseObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFA01FB2902E003B1845 /* PhaseObserver.cpp */; };
+		15D2CFAB1FB29069003B1845 /* Subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFA81FB29069003B1845 /* Subject.cpp */; };
+		15D2CFAC1FB29069003B1845 /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFA91FB29069003B1845 /* Observer.cpp */; };
 		15EB6E301FACF5A50010C01C /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046711FA3A4250081DD71 /* Player.cpp */; };
 		15EB6E311FACF5C30010C01C /* Cards.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560466D1FA3A4250081DD71 /* Cards.cpp */; };
 		15EB6E321FACF5E50010C01C /* dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046761FA3A4250081DD71 /* dice.cpp */; };
@@ -113,6 +113,10 @@
 		15D2CF9F1FB2902E003B1845 /* PhaseObserverDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhaseObserverDriver.cpp; sourceTree = "<group>"; };
 		15D2CFA01FB2902E003B1845 /* PhaseObserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhaseObserver.cpp; sourceTree = "<group>"; };
 		15D2CFA11FB2902E003B1845 /* PhaseObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhaseObserver.h; sourceTree = "<group>"; };
+		15D2CFA71FB29069003B1845 /* Observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observer.h; sourceTree = "<group>"; };
+		15D2CFA81FB29069003B1845 /* Subject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Subject.cpp; sourceTree = "<group>"; };
+		15D2CFA91FB29069003B1845 /* Observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Observer.cpp; sourceTree = "<group>"; };
+		15D2CFAA1FB29069003B1845 /* Subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subject.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +296,7 @@
 				158080FC1FA91C8500677348 /* Part 1 - Player Strategy Pattern */,
 				15D2CF9E1FB2902E003B1845 /* Part 2 - Phase Observer */,
 				15D2CF9A1FB2902E003B1845 /* Part 3 */,
+				15D2CFA61FB29069003B1845 /* Observer Pattern */,
 				158080FF1FA91C8500677348 /* README.md */,
 			);
 			path = "Assignment 3";
@@ -347,6 +352,17 @@
 				15D2CFA11FB2902E003B1845 /* PhaseObserver.h */,
 			);
 			path = "Part 2 - Phase Observer";
+			sourceTree = "<group>";
+		};
+		15D2CFA61FB29069003B1845 /* Observer Pattern */ = {
+			isa = PBXGroup;
+			children = (
+				15D2CFA71FB29069003B1845 /* Observer.h */,
+				15D2CFA81FB29069003B1845 /* Subject.cpp */,
+				15D2CFA91FB29069003B1845 /* Observer.cpp */,
+				15D2CFAA1FB29069003B1845 /* Subject.h */,
+			);
+			path = "Observer Pattern";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -496,13 +512,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				15EB6E301FACF5A50010C01C /* Player.cpp in Sources */,
-				15D2CFA41FB2902E003B1845 /* PhaseObserverDriver.cpp in Sources */,
 				15EB6E311FACF5C30010C01C /* Cards.cpp in Sources */,
 				15EB6E321FACF5E50010C01C /* dice.cpp in Sources */,
+				15D2CFAB1FB29069003B1845 /* Subject.cpp in Sources */,
 				159DAA071FAB63120068EE78 /* Map.cpp in Sources */,
 				15D2CFA51FB2902E003B1845 /* PhaseObserver.cpp in Sources */,
 				159DAA0A1FAB69220068EE78 /* PSPDriver.cpp in Sources */,
-				15D2CFA21FB2902E003B1845 /* GameStatsObserverDriver.cpp in Sources */,
+				15D2CFAC1FB29069003B1845 /* Observer.cpp in Sources */,
 				159DAA061FAA64D30068EE78 /* PSPatern.cpp in Sources */,
 				15D2CFA31FB2902E003B1845 /* GameStatsObserver.cpp in Sources */,
 			);
