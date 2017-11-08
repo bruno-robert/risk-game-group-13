@@ -2,9 +2,11 @@
 #include "PSPatern.hpp"
 #include "Player.h"
 #include "MapLoaderOSX.h"
+#include <ctime>
+#include <cstdlib>
 
 int main(){
-
+    srand((int)time(NULL));
     MapLoader ml;
     string value = "World.map";
     ml.ReadFile(value);
@@ -60,7 +62,7 @@ int main(){
     vector<CountryNode*> player2Set;
     vector<CountryNode*> player3Set;
     for(vector<CountryNode*>::iterator country = countryList.begin(); country != countryList.end(); country++) {
-        (*country)->setNumberOfTroops(5);
+        (*country)->setNumberOfTroops(rand() % 10 + 1);
         switch (ctr) {
             case 1:
                 player1.addCountryToOwned(*country, playerList);
@@ -95,6 +97,12 @@ int main(){
 //    for (int i = 0; i < player1.getCountry().size(); i++) {
 //        cout << player1.getCountry().at(i)->getCountName() << " has " << player1.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
 //    }
+    cout << "\nPlayer 2's list of countries and their units: " << endl;
+    for (int i = 0; i < player2.getCountry().size(); i++) {
+        cout << player2.getCountry().at(i)->getCountName() << " has " << player2.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+    }
+    cout << "sorting the countries of player by numberOftroops" << endl;
+    player2.topDownCountMergeSort();
     cout << "\nPlayer 2's list of countries and their units: " << endl;
     for (int i = 0; i < player2.getCountry().size(); i++) {
         cout << player2.getCountry().at(i)->getCountName() << " has " << player2.getCountry().at(i)->getNumberOfTroops() << " units." << endl;

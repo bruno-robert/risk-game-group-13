@@ -51,7 +51,7 @@ public:
 	void fortify();
     void setCountry(vector<CountryNode *> ownedCountry);
 	void setPlayerID(int id);
-    void topDownCountMergeSort(vector<CountryNode*>& a, vector<CountryNode*>& b, int n);
+    void topDownCountMergeSort();
 };
 
 #endif
