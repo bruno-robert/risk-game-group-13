@@ -35,6 +35,10 @@ Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, PlayerS
     playerID = ++numberOfPlayers;
 }
 
+void Player::addCountryToOwned(CountryNode* country) {
+    ownedCountry.push_back(country);
+    country->setOwnedBy(playerID);
+}
 
 void Player::reinforce(){
 
