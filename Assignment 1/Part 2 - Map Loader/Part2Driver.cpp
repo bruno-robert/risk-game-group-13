@@ -15,22 +15,11 @@ int main()
 {
 	MapLoader ml;
 	string value;
-	
-    bool mapFound = false;
-    while(!mapFound) {
-        cout << "Enter map name: ";
-        cin >> value;
-        try {
-            
-            ml.ReadFile(value);
-            ml.printMap();
-            mapFound = true;
-        } catch (MapLoaderException) {
-            cout << "The map name you entered couldn't be found" << endl;
-        }
-    }
-    
-	
+	cout << "Enter map name: ";
+	//cin >> value;
+    value = "World.map";
+	ml.ReadFile(value);
+	ml.printMap();
 
 	return 0;
 }

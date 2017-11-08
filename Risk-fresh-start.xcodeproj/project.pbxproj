@@ -20,6 +20,7 @@
 		15D2CFBC1FB2AE88003B1845 /* Part2Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046681FA3A4250081DD71 /* Part2Driver.cpp */; };
 		15D2CFBD1FB2AE8B003B1845 /* MapLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046691FA3A4250081DD71 /* MapLoader.cpp */; };
 		15D2CFBE1FB2AE96003B1845 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467C1FA3A4250081DD71 /* Map.cpp */; };
+		15D2CFC01FB2B637003B1845 /* MapLoaderOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFBF1FB2B637003B1845 /* MapLoaderOSX.cpp */; };
 		15EB6E301FACF5A50010C01C /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046711FA3A4250081DD71 /* Player.cpp */; };
 		15EB6E311FACF5C30010C01C /* Cards.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560466D1FA3A4250081DD71 /* Cards.cpp */; };
 		15EB6E321FACF5E50010C01C /* dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046761FA3A4250081DD71 /* dice.cpp */; };
@@ -132,6 +133,7 @@
 		15D2CFAA1FB29069003B1845 /* Subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subject.h; sourceTree = "<group>"; };
 		15D2CFAD1FB29218003B1845 /* AggroDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AggroDriver.cpp; path = "Assignment 3/Part 1 - Player Strategy Pattern/AggroDriver.cpp"; sourceTree = SOURCE_ROOT; };
 		15D2CFB51FB2AE71003B1845 /* Map Loader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Map Loader"; sourceTree = BUILT_PRODUCTS_DIR; };
+		15D2CFBF1FB2B637003B1845 /* MapLoaderOSX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapLoaderOSX.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +267,7 @@
 			children = (
 				156046681FA3A4250081DD71 /* Part2Driver.cpp */,
 				156046691FA3A4250081DD71 /* MapLoader.cpp */,
+				15D2CFBF1FB2B637003B1845 /* MapLoaderOSX.cpp */,
 				1560466A1FA3A4250081DD71 /* MapLoader.h */,
 				1560466B1FA3A4250081DD71 /* World.map */,
 			);
@@ -575,6 +578,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15D2CFC01FB2B637003B1845 /* MapLoaderOSX.cpp in Sources */,
 				15D2CFBE1FB2AE96003B1845 /* Map.cpp in Sources */,
 				15D2CFBC1FB2AE88003B1845 /* Part2Driver.cpp in Sources */,
 				15D2CFBD1FB2AE8B003B1845 /* MapLoader.cpp in Sources */,
