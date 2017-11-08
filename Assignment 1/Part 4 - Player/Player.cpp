@@ -50,26 +50,8 @@ void Player::attack(){
  Players fortify method. Call the appropriate PSP.fortify method to get values, then it moves the troups.
  
  */
-bool Player::fortify(Map& m){
-    bool gotTroops = false;
-    int startingCountry = -1;
-    int destinationCountry = -1;
-    int numberOfTroopsToMove = -1;
-
-    if(psp != NULL) {
-        gotTroops = psp->getFortifyValues(&startingCountry, &destinationCountry, &numberOfTroopsToMove, m, playerID);
-    }
-    if(gotTroops) {
-        //removing troups from starting country
-        m.getcoutryById(startingCountry)->setNumberOfTroops(m.getcoutryById(startingCountry)->getNumberOfTroops() - numberOfTroopsToMove);
-        
-        //adding troups to destinationCountry
-        m.getcoutryById(destinationCountry)->setNumberOfTroops(m.getcoutryById(destinationCountry)->getNumberOfTroops() + numberOfTroopsToMove);
-        
-        return true;
-    }
-    
-    return false;
+bool Player::fortify(){
+    psp->executeFortify(this);
 }
 
 vector<CountryNode *> Player::getCountry(){

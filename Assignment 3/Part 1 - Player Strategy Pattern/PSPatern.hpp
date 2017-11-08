@@ -26,7 +26,7 @@ public:
     PlayerStrategyPattern();
     virtual ~PlayerStrategyPattern();
 
-    virtual bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOfTroopsToMove, Map& m, int player)= 0;
+    
   
     virtual void executeFortify(Player& user)= 0;
     virtual void executeAttack(Player& user)= 0;
@@ -35,13 +35,12 @@ public:
 };
 //subclass of PlayerStrategyPattern
 class Human : public PlayerStrategyPattern{
-    static int countryNameToID(string countryName, Map& m);
+    static int countryNameToID(string countryName, Player& p);
+    CountryNode* getCountryById(vector<CountryNode*> countryList, int id);
 public:
     
     Human();
     ~Human();
-    //Takes human input to changes the values of the given variables pointed to pointers. Before returning the function verifies that the given values are valid.
-	bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOftroopsToMove, Map& m, int player);//TODO: Finish Implementing
     void executeFortify(Player& user);
     void executeAttack(Player& user);
     void executeReinforce(Player& user);
@@ -54,7 +53,6 @@ class Aggressive : public PlayerStrategyPattern {
 public:
 	Aggressive();
     ~Aggressive();
-	bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOftroopsToMove, Map& m, int player);//TODO: Finish Implementing
 	void executeReinforce(Player& user);
 	void executeAttack(Player& user);
 	void executeFortify(Player& user);
@@ -67,7 +65,6 @@ class Benevolant : public PlayerStrategyPattern {
 public:
 	Benevolant();
     ~Benevolant();
-	bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOftroopsToMove, Map& m, int player);//TODO: Finish Implementing
 	void executeReinforce(Player& user);
 	void executeAttack(Player& user);
 	void executeFortify(Player& user);
