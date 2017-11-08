@@ -50,7 +50,7 @@ void MapLoader::ReadFile(string FileName) // The function may throw a MapLoaderE
 
 										   // Get the continents data:
 			getline(mapFile, currentLine); // Skip the [CONTINENTS] line
-			if (currentLine != string("[Continents]")) throw MapLoaderException("Invalid map format: [Continents] tag is missing.");
+			if (currentLine != string("[Continents]\r")) throw MapLoaderException("Invalid map format: [Continents] tag is missing.");
 
 			while (getline(mapFile, currentLine) && currentLine != "")
 			{
