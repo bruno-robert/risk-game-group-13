@@ -9,6 +9,7 @@
 //============================================================================
 
 #include "Player.h"
+#include "Subject.h"
 
 
 using namespace std;
@@ -19,6 +20,13 @@ int Player::numberOfPlayers = 0;
 
 Player::Player(){ //Default constructor create empty players
     playerID = ++numberOfPlayers;
+}
+
+};
+
+Player::~Player()
+{
+	
 }
 
 Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, PlayerStrategyPattern *psp){

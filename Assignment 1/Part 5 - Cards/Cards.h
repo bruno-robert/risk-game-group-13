@@ -14,11 +14,12 @@
 #include <iostream>
 #include <vector>
 #include <ctime>
+#include "Subject.h"
 
 using namespace std;
 
 
-class Card{					//The type of the card is a integer used to identify between infantry, cavalry and artillery.
+class Card : public Subject{					//The type of the card is a integer used to identify between infantry, cavalry and artillery.
 
 public:
 	Card(int type);
@@ -49,8 +50,10 @@ public:
 	int exchange();
 	void add(Card card);	//Allows the addition of a card to the vector.
 	int getSize();			//Returns the size of the vector
+	string getExchangeString(); // The message that will be sent to the phase observer
 
 private:
+	string exchangeString;
 	vector<Card> playerHand;
 	int numOfExchange = 1;		//Keeps tab of the number of exchange through that hand
 };

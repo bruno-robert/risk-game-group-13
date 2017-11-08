@@ -16,8 +16,13 @@
 #include "Map.h" //Part 1
 #include "dice.h" //Part 3
 #include "Cards.h" //Part 5
+#include "Subject.h"
 class PlayerStrategyPattern;
 #include "PSPatern.hpp"
+
+#ifndef __Player_H_INCLUDED__
+#define __Player_H_INCLUDED__
+
 
 using namespace std;
 
@@ -31,6 +36,7 @@ class Player{
 public:
 
 	Player(); //Default Constructor
+	~Player();
 	Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, PlayerStrategyPattern * psp); //Complete Constructor
 	vector<CountryNode *> getCountry(); //Getters
 	Hand getHand();

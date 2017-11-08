@@ -116,7 +116,9 @@ int Hand::exchange() {
 		//Infantry check
 
 		if (infantry >= 3) {
-			cout << "\nThe player traded 3 infantry card for " << (numOfExchange * 5) << " units." << endl;		// 3 infantry
+			cout << "\nThe player traded 3 infantry cards for " << (numOfExchange * 5) << " units." << endl;		// 3 infantry
+
+			exchangeString = ("The player traded 3 infantry cards for " + to_string(numOfExchange * 5) + " units.");
 			int num = 0;
 			while (num < 3) {
 				int i = 0;
@@ -131,7 +133,8 @@ int Hand::exchange() {
 		//Cavalry check
 
 		else if (cavalry >= 3) {
-			cout << "\nThe player traded 3 cavalry card for " << (numOfExchange * 5) << " units." << endl;		// 3 cavalry
+			exchangeString = ("The player traded 3 cavalry cards for " + to_string(numOfExchange * 5) + " units.");
+			cout << "\nThe player traded 3 cavalry cards for " << (numOfExchange * 5) << " units." << endl;		// 3 cavalry
 			int num = 0;
 			while (num < 3) {
 				int i = 0;
@@ -146,7 +149,8 @@ int Hand::exchange() {
 		//Artillery check
 
 		else if (artillery >= 3) {
-			cout << "\nThe player traded 3 artillery card for " << (numOfExchange * 5) << " units." << endl;		// 3 artillery
+			exchangeString = ("The player traded 3 artillery cards for " + to_string(numOfExchange * 5) + " units.");
+			cout << "\nThe player traded 3 artillery cards for " << (numOfExchange * 5) << " units." << endl;		// 3 artillery
 			int num = 0;
 			while (num < 3) {
 				int i = 0;
@@ -161,6 +165,7 @@ int Hand::exchange() {
 		//One of each check
 
 		else if (infantry >= 1 && cavalry >= 1 && artillery >= 1) {
+			exchangeString = ("The player traded 1 card of each type for " + to_string(numOfExchange * 5) + " units.");
 			cout << "\nThe player traded 1 card of each type for " << (numOfExchange * 5) << " units." << endl;		// 1 of each
 			int num = 0;
 			int type[3] = { 0,0,0 };
@@ -193,3 +198,8 @@ int Hand::exchange() {
 void Hand::add(Card card) { playerHand.push_back(card); };		//Allows for the adition of a card to the hand
 
 int Hand::getSize() { return (int)playerHand.size(); };
+
+string Hand::getExchangeString()
+{
+	return exchangeString;
+}
