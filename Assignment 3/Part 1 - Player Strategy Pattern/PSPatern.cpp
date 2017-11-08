@@ -113,7 +113,7 @@ bool Human::getFortifyValues(int *startingCountry, int *destinationCountry, int 
     return false;
 }
 
-bool Agressive::getFortifyValues(int *startingCountry, int *destinationCountry, int *numberOftroopsToMove, Map &m, Player & player) {
+bool Aggressive::getFortifyValues(int *startingCountry, int *destinationCountry, int *numberOftroopsToMove, Map &m, Player & player) {
     vector<CountryNode *>& ownedCountries = player.getCountryByRef();
     
     CountryNode * biggest = NULL;
@@ -206,7 +206,7 @@ void Aggressive::executeAttack(Player& user) {
 
 			for (int j = 0; j < AdjCountry.size() && target == false;j++) {
 
-				if (AdjCountry.at(j)->getCountryId() != NULL && AdjCountry.at(j)->getOwnedBy() != user.getPlayerID()) {
+				if (AdjCountry.at(j) != NULL && AdjCountry.at(j)->getOwnedBy() != user.getPlayerID()) {
 
 					target = true;
 					maxIndex = i;
@@ -258,7 +258,7 @@ void Benevolant::executeReinforce(Player& user) {
 
 	//Finding the country with the most units and a target to attack
 
-	while (units = !0) {
+	while (units != 0) {
 
 		int leastUnit = user.getCountryByRef().at(0)->getNumberOfTroops();
 		int leastIndex = 0;

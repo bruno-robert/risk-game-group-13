@@ -16,6 +16,8 @@
 		15D2CFAB1FB29069003B1845 /* Subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFA81FB29069003B1845 /* Subject.cpp */; };
 		15D2CFAC1FB29069003B1845 /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFA91FB29069003B1845 /* Observer.cpp */; };
 		15D2CFAE1FB29218003B1845 /* AggroDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFAD1FB29218003B1845 /* AggroDriver.cpp */; };
+		15D2CFAF1FB2948A003B1845 /* ReinforcePhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046641FA3A4250081DD71 /* ReinforcePhase.cpp */; };
+		15D2CFB01FB29490003B1845 /* Attack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046601FA3A4250081DD71 /* Attack.cpp */; };
 		15EB6E301FACF5A50010C01C /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046711FA3A4250081DD71 /* Player.cpp */; };
 		15EB6E311FACF5C30010C01C /* Cards.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560466D1FA3A4250081DD71 /* Cards.cpp */; };
 		15EB6E321FACF5E50010C01C /* dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046761FA3A4250081DD71 /* dice.cpp */; };
@@ -156,11 +158,11 @@
 			isa = PBXGroup;
 			children = (
 				1560464C1FA3A4250081DD71 /* Part 1 - GameStart */,
-				156046501FA3A4250081DD71 /* Part 3 - Main game loop */,
 				156046551FA3A4250081DD71 /* Part 2 - Startup phase */,
-				156046591FA3A4250081DD71 /* Part 6 - Fortification */,
-				1560465E1FA3A4250081DD71 /* Part 5 - Attack */,
+				156046501FA3A4250081DD71 /* Part 3 - Main game loop */,
 				156046621FA3A4250081DD71 /* Part 4 - Reinforcement */,
+				1560465E1FA3A4250081DD71 /* Part 5 - Attack */,
+				156046591FA3A4250081DD71 /* Part 6 - Fortification */,
 			);
 			path = "Assignment 2";
 			sourceTree = "<group>";
@@ -283,10 +285,10 @@
 		156046781FA3A4250081DD71 /* Part 1 - Map */ = {
 			isa = PBXGroup;
 			children = (
-				156046791FA3A4250081DD71 /* Map.h */,
-				1560467A1FA3A4250081DD71 /* Part1Driver.h */,
-				1560467B1FA3A4250081DD71 /* Part1Driver.cpp */,
 				1560467C1FA3A4250081DD71 /* Map.cpp */,
+				156046791FA3A4250081DD71 /* Map.h */,
+				1560467B1FA3A4250081DD71 /* Part1Driver.cpp */,
+				1560467A1FA3A4250081DD71 /* Part1Driver.h */,
 			);
 			path = "Part 1 - Map";
 			sourceTree = "<group>";
@@ -523,6 +525,8 @@
 				159DAA061FAA64D30068EE78 /* PSPatern.cpp in Sources */,
 				15D2CFAE1FB29218003B1845 /* AggroDriver.cpp in Sources */,
 				15D2CFA31FB2902E003B1845 /* GameStatsObserver.cpp in Sources */,
+				15D2CFAF1FB2948A003B1845 /* ReinforcePhase.cpp in Sources */,
+				15D2CFB01FB29490003B1845 /* Attack.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

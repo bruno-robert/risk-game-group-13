@@ -1,5 +1,6 @@
 
 #include "PSPatern.hpp"
+#include "Player.h"
 
 int main(){
 

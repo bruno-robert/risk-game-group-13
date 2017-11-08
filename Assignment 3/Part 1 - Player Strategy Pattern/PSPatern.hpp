@@ -12,11 +12,12 @@
 #include <stdio.h>
 #include <vector>
 #include <iostream>
+class Player;
+#include "Player.h"
 #include "Map.h"
 #include "ReinforcePhase.h"
 #include "Attack.h"
-class Player;
-#include "Player.h"
+
 
 using namespace std;
 //this is to be the parent class of Human Agressive and Benevolent
@@ -40,7 +41,7 @@ public:
     Human();
     ~Human();
     //Takes human input to changes the values of the given variables pointed to pointers. Before returning the function verifies that the given values are valid.
-	bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOftroopsToMove, Map& m, Player & player);//TODO: Finish Implementing
+	bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOftroopsToMove, Map& m, int player);//TODO: Finish Implementing
     void executeFortify(Player& user);
     void executeAttack(Player& user);
     void executeReinforce(Player& user);
