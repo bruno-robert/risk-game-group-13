@@ -1,11 +1,13 @@
-
+#include <ctime>
+#include <cstdlib>
 #include "PSPatern.hpp"
 #include "Player.h"
 #include "MapLoaderOSX.h"
-#include <ctime>
-#include <cstdlib>
+#include "GameStart.h"
+
 
 int main(){
+    
     srand((int)time(NULL));
     MapLoader ml;
     string value = "World.map";
