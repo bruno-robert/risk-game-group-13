@@ -87,7 +87,7 @@ Hand Player::getHand(){
 Dice Player::getDice(){
 	return this->dice;
 }
-int Player::getPlayerID() {
+int Player::getPlayerID() const{
 	return this->playerID;
 }
 Hand& Player::getHandByRef() {
