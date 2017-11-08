@@ -17,6 +17,7 @@ class Reinforce : public Subject {
 public:
 	void reinforceDistributions(Player& player);	// This is the only method that needs to be called
 	int totalUnits(Player& player);
+	void reinforceNotify(CountryNode* country, int units);
 
 //Helper methods
 private:			
