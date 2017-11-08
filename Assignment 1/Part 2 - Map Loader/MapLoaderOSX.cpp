@@ -53,9 +53,9 @@ void MapLoader::ReadFile(string FileName) // The function may throw a MapLoaderE
 			if (currentLine != string("[Continents]\r")) throw MapLoaderException("Invalid map format: [Continents] tag is missing.");
 
             getline(mapFile, currentLine);
-			while (currentLine != "")
+			while (currentLine != "\r")
 			{
-                getline(mapFile, currentLine);
+                
 				// Split string from the token "=":
 				string continentName = currentLine.substr(0, currentLine.find('='));
 				if (continentName == "") throw MapLoaderException("Continent with empty name was provided.");
@@ -69,22 +69,34 @@ void MapLoader::ReadFile(string FileName) // The function may throw a MapLoaderE
 				map->addContinent(cn);
 				// Debug printing
 				cout << continentName << " was added to the map with a value of " << continentValue << endl;
+                getline(mapFile, currentLine);
 			}
 			cout << endl;
 
 			// Get the territories data:
 			getline(mapFile, currentLine); //skip the [territories] line
-			if (currentLine != string("[Territories]")) throw MapLoaderException("Invalid map format: [Territories] tag is missing.");
+			if (currentLine != string("[Territories]\r")) throw MapLoaderException("Invalid map format: [Territories] tag is missing.");
 
 			vector<string> territoryLines; // This vector will contain each line that contains information of each country.
 
 										   // Grab all the remaining lines, ignoring blank lines:
-			while (getline(mapFile, currentLine))
+            
+            getline(mapFile, currentLine);
+            bool doubleBlankLine = false;
+            int ctr;
+			while (!doubleBlankLine)
 			{
-				if (currentLine != "")
+				if (currentLine != "\r")
 				{
 					territoryLines.push_back(currentLine);
-				}
+                    ctr = 0;
+                } else {
+                    ctr++;
+                    if(ctr == 2) {
+                        break;
+                    }
+                }
+                getline(mapFile, currentLine);
 			}
 
 			// Create all the country objects:
