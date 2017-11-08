@@ -17,6 +17,9 @@
 		15D2CFAE1FB29218003B1845 /* AggroDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFAD1FB29218003B1845 /* AggroDriver.cpp */; };
 		15D2CFAF1FB2948A003B1845 /* ReinforcePhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046641FA3A4250081DD71 /* ReinforcePhase.cpp */; };
 		15D2CFB01FB29490003B1845 /* Attack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046601FA3A4250081DD71 /* Attack.cpp */; };
+		15D2CFBC1FB2AE88003B1845 /* Part2Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046681FA3A4250081DD71 /* Part2Driver.cpp */; };
+		15D2CFBD1FB2AE8B003B1845 /* MapLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046691FA3A4250081DD71 /* MapLoader.cpp */; };
+		15D2CFBE1FB2AE96003B1845 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467C1FA3A4250081DD71 /* Map.cpp */; };
 		15EB6E301FACF5A50010C01C /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046711FA3A4250081DD71 /* Player.cpp */; };
 		15EB6E311FACF5C30010C01C /* Cards.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560466D1FA3A4250081DD71 /* Cards.cpp */; };
 		15EB6E321FACF5E50010C01C /* dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046761FA3A4250081DD71 /* dice.cpp */; };
@@ -51,6 +54,15 @@
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 		159DA9FD1FAA64B60068EE78 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		15D2CFB31FB2AE71003B1845 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -119,6 +131,7 @@
 		15D2CFA91FB29069003B1845 /* Observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Observer.cpp; sourceTree = "<group>"; };
 		15D2CFAA1FB29069003B1845 /* Subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subject.h; sourceTree = "<group>"; };
 		15D2CFAD1FB29218003B1845 /* AggroDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AggroDriver.cpp; path = "Assignment 3/Part 1 - Player Strategy Pattern/AggroDriver.cpp"; sourceTree = SOURCE_ROOT; };
+		15D2CFB51FB2AE71003B1845 /* Map Loader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Map Loader"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +157,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		159DA9FC1FAA64B60068EE78 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15D2CFB21FB2AE71003B1845 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -333,6 +353,7 @@
 				159BA10F1FA3A328006D4512 /* Map Target */,
 				158CA0E31FA3A47800920974 /* Cards Target */,
 				159DA9FF1FAA64B60068EE78 /* PSP */,
+				15D2CFB51FB2AE71003B1845 /* Map Loader */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -439,6 +460,23 @@
 			productReference = 159DA9FF1FAA64B60068EE78 /* PSP */;
 			productType = "com.apple.product-type.tool";
 		};
+		15D2CFB41FB2AE71003B1845 /* Map Loader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15D2CFB91FB2AE71003B1845 /* Build configuration list for PBXNativeTarget "Map Loader" */;
+			buildPhases = (
+				15D2CFB11FB2AE71003B1845 /* Sources */,
+				15D2CFB21FB2AE71003B1845 /* Frameworks */,
+				15D2CFB31FB2AE71003B1845 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Map Loader";
+			productName = "Map Loader";
+			productReference = 15D2CFB51FB2AE71003B1845 /* Map Loader */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -464,6 +502,10 @@
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
 					};
+					15D2CFB41FB2AE71003B1845 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 159BA0FC1FA3A1EE006D4512 /* Build configuration list for PBXProject "Risk-fresh-start" */;
@@ -482,6 +524,7 @@
 				159BA10E1FA3A328006D4512 /* Map Target */,
 				158CA0E21FA3A47800920974 /* Cards Target */,
 				159DA9FE1FAA64B60068EE78 /* PSP */,
+				15D2CFB41FB2AE71003B1845 /* Map Loader */,
 			);
 		};
 /* End PBXProject section */
@@ -525,6 +568,16 @@
 				15D2CFAE1FB29218003B1845 /* AggroDriver.cpp in Sources */,
 				15D2CFAF1FB2948A003B1845 /* ReinforcePhase.cpp in Sources */,
 				15D2CFB01FB29490003B1845 /* Attack.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15D2CFB11FB2AE71003B1845 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15D2CFBE1FB2AE96003B1845 /* Map.cpp in Sources */,
+				15D2CFBC1FB2AE88003B1845 /* Part2Driver.cpp in Sources */,
+				15D2CFBD1FB2AE8B003B1845 /* MapLoader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,6 +759,24 @@
 			};
 			name = Release;
 		};
+		15D2CFBA1FB2AE71003B1845 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		15D2CFBB1FB2AE71003B1845 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -750,6 +821,15 @@
 			buildConfigurations = (
 				159DAA031FAA64B60068EE78 /* Debug */,
 				159DAA041FAA64B60068EE78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15D2CFB91FB2AE71003B1845 /* Build configuration list for PBXNativeTarget "Map Loader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15D2CFBA1FB2AE71003B1845 /* Debug */,
+				15D2CFBB1FB2AE71003B1845 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
