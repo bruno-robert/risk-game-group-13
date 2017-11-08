@@ -11,7 +11,6 @@
 		158CA0DE1FA3A45C00920974 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467C1FA3A4250081DD71 /* Map.cpp */; };
 		159DAA061FAA64D30068EE78 /* PSPatern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 158080FE1FA91C8500677348 /* PSPatern.cpp */; };
 		159DAA071FAB63120068EE78 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467C1FA3A4250081DD71 /* Map.cpp */; };
-		15D2CFA31FB2902E003B1845 /* GameStatsObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CF9D1FB2902E003B1845 /* GameStatsObserver.cpp */; };
 		15D2CFA51FB2902E003B1845 /* PhaseObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFA01FB2902E003B1845 /* PhaseObserver.cpp */; };
 		15D2CFAB1FB29069003B1845 /* Subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFA81FB29069003B1845 /* Subject.cpp */; };
 		15D2CFAC1FB29069003B1845 /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFA91FB29069003B1845 /* Observer.cpp */; };
@@ -524,7 +523,6 @@
 				15D2CFAC1FB29069003B1845 /* Observer.cpp in Sources */,
 				159DAA061FAA64D30068EE78 /* PSPatern.cpp in Sources */,
 				15D2CFAE1FB29218003B1845 /* AggroDriver.cpp in Sources */,
-				15D2CFA31FB2902E003B1845 /* GameStatsObserver.cpp in Sources */,
 				15D2CFAF1FB2948A003B1845 /* ReinforcePhase.cpp in Sources */,
 				15D2CFB01FB29490003B1845 /* Attack.cpp in Sources */,
 			);

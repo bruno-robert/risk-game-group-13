@@ -413,7 +413,7 @@ void Attack::reverseSortDiceResults(int diceResults[]){ //Size of input array is
         if(diceResults[i]<diceResults[min])
             min=i;
     
-    int mid;
+    int mid = 0;
     if(!(max==0 || min==0))
         mid=0;
     if(!(max==1 || min==1))
@@ -494,6 +494,8 @@ Player* Attack::getAssociatedPlayer(vector<Player*> playerList, string country){
     for (Player* p : playerList)
         if(verifyBelonging(p, country))
             return p;
+    
+    return NULL;
 }
 
 //SETTERS and GETTERS

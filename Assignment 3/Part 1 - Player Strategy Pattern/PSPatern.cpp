@@ -242,6 +242,10 @@ Benevolant::Benevolant() : PlayerStrategyPattern()
 
 }
 
+Benevolant::~Benevolant() {
+    
+}
+
 bool Benevolant::getFortifyValues(int *startingCountry, int *destinationCountry, int *numberOftroopsToMove, Map &m, int player) {
     
     return true;
