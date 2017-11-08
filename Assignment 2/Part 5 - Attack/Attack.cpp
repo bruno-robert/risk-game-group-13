@@ -519,7 +519,7 @@ void Attack::setDefendingPlayerData(Player* defendingPlayerData){
     this->defendingPlayerData = defendingPlayerData;
 }
 void Attack::setMapData(Map* map){
-    this->mapData = mapData;
+    this->mapData = mapData;//FIXME: Assigning filed to itself
 }
 
 vector<Player*> Attack::getPlayerListData(){

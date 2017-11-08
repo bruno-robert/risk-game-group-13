@@ -73,7 +73,7 @@ int Reinforce::totalUnits(Player& player) {
 }
 
 void Reinforce::reinforceDistributions(Player& player) {
-	cout << "\n\Calling the reinforcement phase..." << endl;
+	cout << "\nCalling the reinforcement phase..." << endl;
 	int units = totalUnits(player);
 	
 	while(units != 0) {
