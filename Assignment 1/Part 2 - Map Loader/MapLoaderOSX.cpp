@@ -52,8 +52,10 @@ void MapLoader::ReadFile(string FileName) // The function may throw a MapLoaderE
 			getline(mapFile, currentLine); // Skip the [CONTINENTS] line
 			if (currentLine != string("[Continents]\r")) throw MapLoaderException("Invalid map format: [Continents] tag is missing.");
 
-			while (getline(mapFile, currentLine) && currentLine != "")
+            getline(mapFile, currentLine);
+			while (currentLine != "")
 			{
+                getline(mapFile, currentLine);
 				// Split string from the token "=":
 				string continentName = currentLine.substr(0, currentLine.find('='));
 				if (continentName == "") throw MapLoaderException("Continent with empty name was provided.");
