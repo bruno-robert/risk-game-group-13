@@ -13,6 +13,10 @@
 #include <vector>
 #include <iostream>
 #include "Map.h"
+#include "ReinforcePhase.h"
+#include "Attack.h"
+class Player;
+#include "Player.h"
 
 //#include "Player.h"
 class Player;
@@ -41,9 +45,25 @@ public:
     
 };
 //subclass of PlayerStrategyPattern
-class Agressive;
-//subclass of PlayerStrategyPattern
-class Benevolent;
 
+class Aggressive : public PlayerStrategyPattern {
+
+public:
+	Aggressive();
+	void executeReinforce(Player& user);
+	void executeAttack(Player& user);
+	void executeFortify(Player& user);
+};
+
+//subclass of PlayerStrategyPattern
+
+class Benevolant : public PlayerStrategyPattern {
+
+public:
+	Benevolant();
+	void executeReinforce(Player& user);
+	void executeAttack(Player& user);
+	void executeFortify(Player& user);
+};
 
 #endif /* PSPatern_hpp */
