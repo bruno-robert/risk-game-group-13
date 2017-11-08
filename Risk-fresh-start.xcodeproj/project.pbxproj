@@ -20,7 +20,6 @@
 		15D2CFBE1FB2AE96003B1845 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467C1FA3A4250081DD71 /* Map.cpp */; };
 		15D2CFC01FB2B637003B1845 /* MapLoaderOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFBF1FB2B637003B1845 /* MapLoaderOSX.cpp */; };
 		15D2CFC21FB2BCAB003B1845 /* MapLoaderOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFBF1FB2B637003B1845 /* MapLoaderOSX.cpp */; };
-		15D2CFC61FB2BD34003B1845 /* Part2Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFC51FB2BD34003B1845 /* Part2Driver.cpp */; };
 		15D2CFC81FB2BD44003B1845 /* Part2DriverOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFC71FB2BD44003B1845 /* Part2DriverOSX.cpp */; };
 		15EB6E301FACF5A50010C01C /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046711FA3A4250081DD71 /* Player.cpp */; };
 		15EB6E311FACF5C30010C01C /* Cards.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560466D1FA3A4250081DD71 /* Cards.cpp */; };
@@ -268,12 +267,12 @@
 		156046671FA3A4250081DD71 /* Part 2 - Map Loader */ = {
 			isa = PBXGroup;
 			children = (
-				15D2CFC51FB2BD34003B1845 /* Part2Driver.cpp */,
 				15D2CFC71FB2BD44003B1845 /* Part2DriverOSX.cpp */,
-				156046691FA3A4250081DD71 /* MapLoader.cpp */,
 				15D2CFBF1FB2B637003B1845 /* MapLoaderOSX.cpp */,
-				1560466A1FA3A4250081DD71 /* MapLoader.h */,
 				15D2CFC11FB2B685003B1845 /* MapLoaderOSX.h */,
+				15D2CFC51FB2BD34003B1845 /* Part2Driver.cpp */,
+				156046691FA3A4250081DD71 /* MapLoader.cpp */,
+				1560466A1FA3A4250081DD71 /* MapLoader.h */,
 				1560466B1FA3A4250081DD71 /* World.map */,
 			);
 			path = "Part 2 - Map Loader";
@@ -585,7 +584,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				15D2CFC01FB2B637003B1845 /* MapLoaderOSX.cpp in Sources */,
-				15D2CFC61FB2BD34003B1845 /* Part2Driver.cpp in Sources */,
 				15D2CFC81FB2BD44003B1845 /* Part2DriverOSX.cpp in Sources */,
 				15D2CFBE1FB2AE96003B1845 /* Map.cpp in Sources */,
 			);
