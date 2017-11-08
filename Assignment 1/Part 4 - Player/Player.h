@@ -44,7 +44,7 @@ public:
 	vector<CountryNode *>& getCountryByRef();
 	void reinforce();//Player action methods
 	void attack();
-	bool fortify();
+	void fortify();
     void setCountry(vector<CountryNode *> ownedCountry);
 	void setPlayerID(int id);
 };

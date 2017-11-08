@@ -50,8 +50,8 @@ void Player::attack(){
  Players fortify method. Call the appropriate PSP.fortify method to get values, then it moves the troups.
  
  */
-bool Player::fortify(){
-    psp->executeFortify(this);
+void Player::fortify(){
+    psp->executeFortify((*this));
 }
 
 vector<CountryNode *> Player::getCountry(){
