@@ -8,7 +8,7 @@
 //					  file has invalid data.
 //============================================================================
 
-#include "MapLoader.h"
+#include "MapLoaderOSX.h"
 #include <iostream>
 #include <fstream>
 
