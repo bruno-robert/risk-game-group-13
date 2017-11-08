@@ -13,7 +13,7 @@
 #include "Subject.h"
 
 int Reinforce::unitsForCountries(Player& player) {
-	int units = player.getCountry().size() / 3;
+	int units = (int)(player.getCountry().size() / 3);
 	if (units < 3) {
 		units = 3;
 	}

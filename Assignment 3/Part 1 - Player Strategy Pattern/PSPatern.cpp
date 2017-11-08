@@ -29,7 +29,7 @@ Human::~Human() {
  Takes a string and a Map and returns the Id of the country with the given name
  If the country doesn't exists, retursn -1
  @param countryName Name of the country
- @param m Map Object
+ @param p Player Object
  @return the ID of the country with name countryName. If the country doesn't exist, returns -1
  */
 int Human::countryNameToID(string countryName, Player& p){// TODO: test functionality
@@ -200,11 +200,11 @@ void Aggressive::executeAttack(Player& user) {
 			int attackerDices;
 
 			if (attacker->getNumberOfTroops() > 3)
-				attackerDices = 3;
+				attackerDices = 3;//FIXME: Value stored in attackerDices is never read...
 			if (attacker->getNumberOfTroops() == 3)
-				attackerDices = 2;
+				attackerDices = 2;//FIXME: Value stored in attackerDices is never read...
 			if (attacker->getNumberOfTroops() == 2)
-				attackerDices = 1;
+                attackerDices = 1;//FIXME: Value stored in attackerDices is never read...
 
 			//int defenderDices = Attack::defenderAmountOfDice(defender);
 		}
@@ -225,12 +225,6 @@ Benevolant::Benevolant() : PlayerStrategyPattern()
 Benevolant::~Benevolant() {
     
 }
-
-bool Benevolant::getFortifyValues(int *startingCountry, int *destinationCountry, int *numberOftroopsToMove, Map &m, int player) {
-    
-    return true;
-}
-
 
 void Benevolant::executeReinforce(Player& user) {
 
