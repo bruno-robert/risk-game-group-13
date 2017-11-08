@@ -3,43 +3,18 @@
 #include "PSPatern.hpp"
 #include "Player.h"
 #include "MapLoaderOSX.h"
-#include "GameStart.h"
+#include "GameStartOSX.h"
 
 
 int main(){
-    
     srand((int)time(NULL));
-    MapLoader ml;
-    string value = "World.map";
-    ml.ReadFile(value);
-    ml.printMap();
-    Map *m = ml.getMap();
     
-    //Creating a hand object
+    GameStart gs;
+    gs.setPlayers(3);
+    gs.setGameStart("World.map");
     
-    Hand hand1;
-    hand1.add(Card(1));
-    hand1.add(Card(2));
-    hand1.add(Card(3));
-    
-    Hand hand2;
-    hand2.add(Card(1));
-    hand2.add(Card(2));
-    hand2.add(Card(3));
-    
-    Hand hand3;
-    hand3.add(Card(1));
-    hand3.add(Card(2));
-    hand3.add(Card(3));
-    
-    
-    //Creating a dice object
-    
-    Dice dice1;
-    Dice dice2;
-    Dice dice3;
-    
-    //Creating a player object
+    Map *m = gs.getMap();
+    vector<Player*> playerList = gs.getPlayers();
     
     //Aggressive strat;
     vector<CountryNode*> emptyCountryList;
@@ -47,14 +22,10 @@ int main(){
     PlayerStrategyPattern* humanStrat = new Human();
     PlayerStrategyPattern* benevolentStrat = new Benevolant();
     
-    Player player1 = Player(emptyCountryList, hand1, dice1, aggressiveStrat);
-    Player player2 = Player(emptyCountryList, hand2, dice2, humanStrat);
-    Player player3 = Player(emptyCountryList, hand3, dice3, benevolentStrat);
+    playerList.at(0)->setPSP(aggressiveStrat);
+    playerList.at(1)->setPSP(humanStrat);
+    playerList.at(2)->setPSP(benevolentStrat);
     
-    vector<Player *> playerList;
-    playerList.push_back(&player1);
-    playerList.push_back(&player2);
-    playerList.push_back(&player3);
     
 	//Creating a vector of CountryNode pointers for my player
 
@@ -67,15 +38,15 @@ int main(){
         (*country)->setNumberOfTroops(rand() % 10 + 1);
         switch (ctr) {
             case 1:
-                player1.addCountryToOwned(*country, playerList);
+                playerList.at(0)->addCountryToOwned(*country, playerList);
                 
                 break;
             case 2:
-                player2.addCountryToOwned(*country, playerList);
+                playerList.at(1)->addCountryToOwned(*country, playerList);
                 
                 break;
             case 3:
-                player3.addCountryToOwned(*country, playerList);
+                playerList.at(2)->addCountryToOwned(*country, playerList);
                 
                 break;
             default:
@@ -96,36 +67,36 @@ int main(){
     
 
 //    cout << "\nPlayer 1's list of countries and their units: " << endl;
-//    for (int i = 0; i < player1.getCountry().size(); i++) {
-//        cout << player1.getCountry().at(i)->getCountName() << " has " << player1.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+//    for (int i = 0; i < playerList.at(0).getCountry().size(); i++) {
+//        cout << playerList.at(0).getCountry().at(i)->getCountName() << " has " << playerList.at(0).getCountry().at(i)->getNumberOfTroops() << " units." << endl;
 //    }
 //    cout << "\nPlayer 2's list of countries and their units: " << endl;
-//    for (int i = 0; i < player2.getCountry().size(); i++) {
-//        cout << player2.getCountry().at(i)->getCountName() << " has " << player2.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+//    for (int i = 0; i < playerList.at(1).getCountry().size(); i++) {
+//        cout << playerList.at(1).getCountry().at(i)->getCountName() << " has " << playerList.at(1).getCountry().at(i)->getNumberOfTroops() << " units." << endl;
 //    }
     
     cout << "\nPlayer 3's list of countries and their units: " << endl;
-    for (int i = 0; i < player3.getCountry().size(); i++) {
-        cout << player3.getCountry().at(i)->getCountName() << " has " << player3.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+    for (int i = 0; i < playerList.at(2)->getCountry().size(); i++) {
+        cout << playerList.at(2)->getCountry().at(i)->getCountName() << " has " << playerList.at(2)->getCountry().at(i)->getNumberOfTroops() << " units." << endl;
     }
 
     for(int i = 0; i <= 100; i++) {
         cout << "\nPlayer 3, of type Benevolent is fortifying." << endl;
-        player3.fortify();
+        playerList.at(2)->fortify();
         
         cout << "\nPlayer 3's list of countries and their units: " << endl;
-        for (int i = 0; i < player3.getCountry().size(); i++) {
-            cout << player3.getCountry().at(i)->getCountName() << " has " << player3.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+        for (int i = 0; i < playerList.at(2)->getCountry().size(); i++) {
+            cout << playerList.at(2)->getCountry().at(i)->getCountName() << " has " << playerList.at(2)->getCountry().at(i)->getNumberOfTroops() << " units." << endl;
         }
     }
     
     
     
-//    aggressiveStrat->executeReinforce(player1);
+//    aggressiveStrat->executeReinforce(playerList.at(0));
 
 //    cout << "\nPlayer 1's list of countries and their units: " << endl;
-//    for (int i = 0; i < player1.getCountry().size(); i++) {
-//        cout << player1.getCountry().at(i)->getCountName() << " has " << player1.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+//    for (int i = 0; i < playerList.at(0).getCountry().size(); i++) {
+//        cout << playerList.at(0).getCountry().at(i)->getCountName() << " has " << playerList.at(0).getCountry().at(i)->getNumberOfTroops() << " units." << endl;
 //    }
 
     return 0;

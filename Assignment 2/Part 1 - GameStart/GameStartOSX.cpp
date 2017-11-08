@@ -17,7 +17,7 @@ bool GameStart::setGameStart(string mapName) // Returns true if the GameStart is
 		return false;
 	}
 
-	int noCountries = getMap()->getCountryList().size();
+	int noCountries = (int)getMap()->getCountryList().size();
 	this->cardDeck = Deck(noCountries);
 	return true;
 }
