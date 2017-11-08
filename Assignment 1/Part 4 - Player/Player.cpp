@@ -111,7 +111,7 @@ void Player::setPlayerID(int id) {
 //----------------
 
 
-void CopyCountList(vector<CountryNode *>& a, int iBegin, int iEnd, vector<CountryNode *>& b)
+void copyCountList(vector<CountryNode *>& a, int iBegin, int iEnd, vector<CountryNode *>& b)
 {
     b.clear();//empties out vecotr
     for(int k = iBegin; k < iEnd; k++) {
@@ -123,7 +123,7 @@ void CopyCountList(vector<CountryNode *>& a, int iBegin, int iEnd, vector<Countr
 // Left source half is a[ iBegin:iMiddle-1].
 // Right source half is a[iMiddle:iEnd-1   ].
 // Result is            b[ iBegin:iEnd-1   ].
-void TopDownCountMerge(vector<CountryNode*>& a, int iBegin, int iMiddle, int iEnd, vector<CountryNode*>& b)
+void topDownCountMerge(vector<CountryNode*>& a, int iBegin, int iMiddle, int iEnd, vector<CountryNode*>& b)
 {
     int i = iBegin;
     int j = iMiddle;
@@ -143,7 +143,7 @@ void TopDownCountMerge(vector<CountryNode*>& a, int iBegin, int iMiddle, int iEn
 
 // Sort the given run of vet a using vect b as a source.
 // iBegin is inclusive; iEnd is exclusive (a.at(iEnd) is not in the set).
-void TopDownCountSplitMerge(vector<CountryNode*>& b, int iBegin, int iEnd, vector<CountryNode*>& a)
+void topDownCountSplitMerge(vector<CountryNode*>& b, int iBegin, int iEnd, vector<CountryNode*>& a)
 {
     if(iEnd - iBegin < 2) {// if run size == 1
         return;//   consider it sorted
@@ -152,15 +152,15 @@ void TopDownCountSplitMerge(vector<CountryNode*>& b, int iBegin, int iEnd, vecto
     // split the run longer than 1 item into halves
     int iMiddle = (iEnd + iBegin) / 2;              // iMiddle = mid point
     // recursively sort both runs from vector a into b
-    TopDownCountSplitMerge(a, iBegin,  iMiddle, b);  // sort the left  run
-    TopDownCountSplitMerge(a, iMiddle,    iEnd, b);  // sort the right run
+    topDownCountSplitMerge(a, iBegin,  iMiddle, b);  // sort the left  run
+    topDownCountSplitMerge(a, iMiddle,    iEnd, b);  // sort the right run
     // merge the resulting runs from vector b into a
-    TopDownCountMerge(b, iBegin, iMiddle, iEnd, a);
+    topDownCountMerge(b, iBegin, iMiddle, iEnd, a);
 }
 
 // vector a has the items to sort; vect b is a work array.
-void TopDownCountMergeSort(vector<CountryNode*>& a, vector<CountryNode*>& b, int n)
+void topDownCountMergeSort(vector<CountryNode*>& a, vector<CountryNode*>& b, int n)
 {
-    CopyCountList(a, 0, n, b);           // duplicate vect a into b
-    TopDownCountSplitMerge(b, 0, n, a);   // sort data from b into a
+    copyCountList(a, 0, n, b);           // duplicate vect a into b
+    topDownCountSplitMerge(b, 0, n, a);   // sort data from b into a
 }
