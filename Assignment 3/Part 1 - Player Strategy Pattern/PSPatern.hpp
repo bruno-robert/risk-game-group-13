@@ -61,6 +61,7 @@ public:
 
 //subclass of PlayerStrategyPattern
 
+//TODO: Change 'Benevolant' to 'Benevolent'
 class Benevolant : public PlayerStrategyPattern {
 
 public:
