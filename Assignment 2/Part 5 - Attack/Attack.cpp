@@ -24,8 +24,9 @@ Attack::~Attack(){
 
 bool Attack::yesNoQuestion(string question)
 {
+    bool done=false;
     
-    while(true)
+    while(!done)
     {
         cout << question << "y/n" << endl;
         
@@ -413,7 +414,7 @@ void Attack::reverseSortDiceResults(int diceResults[]){ //Size of input array is
         if(diceResults[i]<diceResults[min])
             min=i;
     
-    int mid = 0;
+    int mid;
     if(!(max==0 || min==0))
         mid=0;
     if(!(max==1 || min==1))
@@ -494,8 +495,14 @@ Player* Attack::getAssociatedPlayer(vector<Player*> playerList, string country){
     for (Player* p : playerList)
         if(verifyBelonging(p, country))
             return p;
-    
-    return NULL;
+}
+
+void Attack::attackNotify(CountryNode* attacker, CountryNode* defender, int numDiceAttack, int numDiceDefend) {
+
+	string message = "PHASE_OBSERVER|" + attacker->getCountName() + " attacks " + defender->getCountName() + " with " + to_string(numDiceAttack) +
+		"dice(s) against " + to_string(numDiceDefend) + " dice(s).";
+	
+	Subject::notify(message);
 }
 
 //SETTERS and GETTERS
@@ -519,7 +526,7 @@ void Attack::setDefendingPlayerData(Player* defendingPlayerData){
     this->defendingPlayerData = defendingPlayerData;
 }
 void Attack::setMapData(Map* map){
-    this->mapData = mapData;//FIXME: Assigning filed to itself
+    this->mapData = mapData;
 }
 
 vector<Player*> Attack::getPlayerListData(){

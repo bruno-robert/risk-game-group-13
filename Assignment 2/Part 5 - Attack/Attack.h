@@ -52,6 +52,9 @@ public:
     Player* getAttackingPlayerData();
     Player* getDefendingPlayerData();
     Map* getMapData();
+
+	//Notify calls
+	void attackNotify(CountryNode* attacker, CountryNode* defender, int numDiceAttack, int numDiceDefend);
     
 private:
     vector<Player*> playerListData;
