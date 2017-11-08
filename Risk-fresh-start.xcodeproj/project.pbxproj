@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		158CA0DD1FA3A45C00920974 /* Part1Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467B1FA3A4250081DD71 /* Part1Driver.cpp */; };
 		158CA0DE1FA3A45C00920974 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467C1FA3A4250081DD71 /* Map.cpp */; };
+		159DAA061FAA64D30068EE78 /* PSPatern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 158080FE1FA91C8500677348 /* PSPatern.cpp */; };
+		159DAA071FAB63120068EE78 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467C1FA3A4250081DD71 /* Map.cpp */; };
+		159DAA0A1FAB69220068EE78 /* PSPDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 159DAA081FAB69220068EE78 /* PSPDriver.cpp */; };
+		15EB6E301FACF5A50010C01C /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046711FA3A4250081DD71 /* Player.cpp */; };
+		15EB6E311FACF5C30010C01C /* Cards.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560466D1FA3A4250081DD71 /* Cards.cpp */; };
+		15EB6E321FACF5E50010C01C /* dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046761FA3A4250081DD71 /* dice.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +37,15 @@
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 		159BA10D1FA3A328006D4512 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		159DA9FD1FAA64B60068EE78 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -85,6 +100,9 @@
 		158CA0E31FA3A47800920974 /* Cards Target */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Cards Target"; sourceTree = BUILT_PRODUCTS_DIR; };
 		159BA1011FA3A1EE006D4512 /* Risk-fresh-start */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Risk-fresh-start"; sourceTree = BUILT_PRODUCTS_DIR; };
 		159BA10F1FA3A328006D4512 /* Map Target */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Map Target"; sourceTree = BUILT_PRODUCTS_DIR; };
+		159DA9FF1FAA64B60068EE78 /* PSP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PSP; sourceTree = BUILT_PRODUCTS_DIR; };
+		159DAA081FAB69220068EE78 /* PSPDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PSPDriver.cpp; sourceTree = "<group>"; };
+		159DAA091FAB69220068EE78 /* PSPDriver.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PSPDriver.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +121,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		159BA10C1FA3A328006D4512 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		159DA9FC1FAA64B60068EE78 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -192,9 +217,9 @@
 			children = (
 				156046781FA3A4250081DD71 /* Part 1 - Map */,
 				156046671FA3A4250081DD71 /* Part 2 - Map Loader */,
-				1560466C1FA3A4250081DD71 /* Part 5 - Cards */,
-				156046701FA3A4250081DD71 /* Part 4 - Player */,
 				156046741FA3A4250081DD71 /* Part 3 - Dice */,
+				156046701FA3A4250081DD71 /* Part 4 - Player */,
+				1560466C1FA3A4250081DD71 /* Part 5 - Cards */,
 			);
 			path = "Assignment 1";
 			sourceTree = "<group>";
@@ -267,6 +292,8 @@
 			children = (
 				158080FD1FA91C8500677348 /* PSPatern.hpp */,
 				158080FE1FA91C8500677348 /* PSPatern.cpp */,
+				159DAA081FAB69220068EE78 /* PSPDriver.cpp */,
+				159DAA091FAB69220068EE78 /* PSPDriver.hpp */,
 			);
 			path = "Part 1 - Player Strategy Pattern";
 			sourceTree = "<group>";
@@ -301,6 +328,7 @@
 				159BA1011FA3A1EE006D4512 /* Risk-fresh-start */,
 				159BA10F1FA3A328006D4512 /* Map Target */,
 				158CA0E31FA3A47800920974 /* Cards Target */,
+				159DA9FF1FAA64B60068EE78 /* PSP */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -359,6 +387,23 @@
 			productReference = 159BA10F1FA3A328006D4512 /* Map Target */;
 			productType = "com.apple.product-type.tool";
 		};
+		159DA9FE1FAA64B60068EE78 /* PSP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 159DAA051FAA64B60068EE78 /* Build configuration list for PBXNativeTarget "PSP" */;
+			buildPhases = (
+				159DA9FB1FAA64B60068EE78 /* Sources */,
+				159DA9FC1FAA64B60068EE78 /* Frameworks */,
+				159DA9FD1FAA64B60068EE78 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PSP;
+			productName = PSP;
+			productReference = 159DA9FF1FAA64B60068EE78 /* PSP */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -380,6 +425,10 @@
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
 					};
+					159DA9FE1FAA64B60068EE78 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 159BA0FC1FA3A1EE006D4512 /* Build configuration list for PBXProject "Risk-fresh-start" */;
@@ -397,6 +446,7 @@
 				159BA1001FA3A1EE006D4512 /* Risk-fresh-start */,
 				159BA10E1FA3A328006D4512 /* Map Target */,
 				158CA0E21FA3A47800920974 /* Cards Target */,
+				159DA9FE1FAA64B60068EE78 /* PSP */,
 			);
 		};
 /* End PBXProject section */
@@ -422,6 +472,19 @@
 			files = (
 				158CA0DE1FA3A45C00920974 /* Map.cpp in Sources */,
 				158CA0DD1FA3A45C00920974 /* Part1Driver.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		159DA9FB1FAA64B60068EE78 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15EB6E301FACF5A50010C01C /* Player.cpp in Sources */,
+				15EB6E311FACF5C30010C01C /* Cards.cpp in Sources */,
+				15EB6E321FACF5E50010C01C /* dice.cpp in Sources */,
+				159DAA071FAB63120068EE78 /* Map.cpp in Sources */,
+				159DAA0A1FAB69220068EE78 /* PSPDriver.cpp in Sources */,
+				159DAA061FAA64D30068EE78 /* PSPatern.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +648,24 @@
 			};
 			name = Release;
 		};
+		159DAA031FAA64B60068EE78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		159DAA041FAA64B60068EE78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -620,6 +701,15 @@
 			buildConfigurations = (
 				159BA1141FA3A328006D4512 /* Debug */,
 				159BA1151FA3A328006D4512 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		159DAA051FAA64B60068EE78 /* Build configuration list for PBXNativeTarget "PSP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				159DAA031FAA64B60068EE78 /* Debug */,
+				159DAA041FAA64B60068EE78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

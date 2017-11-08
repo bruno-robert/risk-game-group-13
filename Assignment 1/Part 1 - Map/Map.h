@@ -51,6 +51,7 @@ private:
 public:
 	ContinentNode(string name, int contScore);	//construct
 	ContinentNode();
+    // FIXME: why is this deconstructor virtual ?
 	virtual ~ContinentNode();					//deconstruct
 	void addAdjCont(ContinentNode* countNode);	//add adjacent continent
 
@@ -183,6 +184,9 @@ public:
 		this->adjCount = adjCount;
 	}
 
+    /**
+     @return the name of the country
+     */
 	string getCountName() const {
 		return countName;
 	}
@@ -249,10 +253,18 @@ public:
 		this->continentList = continentList;
 	}
 
+    /**
+     Returns the list of countries in the Map
+     @return vector<CountryNode*>
+     */
 	vector<CountryNode*>& getCountryList() {
 		return countryList;
 	}
 
+    /**
+     Set the CountryList to given countrylist
+     @param countryList a list of countries
+     */
 	void setCountryList(const vector<CountryNode*>& countryList) {
 		this->countryList = countryList;
 	}

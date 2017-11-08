@@ -18,18 +18,19 @@
 class Player;
 #include "Player.h"
 
-//#include "Player.h"
-class Player;
-
 using namespace std;
 //this is to be the parent class of Human Agressive and Benevolent
 class PlayerStrategyPattern {
 public:
     PlayerStrategyPattern();
     virtual ~PlayerStrategyPattern();
+
+    virtual bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOfTroopsToMove, Map& m, int player)= 0;
+  
     virtual void executeFortify(Player& user)= 0;
     virtual void executeAttack(Player& user)= 0;
     virtual void executeReinforce(Player& user)= 0;
+
 };
 //subclass of PlayerStrategyPattern
 class Human : public PlayerStrategyPattern{
@@ -39,6 +40,7 @@ public:
     Human();
     ~Human();
     //Takes human input to changes the values of the given variables pointed to pointers. Before returning the function verifies that the given values are valid.
+	bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOftroopsToMove, Map& m, Player & player);//TODO: Finish Implementing
     void executeFortify(Player& user);
     void executeAttack(Player& user);
     void executeReinforce(Player& user);
@@ -50,6 +52,7 @@ class Aggressive : public PlayerStrategyPattern {
 
 public:
 	Aggressive();
+	bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOftroopsToMove, Map& m, Player & player);//TODO: Finish Implementing
 	void executeReinforce(Player& user);
 	void executeAttack(Player& user);
 	void executeFortify(Player& user);
@@ -61,9 +64,11 @@ class Benevolant : public PlayerStrategyPattern {
 
 public:
 	Benevolant();
+	bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOftroopsToMove, Map& m, Player & player);//TODO: Finish Implementing
 	void executeReinforce(Player& user);
 	void executeAttack(Player& user);
 	void executeFortify(Player& user);
 };
+
 
 #endif /* PSPatern_hpp */

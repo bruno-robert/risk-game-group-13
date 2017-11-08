@@ -16,8 +16,11 @@ using namespace std;
 
 // Player Class
 
+int Player::numberOfPlayers = 0;
 
 Player::Player(){ //Default constructor create empty players
+    playerID = ++numberOfPlayers;
+}
 
 };
 
@@ -30,59 +33,73 @@ Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, PlayerS
 	this->ownedCountry = ownedCountry;
 	this->hand = hand;
 	this->dice = dice;
-	this-> psp = psp;
-};
+    this-> psp = psp;
+    playerID = ++numberOfPlayers;
+}
 
 
 void Player::reinforce(){
-	
+
 	cout << "You are reinforcing. " << endl;
-};
+}
 
 void Player::attack(){
 
 	cout << "You are attacking. " << endl;
-};
+}
 
-void Player::fortify(){
+/**
+ Players fortify method. Call the appropriate PSP.fortify method to get values, then it moves the troups.
+ 
+ */
+bool Player::fortify(Map& m){
+    bool gotTroops = false;
+    int startingCountry = -1;
+    int destinationCountry = -1;
+    int numberOfTroopsToMove = -1;
 
-	cout << "You are fortifying. " << endl;
-};
+    if(psp != NULL) {
+        gotTroops = psp->getFortifyValues(&startingCountry, &destinationCountry, &numberOfTroopsToMove, m, playerID);
+    }
+    if(gotTroops) {
+        //removing troups from starting country
+        m.getcoutryById(startingCountry)->setNumberOfTroops(m.getcoutryById(startingCountry)->getNumberOfTroops() - numberOfTroopsToMove);
+        
+        //adding troups to destinationCountry
+        m.getcoutryById(destinationCountry)->setNumberOfTroops(m.getcoutryById(destinationCountry)->getNumberOfTroops() + numberOfTroopsToMove);
+        
+        return true;
+    }
+    
+    return false;
+}
 
 vector<CountryNode *> Player::getCountry(){
 
 	return ownedCountry;
-};
-
+}
 Hand Player::getHand(){
 	return this->hand;
-};
-
+}
 Dice Player::getDice(){
 	return this->dice;
-};
-
+}
 int Player::getPlayerID() {
 	return this->playerID;
-};
-
+}
 Hand& Player::getHandByRef() {
 	return this->hand;
-};
-
+}
 Dice& Player::getDiceByRef() {
 	return this->dice;
-};
-
+}
 vector<CountryNode *>& Player::getCountryByRef() {
 
 	return ownedCountry;
-};
-
+}
 void Player::setCountry(vector<CountryNode *> ownedCountry){
 	this->ownedCountry = ownedCountry;
-};
-
+}
 void Player::setPlayerID(int id) {
 	this->playerID = id;
-};
+}
