@@ -16,6 +16,7 @@
 #include "Map.h" //Part 1
 #include "dice.h" //Part 3
 #include "Cards.h" //Part 5
+class PlayerStrategyPattern;
 #include "PSPatern.hpp"
 
 using namespace std;

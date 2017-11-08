@@ -14,6 +14,7 @@
 #include <iostream>
 
 #include "Map.h"
+class Player;
 #include "Player.h"
 
 using namespace std;
