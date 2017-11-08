@@ -16,6 +16,38 @@ PlayerStrategyPattern::PlayerStrategyPattern() {
 PlayerStrategyPattern::~PlayerStrategyPattern() {
     
 }
+bool PlayerStrategyPattern::isCountryInVector(int a, vector<CountryNode*> vect) {
+    for(CountryNode* country: vect) {
+        if (country->getCountryId() == a) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+/**
+ When given a country and a list, the function will populate the list with countries that have a path to the given country.
+ The path must be of only owned countries
+ (this can be used to check if there is a ownCountry path between two countries)
+ 
+ @param startCountry the country at the center of island
+ @param ownedCountryIsland the vector of CountryNodes you wish to populate
+ */
+vector<CountryNode*> PlayerStrategyPattern::getOwnedIsland(CountryNode* startCountry, vector<CountryNode*>& ownedCountryIsland, const Player& p) {
+    ownedCountryIsland.push_back(startCountry);
+    int ctr = 0;
+    for (CountryNode* country : startCountry->getAdjCount()) {
+        if (isCountryInVector(country->getCountryId(), ownedCountryIsland) || country->getCountryId() != p.getPlayerID()) {
+            
+        }
+        else {
+            ownedCountryIsland = getOwnedIsland(country, ownedCountryIsland, p);
+        }
+        ctr++;
+    }
+    return ownedCountryIsland;
+}
 
 Human::Human() : PlayerStrategyPattern(){
     
@@ -58,6 +90,18 @@ void Human::executeFortify(Player& user) {
         CountryNode* destinationCountry = NULL;
         int numberOfTroopsToMove;
         
+        cout << "Would you like to fortify this turn ? (y/n)" << endl;
+        while (true) {
+            string yesOrNo;
+            cin >> yesOrNo;
+            if(yesOrNo == "y" || yesOrNo == "yes") {
+                break;
+            } else if (yesOrNo == "n" || yesOrNo == "no") {
+                return;
+            }
+            
+            cout << "sorry the value you entered is invalid, please try again." << endl;
+        }
         //Getting and checking starting country
         cout << "please select a starting country" << endl;
         //temporary varibales
@@ -231,7 +275,7 @@ void Aggressive::executeAttack(Player& user) {
 void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
     CountryNode* startingCountry = NULL;
     CountryNode* destinationCountry = NULL;
-    int numberOfTroopsToMove;
+    int numberOfTroopsToMove = -1;
     
     //sort the user's countries
     user.topDownCountMergeSort();
@@ -241,23 +285,43 @@ void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
     //loops throught the player's countries (from biggest to smallest)
     while (ctr < user.getCountryByRef().size()) {
         currentCheck = user.getCountryByRef().at(ctr);
+        for(CountryNode * adjCountry: currentCheck->getAdjCount()) {
+            if(adjCountry->getNumberOfTroops() > 1 && adjCountry->getOwnedBy() == user.getPlayerID()) {
+                startingCountry = adjCountry;
+                destinationCountry = currentCheck;
+                numberOfTroopsToMove = (startingCountry->getNumberOfTroops()-1);
+            }
+        }
         
         ctr++;
     }
     
-    //looks at all adjeacent countries to the biggest to check if one or more of them is owned
-        //if yes, move troops from that country to biggest
-        //else, set biggest to second biggest and try again
+    for(CountryNode* currentBiggy : user.getCountryByRef()) {
+        vector<CountryNode*> currentCountryisland;
+        getOwnedIsland(currentBiggy, currentCountryisland, user);
+        for(CountryNode* country : currentCountryisland) {
+            
+        }
+    }
+    //1 from Currentbiggest country, get the island of owned countrie in it
+    //2 move troups in island towards biggy
+    //once all the troups in the island have 1 Troop:
+    //3 find next biggest country [if the next biggest coutry has 1 troop: return]
+    //repeat from step 1
     
-    //If the biggest country is adjacent to an enemy country -> find second biggest owned country
-    // and move troups towards biggest country
     
     
     
     //If the biggest country is not adjeacent to an enemy country, find closes enemy country and move troups towards that
 
+    if(numberOfTroopsToMove >= 1) {
+        //Removing troups from startingcountry
+        startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
+        
+        //Adding troups to destinationCountry
+        destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
+    }
     
-
 }
 
 
@@ -306,6 +370,48 @@ void Benevolant::executeAttack(Player& user) {
 
 
 void Benevolant::executeFortify(Player& user) {
-    //TODO: Implement this @Bruno
+    //Not a very efficient Algorithm O(n2) or more
+    CountryNode* startingCountry = NULL;
+    CountryNode* destinationCountry = NULL;
+    int numberOfTroopsToMove = -1;
+    
+    //sort the user's countries
+    user.topDownCountMergeSort();
+    
+    //for each owned countries (starting by the weakest
+    for(int i = (int)(user.getCountryByRef().size()-1); i != -1; i--) {
+        CountryNode* currentCountry = user.getCountryByRef().at(i);
+        
+        //for each adjacent country to the currentCoutry check if it has much more troops than the current Country
+        for(CountryNode* country : currentCountry->getAdjCount()) {
+            int diff = (country->getNumberOfTroops() - currentCountry->getNumberOfTroops());//diff is the (difference in troops)^2
+            diff = diff * diff; //square so we only get positive results
+            if(diff >= 4) {//if diff ==1 then moving the troup will have no avail, if diff >= 4 then the difference in troops >= 2
+                if(country->getNumberOfTroops() > currentCountry->getNumberOfTroops()) {
+                    startingCountry = country;
+                    destinationCountry = currentCountry;
+                    numberOfTroopsToMove = ((country->getNumberOfTroops() - currentCountry->getNumberOfTroops()) /2);
+                    
+                    //Removing troups from startingcountry
+                    startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
+                    
+                    //Adding troups to destinationCountry
+                    destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
+                    return;
+                } else {
+                    startingCountry = currentCountry;
+                    destinationCountry = country;
+                    numberOfTroopsToMove = ((currentCountry->getNumberOfTroops() - country->getNumberOfTroops()) /2);
+                    
+                    //Removing troups from startingcountry
+                    startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
+                    
+                    //Adding troups to destinationCountry
+                    destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
+                    return;
+                }
+            }
+        }
+    }
 
 }

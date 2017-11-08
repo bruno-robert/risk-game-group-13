@@ -97,22 +97,28 @@ int main(){
 //    for (int i = 0; i < player1.getCountry().size(); i++) {
 //        cout << player1.getCountry().at(i)->getCountName() << " has " << player1.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
 //    }
-    cout << "\nPlayer 2's list of countries and their units: " << endl;
-    for (int i = 0; i < player2.getCountry().size(); i++) {
-        cout << player2.getCountry().at(i)->getCountName() << " has " << player2.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
-    }
-    cout << "sorting the countries of player by numberOftroops" << endl;
-    player2.topDownCountMergeSort();
-    cout << "\nPlayer 2's list of countries and their units: " << endl;
-    for (int i = 0; i < player2.getCountry().size(); i++) {
-        cout << player2.getCountry().at(i)->getCountName() << " has " << player2.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
-    }
-//    cout << "\nPlayer 3's list of countries and their units: " << endl;
-//    for (int i = 0; i < player3.getCountry().size(); i++) {
-//        cout << player3.getCountry().at(i)->getCountName() << " has " << player3.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+//    cout << "\nPlayer 2's list of countries and their units: " << endl;
+//    for (int i = 0; i < player2.getCountry().size(); i++) {
+//        cout << player2.getCountry().at(i)->getCountName() << " has " << player2.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
 //    }
+    
+    cout << "\nPlayer 3's list of countries and their units: " << endl;
+    for (int i = 0; i < player3.getCountry().size(); i++) {
+        cout << player3.getCountry().at(i)->getCountName() << " has " << player3.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+    }
 
-    player2.fortify();
+    for(int i = 0; i <= 100; i++) {
+        cout << "\nPlayer 3, of type Benevolent is fortifying." << endl;
+        player3.fortify();
+        
+        cout << "\nPlayer 3's list of countries and their units: " << endl;
+        for (int i = 0; i < player3.getCountry().size(); i++) {
+            cout << player3.getCountry().at(i)->getCountName() << " has " << player3.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+        }
+    }
+    
+    
+    
 //    aggressiveStrat->executeReinforce(player1);
 
 //    cout << "\nPlayer 1's list of countries and their units: " << endl;

@@ -31,7 +31,8 @@ public:
     virtual void executeFortify(Player& user)= 0;
     virtual void executeAttack(Player& user)= 0;
     virtual void executeReinforce(Player& user)= 0;
-
+    bool isCountryInVector(int a, vector<CountryNode*> vect);
+    vector<CountryNode*> getOwnedIsland(CountryNode* startCountry, vector<CountryNode*>& ownedCountryIsland, const Player& p);
 };
 //subclass of PlayerStrategyPattern
 class Human : public PlayerStrategyPattern{
