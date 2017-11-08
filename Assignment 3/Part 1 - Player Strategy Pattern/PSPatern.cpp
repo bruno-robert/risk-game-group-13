@@ -54,8 +54,8 @@ CountryNode * Human::getCountryById(vector<CountryNode*> countryList, int id) {
 void Human::executeFortify(Player& user) {
     bool troopsMoved = false;
     while(!troopsMoved) {
-        CountryNode* startingCountry;
-        CountryNode* destinationCountry;
+        CountryNode* startingCountry = NULL;
+        CountryNode* destinationCountry = NULL;
         int numberOfTroopsToMove;
         
         //Getting and checking starting country
@@ -63,7 +63,9 @@ void Human::executeFortify(Player& user) {
         //temporary varibales
         string inputString;
         while(true) {
-            cin >> inputString;
+            getline( cin, inputString );
+            cin.ignore();
+            //cin >> inputString;
             int startingCountryID = countryNameToID(inputString, user);
             startingCountry = getCountryById(user.getCountryByRef(), startingCountryID);
             //checks if the starting coutry is valid
@@ -81,7 +83,9 @@ void Human::executeFortify(Player& user) {
         //Getting and checking the destination country
         cout << "please select the destination country" << endl;
         while(true) {
-            cin >> inputString;
+            getline( cin, inputString );
+            cin.ignore();
+            //cin >> inputString;
             int destinationCountryID = countryNameToID(inputString, user);
             
             destinationCountry = getCountryById(user.getCountryByRef(), destinationCountryID);
@@ -89,7 +93,11 @@ void Human::executeFortify(Player& user) {
                 break;
             }
             
-            cout << "Sorry, the value you entered is not valid, please try again:" << endl;
+            if (destinationCountryID == -1) {
+                cout << "We couldn't find your country. Please try again." << endl;
+            } else {
+                cout << "Sorry, the value you entered is not valid, please try again (the country could have to few troops):" << endl;
+            }
         }
         
         //checks the adjacency of both countries and promtps user for number of troop to move
@@ -116,8 +124,10 @@ void Human::executeFortify(Player& user) {
                 cout << "Sorry, the number you entered is invalid, please try again:" << endl;
             }
         }
+        if(!troopsMoved) {
+            cout << "Sorry the countries are not adjacent" << endl;
+        }
         
-        cout << "Sorry the countries are not adjacent" << endl;
 
         
         
