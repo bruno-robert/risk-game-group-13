@@ -14,6 +14,8 @@
 #include <iostream>
 
 #include "Map.h"
+#include "Player.h"
+
 using namespace std;
 //this is to be the parent class of Human Agressive and Benevolent
 class PlayerStrategyPattern {
@@ -43,7 +45,7 @@ public:
     Agressive();
     ~Agressive();
     
-    bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOftroopsToMove, Map& m, int player);
+    bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOftroopsToMove, Map& m, Player & player);//TODO: Finish Implementing
     void getAttackValues();
     void getReinforceValues();
 };
