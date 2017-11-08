@@ -83,7 +83,7 @@ void MapLoader::ReadFile(string FileName) // The function may throw a MapLoaderE
             
             getline(mapFile, currentLine);
             bool doubleBlankLine = false;
-            int ctr;
+            int ctr = 0;
 			while (!doubleBlankLine)
 			{
 				if (currentLine != "\r")
