@@ -22,8 +22,6 @@ Player::Player(){ //Default constructor create empty players
     playerID = ++numberOfPlayers;
 }
 
-};
-
 Player::~Player()
 {
 	

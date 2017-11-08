@@ -53,7 +53,8 @@ class Aggressive : public PlayerStrategyPattern {
 
 public:
 	Aggressive();
-	bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOftroopsToMove, Map& m, Player & player);//TODO: Finish Implementing
+    ~Aggressive();
+	bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOftroopsToMove, Map& m, int player);//TODO: Finish Implementing
 	void executeReinforce(Player& user);
 	void executeAttack(Player& user);
 	void executeFortify(Player& user);
@@ -65,7 +66,8 @@ class Benevolant : public PlayerStrategyPattern {
 
 public:
 	Benevolant();
-	bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOftroopsToMove, Map& m, Player & player);//TODO: Finish Implementing
+    ~Benevolant();
+	bool getFortifyValues(int * startingCountry, int * destinationCountry, int * numberOftroopsToMove, Map& m, int player);//TODO: Finish Implementing
 	void executeReinforce(Player& user);
 	void executeAttack(Player& user);
 	void executeFortify(Player& user);
