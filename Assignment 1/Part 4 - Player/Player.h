@@ -20,9 +20,6 @@
 class PlayerStrategyPattern;
 #include "PSPatern.hpp"
 
-#ifndef __Player_H_INCLUDED__
-#define __Player_H_INCLUDED__
-
 
 using namespace std;
 

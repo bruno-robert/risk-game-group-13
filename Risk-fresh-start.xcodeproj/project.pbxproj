@@ -11,11 +11,11 @@
 		158CA0DE1FA3A45C00920974 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467C1FA3A4250081DD71 /* Map.cpp */; };
 		159DAA061FAA64D30068EE78 /* PSPatern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 158080FE1FA91C8500677348 /* PSPatern.cpp */; };
 		159DAA071FAB63120068EE78 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467C1FA3A4250081DD71 /* Map.cpp */; };
-		159DAA0A1FAB69220068EE78 /* PSPDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 159DAA081FAB69220068EE78 /* PSPDriver.cpp */; };
 		15D2CFA31FB2902E003B1845 /* GameStatsObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CF9D1FB2902E003B1845 /* GameStatsObserver.cpp */; };
 		15D2CFA51FB2902E003B1845 /* PhaseObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFA01FB2902E003B1845 /* PhaseObserver.cpp */; };
 		15D2CFAB1FB29069003B1845 /* Subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFA81FB29069003B1845 /* Subject.cpp */; };
 		15D2CFAC1FB29069003B1845 /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFA91FB29069003B1845 /* Observer.cpp */; };
+		15D2CFAE1FB29218003B1845 /* AggroDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFAD1FB29218003B1845 /* AggroDriver.cpp */; };
 		15EB6E301FACF5A50010C01C /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046711FA3A4250081DD71 /* Player.cpp */; };
 		15EB6E311FACF5C30010C01C /* Cards.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560466D1FA3A4250081DD71 /* Cards.cpp */; };
 		15EB6E321FACF5E50010C01C /* dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046761FA3A4250081DD71 /* dice.cpp */; };
@@ -117,6 +117,7 @@
 		15D2CFA81FB29069003B1845 /* Subject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Subject.cpp; sourceTree = "<group>"; };
 		15D2CFA91FB29069003B1845 /* Observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Observer.cpp; sourceTree = "<group>"; };
 		15D2CFAA1FB29069003B1845 /* Subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subject.h; sourceTree = "<group>"; };
+		15D2CFAD1FB29218003B1845 /* AggroDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AggroDriver.cpp; path = "Assignment 3/Part 1 - Player Strategy Pattern/AggroDriver.cpp"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,10 +306,11 @@
 		158080FC1FA91C8500677348 /* Part 1 - Player Strategy Pattern */ = {
 			isa = PBXGroup;
 			children = (
-				158080FD1FA91C8500677348 /* PSPatern.hpp */,
 				158080FE1FA91C8500677348 /* PSPatern.cpp */,
+				158080FD1FA91C8500677348 /* PSPatern.hpp */,
 				159DAA081FAB69220068EE78 /* PSPDriver.cpp */,
 				159DAA091FAB69220068EE78 /* PSPDriver.hpp */,
+				15D2CFAD1FB29218003B1845 /* AggroDriver.cpp */,
 			);
 			path = "Part 1 - Player Strategy Pattern";
 			sourceTree = "<group>";
@@ -517,9 +519,9 @@
 				15D2CFAB1FB29069003B1845 /* Subject.cpp in Sources */,
 				159DAA071FAB63120068EE78 /* Map.cpp in Sources */,
 				15D2CFA51FB2902E003B1845 /* PhaseObserver.cpp in Sources */,
-				159DAA0A1FAB69220068EE78 /* PSPDriver.cpp in Sources */,
 				15D2CFAC1FB29069003B1845 /* Observer.cpp in Sources */,
 				159DAA061FAA64D30068EE78 /* PSPatern.cpp in Sources */,
+				15D2CFAE1FB29218003B1845 /* AggroDriver.cpp in Sources */,
 				15D2CFA31FB2902E003B1845 /* GameStatsObserver.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

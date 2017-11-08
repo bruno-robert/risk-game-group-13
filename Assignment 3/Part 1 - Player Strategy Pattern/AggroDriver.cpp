@@ -1,7 +1,7 @@
 
-#include "AggroStrat.h"
+#include "PSPatern.hpp"
 
-void main(){
+int main(){
 
 	//Creating 2 ContinentNodes
 
@@ -54,7 +54,7 @@ void main(){
 
 	//Aggressive strat;
 
-	PlayerStrategyPattern* strat = new Aggressive;
+	PlayerStrategyPattern* strat = new Aggressive();
 
 	Player player1 = Player(player1Set, hand1, dice1, strat);
 	player1.setPlayerID(1);
@@ -71,4 +71,5 @@ void main(){
 		cout << player1.getCountry().at(i)->getCountName() << " has " << player1.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
 	}
 
+    return 0;
 }
