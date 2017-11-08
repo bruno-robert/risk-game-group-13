@@ -10,6 +10,7 @@
 #include "Player.h"
 #include "ReinforcePhase.h"
 #include <algorithm>
+#include "Subject.h"
 
 int Reinforce::unitsForCountries(Player& player) {
 	int units = player.getCountry().size() / 3;
@@ -32,7 +33,7 @@ int Reinforce::unitsForContinents(Player& player) {
 		for (int j = 0; j < currentContinent->getCountryList().size() && isEqual; j++) {
 			isEqual = false;
 			int k = 0;
-			while (!isEqual && k < player.getCountry().size()) {			
+			while (!isEqual && k < player.getCountry().size()) {
 				if (std::find(pastIndex.begin(), pastIndex.end(), i) != pastIndex.end()) {
 					k++;
 					continue;
@@ -49,7 +50,7 @@ int Reinforce::unitsForContinents(Player& player) {
 	}
 	cout << "The continent bonus is of " << units << " units." << endl;
 
-return units;
+	return units;
 }
 
 int Reinforce::unitsForCards(Player& player) {
@@ -67,18 +68,64 @@ int Reinforce::totalUnits(Player& player) {
 	units += unitsForContinents(player);
 	units += unitsForCards(player);
 
-	cout << "\ntotal number of units: " << units<<endl;
+	cout << "\ntotal number of units: " << units << endl;
 	return units;
 }
 
 void Reinforce::reinforceDistributions(Player& player) {
-	cout << "\n\Calling the reinforcement phase..." << endl;
+
 	int units = totalUnits(player);
-	
-	while(units != 0) {
-		for (int i = 0; i < player.getCountry().size() && units != 0;i++) {
-			player.getCountryByRef().at(i)->setNumberOfTroops(player.getCountryByRef().at(i)->getNumberOfTroops() + 1);
-			units--;
-		};
+	cout << "The player possesses " << units << " to reinforce this turn." << endl;
+	while (units != 0) {
+		cout << "With now " << units << " units remaining, which country would you like to reinforce?" << endl;
+
+		for (int i = 0; i < player.getCountry().size();i++)
+			cout << player.getCountryByRef().at(i)->getCountName() << " which has " << player.getCountryByRef().at(i)->getNumberOfTroops() << " units." << endl;
+
+		bool valid = false;
+		string entry;
+		CountryNode* reinforcedCountry = NULL;
+
+		while (valid == false) {
+			std::getline(cin, entry);
+			cin.ignore();
+
+			for (int i = 0; i < player.getCountry().size() && valid == false;i++) {
+				if (entry == player.getCountryByRef().at(i)->getCountName()) {
+					valid = true;
+					reinforcedCountry = player.getCountryByRef().at(i);
+				}
+			}
+			if (valid == false)
+				cout << "\nThe country you entered is not valid. Please try again..." << endl;
+		}
+
+		cout << "How many units you would like to move? ";
+		int moving;
+		cin >> moving;
+
+		while (moving > units || moving < 1 || cin.fail()) {
+			cout << "\nYour input was invalid: you must move at least 1 unit and no more than your remaining number of units."
+				"You currently have " << units << " units remaining..." << endl;
+			cout << "How many units you would like to move? ";
+			cin.clear();
+			cin.ignore(std::numeric_limits<int>::max(), '\n');
+			cin >> moving;
+
+		}
+
+		reinforcedCountry->setNumberOfTroops(reinforcedCountry->getNumberOfTroops() + moving);
+		units -= moving;
+		Reinforce::reinforceNotify(reinforcedCountry, moving);
 	}
+	cout << "\nYou have dispensed all of your reinforcement units." << endl;
+}
+
+
+
+
+
+void Reinforce::reinforceNotify(CountryNode* country, int units) {
+	string  message = "PHASE_OBSERVER|" + country->getCountName() + " has received " + to_string(units) + " units.";
+	Subject::notify(message);
 }

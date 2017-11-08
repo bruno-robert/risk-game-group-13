@@ -9,7 +9,7 @@
 
 #include <iostream>
 using namespace std;
-#include "MapLoader.h"
+#include "MapLoaderOSX.h"
 
 int main()
 {

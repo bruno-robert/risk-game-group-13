@@ -7,8 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		150F82E01FB38FF0004815E2 /* mergeSortTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 150F82DF1FB38FF0004815E2 /* mergeSortTest.cpp */; };
+		150F82E41FB3C909004815E2 /* GameStartOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 150F82E31FB3C909004815E2 /* GameStartOSX.cpp */; };
 		158CA0DD1FA3A45C00920974 /* Part1Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467B1FA3A4250081DD71 /* Part1Driver.cpp */; };
 		158CA0DE1FA3A45C00920974 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467C1FA3A4250081DD71 /* Map.cpp */; };
+		159DAA061FAA64D30068EE78 /* PSPatern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 158080FE1FA91C8500677348 /* PSPatern.cpp */; };
+		159DAA071FAB63120068EE78 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467C1FA3A4250081DD71 /* Map.cpp */; };
+		15D2CFA51FB2902E003B1845 /* PhaseObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFA01FB2902E003B1845 /* PhaseObserver.cpp */; };
+		15D2CFAB1FB29069003B1845 /* Subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFA81FB29069003B1845 /* Subject.cpp */; };
+		15D2CFAC1FB29069003B1845 /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFA91FB29069003B1845 /* Observer.cpp */; };
+		15D2CFAF1FB2948A003B1845 /* ReinforcePhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046641FA3A4250081DD71 /* ReinforcePhase.cpp */; };
+		15D2CFB01FB29490003B1845 /* Attack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046601FA3A4250081DD71 /* Attack.cpp */; };
+		15D2CFBE1FB2AE96003B1845 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467C1FA3A4250081DD71 /* Map.cpp */; };
+		15D2CFC01FB2B637003B1845 /* MapLoaderOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFBF1FB2B637003B1845 /* MapLoaderOSX.cpp */; };
+		15D2CFC21FB2BCAB003B1845 /* MapLoaderOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFBF1FB2B637003B1845 /* MapLoaderOSX.cpp */; };
+		15D2CFC81FB2BD44003B1845 /* Part2DriverOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFC71FB2BD44003B1845 /* Part2DriverOSX.cpp */; };
+		15D2CFCA1FB2BDC8003B1845 /* AggroDriverWithOSXMapLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D2CFC91FB2BDC8003B1845 /* AggroDriverWithOSXMapLoader.cpp */; };
+		15EB6E301FACF5A50010C01C /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046711FA3A4250081DD71 /* Player.cpp */; };
+		15EB6E311FACF5C30010C01C /* Cards.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560466D1FA3A4250081DD71 /* Cards.cpp */; };
+		15EB6E321FACF5E50010C01C /* dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 156046761FA3A4250081DD71 /* dice.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,9 +56,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		159DA9FD1FAA64B60068EE78 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		15D2CFB31FB2AE71003B1845 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		150F82DF1FB38FF0004815E2 /* mergeSortTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mergeSortTest.cpp; sourceTree = "<group>"; };
+		150F82E31FB3C909004815E2 /* GameStartOSX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameStartOSX.cpp; sourceTree = "<group>"; };
+		150F82E51FB3C913004815E2 /* GameStartOSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStartOSX.h; sourceTree = "<group>"; };
 		1560464D1FA3A4250081DD71 /* GameStartDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameStartDriver.cpp; sourceTree = "<group>"; };
 		1560464E1FA3A4250081DD71 /* GameStart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameStart.h; sourceTree = "<group>"; };
 		1560464F1FA3A4250081DD71 /* GameStart.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameStart.cpp; sourceTree = "<group>"; };
@@ -62,7 +100,6 @@
 		156046631FA3A4250081DD71 /* ReinforceDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ReinforceDriver.cpp; sourceTree = "<group>"; };
 		156046641FA3A4250081DD71 /* ReinforcePhase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ReinforcePhase.cpp; sourceTree = "<group>"; };
 		156046651FA3A4250081DD71 /* ReinforcePhase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReinforcePhase.h; sourceTree = "<group>"; };
-		156046681FA3A4250081DD71 /* Part2Driver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Part2Driver.cpp; sourceTree = "<group>"; };
 		156046691FA3A4250081DD71 /* MapLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MapLoader.cpp; sourceTree = "<group>"; };
 		1560466A1FA3A4250081DD71 /* MapLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapLoader.h; sourceTree = "<group>"; };
 		1560466B1FA3A4250081DD71 /* World.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = World.map; sourceTree = "<group>"; };
@@ -85,6 +122,26 @@
 		158CA0E31FA3A47800920974 /* Cards Target */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Cards Target"; sourceTree = BUILT_PRODUCTS_DIR; };
 		159BA1011FA3A1EE006D4512 /* Risk-fresh-start */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Risk-fresh-start"; sourceTree = BUILT_PRODUCTS_DIR; };
 		159BA10F1FA3A328006D4512 /* Map Target */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Map Target"; sourceTree = BUILT_PRODUCTS_DIR; };
+		159DA9FF1FAA64B60068EE78 /* PSP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PSP; sourceTree = BUILT_PRODUCTS_DIR; };
+		159DAA081FAB69220068EE78 /* PSPDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PSPDriver.cpp; sourceTree = "<group>"; };
+		159DAA091FAB69220068EE78 /* PSPDriver.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PSPDriver.hpp; sourceTree = "<group>"; };
+		15D2CF9B1FB2902E003B1845 /* GameStatsObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStatsObserver.h; sourceTree = "<group>"; };
+		15D2CF9C1FB2902E003B1845 /* GameStatsObserverDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameStatsObserverDriver.cpp; sourceTree = "<group>"; };
+		15D2CF9D1FB2902E003B1845 /* GameStatsObserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameStatsObserver.cpp; sourceTree = "<group>"; };
+		15D2CF9F1FB2902E003B1845 /* PhaseObserverDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhaseObserverDriver.cpp; sourceTree = "<group>"; };
+		15D2CFA01FB2902E003B1845 /* PhaseObserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhaseObserver.cpp; sourceTree = "<group>"; };
+		15D2CFA11FB2902E003B1845 /* PhaseObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhaseObserver.h; sourceTree = "<group>"; };
+		15D2CFA71FB29069003B1845 /* Observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observer.h; sourceTree = "<group>"; };
+		15D2CFA81FB29069003B1845 /* Subject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Subject.cpp; sourceTree = "<group>"; };
+		15D2CFA91FB29069003B1845 /* Observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Observer.cpp; sourceTree = "<group>"; };
+		15D2CFAA1FB29069003B1845 /* Subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subject.h; sourceTree = "<group>"; };
+		15D2CFAD1FB29218003B1845 /* AggroDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AggroDriver.cpp; path = "Assignment 3/Part 1 - Player Strategy Pattern/AggroDriver.cpp"; sourceTree = SOURCE_ROOT; };
+		15D2CFB51FB2AE71003B1845 /* Map Loader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Map Loader"; sourceTree = BUILT_PRODUCTS_DIR; };
+		15D2CFBF1FB2B637003B1845 /* MapLoaderOSX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapLoaderOSX.cpp; sourceTree = "<group>"; };
+		15D2CFC11FB2B685003B1845 /* MapLoaderOSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapLoaderOSX.h; sourceTree = "<group>"; };
+		15D2CFC51FB2BD34003B1845 /* Part2Driver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Part2Driver.cpp; sourceTree = "<group>"; };
+		15D2CFC71FB2BD44003B1845 /* Part2DriverOSX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Part2DriverOSX.cpp; sourceTree = "<group>"; };
+		15D2CFC91FB2BDC8003B1845 /* AggroDriverWithOSXMapLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AggroDriverWithOSXMapLoader.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +166,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		159DA9FC1FAA64B60068EE78 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15D2CFB21FB2AE71003B1845 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -116,11 +187,11 @@
 			isa = PBXGroup;
 			children = (
 				1560464C1FA3A4250081DD71 /* Part 1 - GameStart */,
-				156046501FA3A4250081DD71 /* Part 3 - Main game loop */,
 				156046551FA3A4250081DD71 /* Part 2 - Startup phase */,
-				156046591FA3A4250081DD71 /* Part 6 - Fortification */,
-				1560465E1FA3A4250081DD71 /* Part 5 - Attack */,
+				156046501FA3A4250081DD71 /* Part 3 - Main game loop */,
 				156046621FA3A4250081DD71 /* Part 4 - Reinforcement */,
+				1560465E1FA3A4250081DD71 /* Part 5 - Attack */,
+				156046591FA3A4250081DD71 /* Part 6 - Fortification */,
 			);
 			path = "Assignment 2";
 			sourceTree = "<group>";
@@ -130,7 +201,9 @@
 			children = (
 				1560464D1FA3A4250081DD71 /* GameStartDriver.cpp */,
 				1560464E1FA3A4250081DD71 /* GameStart.h */,
+				150F82E51FB3C913004815E2 /* GameStartOSX.h */,
 				1560464F1FA3A4250081DD71 /* GameStart.cpp */,
+				150F82E31FB3C909004815E2 /* GameStartOSX.cpp */,
 			);
 			path = "Part 1 - GameStart";
 			sourceTree = "<group>";
@@ -192,9 +265,9 @@
 			children = (
 				156046781FA3A4250081DD71 /* Part 1 - Map */,
 				156046671FA3A4250081DD71 /* Part 2 - Map Loader */,
-				1560466C1FA3A4250081DD71 /* Part 5 - Cards */,
-				156046701FA3A4250081DD71 /* Part 4 - Player */,
 				156046741FA3A4250081DD71 /* Part 3 - Dice */,
+				156046701FA3A4250081DD71 /* Part 4 - Player */,
+				1560466C1FA3A4250081DD71 /* Part 5 - Cards */,
 			);
 			path = "Assignment 1";
 			sourceTree = "<group>";
@@ -202,7 +275,10 @@
 		156046671FA3A4250081DD71 /* Part 2 - Map Loader */ = {
 			isa = PBXGroup;
 			children = (
-				156046681FA3A4250081DD71 /* Part2Driver.cpp */,
+				15D2CFC71FB2BD44003B1845 /* Part2DriverOSX.cpp */,
+				15D2CFBF1FB2B637003B1845 /* MapLoaderOSX.cpp */,
+				15D2CFC11FB2B685003B1845 /* MapLoaderOSX.h */,
+				15D2CFC51FB2BD34003B1845 /* Part2Driver.cpp */,
 				156046691FA3A4250081DD71 /* MapLoader.cpp */,
 				1560466A1FA3A4250081DD71 /* MapLoader.h */,
 				1560466B1FA3A4250081DD71 /* World.map */,
@@ -243,10 +319,10 @@
 		156046781FA3A4250081DD71 /* Part 1 - Map */ = {
 			isa = PBXGroup;
 			children = (
-				156046791FA3A4250081DD71 /* Map.h */,
-				1560467A1FA3A4250081DD71 /* Part1Driver.h */,
-				1560467B1FA3A4250081DD71 /* Part1Driver.cpp */,
 				1560467C1FA3A4250081DD71 /* Map.cpp */,
+				156046791FA3A4250081DD71 /* Map.h */,
+				1560467B1FA3A4250081DD71 /* Part1Driver.cpp */,
+				1560467A1FA3A4250081DD71 /* Part1Driver.h */,
 			);
 			path = "Part 1 - Map";
 			sourceTree = "<group>";
@@ -255,9 +331,10 @@
 			isa = PBXGroup;
 			children = (
 				158080FC1FA91C8500677348 /* Part 1 - Player Strategy Pattern */,
+				15D2CF9E1FB2902E003B1845 /* Part 2 - Phase Observer */,
+				15D2CF9A1FB2902E003B1845 /* Part 3 */,
+				15D2CFA61FB29069003B1845 /* Observer Pattern */,
 				158080FF1FA91C8500677348 /* README.md */,
-				158081001FA91C8500677348 /* Part 2 - Phase Observer */,
-				158081011FA91C8500677348 /* Part 3 - Game Statistics Observer */,
 			);
 			path = "Assignment 3";
 			sourceTree = "<group>";
@@ -265,24 +342,15 @@
 		158080FC1FA91C8500677348 /* Part 1 - Player Strategy Pattern */ = {
 			isa = PBXGroup;
 			children = (
-				158080FD1FA91C8500677348 /* PSPatern.hpp */,
 				158080FE1FA91C8500677348 /* PSPatern.cpp */,
+				158080FD1FA91C8500677348 /* PSPatern.hpp */,
+				159DAA081FAB69220068EE78 /* PSPDriver.cpp */,
+				159DAA091FAB69220068EE78 /* PSPDriver.hpp */,
+				15D2CFAD1FB29218003B1845 /* AggroDriver.cpp */,
+				15D2CFC91FB2BDC8003B1845 /* AggroDriverWithOSXMapLoader.cpp */,
+				150F82DF1FB38FF0004815E2 /* mergeSortTest.cpp */,
 			);
 			path = "Part 1 - Player Strategy Pattern";
-			sourceTree = "<group>";
-		};
-		158081001FA91C8500677348 /* Part 2 - Phase Observer */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Part 2 - Phase Observer";
-			sourceTree = "<group>";
-		};
-		158081011FA91C8500677348 /* Part 3 - Game Statistics Observer */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Part 3 - Game Statistics Observer";
 			sourceTree = "<group>";
 		};
 		159BA0F81FA3A1EE006D4512 = {
@@ -301,8 +369,41 @@
 				159BA1011FA3A1EE006D4512 /* Risk-fresh-start */,
 				159BA10F1FA3A328006D4512 /* Map Target */,
 				158CA0E31FA3A47800920974 /* Cards Target */,
+				159DA9FF1FAA64B60068EE78 /* PSP */,
+				15D2CFB51FB2AE71003B1845 /* Map Loader */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		15D2CF9A1FB2902E003B1845 /* Part 3 */ = {
+			isa = PBXGroup;
+			children = (
+				15D2CF9B1FB2902E003B1845 /* GameStatsObserver.h */,
+				15D2CF9C1FB2902E003B1845 /* GameStatsObserverDriver.cpp */,
+				15D2CF9D1FB2902E003B1845 /* GameStatsObserver.cpp */,
+			);
+			path = "Part 3";
+			sourceTree = "<group>";
+		};
+		15D2CF9E1FB2902E003B1845 /* Part 2 - Phase Observer */ = {
+			isa = PBXGroup;
+			children = (
+				15D2CF9F1FB2902E003B1845 /* PhaseObserverDriver.cpp */,
+				15D2CFA01FB2902E003B1845 /* PhaseObserver.cpp */,
+				15D2CFA11FB2902E003B1845 /* PhaseObserver.h */,
+			);
+			path = "Part 2 - Phase Observer";
+			sourceTree = "<group>";
+		};
+		15D2CFA61FB29069003B1845 /* Observer Pattern */ = {
+			isa = PBXGroup;
+			children = (
+				15D2CFA71FB29069003B1845 /* Observer.h */,
+				15D2CFA81FB29069003B1845 /* Subject.cpp */,
+				15D2CFA91FB29069003B1845 /* Observer.cpp */,
+				15D2CFAA1FB29069003B1845 /* Subject.h */,
+			);
+			path = "Observer Pattern";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,6 +460,40 @@
 			productReference = 159BA10F1FA3A328006D4512 /* Map Target */;
 			productType = "com.apple.product-type.tool";
 		};
+		159DA9FE1FAA64B60068EE78 /* PSP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 159DAA051FAA64B60068EE78 /* Build configuration list for PBXNativeTarget "PSP" */;
+			buildPhases = (
+				159DA9FB1FAA64B60068EE78 /* Sources */,
+				159DA9FC1FAA64B60068EE78 /* Frameworks */,
+				159DA9FD1FAA64B60068EE78 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PSP;
+			productName = PSP;
+			productReference = 159DA9FF1FAA64B60068EE78 /* PSP */;
+			productType = "com.apple.product-type.tool";
+		};
+		15D2CFB41FB2AE71003B1845 /* Map Loader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15D2CFB91FB2AE71003B1845 /* Build configuration list for PBXNativeTarget "Map Loader" */;
+			buildPhases = (
+				15D2CFB11FB2AE71003B1845 /* Sources */,
+				15D2CFB21FB2AE71003B1845 /* Frameworks */,
+				15D2CFB31FB2AE71003B1845 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Map Loader";
+			productName = "Map Loader";
+			productReference = 15D2CFB51FB2AE71003B1845 /* Map Loader */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -380,6 +515,14 @@
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
 					};
+					159DA9FE1FAA64B60068EE78 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+					15D2CFB41FB2AE71003B1845 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 159BA0FC1FA3A1EE006D4512 /* Build configuration list for PBXProject "Risk-fresh-start" */;
@@ -397,6 +540,8 @@
 				159BA1001FA3A1EE006D4512 /* Risk-fresh-start */,
 				159BA10E1FA3A328006D4512 /* Map Target */,
 				158CA0E21FA3A47800920974 /* Cards Target */,
+				159DA9FE1FAA64B60068EE78 /* PSP */,
+				15D2CFB41FB2AE71003B1845 /* Map Loader */,
 			);
 		};
 /* End PBXProject section */
@@ -413,6 +558,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				150F82E01FB38FF0004815E2 /* mergeSortTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +568,36 @@
 			files = (
 				158CA0DE1FA3A45C00920974 /* Map.cpp in Sources */,
 				158CA0DD1FA3A45C00920974 /* Part1Driver.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		159DA9FB1FAA64B60068EE78 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15D2CFC21FB2BCAB003B1845 /* MapLoaderOSX.cpp in Sources */,
+				15EB6E301FACF5A50010C01C /* Player.cpp in Sources */,
+				15D2CFCA1FB2BDC8003B1845 /* AggroDriverWithOSXMapLoader.cpp in Sources */,
+				150F82E41FB3C909004815E2 /* GameStartOSX.cpp in Sources */,
+				15EB6E311FACF5C30010C01C /* Cards.cpp in Sources */,
+				15EB6E321FACF5E50010C01C /* dice.cpp in Sources */,
+				15D2CFAB1FB29069003B1845 /* Subject.cpp in Sources */,
+				159DAA071FAB63120068EE78 /* Map.cpp in Sources */,
+				15D2CFA51FB2902E003B1845 /* PhaseObserver.cpp in Sources */,
+				15D2CFAC1FB29069003B1845 /* Observer.cpp in Sources */,
+				159DAA061FAA64D30068EE78 /* PSPatern.cpp in Sources */,
+				15D2CFAF1FB2948A003B1845 /* ReinforcePhase.cpp in Sources */,
+				15D2CFB01FB29490003B1845 /* Attack.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15D2CFB11FB2AE71003B1845 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15D2CFC01FB2B637003B1845 /* MapLoaderOSX.cpp in Sources */,
+				15D2CFC81FB2BD44003B1845 /* Part2DriverOSX.cpp in Sources */,
+				15D2CFBE1FB2AE96003B1845 /* Map.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +761,42 @@
 			};
 			name = Release;
 		};
+		159DAA031FAA64B60068EE78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		159DAA041FAA64B60068EE78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		15D2CFBA1FB2AE71003B1845 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		15D2CFBB1FB2AE71003B1845 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -620,6 +832,24 @@
 			buildConfigurations = (
 				159BA1141FA3A328006D4512 /* Debug */,
 				159BA1151FA3A328006D4512 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		159DAA051FAA64B60068EE78 /* Build configuration list for PBXNativeTarget "PSP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				159DAA031FAA64B60068EE78 /* Debug */,
+				159DAA041FAA64B60068EE78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15D2CFB91FB2AE71003B1845 /* Build configuration list for PBXNativeTarget "Map Loader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15D2CFBA1FB2AE71003B1845 /* Debug */,
+				15D2CFBB1FB2AE71003B1845 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

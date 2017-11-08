@@ -8,42 +8,51 @@
 //               Implementing reinforce(), attack(), fortify() player actions according to official game rule.
 //============================================================================
 
+#ifndef __Player_H_INCLUDED__
+#define __Player_H_INCLUDED__
+
 #include <iostream>
 #include <vector>
 #include "Map.h" //Part 1
 #include "dice.h" //Part 3
 #include "Cards.h" //Part 5
 #include "Subject.h"
+class PlayerStrategyPattern;
+#include "PSPatern.hpp"
 
-#ifndef __Player_H_INCLUDED__
-#define __Player_H_INCLUDED__
 
 using namespace std;
 
-class Player : public Subject{
+class Player{
+    vector<CountryNode *> ownedCountry; //Vector of player's occupied countries
+    Hand hand;
+    Dice dice;
+    int playerID;
+    static int numberOfPlayers;
+    PlayerStrategyPattern * psp;
+    void copyCountList(vector<CountryNode*>& a, int iBegin, int iEnd, vector<CountryNode*>& b);
+    void topDownCountMerge(vector<CountryNode*>& a, int iBegin, int iMiddle, int iEnd, vector<CountryNode*>& b);
+    void topDownCountSplitMerge(vector<CountryNode*>& b, int iBegin, int iEnd, vector<CountryNode*>& a);
 public:
 
 	Player(); //Default Constructor
 	~Player();
-	Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice); //Complete Constructor
+    void addCountryToOwned(CountryNode* country, vector<Player*> playerlist);
+	Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, PlayerStrategyPattern * psp); //Complete Constructor
 	vector<CountryNode *> getCountry(); //Getters
 	Hand getHand();
 	Dice getDice();
-	int getPlayerID();
+	int getPlayerID() const;
 	Hand& getHandByRef();
 	Dice& getDiceByRef();
 	vector<CountryNode *>& getCountryByRef();
 	void reinforce();//Player action methods
 	void attack();
 	void fortify();
-        void setCountry(vector<CountryNode *> ownedCountry);
+    void setCountry(vector<CountryNode *> ownedCountry);
 	void setPlayerID(int id);
-
-private:
-	vector<CountryNode *> ownedCountry; //Vector of player's occupied countries
-	Hand hand;
-	Dice dice;
-	int playerID;
+    void setPSP(PlayerStrategyPattern *psp) {this->psp = psp;}
+    void topDownCountMergeSort();
 };
 
 #endif
