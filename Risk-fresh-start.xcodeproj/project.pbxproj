@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		150F82E01FB38FF0004815E2 /* mergeSortTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 150F82DF1FB38FF0004815E2 /* mergeSortTest.cpp */; };
 		158CA0DD1FA3A45C00920974 /* Part1Driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467B1FA3A4250081DD71 /* Part1Driver.cpp */; };
 		158CA0DE1FA3A45C00920974 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1560467C1FA3A4250081DD71 /* Map.cpp */; };
 		159DAA061FAA64D30068EE78 /* PSPatern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 158080FE1FA91C8500677348 /* PSPatern.cpp */; };
@@ -75,6 +76,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		150F82DF1FB38FF0004815E2 /* mergeSortTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mergeSortTest.cpp; sourceTree = "<group>"; };
 		1560464D1FA3A4250081DD71 /* GameStartDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameStartDriver.cpp; sourceTree = "<group>"; };
 		1560464E1FA3A4250081DD71 /* GameStart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameStart.h; sourceTree = "<group>"; };
 		1560464F1FA3A4250081DD71 /* GameStart.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameStart.cpp; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				159DAA091FAB69220068EE78 /* PSPDriver.hpp */,
 				15D2CFAD1FB29218003B1845 /* AggroDriver.cpp */,
 				15D2CFC91FB2BDC8003B1845 /* AggroDriverWithOSXMapLoader.cpp */,
+				150F82DF1FB38FF0004815E2 /* mergeSortTest.cpp */,
 			);
 			path = "Part 1 - Player Strategy Pattern";
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				150F82E01FB38FF0004815E2 /* mergeSortTest.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

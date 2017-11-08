@@ -30,6 +30,9 @@ class Player{
     int playerID;
     static int numberOfPlayers;
     PlayerStrategyPattern * psp;
+    void CopyCountList(vector<CountryNode*>& a, int iBegin, int iEnd, vector<CountryNode*>& b);
+    void TopDownCountMerge(vector<CountryNode*>& a, int iBegin, int iMiddle, int iEnd, vector<CountryNode*>& b);
+    void TopDownCountSplitMerge(vector<CountryNode*>& b, int iBegin, int iEnd, vector<CountryNode*>& a);
 public:
 
 	Player(); //Default Constructor
@@ -48,6 +51,7 @@ public:
 	void fortify();
     void setCountry(vector<CountryNode *> ownedCountry);
 	void setPlayerID(int id);
+    void TopDownCountMergeSort(vector<CountryNode*>& a, vector<CountryNode*>& b, int n);
 };
 
 #endif
