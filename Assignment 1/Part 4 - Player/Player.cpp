@@ -62,13 +62,11 @@ void Player::addCountryToOwned(CountryNode* country, vector<Player*> playerList)
 }
 
 void Player::reinforce(){
-
-    cout << "You are reinforcing. " << endl;
+    psp->executeReinforce((*this));
 }
 
-void Player::attack(){
-
-    cout << "You are attacking. " << endl;
+void Player::attack(Map& m, vector<Player*> playerList){
+    psp->executeAttack((*this), m, playerList);
 }
 
 /**

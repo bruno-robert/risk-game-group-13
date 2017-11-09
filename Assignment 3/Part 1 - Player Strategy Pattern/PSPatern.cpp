@@ -74,14 +74,41 @@ void Human::executeFortify(Player& user) {
         CountryNode* destinationCountry = NULL;
         int numberOfTroopsToMove;
 
+        //asking if user wants to foritfy
+        cout << "\nYou are now in the fortification Phase:\n" << endl;
+        cout << "Would you like to fortify this turn ? (y/n)" << endl;
+        while (true) {
+            string yesOrNo;
+            cin >> yesOrNo;
+            if(yesOrNo == "y" || yesOrNo == "yes") {
+                break;
+            } else if (yesOrNo == "n" || yesOrNo == "no") {
+                return;
+            }
+            
+            cout << "sorry the value you entered is invalid, please try again." << endl;
+        }
+        
+        cout << "\nHere is the list of you countries with their troops and friendly adjacent countries:" << endl;
+        //Print out the list of coutries with friendly adjacent
+        for(CountryNode* country : user.getCountryByRef()){
+            cout << country->getCountName() << " has " << country->getNumberOfTroops() << " troops. It's friendly adjacent countries are:" << endl;
+            for(CountryNode* adjCountry : country->getAdjCount()){
+                if(adjCountry->getOwnedBy() == user.getPlayerID()) {
+                    cout << "        "<< adjCountry->getCountName() << " with " << adjCountry->getNumberOfTroops() << " troops." << endl;
+                }
+            }
+        }
+        
+        
         //Getting and checking starting country
-        cout << "please select a starting country" << endl;
+        cout << "Please select a starting country" << endl;
         //temporary varibales
         string inputString;
         while (true) {
-            getline(cin, inputString);
-            cin.ignore();
-            //cin >> inputString;
+            cin >> inputString;
+            replace( inputString.begin(), inputString.end(), '_', ' ');
+            
             int startingCountryID = countryNameToID(inputString, user);
             startingCountry = getCountryById(user.getCountryByRef(), startingCountryID);
             //checks if the starting coutry is valid
@@ -100,9 +127,9 @@ void Human::executeFortify(Player& user) {
         //Getting and checking the destination country
         cout << "please select the destination country" << endl;
         while (true) {
-            getline(cin, inputString);
-            cin.ignore();
-            //cin >> inputString;
+            cin >> inputString;
+            replace( inputString.begin(), inputString.end(), '_', ' ');
+            
             int destinationCountryID = countryNameToID(inputString, user);
 
             destinationCountry = getCountryById(user.getCountryByRef(), destinationCountryID);
@@ -176,9 +203,8 @@ Aggressive::~Aggressive() {
 }
 
 void Aggressive::executeReinforce(Player& user) {
-	Reinforce rein;
 
-	rein.reinforceNotifyStart(user);
+
     //Finding the country with the most units and a target to attack
     int maxUnit = 0;
     int maxIndex = 0;
@@ -201,10 +227,10 @@ void Aggressive::executeReinforce(Player& user) {
             }
         }
     }
- 
+    Reinforce rein;
     int unitsReceived = rein.totalUnits(user);
     user.getCountryByRef().at(maxIndex)->setNumberOfTroops(maxUnit + unitsReceived);
-    rein.reinforceNotifyDistribution(user.getCountryByRef().at(maxIndex), unitsReceived);
+    rein.reinforceNotify(user.getCountryByRef().at(maxIndex), unitsReceived);
 }
 
 
@@ -243,6 +269,7 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
     for (int i = 0; i < attacker->getAdjCount().size() && attacker->getNumberOfTroops() > 1; i++) {
         
         CountryNode* defending = attacker->getAdjCount().at(i);
+
 
         if (defending->getCountryId() != attacker->getCountryId()){
 
@@ -351,7 +378,7 @@ void PlayerStrategyPattern::getPathToBiggest(CountryNode ** destinationCountry, 
     vector<CountryNode*> visitedCountries;
     vector<CountryNode*> path = recursiveGetPathToBiggest(*destinationCountry, *startingCountry, p , visitedCountries);
     
-    if(path.size() > 2) {
+    if(path.size() >= 2) {
         *destinationCountry = path.at(0);
         *startingCountry = path.at(1);
     } else {
@@ -363,7 +390,7 @@ void PlayerStrategyPattern::getPathToBiggest(CountryNode ** destinationCountry, 
     return;
 }
 
-void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
+void Aggressive::executeFortify(Player& user) {
     CountryNode* startingCountry = NULL;
     CountryNode* destinationCountry = NULL;
     int numberOfTroopsToMove = -1;
@@ -382,6 +409,7 @@ void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
 
         if(hasEnemy) {
             destinationCountry = currentCountry;
+            user.topDownCountMergeSort();
             getPathToBiggest(&destinationCountry, &startingCountry, user);
             
 
@@ -395,6 +423,7 @@ void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
                 return;
             }
         }//else move to the next country
+        hasEnemy = false;
         startingCountry = NULL;
     }
 
@@ -462,8 +491,50 @@ void Benevolant::executeAttack(Player& user, Map& map, vector<Player*> playerLis
 
 }
 
-
 void Benevolant::executeFortify(Player& user) {
-    //TODO: Implement this @Bruno
-
+    //Not a very efficient Algorithm O(n2) or more
+    CountryNode* startingCountry = NULL;
+    CountryNode* destinationCountry = NULL;
+    int numberOfTroopsToMove = -1;
+    
+    //sort the user's countries
+    user.topDownCountMergeSort();
+    
+    //for each owned countries (starting by the weakest
+    for(int i = (int)(user.getCountryByRef().size()-1); i != -1; i--) {
+        CountryNode* currentCountry = user.getCountryByRef().at(i);
+        
+        //for each adjacent country to the currentCoutry check if it has much more troops than the current Country
+        for(CountryNode* country : currentCountry->getAdjCount()) {
+            int diff = (country->getNumberOfTroops() - currentCountry->getNumberOfTroops());//diff is the (difference in troops)^2
+            diff = diff * diff; //square so we only get positive results
+            if(diff >= 4) {//if diff ==1 then moving the troup will have no avail, if diff >= 4 then the difference in troops >= 2
+                if(country->getNumberOfTroops() > currentCountry->getNumberOfTroops()) {
+                    startingCountry = country;
+                    destinationCountry = currentCountry;
+                    numberOfTroopsToMove = ((country->getNumberOfTroops() - currentCountry->getNumberOfTroops()) /2);
+                    
+                    //Removing troups from startingcountry
+                    startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
+                    
+                    //Adding troups to destinationCountry
+                    destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
+                    return;
+                } else {
+                    startingCountry = currentCountry;
+                    destinationCountry = country;
+                    numberOfTroopsToMove = ((currentCountry->getNumberOfTroops() - country->getNumberOfTroops()) /2);
+                    
+                    //Removing troups from startingcountry
+                    startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
+                    
+                    //Adding troups to destinationCountry
+                    destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
+                    return;
+                }
+            }
+        }
+    }
+    
 }
+
