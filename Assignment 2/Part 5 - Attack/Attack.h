@@ -55,6 +55,8 @@ public:
 
 	//Notify calls
 	void attackNotify(CountryNode* attacker, CountryNode* defender, int numDiceAttack, int numDiceDefend);
+	void attackNotifyConquering(CountryNode* attacker, CountryNode* defender, int unitsMoved);
+	void attackNotifyStart(Player& user);
     
 private:
     vector<Player*> playerListData;

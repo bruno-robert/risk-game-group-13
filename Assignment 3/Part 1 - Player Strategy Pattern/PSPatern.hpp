@@ -29,7 +29,7 @@ public:
     
   
     virtual void executeFortify(Player& user)= 0;
-    virtual void executeAttack(Player& user)= 0;
+    virtual void executeAttack(Player& user,Map& map,vector<Player*> playerList)= 0;
     virtual void executeReinforce(Player& user)= 0;
     bool isCountryInVector(int a, vector<CountryNode*> vect);
     vector<CountryNode*> getOwnedIsland(CountryNode* startCountry, vector<CountryNode*>& ownedCountryIsland, const Player& p);
@@ -45,7 +45,7 @@ public:
     Human();
     ~Human();
     void executeFortify(Player& user);
-    void executeAttack(Player& user);
+	void executeAttack(Player& user, Map& map, vector<Player*> playerList);
     void executeReinforce(Player& user);
     
 };
@@ -57,20 +57,19 @@ public:
 	Aggressive();
     ~Aggressive();
 	void executeReinforce(Player& user);
-	void executeAttack(Player& user);
+	void executeAttack(Player& user, Map& map, vector<Player*> playerList);
 	void executeFortify(Player& user);
 };
 
 //subclass of PlayerStrategyPattern
 
-//TODO: Change 'Benevolant' to 'Benevolent'
 class Benevolant : public PlayerStrategyPattern {
 
 public:
 	Benevolant();
     ~Benevolant();
 	void executeReinforce(Player& user);
-	void executeAttack(Player& user);
+	void executeAttack(Player& user, Map& map, vector<Player*> playerList);
 	void executeFortify(Player& user);
 };
 
