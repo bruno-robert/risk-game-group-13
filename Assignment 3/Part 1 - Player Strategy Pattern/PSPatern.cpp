@@ -75,7 +75,23 @@ void Human::executeFortify(Player& user) {
         int numberOfTroopsToMove;
 
         //Getting and checking starting country
-        cout << "please select a starting country" << endl;
+        cout << "\nYou are now int the fortification Phase:\n" << endl;
+        cout << "Would you like to fortify this turn ? (y/n)" << endl;
+        while (true) {
+            string yesOrNo;
+            cin >> yesOrNo;
+            if(yesOrNo == "y" || yesOrNo == "yes") {
+                break;
+            } else if (yesOrNo == "n" || yesOrNo == "no") {
+                return;
+            }
+            
+            cout << "sorry the value you entered is invalid, please try again." << endl;
+        }
+        
+        
+        
+        cout << "Please select a starting country" << endl;
         //temporary varibales
         string inputString;
         while (true) {
