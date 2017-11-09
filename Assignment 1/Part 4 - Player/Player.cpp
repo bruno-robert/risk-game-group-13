@@ -62,13 +62,12 @@ void Player::addCountryToOwned(CountryNode* country, vector<Player*> playerList)
 }
 
 void Player::reinforce(){
-
-    cout << "You are reinforcing. " << endl;
+    psp->executeReinforce((*this));
 }
 
 void Player::attack(){
-
-    cout << "You are attacking. " << endl;
+    //FIXME: Urgent, the player objects doesn't have access to either the map or the player list!
+    //psp->executeAttack((*this), Map &map, vector<Player *> playerList);
 }
 
 /**
