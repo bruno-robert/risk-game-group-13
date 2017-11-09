@@ -16,6 +16,12 @@ PlayerStrategyPattern::PlayerStrategyPattern() {
 PlayerStrategyPattern::~PlayerStrategyPattern() {
     
 }
+
+/**
+ Checks if there is a country with a given id in the given vector
+ @param a the id of the give ncountry
+ @param vect the vector of countries to be checked
+ */
 bool PlayerStrategyPattern::isCountryInVector(int a, vector<CountryNode*> vect) {
     for(CountryNode* country: vect) {
         if (country->getCountryId() == a) {
@@ -271,6 +277,34 @@ void Aggressive::executeAttack(Player& user) {
 		}
 	}
 }
+vector<CountryNode*> PlayerStrategyPattern::recursiveGetPathToBiggest(CountryNode* startingCountry, CountryNode* destinationCountry, const Player& p, vector<CountryNode*>& visitedCountries) {
+    vector<CountryNode*> path;
+    if(isCountryInVector(startingCountry->getCountryId(), visitedCountries)) {
+        return path;
+    } else {
+        visitedCountries.push_back(startingCountry);
+        for (CountryNode* adjCountry : startingCountry->getAdjCount()) {
+            if(adjCountry->getOwnedBy() == p.getPlayerID() && adjCountry->getNumberOfTroops() > 1) {
+                destinationCountry = adjCountry;
+                path.push_back(startingCountry);
+                path.push_back(destinationCountry);
+                return path;
+            }
+        }
+        for (CountryNode* adjCountry : startingCountry->getAdjCount()) {
+            path = recursiveGetPathToBiggest(adjCountry, destinationCountry, p, visitedCountries);
+            if(path.size()>0) {
+                return path;
+            }
+        }
+    }
+    
+    return path;
+}
+
+void PlayerStrategyPattern::getPathToBiggest(CountryNode ** startingCountry, CountryNode ** destinationCountry, const Player& p) {
+    
+}
 
 void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
     CountryNode* startingCountry = NULL;
@@ -280,34 +314,31 @@ void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
     //sort the user's countries
     user.topDownCountMergeSort();
     
-    CountryNode* currentCheck;//the country we're checking out a the moment
-    int ctr = 0;
-    //loops throught the player's countries (from biggest to smallest)
-    while (ctr < user.getCountryByRef().size()) {
-        currentCheck = user.getCountryByRef().at(ctr);
-        for(CountryNode * adjCountry: currentCheck->getAdjCount()) {
-            if(adjCountry->getNumberOfTroops() > 1 && adjCountry->getOwnedBy() == user.getPlayerID()) {
-                startingCountry = adjCountry;
-                destinationCountry = currentCheck;
-                numberOfTroopsToMove = (startingCountry->getNumberOfTroops()-1);
+    for(CountryNode* currentCountry : user.getCountryByRef() ) {
+        bool hasEnemy = false;
+        for(CountryNode* adjCountry :currentCountry->getAdjCount()) {
+            if(adjCountry->getOwnedBy() != user.getPlayerID()) {
+                hasEnemy = true;
+                break;
             }
         }
         
-        ctr++;
+        if(hasEnemy) {
+            startingCountry = currentCountry;
+            getPathToBiggest(&startingCountry, &destinationCountry, user);
+            
+            if(startingCountry != NULL && destinationCountry != NULL) {
+                //Removing troups from startingcountry
+                startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
+                
+                //Adding troups to destinationCountry
+                destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
+                return;
+            }
+        }//else move to the next country
+        startingCountry = NULL;
     }
     
-    for(CountryNode* currentBiggy : user.getCountryByRef()) {
-        vector<CountryNode*> currentCountryisland;
-        getOwnedIsland(currentBiggy, currentCountryisland, user);
-        for(CountryNode* country : currentCountryisland) {
-            
-        }
-    }
-    //1 from Currentbiggest country, get the island of owned countrie in it
-    //2 move troups in island towards biggy
-    //once all the troups in the island have 1 Troop:
-    //3 find next biggest country [if the next biggest coutry has 1 troop: return]
-    //repeat from step 1
     
     
     
