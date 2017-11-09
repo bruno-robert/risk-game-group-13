@@ -307,6 +307,10 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
 }
 
 
+/**
+ the recursiveGetPathToBiggest country starts from the the startingCountry, and makes its way to the nearest country that is owned by p and has troops
+ It then returns a 1 length path to move troops cloesr to the original starting country
+ */
 vector<CountryNode*> PlayerStrategyPattern::recursiveGetPathToBiggest(CountryNode* startingCountry, CountryNode* destinationCountry, const Player& p, vector<CountryNode*>& visitedCountries) {
     vector<CountryNode*> path;
     if(isCountryInVector(startingCountry->getCountryId(), visitedCountries)) {
@@ -332,12 +336,18 @@ vector<CountryNode*> PlayerStrategyPattern::recursiveGetPathToBiggest(CountryNod
     return path;
 }
 
-void PlayerStrategyPattern::getPathToBiggest(CountryNode ** startingCountry, CountryNode ** destinationCountry, const Player& p) {
+/**
+ 
+ @param destinationCountry ptr to the coutry to witch you want to move troups (the method will modify it's value so that if you move troop to this country, they will be closer to the original country)
+ @param startingCountry the method will change this to the country you should send the troups from
+ @param p player
+ */
+void PlayerStrategyPattern::getPathToBiggest(CountryNode ** destinationcountry, CountryNode ** startingCountry, const Player& p) {
     vector<CountryNode*> visitedCountries;
-    vector<CountryNode*> path = recursiveGetPathToBiggest(*startingCountry, *destinationCountry, p , visitedCountries);
+    vector<CountryNode*> path = recursiveGetPathToBiggest(*destinationcountry, *startingCountry, p , visitedCountries);
     
+    *destinationcountry = path.at(0);
     *startingCountry = path.at(1);
-    *destinationCountry = path.at(0);
     return;
 }
 
@@ -359,8 +369,9 @@ void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
         }
 
         if(hasEnemy) {
-            startingCountry = currentCountry;
-            getPathToBiggest(&startingCountry, &destinationCountry, user);
+            destinationCountry = currentCountry;
+            getPathToBiggest(&destinationCountry, &startingCountry, user);
+            
 
             if(startingCountry != NULL && destinationCountry != NULL) {
                 //Removing troups from startingcountry
