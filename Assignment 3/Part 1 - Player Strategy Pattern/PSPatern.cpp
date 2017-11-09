@@ -181,6 +181,11 @@ void Human::executeFortify(Player& user) {
 
 void Human::executeAttack(Player& user, Map& map, vector<Player*> playerList) {
 
+	Attack attackObj;
+	attackObj.attackNotifyStart(user);
+	//The other notify calls should be inside to attack loop
+	attackObj.attackLoop(playerList, &user, &map);
+
 }
 
 void Human::executeReinforce(Player& user) {
@@ -225,7 +230,7 @@ void Aggressive::executeReinforce(Player& user) {
     Reinforce rein;
     int unitsReceived = rein.totalUnits(user);
     user.getCountryByRef().at(maxIndex)->setNumberOfTroops(maxUnit + unitsReceived);
-    rein.reinforceNotify(user.getCountryByRef().at(maxIndex), unitsReceived);
+    rein.reinforceNotifyDistribution(user.getCountryByRef().at(maxIndex), unitsReceived);
 }
 
 
@@ -450,7 +455,8 @@ Benevolant::~Benevolant() {
 
 void Benevolant::executeReinforce(Player& user) {
 
-
+	Reinforce rein;
+	rein.reinforceNotifyStart(user);
     //Getting the number of units for my player
     Reinforce unitsReinforced;
     int units = unitsReinforced.totalUnits(user);
@@ -471,6 +477,7 @@ void Benevolant::executeReinforce(Player& user) {
         }
         user.getCountryByRef().at(leastIndex)->setNumberOfTroops(leastUnit + 1);
         units--;
+		rein.reinforceNotifyDistribution(user.getCountryByRef().at(leastIndex), 1);
     }
 }
 
@@ -478,9 +485,11 @@ void Benevolant::executeReinforce(Player& user) {
 
 void Benevolant::executeAttack(Player& user, Map& map, vector<Player*> playerList) {
 
+	Attack attackObj;
+	attackObj.attackNotifyStart(user);
+	cout << "Since the benevolant computer does not attack no action is taken during this phase..." << endl;
 
 }
-
 
 void Benevolant::executeFortify(Player& user) {
     //Not a very efficient Algorithm O(n2) or more
@@ -528,3 +537,4 @@ void Benevolant::executeFortify(Player& user) {
     }
     
 }
+
