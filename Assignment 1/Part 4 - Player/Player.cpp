@@ -65,9 +65,8 @@ void Player::reinforce(){
     psp->executeReinforce((*this));
 }
 
-void Player::attack(){
-    //FIXME: Urgent, the player objects doesn't have access to either the map or the player list!
-    //psp->executeAttack((*this), Map &map, vector<Player *> playerList);
+void Player::attack(Map& m, vector<Player*> playerList){
+    psp->executeAttack((*this), m, playerList);
 }
 
 /**

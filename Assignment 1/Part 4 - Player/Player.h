@@ -49,7 +49,7 @@ public:
     vector<CountryNode *>& getCountryByRef();
     PlayerStrategyPattern* getStrategy();
     void reinforce();//Player action methods
-    void attack();
+    void attack(Map& m, vector<Player*> playerList);
     void fortify();
     void setCountry(vector<CountryNode *> ownedCountry); //Setters
     void setPlayerID(int id);
