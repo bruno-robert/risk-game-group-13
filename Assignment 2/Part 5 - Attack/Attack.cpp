@@ -56,6 +56,8 @@ void Attack::attackLoop(vector<Player*> playerList, Player* attacker, Map* map){
 	setAttackingPlayerData(attacker);
 	setMapData(map);
 
+	notify("Attack Started");
+
 	bool wantsToAttack = yesNoQuestion("Do you wish to attack?");
 
 	while (wantsToAttack){
@@ -118,8 +120,7 @@ void Attack::attackLoop(vector<Player*> playerList, Player* attacker, Map* map){
 			}
 
 			//Output results of comparing dice
-			string troopsLost = "Troops lost calculated|" + to_string(attackerLoses) + "|" + to_string(defenderLoses);
-			notify(troopsLost);
+			notify("Troop Loss");
 			cout << "Attacker loses " << attackerLoses << " army personnel" << endl;
 			cout << "Defender loses " << defenderLoses << " army personnel" << endl;
 
@@ -565,4 +566,17 @@ Player* Attack::getDefendingPlayerData(){
 
 Map* Attack::getMapData(){
 	return this->mapData;
+}
+
+void Attack::setAttackerTroopLoss(int amountLost){
+	attackerTroopLoss = amountLost;
+}
+int Attack::getAttackerTroopLoss(){
+	return attackerTroopLoss;
+}
+void Attack::setDefenderTroopLoss(int amountLost){
+	defenderTroopLoss = amountLost;
+}
+int Attack::getDefenderTroopLoss(){
+	return defenderTroopLoss;
 }
