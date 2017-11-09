@@ -423,7 +423,6 @@ void Aggressive::executeFortify(Player& user) {
                 return;
             }
         }//else move to the next country
-        hasEnemy = false;
         startingCountry = NULL;
     }
 
@@ -506,31 +505,35 @@ void Benevolant::executeFortify(Player& user) {
         
         //for each adjacent country to the currentCoutry check if it has much more troops than the current Country
         for(CountryNode* country : currentCountry->getAdjCount()) {
-            int diff = (country->getNumberOfTroops() - currentCountry->getNumberOfTroops());//diff is the (difference in troops)^2
-            diff = diff * diff; //square so we only get positive results
-            if(diff >= 4) {//if diff ==1 then moving the troup will have no avail, if diff >= 4 then the difference in troops >= 2
-                if(country->getNumberOfTroops() > currentCountry->getNumberOfTroops()) {
-                    startingCountry = country;
-                    destinationCountry = currentCountry;
-                    numberOfTroopsToMove = ((country->getNumberOfTroops() - currentCountry->getNumberOfTroops()) /2);
-                    
-                    //Removing troups from startingcountry
-                    startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
-                    
-                    //Adding troups to destinationCountry
-                    destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
-                    return;
-                } else {
-                    startingCountry = currentCountry;
-                    destinationCountry = country;
-                    numberOfTroopsToMove = ((currentCountry->getNumberOfTroops() - country->getNumberOfTroops()) /2);
-                    
-                    //Removing troups from startingcountry
-                    startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
-                    
-                    //Adding troups to destinationCountry
-                    destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
-                    return;
+            
+            //if the adjacent country is friendly then check them
+            if(country->getOwnedBy() == user.getPlayerID()){
+                int diff = (country->getNumberOfTroops() - currentCountry->getNumberOfTroops());//diff is the (difference in troops)^2
+                diff = diff * diff; //square so we only get positive results
+                if(diff >= 4) {//if diff ==1 then moving the troup will have no avail, if diff >= 4 then the difference in troops >= 2
+                    if(country->getNumberOfTroops() > currentCountry->getNumberOfTroops()) {
+                        startingCountry = country;
+                        destinationCountry = currentCountry;
+                        numberOfTroopsToMove = ((country->getNumberOfTroops() - currentCountry->getNumberOfTroops()) /2);
+                        
+                        //Removing troups from startingcountry
+                        startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
+                        
+                        //Adding troups to destinationCountry
+                        destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
+                        return;
+                    } else {
+                        startingCountry = currentCountry;
+                        destinationCountry = country;
+                        numberOfTroopsToMove = ((currentCountry->getNumberOfTroops() - country->getNumberOfTroops()) /2);
+                        
+                        //Removing troups from startingcountry
+                        startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
+                        
+                        //Adding troups to destinationCountry
+                        destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
+                        return;
+                    }
                 }
             }
         }
