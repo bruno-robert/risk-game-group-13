@@ -346,7 +346,7 @@ void PlayerStrategyPattern::getPathToBiggest(CountryNode ** destinationCountry, 
     vector<CountryNode*> visitedCountries;
     vector<CountryNode*> path = recursiveGetPathToBiggest(*destinationCountry, *startingCountry, p , visitedCountries);
     
-    if(path.size() > 2) {
+    if(path.size() >= 2) {
         *destinationCountry = path.at(0);
         *startingCountry = path.at(1);
     } else {
@@ -391,6 +391,7 @@ void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
                 return;
             }
         }//else move to the next country
+        hasEnemy = false;
         startingCountry = NULL;
     }
 

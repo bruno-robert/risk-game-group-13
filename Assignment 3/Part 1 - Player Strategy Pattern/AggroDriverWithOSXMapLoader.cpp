@@ -38,15 +38,15 @@ int main(){
         (*country)->setNumberOfTroops(rand() % 10 + 1);
         switch (ctr) {
             case 1:
-                playerList.at(2)->addCountryToOwned(*country, playerList);
+                playerList.at(0)->addCountryToOwned(*country, playerList);
                 
                 break;
             case 2:
-                playerList.at(2)->addCountryToOwned(*country, playerList);
+                playerList.at(1)->addCountryToOwned(*country, playerList);
                 
                 break;
             case 3:
-                playerList.at(2)->addCountryToOwned(*country, playerList);
+                playerList.at(0)->addCountryToOwned(*country, playerList);
                 
                 break;
             default:
@@ -71,7 +71,7 @@ int main(){
     for (int i = 0; i < playerList.at(0)->getCountry().size(); i++) {
         cout << playerList.at(0)->getCountry().at(i)->getCountName() << " has " << playerList.at(0)->getCountry().at(i)->getNumberOfTroops() << " units." << endl;
     }
-    int j = 100;
+    int j = 10;
     
     cout << "\nPlayer 1, of type Aggressive is fortifying "<< j << " times" << endl;
     for(int i = 0; i <= j; i++) {
