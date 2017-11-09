@@ -346,8 +346,15 @@ void PlayerStrategyPattern::getPathToBiggest(CountryNode ** destinationCountry, 
     vector<CountryNode*> visitedCountries;
     vector<CountryNode*> path = recursiveGetPathToBiggest(*destinationCountry, *startingCountry, p , visitedCountries);
     
-    *destinationCountry = path.at(0);
-    *startingCountry = path.at(1);
+    if(path.size() > 2) {
+        *destinationCountry = path.at(0);
+        *startingCountry = path.at(1);
+    } else {
+        *destinationCountry = NULL;
+        *startingCountry = NULL;
+    }
+    
+    
     return;
 }
 
@@ -374,6 +381,7 @@ void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
             
 
             if(startingCountry != NULL && destinationCountry != NULL) {
+                numberOfTroopsToMove = (startingCountry->getNumberOfTroops() -1);
                 //Removing troups from startingcountry
                 startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
 
