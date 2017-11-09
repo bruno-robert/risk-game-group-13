@@ -159,9 +159,9 @@ string Attack::attackFrom(Player* attacker, Map* map){
 	while (!done)
 	{
 		//Ask player where he wants to attack from
-		cout << "What country do you want to launch your attack from?" << endl;
+		cout << "What country do you want to launch your attack from?\nNote: Spaces should be an underscore." << endl;
 		cin >> answer;
-
+		replace(answer.begin(), answer.end(), '_', ' ');
 		//Verify that request country belongs to player
 		bool belongs = verifyBelonging(attacker, answer);
 
@@ -199,9 +199,9 @@ string Attack::toAttack(vector<Player*> playerList, Player* attacker, Map* map, 
 
 	do{
 		//Ask player where he wants to attack from
-		cout << "Which country do you want to attack?" << endl;
+		cout << "Which country do you want to attack?\nNote: Spaces should be an underscore." << endl;
 		cin >> answer;
-
+		replace(answer.begin(), answer.end(), '_', ' ');
 		//Verify that the input country is a valid country
 		for (Player* p : playerList){
 			bool check = verifyBelonging(p, answer);
@@ -247,9 +247,9 @@ string Attack::toAttack(vector<Player*> playerList, Player* attacker, Map* map, 
 bool Attack::verifyBelonging(Player* caller, string country)
 {
 	bool belongs = false;
-
+	
 	vector<CountryNode *> ownedCountries = caller->getCountry();
-
+	
 	for (CountryNode* c : ownedCountries)
 		if (c->getCountName() == country)
 			belongs = true;

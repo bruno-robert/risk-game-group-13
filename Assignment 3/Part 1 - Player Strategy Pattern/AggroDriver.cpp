@@ -85,9 +85,9 @@ int main() {
 	}
 
 
-
-	cout << "\n\n\n Testing the reinforcement phase for the aggressive computer player...\n\n" << endl;
-
+	cout << "\n===================================================================" << endl;
+	cout << "Testing the reinforcement phase for the aggressive computer player..." << endl;
+	cout << "===================================================================" << endl;
 
 
 	cout << "\nPlayer 1's list of countries and their units: " << endl;
@@ -103,9 +103,9 @@ int main() {
 	}
 
 
-
-	cout << "\n\n\n Testing the attack for the aggressive computer player...\n\n" << endl;
-
+	cout << "\n===================================================================" << endl;
+	cout << "Testing the attack for the aggressive computer player..." << endl;
+	cout << "===================================================================" << endl;
 
 
 	cout << "\nPlayer 1's list of countries and their units: " << endl;
@@ -140,13 +140,25 @@ int main() {
 		cout << player3.getCountry().at(i)->getCountName() << " has " << player3.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
 	}
 
-	cout << "\n\n\n Testing the fortification phase for the aggressive computer player...\n\n" << endl;
+	cout << "\n===================================================================" << endl;
+	cout << "Testing the fortification phase for the aggressive computer player..." << endl;
+	cout << "===================================================================" << endl;
 
-	//TODO: add the fortification execute for the aggressive player 
+	cout << "\nPlayer 1's list of countries and their units: " << endl;
+	for (int i = 0; i < player1.getCountry().size(); i++) {
+		cout << player1.getCountry().at(i)->getCountName() << " has " << player1.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+	}
 
-	cout << "\n\n\n Doing the reinforcement for the human player...\n\n" << endl;
+	aggressiveStrat->executeFortify(player1, fortificationObj);
 
+	cout << "\nPlayer 1's list of countries and their units: " << endl;
+	for (int i = 0; i < player1.getCountry().size(); i++) {
+		cout << player1.getCountry().at(i)->getCountName() << " has " << player1.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+	}
 
+	cout << "\n===================================================================" << endl;
+	cout << "Testing the reinforcement for the human player..." << endl;
+	cout << "===================================================================" << endl;
 
 	cout << "\nPlayer 2's list of countries and their units: " << endl;
 	for (int i = 0; i < player2.getCountry().size(); i++) {
@@ -160,11 +172,9 @@ int main() {
 		cout << player2.getCountry().at(i)->getCountName() << " has " << player2.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
 	}
 
-
-
-	cout << "\n\n\n Testing the attack for the human player...\n\n" << endl;
-
-
+	cout << "\n===================================================================" << endl;
+	cout << "Testing the attack for the human player..." << endl;
+	cout << "===================================================================" << endl;
 
 	cout << "\nPlayer 1's list of countries and their units: " << endl;
 	for (int i = 0; i < player1.getCountry().size(); i++) {
@@ -199,12 +209,25 @@ int main() {
 		cout << player3.getCountry().at(i)->getCountName() << " has " << player3.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
 	}
 
-	cout << "\n\n\n Testing the fortification phase for the human player...\n\n" << endl;
+	cout << "\n===================================================================" << endl;
+	cout << "Testing the fortification phase for the human player..." << endl;
+	cout << "===================================================================" << endl;
 
-	//TODO: add the fortification execute for the human player 
+	cout << "\nPlayer 2's list of countries and their units: " << endl;
+	for (int i = 0; i < player2.getCountry().size(); i++) {
+		cout << player2.getCountry().at(i)->getCountName() << " has " << player2.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+	}
 
+	humanStrat->executeFortify(player2, fortificationObj);
 
-	cout << "\n\n\n Doing the reinforcement for the Benevolant computer player...\n\n" << endl;
+	cout << "\nPlayer 2's list of countries and their units: " << endl;
+	for (int i = 0; i < player2.getCountry().size(); i++) {
+		cout << player2.getCountry().at(i)->getCountName() << " has " << player2.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+	}
+
+	cout << "\n===================================================================" << endl;
+	cout << "Testing the reinforcement for the Benevolant computer player..." << endl;
+	cout << "===================================================================" << endl;
 
 
 	cout << "\nPlayer 3's list of countries and their units: " << endl;
@@ -220,16 +243,27 @@ int main() {
 		cout << player3.getCountry().at(i)->getCountName() << " has " << player3.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
 	}
 
-
-	cout << "\n\n\n Testing the attack for the benevolant computer player...\n\n" << endl;
-
+	cout << "\n===================================================================" << endl;
+	cout << "Testing the attack for the benevolant computer player..." << endl;
+	cout << "===================================================================" << endl;
 
 	benevolentStrat->executeAttack(player3, *m, playerList, attackObj);
 
+	cout << "\n===================================================================" << endl;
+	cout << "Testing the fortification phase for the benevolant computer player..." << endl;
+	cout << "===================================================================" << endl;
 
-	cout << "\n\n\n Testing the fortification phase for the benevolant computer player...\n\n" << endl;
+	cout << "\nPlayer 3's list of countries and their units: " << endl;
+	for (int i = 0; i < player3.getCountry().size(); i++) {
+		cout << player3.getCountry().at(i)->getCountName() << " has " << player3.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+	}
 
-	//TODO: add the fortification execute for the benevolant player 
+	benevolentStrat->executeFortify(player3, fortificationObj);
+
+	cout << "\nPlayer 3's list of countries and their units: " << endl;
+	for (int i = 0; i < player3.getCountry().size(); i++) {
+		cout << player3.getCountry().at(i)->getCountName() << " has " << player3.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+	}
 
 	return 0;
 }

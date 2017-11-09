@@ -79,7 +79,7 @@ void Reinforce::reinforceDistributions(Player& player) {
 	notify("Reinforce Started");
 
 	int units = totalUnits(player);
-	cout << "The player possesses " << units << " to reinforce this turn." << endl;
+	cout << "\nThe player possesses " << units << " to reinforce this turn." << endl;
 	while (units != 0) {
 		cout << "With now " << units << " units remaining, which country would you like to reinforce?" << endl;
 

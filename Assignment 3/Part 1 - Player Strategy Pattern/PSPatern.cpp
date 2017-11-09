@@ -165,7 +165,7 @@ void Human::executeFortify(Player& user, FortificationPhase& fortification) {
 
 					//Removing troups from startingcountry
 					startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
-
+					cout << "Moving " << numberOfTroopsToMove << " units from " << startingCountry->getCountName() << " to " << destinationCountry->getCountName() << endl;
 					//Adding troups to destinationCountry
 					destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
 
@@ -274,7 +274,7 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
 	}
 	CountryNode* attacker = user.getCountryByRef().at(maxIndex);
 
-	cout << endl << attacker->getCountName() << endl;
+	cout << endl <<"The attacking country will be " << attacker->getCountName() << ".\n"<< endl;
 
 	for (int i = 0; i < attacker->getAdjCount().size() && attacker->getNumberOfTroops() > 1; i++) {
 
@@ -284,7 +284,7 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
 
 
 		if (defending->getCountryId() != attacker->getCountryId()) {
-
+			cout << "The current enemy target is " << defending->getCountName() << endl;
 			while (attacker->getNumberOfTroops() > 1 && defending->getNumberOfTroops() > 0) {
 
 				int attackerDices = 0;
@@ -438,7 +438,7 @@ void Aggressive::executeFortify(Player& user, FortificationPhase& fortification)
 				numberOfTroopsToMove = (startingCountry->getNumberOfTroops() - 1);
 				//Removing troups from startingcountry
 				startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
-
+				cout << "Moving " << numberOfTroopsToMove << " units from " << startingCountry->getCountName() << " to " << destinationCountry->getCountName() << endl;
 				//Adding troups to destinationCountry
 				destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
 
@@ -547,7 +547,7 @@ void Benevolant::executeFortify(Player& user, FortificationPhase& fortification)
 
 					//Removing troups from startingcountry
 					startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
-
+					cout << "Moving " << numberOfTroopsToMove << " units from " << startingCountry->getCountName() << " to " << destinationCountry->getCountName() << endl;
 					//Adding troups to destinationCountry
 					destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
 
