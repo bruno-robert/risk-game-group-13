@@ -230,7 +230,7 @@ void Aggressive::executeReinforce(Player& user) {
     Reinforce rein;
     int unitsReceived = rein.totalUnits(user);
     user.getCountryByRef().at(maxIndex)->setNumberOfTroops(maxUnit + unitsReceived);
-    rein.reinforceNotify(user.getCountryByRef().at(maxIndex), unitsReceived);
+    rein.reinforceNotifyDistribution(user.getCountryByRef().at(maxIndex), unitsReceived);
 }
 
 
