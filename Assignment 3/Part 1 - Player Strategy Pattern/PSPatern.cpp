@@ -342,11 +342,11 @@ vector<CountryNode*> PlayerStrategyPattern::recursiveGetPathToBiggest(CountryNod
  @param startingCountry the method will change this to the country you should send the troups from
  @param p player
  */
-void PlayerStrategyPattern::getPathToBiggest(CountryNode ** destinationcountry, CountryNode ** startingCountry, const Player& p) {
+void PlayerStrategyPattern::getPathToBiggest(CountryNode ** destinationCountry, CountryNode ** startingCountry, const Player& p) {
     vector<CountryNode*> visitedCountries;
-    vector<CountryNode*> path = recursiveGetPathToBiggest(*destinationcountry, *startingCountry, p , visitedCountries);
+    vector<CountryNode*> path = recursiveGetPathToBiggest(*destinationCountry, *startingCountry, p , visitedCountries);
     
-    *destinationcountry = path.at(0);
+    *destinationCountry = path.at(0);
     *startingCountry = path.at(1);
     return;
 }
