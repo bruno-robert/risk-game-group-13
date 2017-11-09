@@ -42,7 +42,7 @@ public:
     vector<CountryNode *> getCountry(); //Getters
     Hand getHand();
     Dice getDice();
-    int getPlayerID();
+    const int getPlayerID() const;
     Hand& getHandByRef();
     Dice& getDiceByRef();
     vector<CountryNode *>& getCountryByRef();

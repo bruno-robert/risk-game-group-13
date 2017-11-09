@@ -238,7 +238,6 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
         
         CountryNode* defending = attacker->getAdjCount().at(i);
 
-        CountryNode* defending = attacker->getAdjCount().at(i);
 
         if (defending->getCountryId() != attacker->getCountryId()){
 
@@ -307,29 +306,7 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
     }
 }
 
-void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
-    CountryNode* startingCountry = NULL;
-    CountryNode* destinationCountry = NULL;
-    int numberOfTroopsToMove;
-    CountryNode * biggest = NULL;
-    CountryNode * secondBiggest = NULL;
 
-
-    //loop thourgh owned countries and find the bigggest one in terms of troups
-    for (vector<CountryNode*>::iterator country = user.getCountryByRef().begin(); country != user.getCountryByRef().end(); country++){
-
-        //if this is the first country, it's the biggest for now
-        if (biggest == NULL) {
-            biggest = *country;
-
-            //if the country has more troops than the current biggest, set it to the biggest
-        }
-        else if ((*country)->getNumberOfTroops() >= biggest->getNumberOfTroops()) {
-            secondBiggest = biggest;
-            biggest = *country;
-        }
-    }
-}
 vector<CountryNode*> PlayerStrategyPattern::recursiveGetPathToBiggest(CountryNode* startingCountry, CountryNode* destinationCountry, const Player& p, vector<CountryNode*>& visitedCountries) {
     vector<CountryNode*> path;
     if(isCountryInVector(startingCountry->getCountryId(), visitedCountries)) {
@@ -356,7 +333,12 @@ vector<CountryNode*> PlayerStrategyPattern::recursiveGetPathToBiggest(CountryNod
 }
 
 void PlayerStrategyPattern::getPathToBiggest(CountryNode ** startingCountry, CountryNode ** destinationCountry, const Player& p) {
-
+    vector<CountryNode*> visitedCountries;
+    vector<CountryNode*> path = recursiveGetPathToBiggest(*startingCountry, *destinationCountry, p , visitedCountries);
+    
+    *startingCountry = path.at(1);
+    *destinationCountry = path.at(0);
+    return;
 }
 
 void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno

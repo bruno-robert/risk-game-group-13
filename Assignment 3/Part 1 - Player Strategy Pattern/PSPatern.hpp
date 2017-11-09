@@ -32,8 +32,8 @@ public:
     virtual void executeAttack(Player& user,Map& map,vector<Player*> playerList)= 0;
     virtual void executeReinforce(Player& user)= 0;
     bool isCountryInVector(int a, vector<CountryNode*> vect);
-    vector<CountryNode*> getOwnedIsland(CountryNode* startCountry, vector<CountryNode*>& ownedCountryIsland, const Player& p);
     vector<CountryNode*> recursiveGetPathToBiggest(CountryNode* startingCountry, CountryNode* destinationCountry, const Player& p, vector<CountryNode*>& visitedCountries);
+    vector<CountryNode*> getOwnedIsland(CountryNode* startCountry, vector<CountryNode*>& ownedCountryIsland, const Player& p);
     void getPathToBiggest(CountryNode ** startingCountry, CountryNode ** destinationCountry, const Player& p);
 };
 //subclass of PlayerStrategyPattern
