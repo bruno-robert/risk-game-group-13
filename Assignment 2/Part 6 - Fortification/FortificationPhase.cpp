@@ -8,6 +8,7 @@
 //============================================================================
 
 #include "FortificationPhase.hpp"
+#include "Player.h"
 
 //Provide a group of C++ classes that implement the fortification phase following the official rules of the game of Risk.
 //In the fortification phase, the player is allowed to move a number of armies (X) from one of its countries (the source country) to one of its neighbors that it also owns (the target country).
@@ -40,6 +41,9 @@ void FortificationPhase::fortify(int player, Map& m ) {
     int startingCountry;
     int destinationCountry;
     int numberOfTroops;
+
+	notify("Fortification Started");
+
     bool troupsMoved = false;//true once the troups are moved
     while(!troupsMoved) {
         //Getting and checking starting country
@@ -55,6 +59,8 @@ void FortificationPhase::fortify(int player, Map& m ) {
             cout << "Sorry, the value you entered is not valid, please try again:" << endl;
         }
 
+		setStartingCountry(m.getcoutryById(startingCountry));
+
         //Getting and checking the destination country
         cout << "please select the destination country" << endl;
         while(true) {
@@ -66,8 +72,10 @@ void FortificationPhase::fortify(int player, Map& m ) {
             cout << "Sorry, the value you entered is not valid, please try again:" << endl;
         }
 
+
         //checking if the countries are adjacent and if they are owned by the player
         if((m.getcoutryById(startingCountry)->getOwnedBy() == player) && m.getcoutryById(startingCountry)->isCountAdjacent(destinationCountry)) {
+			setDestinationCountry(m.getcoutryById(destinationCountry));
             cout << "please enter the number of troops you want to move:" << endl;
             while(true) {
                 
@@ -79,6 +87,8 @@ void FortificationPhase::fortify(int player, Map& m ) {
                     m.getcoutryById(destinationCountry)->setNumberOfTroops(m.getcoutryById(destinationCountry)->getNumberOfTroops() + numberOfTroops);
                     cout << "troups moved!" << endl;
                     troupsMoved = true;
+					setAmountTroopsMoved(numberOfTroops);
+					notify("Fortification occcured");
                     break;
                 }
                 
@@ -93,4 +103,35 @@ void FortificationPhase::fortify(int player, Map& m ) {
 
     }
     
+}
+
+void FortificationPhase::setStartingCountry(CountryNode* startingCountryData){
+	this->startingCountry = startingCountryData;
+}
+
+CountryNode* FortificationPhase::getStartingCountry(){
+	return startingCountry;
+}
+
+void FortificationPhase::setDestinationCountry(CountryNode* destinationCountryData){
+	this->destinationCountry = destinationCountryData;
+}
+
+CountryNode* FortificationPhase::getDestinationCountry(){
+	return destinationCountry;
+}
+
+void FortificationPhase::setAmountTroopsMoved(int amountTroopsMovedData){
+	amountTroopsMoved = amountTroopsMovedData;
+}
+
+int FortificationPhase::getAmountTroopsMoved(){
+	return amountTroopsMoved;
+}
+
+void FortificationPhase::setFortifyingPlayer(Player* player){
+	this->fortifyingPlayer = player;
+}
+Player* FortificationPhase::getFortifyingPlayer(){
+	return fortifyingPlayer;
 }
