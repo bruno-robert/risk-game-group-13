@@ -9,7 +9,7 @@
 
 
 #pragma once
-
+#include "Subject.h"
 #include "Player.h"
 
 class Reinforce : public Subject {
@@ -19,9 +19,22 @@ public:
 	int totalUnits(Player& player);
 	void reinforceNotifyDistribution(CountryNode* country, int units);
 	void reinforceNotifyStart(Player& user);
+	void setExchangeType(string typeOfExchange);
+	string getExchangeType();
+	void setReinforcedCountryData(CountryNode* country);
+	CountryNode* getReinforcedCountryData();
+	void setTroopsMoved(int moved);
+	int getTroopsMoved();
+	void setReinforcingPlayer(Player* player);
+	Player* getReinforcingPlayer();
+
 //Helper methods
 private:			
 	int  unitsForCountries(Player& player);
 	int  unitsForContinents(Player& player);
 	int  unitsForCards(Player& player);
+	string exchangeType;
+	CountryNode* reinforcedCountryData;
+	int troopsMoved;
+	Player* reinforcingPlayer;
 };

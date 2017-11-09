@@ -56,8 +56,8 @@ int Reinforce::unitsForContinents(Player& player) {
 
 int Reinforce::unitsForCards(Player& player) {
 	int units = player.getHandByRef().exchange();
-	string notifyString = "PHASE_OBSERVER|" + player.getHandByRef().getExchangeString();
-	notify(notifyString);
+	setExchangeType(player.getHandByRef().getExchangeString());
+	notify("Card Exchange");
 	cout << "size of the hand: " << player.getHand().getSize() << endl;
 	cout << "The card bonus is of " << units << " units." << endl;
 	return units;
@@ -75,7 +75,8 @@ int Reinforce::totalUnits(Player& player) {
 
 void Reinforce::reinforceDistributions(Player& player) {
 
-	reinforceNotifyStart(player);
+	setRefyingforcingPlayer(player);
+	notify("Reinforce Started");
 
 	int units = totalUnits(player);
 	cout << "The player possesses " << units << " to reinforce this turn." << endl;
@@ -98,6 +99,7 @@ void Reinforce::reinforceDistributions(Player& player) {
 				if (entry == player.getCountryByRef().at(i)->getCountName()) {
 					valid = true;
 					reinforcedCountry = player.getCountryByRef().at(i);
+					setReinforcedCountryData(reinforcedCountry);
 				}
 			}
 			if (valid == false)
@@ -117,12 +119,13 @@ void Reinforce::reinforceDistributions(Player& player) {
 			cin >> moving;
 
 		}
-
+		setTroopsMoved(moving);
 		reinforcedCountry->setNumberOfTroops(reinforcedCountry->getNumberOfTroops() + moving);
 		units -= moving;
-		Reinforce::reinforceNotifyDistribution(reinforcedCountry, moving);
+		
 	}
 	cout << "\nYou have dispensed all of your reinforcement units." << endl;
+	notify("Troops Moved");
 }
 
 void Reinforce::reinforceNotifyDistribution(CountryNode* country, int units) {
@@ -133,4 +136,30 @@ void Reinforce::reinforceNotifyDistribution(CountryNode* country, int units) {
 void Reinforce::reinforceNotifyStart(Player& user) {
 	string starting = "PHASE_OBSERVER| Beginning the reinforcement phase for player " + to_string(user.getPlayerID()) + "...";
 	notify(starting);
+}
+
+void Reinforce::setExchangeType(string typeOfExchange){
+	exchangeType = typeOfExchange;
+}
+string Reinforce::getExchangeType(){
+	return exchangeType;
+}
+void Reinforce::setReinforcedCountryData(CountryNode* country){
+	this->reinforcedCountryData = country.
+}
+CountryNode* Reinforce::setReinforcedCountryData(){
+	return reinforcedCountryData;
+}
+void Reinforce::setTroopsMoved(int moved){
+	troopsMoved = moved;
+}
+int Reinforce::getTroopsMoved(){
+	return troopsMoved;
+}
+void Reinforce::setReinforcingPlayer(Player* player){
+	this->reinforcingPlayer = player;
+}
+Player* Reinforce::getReinforcingPlayer(){
+	return reinforcingPlayer;
+
 }

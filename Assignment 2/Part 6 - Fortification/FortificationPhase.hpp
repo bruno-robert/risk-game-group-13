@@ -12,14 +12,29 @@
 
 #include <stdio.h>
 #include "Player.h"
+#include "Subject.h"
 using namespace std;
 
-class FortificationPhase {
+class FortificationPhase : public Subject {
     vector <Player *> playerList;
 public:
     FortificationPhase();
     ~FortificationPhase();
     void fortify(int player, Map& m );
+	void setStartingCountry(CountryNode* startingCountryData);
+	CountryNode* getStartingCountry();
+	void setDestinationCountry(CountryNode* destinationCountryData);
+	CountryNode* getDestinationCountry();
+	void setAmountTroopsMoved(int amountTroopsMovedData);
+	int getAmountTroopsMoved();
+	void setFortifyingPlayer(Player* player);
+	Player* getFortifyingPlayer();
+
+private:
+	CountryNode* startingCountry;
+	CountryNode* destinationCountry;
+	int amountTroopsMoved;
+	Player* fortifyingPlayer;
 };
 
 

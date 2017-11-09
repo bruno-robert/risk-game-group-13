@@ -17,20 +17,22 @@ class Player;
 #include "Map.h"
 #include "ReinforcePhase.h"
 #include "Attack.h"
+#include "Subject.h"
+#include "FortificationPhase.hpp"
 
 
 using namespace std;
 //this is to be the parent class of Human Agressive and Benevolent
-class PlayerStrategyPattern {
+class PlayerStrategyPattern : public Subject {
 public:
     PlayerStrategyPattern();
     virtual ~PlayerStrategyPattern();
 
 
 
-    virtual void executeFortify(Player& user)= 0;
-    virtual void executeAttack(Player& user,Map& map,vector<Player*> playerList)= 0;
-    virtual void executeReinforce(Player& user)= 0;
+	virtual void executeFortify(Player& user, FortificationPhase& fortificationObj) = 0;
+    virtual void executeAttack(Player& user,Map& map,vector<Player*> playerList, Attack& attackObj)= 0;
+	virtual void executeReinforce(Player& user, Reinforce& reinforceObj) = 0;
     bool isCountryInVector(int a, vector<CountryNode*> vect);
     vector<CountryNode*> recursiveGetPathToBiggest(CountryNode* startingCountry, CountryNode* destinationCountry, const Player& p, vector<CountryNode*>& visitedCountries);
     vector<CountryNode*> getOwnedIsland(CountryNode* startCountry, vector<CountryNode*>& ownedCountryIsland, const Player& p);

@@ -30,12 +30,14 @@ void PhaseObserver::update(string message)
 		{
 			cout << "++++++++++++++++++++++++++++++++++++++++++" << message.substr(message.find_first_of("|") + 1) << endl;
 		}
+
 		else if (message == "Attack to/from set")
 		{			
 			string attackerName = attackSubject->getAttackingCountryData()->getCountName();
 			string defenderName = attackSubject->getDefendingCountryData()->getCountName();
 			cout << "++++++++++++++++++++++++++++++++++++++++++" << attackerName << " is attacking " << defenderName << endl;
 		}
+
 		else if (message.find("Troops lost calculated|") == 0) // If "Troops lost calculated" is located at the very start of the string.
 		{
 			string data = message.substr(message.find_first_of("|") + 1);
@@ -46,17 +48,46 @@ void PhaseObserver::update(string message)
 			cout << "++++++++++++++++++++++++++++++++++++++++++" << "Defender loses " << defenderLoss << " army personnel" << endl;
 
 		}
+
 		else if (message == "Attack ended")
 		{
 			string defenderName = attackSubject->getDefendingCountryData()->getCountName();
 			cout << "++++++++++++++++++++++++++++++++++++++++++" << "The attack on " + defenderName << " was ended." << endl;
 		}
+
 		else if (message == "Attacker conquered")
 		{
 			string attackerName = attackSubject->getAttackingCountryData()->getCountName();
 			string defenderName = attackSubject->getDefendingCountryData()->getCountName();
 			cout << "++++++++++++++++++++++++++++++++++++++++++" << "Player " << attackerName << " has conquered " << defenderName << "!" << endl;
 		}
+
+		else if (message == "Troop Loss"){
+			attackerAmountLost = attackSubject->getAttackerTroopLoss();
+			defenderAmountLost = attackSubject->getDefenderTroopLoss();
+			cout << "++++++++++++++++++++++++++++++++++++++++++" << "Attacker lost " << attackerAmountLost << " units and Defender lost " << defenderAmountLost << " units" << endl;
+		}
+
+		else if (message == "Card Exchange"){
+			string typeOfExchange = reinforceSubject->getExchangeType();
+			cout << "++++++++++++++++++++++++++++++++++++++++++" << echangeType << endl;
+		}
+
+		else if (message == "Troops Moved"){
+			string toCountry = reinforceSubject->getReinforcedCountryData()->getCountName();
+			int amout = reinforceSubject->getTroopsMoved();
+			cout << "++++++++++++++++++++++++++++++++++++++++++" << "Player reinforced " << toCountry << " with " << amount << " troop(s)" << endl;
+		}
+		
+		//message == "Troops Moved" when reinforce is completed, getTroopsMoved getReinforcedCountryData
+
+		//message == "Fortification occured" getAmounttROOPSmOVED GETdestinationCountry
+
+		//message == "Fortification Started" getFortifyingPLayer
+
+		//message == "Attack Started" getAttackingPLayer
+
+		//message == "Reiforce Started" getReinforcingPlayer
 	}
 }
 

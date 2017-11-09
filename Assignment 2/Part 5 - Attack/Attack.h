@@ -45,7 +45,11 @@ public:
     void setAttackingPlayerData(Player* attackingPlayerData);
     void setDefendingPlayerData(Player* defendingPlayerData);
     void setMapData(Map* map);
-    
+	void setAttackerTroopLoss(int amountLost);	
+	void setDefenderTroopLoss(int amountLost);
+	
+	int getDefenderTroopLoss();
+    int getAttackerTroopLoss();
     vector<Player*> getPlayerListData();
     CountryNode* getAttackingCountryData();
     CountryNode* getDefendingCountryData();
@@ -65,6 +69,9 @@ private:
     Player* attackingPlayerData;
     Player* defendingPlayerData; 
     Map* mapData;
+	
+	int attackerTroopLoss;
+	int defenderTroopLoss;
 };
 
 #endif /* ATTACK_H */
