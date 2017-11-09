@@ -33,6 +33,7 @@ class Player : public Subject{
     void copyCountList(vector<CountryNode*>& a, int iBegin, int iEnd, vector<CountryNode*>& b);
     void topDownCountMerge(vector<CountryNode*>& a, int iBegin, int iMiddle, int iEnd, vector<CountryNode*>& b);
     void topDownCountSplitMerge(vector<CountryNode*>& b, int iBegin, int iEnd, vector<CountryNode*>& a);
+    void inverseOwnedCountries();
 public:
 
     Player(); //Default Constructor

@@ -167,6 +167,14 @@ void Player::topDownCountSplitMerge(vector<CountryNode*>& b, int iBegin, int iEn
     topDownCountMerge(b, iBegin, iMiddle, iEnd, a);
 }
 
+void Player::inverseOwnedCountries() {
+    vector<CountryNode*> temp = ownedCountry;
+    ownedCountry.clear();
+    for(int i = (temp.size()-1); i >= 0;i--) {
+        ownedCountry.push_back(temp.at(i));
+    }
+}
+
 // vector a has the items to sort; vect b is a work array.
 void Player::topDownCountMergeSort()
 {
@@ -176,4 +184,5 @@ void Player::topDownCountMergeSort()
     int n = (int)a.size();
     copyCountList(a, 0, n, b);           // duplicate vect a into b
     topDownCountSplitMerge(b, 0, n, a);   // sort data from b into a
+    inverseOwnedCountries();
 }
