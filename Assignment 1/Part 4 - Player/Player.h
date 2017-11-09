@@ -23,7 +23,7 @@ class PlayerStrategyPattern;
 
 using namespace std;
 
-class Player{
+class Player : public Subject{
     vector<CountryNode *> ownedCountry; //Vector of player's occupied countries
     Hand hand;
     Dice dice;
@@ -42,17 +42,18 @@ public:
 	vector<CountryNode *> getCountry(); //Getters
 	Hand getHand();
 	Dice getDice();
-	int getPlayerID() const;
+	int getPlayerID();
 	Hand& getHandByRef();
 	Dice& getDiceByRef();
 	vector<CountryNode *>& getCountryByRef();
+	PlayerStrategyPattern* getStrategy();
 	void reinforce();//Player action methods
 	void attack();
 	void fortify();
-    void setCountry(vector<CountryNode *> ownedCountry);
+    void setCountry(vector<CountryNode *> ownedCountry); //Setters
 	void setPlayerID(int id);
-    void setPSP(PlayerStrategyPattern *psp) {this->psp = psp;}
-    void topDownCountMergeSort();
+	void setStrategy(PlayerStrategyPattern* strat);
+    void topDownCountMergeSort(); 
 };
 
 #endif
