@@ -26,25 +26,28 @@ public:
     PlayerStrategyPattern();
     virtual ~PlayerStrategyPattern();
 
-    
-  
+
+
     virtual void executeFortify(Player& user)= 0;
     virtual void executeAttack(Player& user,Map& map,vector<Player*> playerList)= 0;
     virtual void executeReinforce(Player& user)= 0;
-
+    bool isCountryInVector(int a, vector<CountryNode*> vect);
+    vector<CountryNode*> getOwnedIsland(CountryNode* startCountry, vector<CountryNode*>& ownedCountryIsland, const Player& p);
+    vector<CountryNode*> recursiveGetPathToBiggest(CountryNode* startingCountry, CountryNode* destinationCountry, const Player& p, vector<CountryNode*>& visitedCountries);
+    void getPathToBiggest(CountryNode ** startingCountry, CountryNode ** destinationCountry, const Player& p);
 };
 //subclass of PlayerStrategyPattern
 class Human : public PlayerStrategyPattern{
     static int countryNameToID(string countryName, Player& p);
     CountryNode* getCountryById(vector<CountryNode*> countryList, int id);
 public:
-    
+
     Human();
     ~Human();
     void executeFortify(Player& user);
 	void executeAttack(Player& user, Map& map, vector<Player*> playerList);
     void executeReinforce(Player& user);
-    
+
 };
 //subclass of PlayerStrategyPattern
 

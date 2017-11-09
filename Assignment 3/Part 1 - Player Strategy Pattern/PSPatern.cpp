@@ -17,6 +17,23 @@ PlayerStrategyPattern::~PlayerStrategyPattern() {
 
 }
 
+/**
+ Checks if there is a country with a given id in the given vector
+ @param a the id of the give ncountry
+ @param vect the vector of countries to be checked
+ */
+bool PlayerStrategyPattern::isCountryInVector(int a, vector<CountryNode*> vect) {
+    for(CountryNode* country: vect) {
+        if (country->getCountryId() == a) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+}
+
 Human::Human() : PlayerStrategyPattern(){
 
 }
@@ -187,9 +204,9 @@ void Aggressive::executeReinforce(Player& user) {
 
 
 void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerList) {
-	
+
 	Attack attackObj;
-	
+
 	attackObj.attackNotifyStart(user);
 	//Finds your strongest country
 
@@ -219,13 +236,13 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
 	cout << endl << attacker->getCountName() <<endl;
 
 	for (int i = 0; i < attacker->getAdjCount().size() && attacker->getNumberOfTroops() > 1; i++) {
-		
+
 		CountryNode* defending = attacker->getAdjCount().at(i);
 
 		if (defending->getCountryId() != attacker->getCountryId()){
-			
+
 			while (attacker->getNumberOfTroops() > 1 && defending->getNumberOfTroops() > 0) {
-				
+
 				int attackerDices = 0;
 
 				if (attacker->getNumberOfTroops() > 3)
@@ -236,18 +253,18 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
 					attackerDices = 1;//FIXME: Value stored in attackerDices is never read...
 
 				int defenderDices = attackObj.defenderAmountOfDice(defending);
-				
+
 				Player* defender = attackObj.getAssociatedPlayer(playerList,defending->getCountName());
-				
+
 				int attackerDiceResults[3];
 				int defenderDiceResults[3];
-				
+
 
 				user.getDiceByRef().roll(attackerDiceResults, attackerDices);
-				
+
 				defender->getDiceByRef().roll(defenderDiceResults, defenderDices);
 
-				
+
 				//Print dice results
 				cout << "Attacker rolled" << endl;
 				attackObj.printDiceResults(attackerDiceResults, attackerDices);
@@ -311,6 +328,7 @@ void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
 			biggest = *country;
 		}
 	}
+<<<<<<< HEAD
 
 	//looks at all adjeacent countries to the biggest to check if one or more of them is owned
 	//if yes, move troops from that country to biggest
@@ -325,6 +343,85 @@ void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
 
 
 
+=======
+}
+vector<CountryNode*> PlayerStrategyPattern::recursiveGetPathToBiggest(CountryNode* startingCountry, CountryNode* destinationCountry, const Player& p, vector<CountryNode*>& visitedCountries) {
+    vector<CountryNode*> path;
+    if(isCountryInVector(startingCountry->getCountryId(), visitedCountries)) {
+        return path;
+    } else {
+        visitedCountries.push_back(startingCountry);
+        for (CountryNode* adjCountry : startingCountry->getAdjCount()) {
+            if(adjCountry->getOwnedBy() == p.getPlayerID() && adjCountry->getNumberOfTroops() > 1) {
+                destinationCountry = adjCountry;
+                path.push_back(startingCountry);
+                path.push_back(destinationCountry);
+                return path;
+            }
+        }
+        for (CountryNode* adjCountry : startingCountry->getAdjCount()) {
+            path = recursiveGetPathToBiggest(adjCountry, destinationCountry, p, visitedCountries);
+            if(path.size()>0) {
+                return path;
+            }
+        }
+    }
+
+    return path;
+}
+
+void PlayerStrategyPattern::getPathToBiggest(CountryNode ** startingCountry, CountryNode ** destinationCountry, const Player& p) {
+
+}
+
+void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
+    CountryNode* startingCountry = NULL;
+    CountryNode* destinationCountry = NULL;
+    int numberOfTroopsToMove = -1;
+
+    //sort the user's countries
+    user.topDownCountMergeSort();
+
+    for(CountryNode* currentCountry : user.getCountryByRef() ) {
+        bool hasEnemy = false;
+        for(CountryNode* adjCountry :currentCountry->getAdjCount()) {
+            if(adjCountry->getOwnedBy() != user.getPlayerID()) {
+                hasEnemy = true;
+                break;
+            }
+        }
+
+        if(hasEnemy) {
+            startingCountry = currentCountry;
+            getPathToBiggest(&startingCountry, &destinationCountry, user);
+
+            if(startingCountry != NULL && destinationCountry != NULL) {
+                //Removing troups from startingcountry
+                startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
+
+                //Adding troups to destinationCountry
+                destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
+                return;
+            }
+        }//else move to the next country
+        startingCountry = NULL;
+    }
+
+
+
+
+
+    //If the biggest country is not adjeacent to an enemy country, find closes enemy country and move troups towards that
+
+    if(numberOfTroopsToMove >= 1) {
+        //Removing troups from startingcountry
+        startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
+
+        //Adding troups to destinationCountry
+        destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
+    }
+
+>>>>>>> master-v2
 }
 
 
