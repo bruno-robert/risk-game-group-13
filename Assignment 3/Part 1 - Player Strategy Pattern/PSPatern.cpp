@@ -154,6 +154,11 @@ void Human::executeFortify(Player& user) {
 
 void Human::executeAttack(Player& user, Map& map, vector<Player*> playerList) {
 
+	Attack attackObj;
+	attackObj.attackNotifyStart(user);
+	//The other notify calls should be inside to attack loop
+	attackObj.attackLoop(playerList, &user, &map);
+
 }
 
 void Human::executeReinforce(Player& user) {
@@ -171,8 +176,9 @@ Aggressive::~Aggressive() {
 }
 
 void Aggressive::executeReinforce(Player& user) {
+	Reinforce rein;
 
-
+	rein.reinforceNotifyStart(user);
     //Finding the country with the most units and a target to attack
     int maxUnit = 0;
     int maxIndex = 0;
@@ -195,10 +201,10 @@ void Aggressive::executeReinforce(Player& user) {
             }
         }
     }
-    Reinforce rein;
+ 
     int unitsReceived = rein.totalUnits(user);
     user.getCountryByRef().at(maxIndex)->setNumberOfTroops(maxUnit + unitsReceived);
-    rein.reinforceNotify(user.getCountryByRef().at(maxIndex), unitsReceived);
+    rein.reinforceNotifyDistribution(user.getCountryByRef().at(maxIndex), unitsReceived);
 }
 
 
@@ -237,7 +243,6 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
     for (int i = 0; i < attacker->getAdjCount().size() && attacker->getNumberOfTroops() > 1; i++) {
         
         CountryNode* defending = attacker->getAdjCount().at(i);
-
 
         if (defending->getCountryId() != attacker->getCountryId()){
 
@@ -346,7 +351,7 @@ void PlayerStrategyPattern::getPathToBiggest(CountryNode ** destinationCountry, 
     vector<CountryNode*> visitedCountries;
     vector<CountryNode*> path = recursiveGetPathToBiggest(*destinationCountry, *startingCountry, p , visitedCountries);
     
-    if(path.size() >= 2) {
+    if(path.size() > 2) {
         *destinationCountry = path.at(0);
         *startingCountry = path.at(1);
     } else {
@@ -358,7 +363,7 @@ void PlayerStrategyPattern::getPathToBiggest(CountryNode ** destinationCountry, 
     return;
 }
 
-void Aggressive::executeFortify(Player& user) {
+void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
     CountryNode* startingCountry = NULL;
     CountryNode* destinationCountry = NULL;
     int numberOfTroopsToMove = -1;
@@ -377,7 +382,6 @@ void Aggressive::executeFortify(Player& user) {
 
         if(hasEnemy) {
             destinationCountry = currentCountry;
-            user.topDownCountMergeSort();
             getPathToBiggest(&destinationCountry, &startingCountry, user);
             
 
@@ -391,7 +395,6 @@ void Aggressive::executeFortify(Player& user) {
                 return;
             }
         }//else move to the next country
-        hasEnemy = false;
         startingCountry = NULL;
     }
 
@@ -423,7 +426,8 @@ Benevolant::~Benevolant() {
 
 void Benevolant::executeReinforce(Player& user) {
 
-
+	Reinforce rein;
+	rein.reinforceNotifyStart(user);
     //Getting the number of units for my player
     Reinforce unitsReinforced;
     int units = unitsReinforced.totalUnits(user);
@@ -444,6 +448,7 @@ void Benevolant::executeReinforce(Player& user) {
         }
         user.getCountryByRef().at(leastIndex)->setNumberOfTroops(leastUnit + 1);
         units--;
+		rein.reinforceNotifyDistribution(user.getCountryByRef().at(leastIndex), 1);
     }
 }
 
@@ -451,53 +456,14 @@ void Benevolant::executeReinforce(Player& user) {
 
 void Benevolant::executeAttack(Player& user, Map& map, vector<Player*> playerList) {
 
+	Attack attackObj;
+	attackObj.attackNotifyStart(user);
+	cout << "Since the benevolant computer does not attack no action is taken during this phase..." << endl;
 
 }
 
 
 void Benevolant::executeFortify(Player& user) {
-    //Not a very efficient Algorithm O(n2) or more
-    CountryNode* startingCountry = NULL;
-    CountryNode* destinationCountry = NULL;
-    int numberOfTroopsToMove = -1;
-    
-    //sort the user's countries
-    user.topDownCountMergeSort();
-    
-    //for each owned countries (starting by the weakest
-    for(int i = (int)(user.getCountryByRef().size()-1); i != -1; i--) {
-        CountryNode* currentCountry = user.getCountryByRef().at(i);
-        
-        //for each adjacent country to the currentCoutry check if it has much more troops than the current Country
-        for(CountryNode* country : currentCountry->getAdjCount()) {
-            int diff = (country->getNumberOfTroops() - currentCountry->getNumberOfTroops());//diff is the (difference in troops)^2
-            diff = diff * diff; //square so we only get positive results
-            if(diff >= 4) {//if diff ==1 then moving the troup will have no avail, if diff >= 4 then the difference in troops >= 2
-                if(country->getNumberOfTroops() > currentCountry->getNumberOfTroops()) {
-                    startingCountry = country;
-                    destinationCountry = currentCountry;
-                    numberOfTroopsToMove = ((country->getNumberOfTroops() - currentCountry->getNumberOfTroops()) /2);
-                    
-                    //Removing troups from startingcountry
-                    startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
-                    
-                    //Adding troups to destinationCountry
-                    destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
-                    return;
-                } else {
-                    startingCountry = currentCountry;
-                    destinationCountry = country;
-                    numberOfTroopsToMove = ((currentCountry->getNumberOfTroops() - country->getNumberOfTroops()) /2);
-                    
-                    //Removing troups from startingcountry
-                    startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
-                    
-                    //Adding troups to destinationCountry
-                    destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
-                    return;
-                }
-            }
-        }
-    }
-    
+    //TODO: Implement this @Bruno
+
 }
