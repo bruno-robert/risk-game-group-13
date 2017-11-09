@@ -59,9 +59,48 @@ int main(){
             ctr = 1;
         }
     }
-	
+	//-----------------
+    //   Introduction
+    //-----------------
 
-	
+    cout << "\n\n\n\n\n\n\n" << endl;
+    cout << "Hello and welcome to Assignment 3 Part 1's Demoing unit!" << endl;
+    cout << "I will be explaaining what is going on so that you an I are on the same page." << endl;
+    cout << "I have set up a game for you, it uses the classical map of risk that I have loaded from the World.map file my creators provided me." << endl;
+    cout << "I have teken the liberty to create 3 players, each owning 1/3 of the countrie of the map (I ditributed them using a round robbin fashion)." << endl;
+    cout << "I have set Player 1 to use the Agressive Player Strategy Pattern, Player 3 to be Benevolent and finaly, I will let you play player 2!" << endl;
+    cout << "I will wait for you to get ready, just type 'r' or 'ready' when you are." << endl;
+    
+    while(true) {
+        string usrInput;
+        cin >> usrInput;
+        if(usrInput == "r" || usrInput == "ready"){
+            break;
+        }
+        cout << "Humm, I see you are trying to express yourself. I have been orded to stay polite, but there is no other way of saying this, I haven't understood your querry. Try again." << endl;
+    }
+    //---------------------
+    //   Testing Starts
+    //---------------------
+    
+    cout << "\n\n\n\nIt's your turn, so here is your list of countries:" << endl;
+    for (int i = 0; i < playerList.at(1)->getCountry().size(); i++) {
+        cout << playerList.at(1)->getCountry().at(i)->getCountName() << " has " << playerList.at(1)->getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+    }
+    cout << "\n" << endl;
+    playerList.at(1)->reinforce();
+//    playerList.at(1)->attack((*m), playerList);//FIXME: not working yet
+    playerList.at(1)->fortify();
+    cout << "\nupdated list of countries for player 2" << endl;
+    for (int i = 0; i < playerList.at(1)->getCountry().size(); i++) {
+        cout << playerList.at(1)->getCountry().at(i)->getCountName() << " has " << playerList.at(1)->getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+    }
+    
+    
+    
+    
+    
+    
     
     
     
