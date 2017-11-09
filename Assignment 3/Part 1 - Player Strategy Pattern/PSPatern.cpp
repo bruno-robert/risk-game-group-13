@@ -14,7 +14,7 @@ PlayerStrategyPattern::PlayerStrategyPattern() {
 }
 
 PlayerStrategyPattern::~PlayerStrategyPattern() {
-    
+
 }
 
 /**
@@ -32,7 +32,6 @@ bool PlayerStrategyPattern::isCountryInVector(int a, vector<CountryNode*> vect) 
     return false;
 }
 
-}
 
 Human::Human() : PlayerStrategyPattern(){
 
@@ -50,107 +49,107 @@ Human::~Human() {
  @return the ID of the country with name countryName. If the country doesn't exist, returns -1
  */
 int Human::countryNameToID(string countryName, Player& p){
-	vector<CountryNode*> cl = p.getCountryByRef();
-	for (vector<CountryNode*>::iterator country = cl.begin(); country != cl.end(); country++) {
-		if ((*country)->getCountName() == countryName) {
-			return (*country)->getCountryId();
-		}
-	}
+    vector<CountryNode*> cl = p.getCountryByRef();
+    for (vector<CountryNode*>::iterator country = cl.begin(); country != cl.end(); country++) {
+        if ((*country)->getCountName() == countryName) {
+            return (*country)->getCountryId();
+        }
+    }
 
-	return -1;//error, country not found
+    return -1;//error, country not found
 }
 CountryNode * Human::getCountryById(vector<CountryNode*> countryList, int id) {
-	for (CountryNode* country : countryList) {
-		if (country->getCountryId() == id) {
-			return country;
-		}
-	}
-	return NULL;
+    for (CountryNode* country : countryList) {
+        if (country->getCountryId() == id) {
+            return country;
+        }
+    }
+    return NULL;
 }
 
 void Human::executeFortify(Player& user) {
-	bool troopsMoved = false;
-	while (!troopsMoved) {
-		CountryNode* startingCountry = NULL;
-		CountryNode* destinationCountry = NULL;
-		int numberOfTroopsToMove;
+    bool troopsMoved = false;
+    while (!troopsMoved) {
+        CountryNode* startingCountry = NULL;
+        CountryNode* destinationCountry = NULL;
+        int numberOfTroopsToMove;
 
-		//Getting and checking starting country
-		cout << "please select a starting country" << endl;
-		//temporary varibales
-		string inputString;
-		while (true) {
-			getline(cin, inputString);
-			cin.ignore();
-			//cin >> inputString;
-			int startingCountryID = countryNameToID(inputString, user);
-			startingCountry = getCountryById(user.getCountryByRef(), startingCountryID);
-			//checks if the starting coutry is valid
-			if ((startingCountryID >= 1) && (startingCountry != NULL) && (startingCountry->getOwnedBy() == user.getPlayerID()) && (startingCountry->getNumberOfTroops() > 1)) {
-				break;
-			}
-			if (startingCountryID == -1) {
-				cout << "We couldn't find your country. Please try again." << endl;
-			}
-			else {
-				cout << "Sorry, the value you entered is not valid, please try again (the country could have to few troops):" << endl;
-			}
+        //Getting and checking starting country
+        cout << "please select a starting country" << endl;
+        //temporary varibales
+        string inputString;
+        while (true) {
+            getline(cin, inputString);
+            cin.ignore();
+            //cin >> inputString;
+            int startingCountryID = countryNameToID(inputString, user);
+            startingCountry = getCountryById(user.getCountryByRef(), startingCountryID);
+            //checks if the starting coutry is valid
+            if ((startingCountryID >= 1) && (startingCountry != NULL) && (startingCountry->getOwnedBy() == user.getPlayerID()) && (startingCountry->getNumberOfTroops() > 1)) {
+                break;
+            }
+            if (startingCountryID == -1) {
+                cout << "We couldn't find your country. Please try again." << endl;
+            }
+            else {
+                cout << "Sorry, the value you entered is not valid, please try again (the country could have to few troops):" << endl;
+            }
 
-		}
+        }
 
-		//Getting and checking the destination country
-		cout << "please select the destination country" << endl;
-		while (true) {
-			getline(cin, inputString);
-			cin.ignore();
-			//cin >> inputString;
-			int destinationCountryID = countryNameToID(inputString, user);
+        //Getting and checking the destination country
+        cout << "please select the destination country" << endl;
+        while (true) {
+            getline(cin, inputString);
+            cin.ignore();
+            //cin >> inputString;
+            int destinationCountryID = countryNameToID(inputString, user);
 
-			destinationCountry = getCountryById(user.getCountryByRef(), destinationCountryID);
-			if ((destinationCountryID >= 1) && (destinationCountry != NULL) && (destinationCountry->getOwnedBy() == user.getPlayerID())) {
-				break;
-			}
+            destinationCountry = getCountryById(user.getCountryByRef(), destinationCountryID);
+            if ((destinationCountryID >= 1) && (destinationCountry != NULL) && (destinationCountry->getOwnedBy() == user.getPlayerID())) {
+                break;
+            }
 
-			if (destinationCountryID == -1) {
-				cout << "We couldn't find your country. Please try again." << endl;
-			}
-			else {
-				cout << "Sorry, the value you entered is not valid, please try again (the country could have to few troops):" << endl;
-			}
-		}
+            if (destinationCountryID == -1) {
+                cout << "We couldn't find your country. Please try again." << endl;
+            }
+            else {
+                cout << "Sorry, the value you entered is not valid, please try again (the country could have to few troops):" << endl;
+            }
+        }
 
-		//checks the adjacency of both countries and promtps user for number of troop to move
-		if (startingCountry->isCountAdjacent(destinationCountry->getCountryId())) {
-			cout << "please enter the number of troops you want to move (value between 1 and " << startingCountry->getNumberOfTroops() << ":" << endl;
-			while (true) {
+        //checks the adjacency of both countries and promtps user for number of troop to move
+        if (startingCountry->isCountAdjacent(destinationCountry->getCountryId())) {
+            cout << "please enter the number of troops you want to move (value between 1 and " << startingCountry->getNumberOfTroops() << ":" << endl;
+            while (true) {
 
-				cin >> numberOfTroopsToMove;
-				//if the number of troop is between 1 and the the number of troop in starting country -1
-				if ((numberOfTroopsToMove >= 1) &&
-					(numberOfTroopsToMove < startingCountry->getNumberOfTroops())){
+                cin >> numberOfTroopsToMove;
+                //if the number of troop is between 1 and the the number of troop in starting country -1
+                if ((numberOfTroopsToMove >= 1) &&
+                    (numberOfTroopsToMove < startingCountry->getNumberOfTroops())){
 
-					//Removing troups from startingcountry
-					startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
+                    //Removing troups from startingcountry
+                    startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
 
-					//Adding troups to destinationCountry
-					destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
+                    //Adding troups to destinationCountry
+                    destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
 
-					troopsMoved = true;
-					break;
-				}
-
-
-				cout << "Sorry, the number you entered is invalid, please try again:" << endl;
-			}
-		}
-		if (!troopsMoved) {
-			cout << "Sorry the countries are not adjacent" << endl;
-		}
+                    troopsMoved = true;
+                    break;
+                }
 
 
+                cout << "Sorry, the number you entered is invalid, please try again:" << endl;
+            }
+        }
+        if (!troopsMoved) {
+            cout << "Sorry the countries are not adjacent" << endl;
+        }
 
 
-	}
+
+
+    }
 }
 
 void Human::executeAttack(Player& user, Map& map, vector<Player*> playerList) {
@@ -158,8 +157,8 @@ void Human::executeAttack(Player& user, Map& map, vector<Player*> playerList) {
 }
 
 void Human::executeReinforce(Player& user) {
-	Reinforce rein;
-	rein.reinforceDistributions(user);
+    Reinforce rein;
+    rein.reinforceDistributions(user);
 }
 
 Aggressive::Aggressive() : PlayerStrategyPattern()
@@ -174,160 +173,162 @@ Aggressive::~Aggressive() {
 void Aggressive::executeReinforce(Player& user) {
 
 
-	//Finding the country with the most units and a target to attack
-	int maxUnit = 0;
-	int maxIndex = 0;
+    //Finding the country with the most units and a target to attack
+    int maxUnit = 0;
+    int maxIndex = 0;
 
-	for (int i = 0; i < user.getCountryByRef().size(); i++) {
+    for (int i = 0; i < user.getCountryByRef().size(); i++) {
 
-		if (user.getCountryByRef().at(i)->getNumberOfTroops() > maxUnit) {
+        if (user.getCountryByRef().at(i)->getNumberOfTroops() > maxUnit) {
 
-			vector<CountryNode*> AdjCountry = user.getCountryByRef().at(i)->getAdjCount();
-			bool target = false;
+            vector<CountryNode*> AdjCountry = user.getCountryByRef().at(i)->getAdjCount();
+            bool target = false;
 
-			for (int j = 0; j < AdjCountry.size() && target == false; j++) {
+            for (int j = 0; j < AdjCountry.size() && target == false; j++) {
 
-				if (AdjCountry.at(j)->getOwnedBy() != user.getPlayerID()) {
+                if (AdjCountry.at(j)->getOwnedBy() != user.getPlayerID()) {
 
-					target = true;
-					maxIndex = i;
-					maxUnit = user.getCountryByRef().at(i)->getNumberOfTroops();
-				}
-			}
-		}
-	}
-	Reinforce rein;
-	int unitsReceived = rein.totalUnits(user);
-	user.getCountryByRef().at(maxIndex)->setNumberOfTroops(maxUnit + unitsReceived);
-	rein.reinforceNotify(user.getCountryByRef().at(maxIndex), unitsReceived);
+                    target = true;
+                    maxIndex = i;
+                    maxUnit = user.getCountryByRef().at(i)->getNumberOfTroops();
+                }
+            }
+        }
+    }
+    Reinforce rein;
+    int unitsReceived = rein.totalUnits(user);
+    user.getCountryByRef().at(maxIndex)->setNumberOfTroops(maxUnit + unitsReceived);
+    rein.reinforceNotify(user.getCountryByRef().at(maxIndex), unitsReceived);
 }
 
 
 void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerList) {
 
-	Attack attackObj;
+    Attack attackObj;
 
-	attackObj.attackNotifyStart(user);
-	//Finds your strongest country
+    attackObj.attackNotifyStart(user);
+    //Finds your strongest country
 
-	int maxUnit = 0;
-	int maxIndex = 0;
+    int maxUnit = 0;
+    int maxIndex = 0;
 
-	for (int i = 0; i < user.getCountryByRef().size(); i++) {
+    for (int i = 0; i < user.getCountryByRef().size(); i++) {
 
-		if (user.getCountryByRef().at(i)->getNumberOfTroops() > maxUnit) {
+        if (user.getCountryByRef().at(i)->getNumberOfTroops() > maxUnit) {
 
-			vector<CountryNode*> AdjCountry = user.getCountryByRef().at(i)->getAdjCount();
-			bool target = false;
+            vector<CountryNode*> AdjCountry = user.getCountryByRef().at(i)->getAdjCount();
+            bool target = false;
 
-			for (int j = 0; j < AdjCountry.size() && target == false; j++) {
+            for (int j = 0; j < AdjCountry.size() && target == false; j++) {
 
-				if (AdjCountry.at(j) != NULL && AdjCountry.at(j)->getOwnedBy() != user.getPlayerID()) {
+                if (AdjCountry.at(j) != NULL && AdjCountry.at(j)->getOwnedBy() != user.getPlayerID()) {
 
-					target = true;
-					maxIndex = i;
-					maxUnit = user.getCountryByRef().at(i)->getNumberOfTroops();
-				}
-			}
-		}
-	}
-	CountryNode* attacker = user.getCountryByRef().at(maxIndex);
+                    target = true;
+                    maxIndex = i;
+                    maxUnit = user.getCountryByRef().at(i)->getNumberOfTroops();
+                }
+            }
+        }
+    }
+    CountryNode* attacker = user.getCountryByRef().at(maxIndex);
 
-	cout << endl << attacker->getCountName() <<endl;
+    cout << endl << attacker->getCountName() <<endl;
 
-	for (int i = 0; i < attacker->getAdjCount().size() && attacker->getNumberOfTroops() > 1; i++) {
+    for (int i = 0; i < attacker->getAdjCount().size() && attacker->getNumberOfTroops() > 1; i++) {
+        
+        CountryNode* defending = attacker->getAdjCount().at(i);
 
-		CountryNode* defending = attacker->getAdjCount().at(i);
+        CountryNode* defending = attacker->getAdjCount().at(i);
 
-		if (defending->getCountryId() != attacker->getCountryId()){
+        if (defending->getCountryId() != attacker->getCountryId()){
 
-			while (attacker->getNumberOfTroops() > 1 && defending->getNumberOfTroops() > 0) {
+            while (attacker->getNumberOfTroops() > 1 && defending->getNumberOfTroops() > 0) {
 
-				int attackerDices = 0;
+                int attackerDices = 0;
 
-				if (attacker->getNumberOfTroops() > 3)
-					attackerDices = 3;//FIXME: Value stored in attackerDices is never read...
-				if (attacker->getNumberOfTroops() == 3)
-					attackerDices = 2;//FIXME: Value stored in attackerDices is never read...
-				if (attacker->getNumberOfTroops() == 2)
-					attackerDices = 1;//FIXME: Value stored in attackerDices is never read...
+                if (attacker->getNumberOfTroops() > 3)
+                    attackerDices = 3;//FIXME: Value stored in attackerDices is never read...
+                if (attacker->getNumberOfTroops() == 3)
+                    attackerDices = 2;//FIXME: Value stored in attackerDices is never read...
+                if (attacker->getNumberOfTroops() == 2)
+                    attackerDices = 1;//FIXME: Value stored in attackerDices is never read...
 
-				int defenderDices = attackObj.defenderAmountOfDice(defending);
+                int defenderDices = attackObj.defenderAmountOfDice(defending);
 
-				Player* defender = attackObj.getAssociatedPlayer(playerList,defending->getCountName());
+                Player* defender = attackObj.getAssociatedPlayer(playerList,defending->getCountName());
 
-				int attackerDiceResults[3];
-				int defenderDiceResults[3];
-
-
-				user.getDiceByRef().roll(attackerDiceResults, attackerDices);
-
-				defender->getDiceByRef().roll(defenderDiceResults, defenderDices);
+                int attackerDiceResults[3];
+                int defenderDiceResults[3];
 
 
-				//Print dice results
-				cout << "Attacker rolled" << endl;
-				attackObj.printDiceResults(attackerDiceResults, attackerDices);
+                user.getDiceByRef().roll(attackerDiceResults, attackerDices);
 
-				cout << "Defender rolled" << endl;
-				attackObj.printDiceResults(defenderDiceResults, defenderDices);
-
-				int mostRolled = defenderDices;
-				if (mostRolled > attackerDices)
-					mostRolled = attackerDices;
-
-				attackObj.reverseSortDiceResults(attackerDiceResults);
-				attackObj.reverseSortDiceResults(defenderDiceResults);
+                defender->getDiceByRef().roll(defenderDiceResults, defenderDices);
 
 
-				int attackerLoses = 0;
-				int defenderLoses = 0;
+                //Print dice results
+                cout << "Attacker rolled" << endl;
+                attackObj.printDiceResults(attackerDiceResults, attackerDices);
 
-				for (int i = 0; i<mostRolled; i++){
-					if (attackerDiceResults[i]>defenderDiceResults[i])
-						defenderLoses++;
-					else
-						attackerLoses++;
-				}
-				attackObj.attackNotify(attacker, defending, attackerLoses, defenderLoses);
-				cout << endl << attacker->getCountName() << " lost " << attackerLoses << " units and " << defending->getCountName() << " lost " << defenderLoses << " units." << endl;
-				defending->setNumberOfTroops(defending->getNumberOfTroops() - defenderLoses);
-				attacker->setNumberOfTroops(attacker->getNumberOfTroops() - attackerLoses);
-			}
-			if (defending->getNumberOfTroops() == 0 && attacker->getNumberOfTroops() > 1) {
-				user.addCountryToOwned(defending, playerList);
-				defending->setNumberOfTroops(1);
-				attacker->setNumberOfTroops(attacker->getNumberOfTroops() - 1);
-				attackObj.attackNotifyConquering(attacker, defending, 1);
-				cout << endl << "The aggressive computer player conquered " << defending->getCountName() << "." << endl;
-			}
-		}
+                cout << "Defender rolled" << endl;
+                attackObj.printDiceResults(defenderDiceResults, defenderDices);
 
-	}
+                int mostRolled = defenderDices;
+                if (mostRolled > attackerDices)
+                    mostRolled = attackerDices;
+
+                attackObj.reverseSortDiceResults(attackerDiceResults);
+                attackObj.reverseSortDiceResults(defenderDiceResults);
+
+
+                int attackerLoses = 0;
+                int defenderLoses = 0;
+
+                for (int i = 0; i<mostRolled; i++){
+                    if (attackerDiceResults[i]>defenderDiceResults[i])
+                        defenderLoses++;
+                    else
+                        attackerLoses++;
+                }
+                attackObj.attackNotify(attacker, defending, attackerLoses, defenderLoses);
+                cout << endl << attacker->getCountName() << " lost " << attackerLoses << " units and " << defending->getCountName() << " lost " << defenderLoses << " units." << endl;
+                defending->setNumberOfTroops(defending->getNumberOfTroops() - defenderLoses);
+                attacker->setNumberOfTroops(attacker->getNumberOfTroops() - attackerLoses);
+            }
+            if (defending->getNumberOfTroops() == 0 && attacker->getNumberOfTroops() > 1) {
+                user.addCountryToOwned(defending, playerList);
+                defending->setNumberOfTroops(1);
+                attacker->setNumberOfTroops(attacker->getNumberOfTroops() - 1);
+                attackObj.attackNotifyConquering(attacker, defending, 1);
+                cout << endl << "The aggressive computer player conquered " << defending->getCountName() << "." << endl;
+            }
+        }
+
+    }
 }
 
 void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
-	CountryNode* startingCountry = NULL;
-	CountryNode* destinationCountry = NULL;
-	int numberOfTroopsToMove;
-	CountryNode * biggest = NULL;
-	CountryNode * secondBiggest = NULL;
+    CountryNode* startingCountry = NULL;
+    CountryNode* destinationCountry = NULL;
+    int numberOfTroopsToMove;
+    CountryNode * biggest = NULL;
+    CountryNode * secondBiggest = NULL;
 
 
-	//loop thourgh owned countries and find the bigggest one in terms of troups
-	for (vector<CountryNode*>::iterator country = user.getCountryByRef().begin(); country != user.getCountryByRef().end(); country++){
+    //loop thourgh owned countries and find the bigggest one in terms of troups
+    for (vector<CountryNode*>::iterator country = user.getCountryByRef().begin(); country != user.getCountryByRef().end(); country++){
 
-		//if this is the first country, it's the biggest for now
-		if (biggest == NULL) {
-			biggest = *country;
+        //if this is the first country, it's the biggest for now
+        if (biggest == NULL) {
+            biggest = *country;
 
-			//if the country has more troops than the current biggest, set it to the biggest
-		}
-		else if ((*country)->getNumberOfTroops() >= biggest->getNumberOfTroops()) {
-			secondBiggest = biggest;
-			biggest = *country;
-		}
-	}
+            //if the country has more troops than the current biggest, set it to the biggest
+        }
+        else if ((*country)->getNumberOfTroops() >= biggest->getNumberOfTroops()) {
+            secondBiggest = biggest;
+            biggest = *country;
+        }
+    }
 }
 vector<CountryNode*> PlayerStrategyPattern::recursiveGetPathToBiggest(CountryNode* startingCountry, CountryNode* destinationCountry, const Player& p, vector<CountryNode*>& visitedCountries) {
     vector<CountryNode*> path;
@@ -404,7 +405,7 @@ void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
         //Adding troups to destinationCountry
         destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
     }
-    
+
 }
 
 
@@ -420,27 +421,27 @@ Benevolant::~Benevolant() {
 void Benevolant::executeReinforce(Player& user) {
 
 
-	//Getting the number of units for my player
-	Reinforce unitsReinforced;
-	int units = unitsReinforced.totalUnits(user);
+    //Getting the number of units for my player
+    Reinforce unitsReinforced;
+    int units = unitsReinforced.totalUnits(user);
 
-	//Finding the country with the most units and a target to attack
+    //Finding the country with the most units and a target to attack
 
-	while (units != 0) {
+    while (units != 0) {
 
-		int leastUnit = user.getCountryByRef().at(0)->getNumberOfTroops();
-		int leastIndex = 0;
+        int leastUnit = user.getCountryByRef().at(0)->getNumberOfTroops();
+        int leastIndex = 0;
 
-		for (int i = 0; i < user.getCountryByRef().size(); i++) {
+        for (int i = 0; i < user.getCountryByRef().size(); i++) {
 
-			if (user.getCountryByRef().at(i)->getNumberOfTroops() < leastUnit) {
-				leastIndex = i;
-				leastUnit = user.getCountryByRef().at(i)->getNumberOfTroops();
-			}
-		}
-		user.getCountryByRef().at(leastIndex)->setNumberOfTroops(leastUnit + 1);
-		units--;
-	}
+            if (user.getCountryByRef().at(i)->getNumberOfTroops() < leastUnit) {
+                leastIndex = i;
+                leastUnit = user.getCountryByRef().at(i)->getNumberOfTroops();
+            }
+        }
+        user.getCountryByRef().at(leastIndex)->setNumberOfTroops(leastUnit + 1);
+        units--;
+    }
 }
 
 
@@ -452,6 +453,6 @@ void Benevolant::executeAttack(Player& user, Map& map, vector<Player*> playerLis
 
 
 void Benevolant::executeFortify(Player& user) {
-	//TODO: Implement this @Bruno
+    //TODO: Implement this @Bruno
 
 }

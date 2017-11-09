@@ -35,24 +35,24 @@ class Player : public Subject{
     void topDownCountSplitMerge(vector<CountryNode*>& b, int iBegin, int iEnd, vector<CountryNode*>& a);
 public:
 
-	Player(); //Default Constructor
-	~Player();
+    Player(); //Default Constructor
+    ~Player();
     void addCountryToOwned(CountryNode* country, vector<Player*> playerlist);
-	Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, PlayerStrategyPattern * psp); //Complete Constructor
-	vector<CountryNode *> getCountry(); //Getters
-	Hand getHand();
-	Dice getDice();
-	int getPlayerID();
-	Hand& getHandByRef();
-	Dice& getDiceByRef();
-	vector<CountryNode *>& getCountryByRef();
-	PlayerStrategyPattern* getStrategy();
-	void reinforce();//Player action methods
-	void attack();
-	void fortify();
+    Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, PlayerStrategyPattern * psp); //Complete Constructor
+    vector<CountryNode *> getCountry(); //Getters
+    Hand getHand();
+    Dice getDice();
+    int getPlayerID();
+    Hand& getHandByRef();
+    Dice& getDiceByRef();
+    vector<CountryNode *>& getCountryByRef();
+    PlayerStrategyPattern* getStrategy();
+    void reinforce();//Player action methods
+    void attack();
+    void fortify();
     void setCountry(vector<CountryNode *> ownedCountry); //Setters
-	void setPlayerID(int id);
-	void setStrategy(PlayerStrategyPattern* strat);
+    void setPlayerID(int id);
+    void setStrategy(PlayerStrategyPattern* strat);
     void topDownCountMergeSort(); 
 };
 

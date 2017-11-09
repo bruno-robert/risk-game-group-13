@@ -24,13 +24,13 @@ Player::Player(){ //Default constructor create empty players
 
 Player::~Player()
 {
-	
+    
 }
 
 Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, PlayerStrategyPattern *psp){
-	this->ownedCountry = ownedCountry;
-	this->hand = hand;
-	this->dice = dice;
+    this->ownedCountry = ownedCountry;
+    this->hand = hand;
+    this->dice = dice;
     this-> psp = psp;
     playerID = ++numberOfPlayers;
 }
@@ -43,32 +43,32 @@ Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, PlayerS
  @param playerList list of players in the game
  */
 void Player::addCountryToOwned(CountryNode* country, vector<Player*> playerList) {
-	
-	Player* playerLost = NULL;
-	for (Player* p : playerList) {
-		if (p->getPlayerID() == country->getOwnedBy()) {
-			playerLost = p;
-		}
-	}
-	if (playerLost != NULL) {
-		vector<CountryNode *> defendersCountries = playerLost->getCountry();
-		defendersCountries.erase(remove(defendersCountries.begin(), defendersCountries.end(), country), defendersCountries.end());
-		playerLost->setCountry(defendersCountries);
-	}
-	ownedCountry.push_back(country);
+    
+    Player* playerLost = NULL;
+    for (Player* p : playerList) {
+        if (p->getPlayerID() == country->getOwnedBy()) {
+            playerLost = p;
+        }
+    }
+    if (playerLost != NULL) {
+        vector<CountryNode *> defendersCountries = playerLost->getCountry();
+        defendersCountries.erase(remove(defendersCountries.begin(), defendersCountries.end(), country), defendersCountries.end());
+        playerLost->setCountry(defendersCountries);
+    }
+    ownedCountry.push_back(country);
     country->setOwnedBy(playerID);
-	notify("Map Change");
+    notify("Map Change");
 
 }
 
 void Player::reinforce(){
 
-	cout << "You are reinforcing. " << endl;
+    cout << "You are reinforcing. " << endl;
 }
 
 void Player::attack(){
 
-	cout << "You are attacking. " << endl;
+    cout << "You are attacking. " << endl;
 }
 
 /**
@@ -81,43 +81,43 @@ void Player::fortify(){
 
 vector<CountryNode *> Player::getCountry(){
 
-	return ownedCountry;
+    return ownedCountry;
 }
 Hand Player::getHand(){
-	return this->hand;
+    return this->hand;
 }
 Dice Player::getDice(){
-	return this->dice;
+    return this->dice;
 }
 int Player::getPlayerID() {
-	return this->playerID;
+    return this->playerID;
 }
 Hand& Player::getHandByRef() {
-	return this->hand;
+    return this->hand;
 }
 Dice& Player::getDiceByRef() {
-	return this->dice;
+    return this->dice;
 }
 vector<CountryNode *>& Player::getCountryByRef() {
 
-	return ownedCountry;
+    return ownedCountry;
 }
 
 PlayerStrategyPattern* Player::getStrategy() {
 
-	return psp;
+    return psp;
 }
 
 void Player::setCountry(vector<CountryNode *> ownedCountry){
-	this->ownedCountry = ownedCountry;
+    this->ownedCountry = ownedCountry;
 }
 void Player::setPlayerID(int id) {
-	this->playerID = id;
+    this->playerID = id;
 }
 
 void Player::setStrategy(PlayerStrategyPattern* strat) {
 
-	this->psp = strat;
+    this->psp = strat;
 }
 //----------------
 //country Sorting
