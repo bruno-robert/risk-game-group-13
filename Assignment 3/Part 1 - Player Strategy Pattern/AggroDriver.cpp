@@ -3,7 +3,7 @@
 #include "Player.h"
 #include "MapLoader.h"
 
-int main(){
+int main() {
 
 	MapLoader ml;
 	string value = "World.map";
@@ -47,6 +47,9 @@ int main(){
 	Player player2 = Player(emptyCountryList, hand2, dice2, humanStrat);
 	Player player3 = Player(emptyCountryList, hand3, dice3, benevolentStrat);
 
+	Attack attackObj;
+	Reinforce reinforcementObj;
+	FortificationPhase fortificationObj;
 
 	//Creating a vector of CountryNode pointers for my player
 
@@ -81,7 +84,7 @@ int main(){
 		}
 	}
 
-	
+
 
 	cout << "\n\n\n Testing the reinforcement phase for the aggressive computer player...\n\n" << endl;
 
@@ -92,7 +95,7 @@ int main(){
 		cout << player1.getCountry().at(i)->getCountName() << " has " << player1.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
 	}
 
-	aggressiveStrat->executeReinforce(player1);
+	aggressiveStrat->executeReinforce(player1, reinforcementObj);
 
 	cout << "\nPlayer 1's list of countries and their units: " << endl;
 	for (int i = 0; i < player1.getCountry().size(); i++) {
@@ -120,7 +123,7 @@ int main(){
 		cout << player3.getCountry().at(i)->getCountName() << " has " << player3.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
 	}
 
-	aggressiveStrat->executeAttack(player1, *m, playerList);
+	aggressiveStrat->executeAttack(player1, *m, playerList, attackObj);
 
 	cout << "\nPlayer 1's list of countries and their units: " << endl;
 	for (int i = 0; i < player1.getCountry().size(); i++) {
@@ -150,7 +153,7 @@ int main(){
 		cout << player2.getCountry().at(i)->getCountName() << " has " << player2.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
 	}
 
-	humanStrat->executeReinforce(player2);
+	humanStrat->executeReinforce(player2, reinforcementObj);
 
 	cout << "\nPlayer 2's list of countries and their units: " << endl;
 	for (int i = 0; i < player2.getCountry().size(); i++) {
@@ -178,7 +181,7 @@ int main(){
 		cout << player3.getCountry().at(i)->getCountName() << " has " << player3.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
 	}
 
-	humanStrat->executeAttack(player2, *m, playerList);
+	humanStrat->executeAttack(player2, *m, playerList, attackObj);
 
 
 	cout << "\nPlayer 1's list of countries and their units: " << endl;
@@ -199,7 +202,7 @@ int main(){
 	cout << "\n\n\n Testing the fortification phase for the human player...\n\n" << endl;
 
 	//TODO: add the fortification execute for the human player 
-	
+
 
 	cout << "\n\n\n Doing the reinforcement for the Benevolant computer player...\n\n" << endl;
 
@@ -209,7 +212,7 @@ int main(){
 		cout << player3.getCountry().at(i)->getCountName() << " has " << player3.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
 	}
 
-	benevolentStrat->executeReinforce(player3);
+	benevolentStrat->executeReinforce(player3, reinforcementObj);
 
 
 	cout << "\nPlayer 3's list of countries and their units: " << endl;
@@ -221,7 +224,7 @@ int main(){
 	cout << "\n\n\n Testing the attack for the benevolant computer player...\n\n" << endl;
 
 
-	benevolentStrat->executeAttack(player3, *m, playerList);
+	benevolentStrat->executeAttack(player3, *m, playerList, attackObj);
 
 
 	cout << "\n\n\n Testing the fortification phase for the benevolant computer player...\n\n" << endl;

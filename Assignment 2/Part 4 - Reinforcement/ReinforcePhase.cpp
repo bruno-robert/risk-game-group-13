@@ -75,7 +75,7 @@ int Reinforce::totalUnits(Player& player) {
 
 void Reinforce::reinforceDistributions(Player& player) {
 
-	setRefyingforcingPlayer(player);
+	setReinforcingPlayer(&player);
 	notify("Reinforce Started");
 
 	int units = totalUnits(player);
@@ -145,9 +145,9 @@ string Reinforce::getExchangeType(){
 	return exchangeType;
 }
 void Reinforce::setReinforcedCountryData(CountryNode* country){
-	this->reinforcedCountryData = country.
+	this->reinforcedCountryData = country;
 }
-CountryNode* Reinforce::setReinforcedCountryData(){
+CountryNode* Reinforce::getReinforcedCountryData(){
 	return reinforcedCountryData;
 }
 void Reinforce::setTroopsMoved(int moved){

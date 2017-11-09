@@ -63,19 +63,19 @@ void PhaseObserver::update(string message)
 		}
 
 		else if (message == "Troop Loss"){
-			attackerAmountLost = attackSubject->getAttackerTroopLoss();
-			defenderAmountLost = attackSubject->getDefenderTroopLoss();
+			int attackerAmountLost = attackSubject->getAttackerTroopLoss();
+			int defenderAmountLost = attackSubject->getDefenderTroopLoss();
 			cout << "++++++++++++++++++++++++++++++++++++++++++" << "Attacker lost " << attackerAmountLost << " units and Defender lost " << defenderAmountLost << " units" << endl;
 		}
 
 		else if (message == "Card Exchange"){
 			string typeOfExchange = reinforceSubject->getExchangeType();
-			cout << "++++++++++++++++++++++++++++++++++++++++++" << echangeType << endl;
+			cout << "++++++++++++++++++++++++++++++++++++++++++" << typeOfExchange << endl;
 		}
 
 		else if (message == "Troops Moved"){
 			string toCountry = reinforceSubject->getReinforcedCountryData()->getCountName();
-			int amout = reinforceSubject->getTroopsMoved();
+			int amount = reinforceSubject->getTroopsMoved();
 			cout << "++++++++++++++++++++++++++++++++++++++++++" << "Player reinforced " << toCountry << " with " << amount << " troop(s)" << endl;
 		}
 		

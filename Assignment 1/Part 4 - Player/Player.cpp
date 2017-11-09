@@ -62,11 +62,13 @@ void Player::addCountryToOwned(CountryNode* country, vector<Player*> playerList)
 }
 
 void Player::reinforce(){
-    psp->executeReinforce((*this));
+	Reinforce reinforcementObj;
+    psp->executeReinforce((*this),reinforcementObj);
 }
 
 void Player::attack(Map& m, vector<Player*> playerList){
-    psp->executeAttack((*this), m, playerList);
+	Attack attackObj;
+    psp->executeAttack((*this), m, playerList,attackObj);
 }
 
 /**
@@ -74,7 +76,8 @@ void Player::attack(Map& m, vector<Player*> playerList){
  
  */
 void Player::fortify(){
-    psp->executeFortify((*this));
+	FortificationPhase fortificationObj;
+    psp->executeFortify((*this),fortificationObj);
 }
 
 vector<CountryNode *> Player::getCountry(){
