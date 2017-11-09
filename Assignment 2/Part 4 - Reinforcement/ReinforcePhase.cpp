@@ -11,6 +11,7 @@
 #include "ReinforcePhase.h"
 #include <algorithm>
 #include "Subject.h"
+#include <string>
 
 int Reinforce::unitsForCountries(Player& player) {
 	int units = player.getCountry().size() / 3;
@@ -87,8 +88,9 @@ void Reinforce::reinforceDistributions(Player& player) {
 		CountryNode* reinforcedCountry = NULL;
 
 		while (valid == false) {
-			std::getline(cin, entry);
-			cin.ignore();
+
+			cin >> entry;
+			replace(entry.begin(), entry.end(), '_', ' ');
 
 			for (int i = 0; i < player.getCountry().size() && valid == false;i++) {
 				if (entry == player.getCountryByRef().at(i)->getCountName()) {
@@ -97,7 +99,7 @@ void Reinforce::reinforceDistributions(Player& player) {
 				}
 			}
 			if (valid == false)
-				cout << "\nThe country you entered is not valid. Please try again..." << endl;
+				cout << "\nThe country you entered is not valid. Please try again...\nNote: Spaces should be an underscore." << endl;
 		}
 
 		cout << "How many units you would like to move? ";
@@ -120,10 +122,6 @@ void Reinforce::reinforceDistributions(Player& player) {
 	}
 	cout << "\nYou have dispensed all of your reinforcement units." << endl;
 }
-
-
-
-
 
 void Reinforce::reinforceNotify(CountryNode* country, int units) {
 	string  message = "PHASE_OBSERVER|" + country->getCountName() + " has received " + to_string(units) + " units.";
