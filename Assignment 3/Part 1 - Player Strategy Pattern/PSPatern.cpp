@@ -74,8 +74,8 @@ void Human::executeFortify(Player& user) {
         CountryNode* destinationCountry = NULL;
         int numberOfTroopsToMove;
 
-        //Getting and checking starting country
-        cout << "\nYou are now int the fortification Phase:\n" << endl;
+        //asking if user wants to foritfy
+        cout << "\nYou are now in the fortification Phase:\n" << endl;
         cout << "Would you like to fortify this turn ? (y/n)" << endl;
         while (true) {
             string yesOrNo;
@@ -89,15 +89,26 @@ void Human::executeFortify(Player& user) {
             cout << "sorry the value you entered is invalid, please try again." << endl;
         }
         
+        cout << "\nHere is the list of you countries with their troops and friendly adjacent countries:" << endl;
+        //Print out the list of coutries with friendly adjacent
+        for(CountryNode* country : user.getCountryByRef()){
+            cout << country->getCountName() << " has " << country->getNumberOfTroops() << " troops. It's friendly adjacent countries are:" << endl;
+            for(CountryNode* adjCountry : country->getAdjCount()){
+                if(adjCountry->getOwnedBy() == user.getPlayerID()) {
+                    cout << "        "<< adjCountry->getCountName() << " with " << adjCountry->getNumberOfTroops() << " troops." << endl;
+                }
+            }
+        }
         
         
+        //Getting and checking starting country
         cout << "Please select a starting country" << endl;
         //temporary varibales
         string inputString;
         while (true) {
-            getline(cin, inputString);
-            cin.ignore();
-            //cin >> inputString;
+            cin >> inputString;
+            replace( inputString.begin(), inputString.end(), '_', ' ');
+            
             int startingCountryID = countryNameToID(inputString, user);
             startingCountry = getCountryById(user.getCountryByRef(), startingCountryID);
             //checks if the starting coutry is valid
@@ -116,9 +127,9 @@ void Human::executeFortify(Player& user) {
         //Getting and checking the destination country
         cout << "please select the destination country" << endl;
         while (true) {
-            getline(cin, inputString);
-            cin.ignore();
-            //cin >> inputString;
+            cin >> inputString;
+            replace( inputString.begin(), inputString.end(), '_', ' ');
+            
             int destinationCountryID = countryNameToID(inputString, user);
 
             destinationCountry = getCountryById(user.getCountryByRef(), destinationCountryID);
