@@ -358,7 +358,7 @@ void PlayerStrategyPattern::getPathToBiggest(CountryNode ** destinationCountry, 
     return;
 }
 
-void Aggressive::executeFortify(Player& user) {//TODO: Implement this @Bruno
+void Aggressive::executeFortify(Player& user) {
     CountryNode* startingCountry = NULL;
     CountryNode* destinationCountry = NULL;
     int numberOfTroopsToMove = -1;
