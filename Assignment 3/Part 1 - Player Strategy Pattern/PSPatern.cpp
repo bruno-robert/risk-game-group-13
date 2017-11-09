@@ -7,6 +7,8 @@
 //
 
 #include "PSPatern.hpp"
+#include "FortificationPhase.hpp"
+#include "Subject.h"
 using namespace std;
 
 PlayerStrategyPattern::PlayerStrategyPattern() {
@@ -67,7 +69,10 @@ CountryNode * Human::getCountryById(vector<CountryNode*> countryList, int id) {
     return NULL;
 }
 
-void Human::executeFortify(Player& user) {
+void Human::executeFortify(Player& user, FortificationPhase& fortification) {
+
+	fortification.setFortifyingPlayer(user);
+	notify("Fortification Started");
     bool troopsMoved = false;
     while (!troopsMoved) {
         CountryNode* startingCountry = NULL;
@@ -124,6 +129,8 @@ void Human::executeFortify(Player& user) {
 
         }
 
+		fortification.setStartingCountry(startingCountry);
+
         //Getting and checking the destination country
         cout << "please select the destination country" << endl;
         while (true) {
@@ -149,7 +156,7 @@ void Human::executeFortify(Player& user) {
         if (startingCountry->isCountAdjacent(destinationCountry->getCountryId())) {
             cout << "please enter the number of troops you want to move (value between 1 and " << startingCountry->getNumberOfTroops() << ":" << endl;
             while (true) {
-
+				fortification.setDestinationCountry(destinationCountry);
                 cin >> numberOfTroopsToMove;
                 //if the number of troop is between 1 and the the number of troop in starting country -1
                 if ((numberOfTroopsToMove >= 1) &&
@@ -162,6 +169,8 @@ void Human::executeFortify(Player& user) {
                     destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
 
                     troopsMoved = true;
+					fortification.setAmountTroopsMoved(numberOfTroopsToMove);
+					notify("Fortification occured");
                     break;
                 }
 
@@ -172,24 +181,19 @@ void Human::executeFortify(Player& user) {
         if (!troopsMoved) {
             cout << "Sorry the countries are not adjacent" << endl;
         }
-
-
-
-
+		
     }
 }
 
-void Human::executeAttack(Player& user, Map& map, vector<Player*> playerList) {
+void Human::executeAttack(Player& user, Map& map, vector<Player*> playerList, Attack& attackObj) {
 
-	Attack attackObj;
-	attackObj.attackNotifyStart(user);
 	//The other notify calls should be inside to attack loop
 	attackObj.attackLoop(playerList, &user, &map);
 
 }
 
-void Human::executeReinforce(Player& user) {
-    Reinforce rein;
+void Human::executeReinforce(Player& user, Reinforce& rein) {
+    
     rein.reinforceDistributions(user);
 }
 
@@ -202,7 +206,7 @@ Aggressive::~Aggressive() {
 
 }
 
-void Aggressive::executeReinforce(Player& user) {
+void Aggressive::executeReinforce(Player& user, Reinforce& rein) {
 
 
     //Finding the country with the most units and a target to attack
@@ -227,18 +231,23 @@ void Aggressive::executeReinforce(Player& user) {
             }
         }
     }
-    Reinforce rein;
+    
     int unitsReceived = rein.totalUnits(user);
     user.getCountryByRef().at(maxIndex)->setNumberOfTroops(maxUnit + unitsReceived);
-    rein.reinforceNotifyDistribution(user.getCountryByRef().at(maxIndex), unitsReceived);
+	rein.setTroopsMoved(unitsReceived);
+	rein.setReinforcedCountryData(user.getCountryByRef().at(maxIndex));
+	notify("Troops moved");
 }
 
 
-void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerList) {
+void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerList, Attack &attackObj) {
 
-    Attack attackObj;
+	attackObj.setPlayerListData(playerList);
+	attackObj.setAttackingPlayerData(user);
+	attackObj.setMapData(map);
 
-    attackObj.attackNotifyStart(user);
+	notify("Attack Started");
+
     //Finds your strongest country
 
     int maxUnit = 0;
@@ -269,6 +278,8 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
     for (int i = 0; i < attacker->getAdjCount().size() && attacker->getNumberOfTroops() > 1; i++) {
         
         CountryNode* defending = attacker->getAdjCount().at(i);
+		attackObj.setDefendingCountryData(defending);
+		notify("Attack to/from set");
 
 
         if (defending->getCountryId() != attacker->getCountryId()){
@@ -287,6 +298,7 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
                 int defenderDices = attackObj.defenderAmountOfDice(defending);
 
                 Player* defender = attackObj.getAssociatedPlayer(playerList,defending->getCountName());
+				attackObj.setDefendingPlayerData(defender);
 
                 int attackerDiceResults[3];
                 int defenderDiceResults[3];
@@ -321,7 +333,11 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
                     else
                         attackerLoses++;
                 }
-                attackObj.attackNotify(attacker, defending, attackerLoses, defenderLoses);
+				attackObj.setAttackerTroopLoss(attackerLoses);
+				attackObj.setDefenderTroopLoss(defenderLoses);
+				
+				notify("Troop Loss");
+
                 cout << endl << attacker->getCountName() << " lost " << attackerLoses << " units and " << defending->getCountName() << " lost " << defenderLoses << " units." << endl;
                 defending->setNumberOfTroops(defending->getNumberOfTroops() - defenderLoses);
                 attacker->setNumberOfTroops(attacker->getNumberOfTroops() - attackerLoses);
@@ -330,7 +346,9 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
                 user.addCountryToOwned(defending, playerList);
                 defending->setNumberOfTroops(1);
                 attacker->setNumberOfTroops(attacker->getNumberOfTroops() - 1);
-                attackObj.attackNotifyConquering(attacker, defending, 1);
+                
+				notify("Attacker conquered");
+
                 cout << endl << "The aggressive computer player conquered " << defending->getCountName() << "." << endl;
             }
         }
@@ -390,7 +408,7 @@ void PlayerStrategyPattern::getPathToBiggest(CountryNode ** destinationCountry, 
     return;
 }
 
-void Aggressive::executeFortify(Player& user) {
+void Aggressive::executeFortify(Player& user, FortificationPhase& fortification) {
     CountryNode* startingCountry = NULL;
     CountryNode* destinationCountry = NULL;
     int numberOfTroopsToMove = -1;
@@ -420,24 +438,29 @@ void Aggressive::executeFortify(Player& user) {
 
                 //Adding troups to destinationCountry
                 destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
+
                 return;
             }
         }//else move to the next country
+        hasEnemy = false;
         startingCountry = NULL;
     }
 
-
-
-
+	fortification.setStartingCountry(startingCountry);
+	fortification.setDestinationCountry(destinationCountry);
 
     //If the biggest country is not adjeacent to an enemy country, find closes enemy country and move troups towards that
 
     if(numberOfTroopsToMove >= 1) {
+		fortification.setAmountTroopsMoved(numberOfTroopsToMove);
+
         //Removing troups from startingcountry
         startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
 
         //Adding troups to destinationCountry
         destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
+
+		notify("Fortification occured");
     }
 
 }
@@ -452,12 +475,13 @@ Benevolant::~Benevolant() {
 
 }
 
-void Benevolant::executeReinforce(Player& user) {
+void Benevolant::executeReinforce(Player& user, Reinforce& rein) {
 
-	Reinforce rein;
-	rein.reinforceNotifyStart(user);
+	rein.setReinforcingPlayer(user);
+	notify("Reinforcing Started");
     //Getting the number of units for my player
     Reinforce unitsReinforced;
+	
     int units = unitsReinforced.totalUnits(user);
 
     //Finding the country with the most units and a target to attack
@@ -475,22 +499,23 @@ void Benevolant::executeReinforce(Player& user) {
             }
         }
         user.getCountryByRef().at(leastIndex)->setNumberOfTroops(leastUnit + 1);
+		rein.set
         units--;
-		rein.reinforceNotifyDistribution(user.getCountryByRef().at(leastIndex), 1);
+		notify("Troops Moved");
     }
 }
 
 
 
-void Benevolant::executeAttack(Player& user, Map& map, vector<Player*> playerList) {
+void Benevolant::executeAttack(Player& user, Map& map, vector<Player*> playerList, Attack& attackObj) {
 
-	Attack attackObj;
-	attackObj.attackNotifyStart(user);
+	attackObj.setAttackingPlayerData(&user);
+	notify("Attack Started");
 	cout << "Since the benevolant computer does not attack no action is taken during this phase..." << endl;
 
 }
 
-void Benevolant::executeFortify(Player& user) {
+void Benevolant::executeFortify(Player& user, FortificationPhase& fortification) {
     //Not a very efficient Algorithm O(n2) or more
     CountryNode* startingCountry = NULL;
     CountryNode* destinationCountry = NULL;
@@ -505,35 +530,49 @@ void Benevolant::executeFortify(Player& user) {
         
         //for each adjacent country to the currentCoutry check if it has much more troops than the current Country
         for(CountryNode* country : currentCountry->getAdjCount()) {
-            
-            //if the adjacent country is friendly then check them
-            if(country->getOwnedBy() == user.getPlayerID()){
-                int diff = (country->getNumberOfTroops() - currentCountry->getNumberOfTroops());//diff is the (difference in troops)^2
-                diff = diff * diff; //square so we only get positive results
-                if(diff >= 4) {//if diff ==1 then moving the troup will have no avail, if diff >= 4 then the difference in troops >= 2
-                    if(country->getNumberOfTroops() > currentCountry->getNumberOfTroops()) {
-                        startingCountry = country;
-                        destinationCountry = currentCountry;
-                        numberOfTroopsToMove = ((country->getNumberOfTroops() - currentCountry->getNumberOfTroops()) /2);
-                        
-                        //Removing troups from startingcountry
-                        startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
-                        
-                        //Adding troups to destinationCountry
-                        destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
-                        return;
-                    } else {
-                        startingCountry = currentCountry;
-                        destinationCountry = country;
-                        numberOfTroopsToMove = ((currentCountry->getNumberOfTroops() - country->getNumberOfTroops()) /2);
-                        
-                        //Removing troups from startingcountry
-                        startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
-                        
-                        //Adding troups to destinationCountry
-                        destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
-                        return;
-                    }
+            int diff = (country->getNumberOfTroops() - currentCountry->getNumberOfTroops());//diff is the (difference in troops)^2
+            diff = diff * diff; //square so we only get positive results
+            if(diff >= 4) {//if diff ==1 then moving the troup will have no avail, if diff >= 4 then the difference in troops >= 2
+                if(country->getNumberOfTroops() > currentCountry->getNumberOfTroops()) {
+                    startingCountry = country;
+                    destinationCountry = currentCountry;
+
+					fortification.setStartingCountry(startingCountry);
+					fortification.setDestinationCountry(destinationCountry);
+
+                    numberOfTroopsToMove = ((country->getNumberOfTroops() - currentCountry->getNumberOfTroops()) /2);
+                    
+                    //Removing troups from startingcountry
+                    startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
+                    
+                    //Adding troups to destinationCountry
+                    destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
+
+					fortification.setAmountTroopsMoved(numberOfTroopsToMove);
+
+					notify("Fortification occured");
+
+                    return;
+                } else {
+                    startingCountry = currentCountry;
+                    destinationCountry = country;
+
+					fortification.setStartingCountry(startingCountry);
+					fortification.setDestinationCountry(destinationCountry);
+
+                    numberOfTroopsToMove = ((currentCountry->getNumberOfTroops() - country->getNumberOfTroops()) /2);
+                    
+                    //Removing troups from startingcountry
+                    startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
+                    
+                    //Adding troups to destinationCountry
+                    destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
+
+					fortification.setAmountTroopsMoved(numberOfTroopsToMove);
+
+					notify("Fortification occured");
+
+                    return;
                 }
             }
         }
