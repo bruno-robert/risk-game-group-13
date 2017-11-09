@@ -115,10 +115,6 @@ void Player::setPlayerID(int id) {
     this->playerID = id;
 }
 
-void Player::setStrategy(PlayerStrategyPattern* strat) {
-
-    this->psp = strat;
-}
 //----------------
 //country Sorting
 //----------------

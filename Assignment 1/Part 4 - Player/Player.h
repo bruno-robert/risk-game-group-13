@@ -52,7 +52,7 @@ public:
     void fortify();
     void setCountry(vector<CountryNode *> ownedCountry); //Setters
     void setPlayerID(int id);
-    void setStrategy(PlayerStrategyPattern* strat);
+    void setPSP(PlayerStrategyPattern *psp) {this->psp = psp;}
     void topDownCountMergeSort(); 
 };
 
