@@ -26,8 +26,8 @@ public:
     PlayerStrategyPattern();
     virtual ~PlayerStrategyPattern();
 
-    
-  
+
+
     virtual void executeFortify(Player& user)= 0;
     virtual void executeAttack(Player& user,Map& map,vector<Player*> playerList)= 0;
     virtual void executeReinforce(Player& user)= 0;
@@ -41,13 +41,13 @@ class Human : public PlayerStrategyPattern{
     static int countryNameToID(string countryName, Player& p);
     CountryNode* getCountryById(vector<CountryNode*> countryList, int id);
 public:
-    
+
     Human();
     ~Human();
     void executeFortify(Player& user);
 	void executeAttack(Player& user, Map& map, vector<Player*> playerList);
     void executeReinforce(Player& user);
-    
+
 };
 //subclass of PlayerStrategyPattern
 
