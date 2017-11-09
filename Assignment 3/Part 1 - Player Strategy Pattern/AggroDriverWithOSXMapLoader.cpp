@@ -38,11 +38,11 @@ int main(){
         (*country)->setNumberOfTroops(rand() % 10 + 1);
         switch (ctr) {
             case 1:
-                playerList.at(0)->addCountryToOwned(*country, playerList);
+                playerList.at(2)->addCountryToOwned(*country, playerList);
                 
                 break;
             case 2:
-                playerList.at(1)->addCountryToOwned(*country, playerList);
+                playerList.at(2)->addCountryToOwned(*country, playerList);
                 
                 break;
             case 3:
@@ -72,6 +72,7 @@ int main(){
         cout << playerList.at(0)->getCountry().at(i)->getCountName() << " has " << playerList.at(0)->getCountry().at(i)->getNumberOfTroops() << " units." << endl;
     }
     int j = 100;
+    
     cout << "\nPlayer 1, of type Aggressive is fortifying "<< j << " times" << endl;
     for(int i = 0; i <= j; i++) {
         
@@ -91,22 +92,24 @@ int main(){
 //    for (int i = 0; i < playerList.at(1)->getCountry().size(); i++) {
 //        cout << playerList.at(1)->getCountry().at(i)->getCountName() << " has " << playerList.at(1)->getCountry().at(i)->getNumberOfTroops() << " units." << endl;
 //    }
-//
-//    cout << "\nPlayer 3's list of countries and their units: " << endl;
-//    for (int i = 0; i < playerList.at(2)->getCountry().size(); i++) {
-//        cout << playerList.at(2)->getCountry().at(i)->getCountName() << " has " << playerList.at(2)->getCountry().at(i)->getNumberOfTroops() << " units." << endl;
-//    }
-//
-//    for(int i = 0; i <= 100; i++) {
-//        cout << "\nPlayer 3, of type Benevolent is fortifying." << endl;
-//        playerList.at(2)->fortify();
-//
-//        cout << "\nPlayer 3's list of countries and their units: " << endl;
-//        for (int i = 0; i < playerList.at(2)->getCountry().size(); i++) {
-//            cout << playerList.at(2)->getCountry().at(i)->getCountName() << " has " << playerList.at(2)->getCountry().at(i)->getNumberOfTroops() << " units." << endl;
-//        }
-//    }
-//
+
+     playerList.at(2)->topDownCountMergeSort();
+    cout << "\nPlayer 3's list of countries and their units: " << endl;
+    for (int i = 0; i < playerList.at(2)->getCountry().size(); i++) {
+        cout << playerList.at(2)->getCountry().at(i)->getCountName() << " has " << playerList.at(2)->getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+    }
+    cout << "\nPlayer 3, of type Benevolent is fortifying "<< j << " times" << endl;
+    for(int i = 0; i <= j; i++) {
+        
+        playerList.at(2)->fortify();
+
+        
+    }
+     playerList.at(2)->topDownCountMergeSort();
+    cout << "\nPlayer 3's list of countries and their units: " << endl;
+    for (int i = 0; i < playerList.at(2)->getCountry().size(); i++) {
+        cout << playerList.at(2)->getCountry().at(i)->getCountName() << " has " << playerList.at(2)->getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+    }
     
     
 //    aggressiveStrat->executeReinforce(playerList.at(0));
