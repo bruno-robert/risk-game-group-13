@@ -31,29 +31,29 @@ void MapLoader::ReadFile(string FileName) // The function may throw a MapLoaderE
 		if (mapFile.is_open())
 		{
 			// Grab [map] info:
-			getline(mapFile, currentLine); // Skip the [MAP] line
-			getline(mapFile, currentLine); // The author line
+			getline(mapFile, currentLine);currentLine = currentLine.substr(0, currentLine.find('\r')); // Skip the [MAP] line
+			getline(mapFile, currentLine);currentLine = currentLine.substr(0, currentLine.find('\r')); // The author line
 			author = ExtractValue(currentLine);
-			getline(mapFile, currentLine); // The image line
+			getline(mapFile, currentLine);currentLine = currentLine.substr(0, currentLine.find('\r')); // The image line
 			image = ExtractValue(currentLine);
-			getline(mapFile, currentLine); // The wrap line
+			getline(mapFile, currentLine);currentLine = currentLine.substr(0, currentLine.find('\r')); // The wrap line
 			wrap = ExtractValue(currentLine);
-			getline(mapFile, currentLine); // The scroll line
+			getline(mapFile, currentLine);currentLine = currentLine.substr(0, currentLine.find('\r')); // The scroll line
 			scroll = ExtractValue(currentLine);
-			getline(mapFile, currentLine); // The warn line
+			getline(mapFile, currentLine);currentLine = currentLine.substr(0, currentLine.find('\r')); // The warn line
 			warn = ExtractValue(currentLine);
 
 			// Debug printing
 			cout << "Author is " << author << ", the image file is " << image << "; wrap is " << wrap << ", scroll is set to " << scroll << " and warnings are set to " << warn << endl;
 
-			getline(mapFile, currentLine); // Skip the blank line
+			getline(mapFile, currentLine);currentLine = currentLine.substr(0, currentLine.find('\r')); // Skip the blank line
 
 										   // Get the continents data:
-			getline(mapFile, currentLine); // Skip the [CONTINENTS] line
-			if (currentLine != string("[Continents]\r")) throw MapLoaderException("Invalid map format: [Continents] tag is missing.");
+			getline(mapFile, currentLine);currentLine = currentLine.substr(0, currentLine.find('\r')); // Skip the [CONTINENTS] line
+			if (currentLine != string("[Continents]")) throw MapLoaderException("Invalid map format: [Continents] tag is missing.");
 
-            getline(mapFile, currentLine);
-			while (currentLine != "\r")
+            getline(mapFile, currentLine);currentLine = currentLine.substr(0, currentLine.find('\r'));
+			while (currentLine != "")
 			{
                 
 				// Split string from the token "=":
@@ -69,24 +69,24 @@ void MapLoader::ReadFile(string FileName) // The function may throw a MapLoaderE
 				map->addContinent(cn);
 				// Debug printing
 				cout << continentName << " was added to the map with a value of " << continentValue << endl;
-                getline(mapFile, currentLine);
+                getline(mapFile, currentLine);currentLine = currentLine.substr(0, currentLine.find('\r'));
 			}
 			cout << endl;
 
 			// Get the territories data:
-			getline(mapFile, currentLine); //skip the [territories] line
-			if (currentLine != string("[Territories]\r")) throw MapLoaderException("Invalid map format: [Territories] tag is missing.");
+			getline(mapFile, currentLine);currentLine = currentLine.substr(0, currentLine.find('\r')); //skip the [territories] line
+			if (currentLine != string("[Territories]")) throw MapLoaderException("Invalid map format: [Territories] tag is missing.");
 
 			vector<string> territoryLines; // This vector will contain each line that contains information of each country.
 
 										   // Grab all the remaining lines, ignoring blank lines:
             
-            getline(mapFile, currentLine);
+            getline(mapFile, currentLine);currentLine = currentLine.substr(0, currentLine.find('\r'));
             bool doubleBlankLine = false;
             int ctr = 0;
 			while (!doubleBlankLine)
 			{
-				if (currentLine != "\r")
+				if (currentLine != "")
 				{
 					territoryLines.push_back(currentLine);
                     ctr = 0;
@@ -96,7 +96,7 @@ void MapLoader::ReadFile(string FileName) // The function may throw a MapLoaderE
                         break;
                     }
                 }
-                getline(mapFile, currentLine);
+                getline(mapFile, currentLine);currentLine = currentLine.substr(0, currentLine.find('\r'));
 			}
 
 			// Create all the country objects:
@@ -144,6 +144,9 @@ void MapLoader::ReadFile(string FileName) // The function may throw a MapLoaderE
 					neighborList.push_back(current.substr(0, current.find(','))); // Add new neighbor to the list.
 					current = current.substr(current.find(',') + 1);
 				}
+                //without this the last country in each line will not be added to the adjcencyLists
+                neighborList.push_back(current.substr(0, current.find(','))); // Add new neighbor to the list.
+                current = current.substr(current.find(',') + 1);
 
 				for (string n : neighborList)
 				{
