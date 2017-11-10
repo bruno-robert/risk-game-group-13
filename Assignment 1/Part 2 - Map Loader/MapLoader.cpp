@@ -130,6 +130,8 @@ void MapLoader::ReadFile(string FileName) // The function may throw a MapLoaderE
 					neighborList.push_back(current.substr(0, current.find(','))); // Add new neighbor to the list.
 					current = current.substr(current.find(',') + 1);
 				}
+				neighborList.push_back(current.substr(0, current.find(','))); // Add new neighbor to the list.
+				current = current.substr(current.find(',') + 1);
 
 				for (string n : neighborList)
 				{

@@ -264,6 +264,6 @@ int main() {
 	for (int i = 0; i < player3.getCountry().size(); i++) {
 		cout << player3.getCountry().at(i)->getCountName() << " has " << player3.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
 	}
-
+	system("pause");
 	return 0;
 }
