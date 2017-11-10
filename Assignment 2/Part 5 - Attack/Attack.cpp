@@ -120,6 +120,8 @@ void Attack::attackLoop(vector<Player*> playerList, Player* attacker, Map* map){
 			}
 
 			//Output results of comparing dice
+			setAttackerTroopLoss(attackerLoses);
+			setDefenderTroopLoss(defenderLoses);
 			notify("Troop Loss");
 			cout << "Attacker loses " << attackerLoses << " army personnel" << endl;
 			cout << "Defender loses " << defenderLoses << " army personnel" << endl;

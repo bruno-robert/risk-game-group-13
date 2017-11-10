@@ -76,7 +76,7 @@ int Reinforce::totalUnits(Player& player) {
 void Reinforce::reinforceDistributions(Player& player) {
 
 	setReinforcingPlayer(&player);
-	notify("Reinforce Started");
+	notify("Reinforcing Started");
 
 	int units = totalUnits(player);
 	cout << "\nThe player possesses " << units << " to reinforce this turn." << endl;

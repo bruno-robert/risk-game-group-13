@@ -14,7 +14,7 @@ PhaseObserver::PhaseObserver()
 {
 	attackSubject = NULL;
 	reinforceSubject = NULL;
-	//fortificationSubject = NULL;
+	fortificationSubject = NULL;
 }
 
 PhaseObserver::~PhaseObserver()
@@ -62,32 +62,55 @@ void PhaseObserver::update(string message)
 			cout << "++++++++++++++++++++++++++++++++++++++++++" << "Player " << attackerName << " has conquered " << defenderName << "!" << endl;
 		}
 
-		else if (message == "Troop Loss"){
+		else if (message == "Troop Loss")
+		{
 			int attackerAmountLost = attackSubject->getAttackerTroopLoss();
 			int defenderAmountLost = attackSubject->getDefenderTroopLoss();
 			cout << "++++++++++++++++++++++++++++++++++++++++++" << "Attacker lost " << attackerAmountLost << " units and Defender lost " << defenderAmountLost << " units" << endl;
 		}
 
-		else if (message == "Card Exchange"){
+		else if (message == "Card Exchange")
+		{
 			string typeOfExchange = reinforceSubject->getExchangeType();
 			cout << "++++++++++++++++++++++++++++++++++++++++++" << typeOfExchange << endl;
 		}
 
-		else if (message == "Troops Moved"){
+		else if (message == "Troops Moved")
+		{
 			string toCountry = reinforceSubject->getReinforcedCountryData()->getCountName();
 			int amount = reinforceSubject->getTroopsMoved();
 			cout << "++++++++++++++++++++++++++++++++++++++++++" << "Player reinforced " << toCountry << " with " << amount << " troop(s)" << endl;
 		}
 		
-		//message == "Troops Moved" when reinforce is completed, getTroopsMoved getReinforcedCountryData
+		else if (message == "Fortification occured")
+		{
+			int troopsMoved = fortificationSubject->getAmountTroopsMoved();
+			string destination = fortificationSubject->getDestinationCountry()->getCountName();
+			string start = fortificationSubject->getStartingCountry()->getCountName();
 
-		//message == "Fortification occured" getAmounttROOPSmOVED GETdestinationCountry
+			cout << "++++++++++++++++++++++++++++++++++++++++++" << "Player moved " << to_string(troopsMoved) << " troops from " << start << " to " << destination << endl;
+		}
 
-		//message == "Fortification Started" getFortifyingPLayer
+		// getFortifyingPLayer
+		if (message == "Fortification Started")
+		{
+			int player = fortificationSubject->getFortifyingPlayer()->getPlayerID();
+			cout << "++++++++++++++++++++++++++++++++++++++++++" << "Player " << to_string(player) << "'s Fortification Phase:" << endl;
+		}
 
 		//message == "Attack Started" getAttackingPLayer
+		if (message == "Attack Started")
+		{
+			int player = attackSubject->getAttackingPlayerData()->getPlayerID();
+			cout << "++++++++++++++++++++++++++++++++++++++++++" << "Player " << to_string(player) << "'s Attack Phase:" << endl;
+		}
 
 		//message == "Reiforce Started" getReinforcingPlayer
+		if (message == "Reinforcing Started")
+		{
+			int player = reinforceSubject->getReinforcingPlayer()->getPlayerID();
+			cout << "++++++++++++++++++++++++++++++++++++++++++" << "Player " << to_string(player) << "'s Reinforcement Phase:" << endl;
+		}
 	}
 }
 
@@ -103,10 +126,9 @@ void PhaseObserver::setReinforcePhaseSubject(Reinforce* reinforce)
 	this->reinforceSubject = reinforce;
 	reinforceSubject->attach(this);
 }
-/*
+
 void PhaseObserver::setFortifyPhaseSubject(FortificationPhase* fortify)
 {
 	this->fortificationSubject = fortify;
 	fortificationSubject->attach(this);
 }
-*/
