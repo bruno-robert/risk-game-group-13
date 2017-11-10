@@ -10,6 +10,7 @@
 #include "GameStatsObserver.h"
 #include "Player.h"
 #include "Attack.h"
+#include "PSPatern.hpp"
 #include <iostream>
 using namespace std;
 
@@ -90,10 +91,13 @@ int main (){
     //Assigning countries to player 3
     vector<CountryNode *> player3Countries;
     
+    //Creating Strategy pattern
+    Human* pattern;
+    
     //Creating players
-    Player player1 = Player (player1Countries, hand1, dice1);
-    Player player2 = Player (player2Countries, hand2, dice2);
-    Player player3 = Player (player3Countries, hand3, dice3);
+    Player player1 = Player (player1Countries, hand1, dice1, pattern);
+    Player player2 = Player (player2Countries, hand2, dice2, pattern);
+    Player player3 = Player (player3Countries, hand3, dice3, pattern);
     
     //Adding players to list
     vector<Player *> playerList;
