@@ -72,7 +72,7 @@ CountryNode * Human::getCountryById(vector<CountryNode*> countryList, int id) {
 void Human::executeFortify(Player& user, FortificationPhase& fortification) {
 
 	fortification.setFortifyingPlayer(&user);
-	notify("Fortification Started");
+	fortification.notify("Fortification Started");
 	bool troopsMoved = false;
 	while (!troopsMoved) {
 		CountryNode* startingCountry = NULL;
@@ -171,7 +171,7 @@ void Human::executeFortify(Player& user, FortificationPhase& fortification) {
 
 					troopsMoved = true;
 					fortification.setAmountTroopsMoved(numberOfTroopsToMove);
-					notify("Fortification occured");
+					fortification.notify("Fortification occured");
 					break;
 				}
 

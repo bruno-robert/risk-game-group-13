@@ -8,6 +8,7 @@
 //============================================================================
 
 #include "PhaseObserver.h"
+#include "MapLoader.h"
 
 int main()
 {
@@ -20,67 +21,15 @@ int main()
 
 	observer.setAttackPhaseSubject(&attackPhase);
 	observer.setReinforcePhaseSubject(&reinforcePhase);
-	//observer.setFortifyPhaseSubject(&fortificationPhase);
+	observer.setFortifyPhaseSubject(&fortificationPhase);
 
-	Map map;
+	MapLoader ml;
+	string value = "World.map";
+	ml.ReadFile(value);
+	ml.printMap();
+	Map* map = ml.getMap();
 
-	//creating continents
-	ContinentNode europe("Europe", 5);
-	ContinentNode northAmerica("North America", 5);
-	ContinentNode southAmerica("south America", 5);
-	ContinentNode asia("Asia", 9);
-	asia.addAdjCont(&europe);
-	europe.addAdjCont(&asia);
-	europe.addAdjCont(&northAmerica);
-	northAmerica.addAdjCont(&europe);
-	northAmerica.addAdjCont(&southAmerica);
-	southAmerica.addAdjCont(&northAmerica);
-
-	//creating countries
-	CountryNode mongolia("Mongolia", &europe);
-	CountryNode france("France", &europe);
-	CountryNode uk("U.K.", &europe);
-	CountryNode spain("Spain", &europe);
-	CountryNode china("China", &asia);
-	CountryNode canada("Canada", &northAmerica);
-	CountryNode usa("USA", &northAmerica);
-	CountryNode mexico("Mexico", &northAmerica);
-
-	china.addAdjCount(&mongolia);
-	mongolia.addAdjCount(&china);
-	mongolia.addAdjCount(&france);
-	france.addAdjCount(&mongolia);
-	france.addAdjCount(&uk);
-	france.addAdjCount(&spain);
-	uk.addAdjCount(&france);
-	spain.addAdjCount(&france);
-	canada.addAdjCount(&usa);
-	usa.addAdjCount(&canada);
-	usa.addAdjCount(&mexico);
-	mexico.addAdjCount(&usa);
-
-	//adding nodes to map
-	map.addContinent(&europe);
-	map.addContinent(&northAmerica);
-	map.addContinent(&southAmerica);
-	map.addContinent(&asia);
-	map.addCountry(&mongolia);
-	map.addCountry(&france);
-	map.addCountry(&uk);
-	map.addCountry(&spain);
-	map.addCountry(&china);
-	map.addCountry(&canada);
-	map.addCountry(&usa);
-	map.addCountry(&mexico);
-
-	//Assigning army personnel to countries
-	china.setNumberOfTroops(1);
-	mongolia.setNumberOfTroops(5);
-	france.setNumberOfTroops(6);
-	spain.setNumberOfTroops(4);
-	uk.setNumberOfTroops(10);
-	canada.setNumberOfTroops(3);
-	usa.setNumberOfTroops(18);
+	vector<CountryNode*> countryList = map->getCountryList();
 
 	//Creating dice for players
 	Dice dice1, dice2, dice3;
@@ -92,7 +41,7 @@ int main()
 	hand1.add(Card(1));
 	hand1.add(Card(2));
 	hand1.add(Card(3));
-	
+
 	//Assigning countries to player 1
 	vector<CountryNode *> player1Countries;
 
@@ -103,9 +52,13 @@ int main()
 	vector<CountryNode *> player3Countries;
 
 	//Creating players
-	Player player1 = Player(player1Countries, hand1, dice1);
-	Player player2 = Player(player2Countries, hand2, dice2);
-	Player player3 = Player(player3Countries, hand3, dice3);
+	PlayerStrategyPattern* aggressiveStrat = new Aggressive();
+	PlayerStrategyPattern* humanStrat = new Human();
+	PlayerStrategyPattern* benevolentStrat = new Benevolant();
+
+	Player player1 = Player(player1Countries, hand1, dice1, aggressiveStrat);
+	Player player2 = Player(player2Countries, hand2, dice2, humanStrat);
+	Player player3 = Player(player3Countries, hand3, dice3, benevolentStrat);
 
 	//Adding players to list
 	vector<Player *> playerList;
@@ -113,21 +66,51 @@ int main()
 	playerList.push_back(&player2);
 	playerList.push_back(&player3);
 
-	//Assigning countries
-	player1Countries.push_back(&mongolia);
-	player1Countries.push_back(&china);
-	player1Countries.push_back(&france);
-	player2Countries.push_back(&mexico);
-	player2Countries.push_back(&uk);
-	player2Countries.push_back(&spain);
-	player3Countries.push_back(&canada);
-	player3Countries.push_back(&usa);
+	int ctr = 1;
 
-	player1.setCountry(player1Countries);
-	player2.setCountry(player2Countries);
-	player3.setCountry(player3Countries);
-		
-	attackPhase.attackLoop(playerList, &player1, &map);
-	reinforcePhase.reinforceDistributions(player1);
+	for (vector<CountryNode*>::iterator country = countryList.begin(); country != countryList.end(); country++) {
+		(*country)->setNumberOfTroops(rand() % 10 + 1);
+		switch (ctr) {
+		case 1:
+			playerList.at(0)->addCountryToOwned(*country, playerList);
+
+			break;
+		case 2:
+			playerList.at(1)->addCountryToOwned(*country, playerList);
+
+			break;
+		case 3:
+			playerList.at(2)->addCountryToOwned(*country, playerList);
+
+			break;
+		default:
+			break;
+		}
+
+		ctr++;
+		if (ctr > 3) {
+			ctr = 1;
+		}
+	}
+	
+	cout << "\nPlayer 1's list of countries and their units: " << endl;
+	for (int i = 0; i < player1.getCountry().size(); i++) {
+		cout << player1.getCountry().at(i)->getCountName() << " has " << player1.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+	}
+
+	cout << "\nPlayer 2's list of countries and their units: " << endl;
+	for (int i = 0; i < player2.getCountry().size(); i++) {
+		cout << player2.getCountry().at(i)->getCountName() << " has " << player2.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+	}
+
+	cout << "\nPlayer 3's list of countries and their units: " << endl;
+	for (int i = 0; i < player3.getCountry().size(); i++) {
+		cout << player3.getCountry().at(i)->getCountName() << " has " << player3.getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+	}
+
+	humanStrat->executeAttack(player1, *map, playerList, attackPhase);
+	humanStrat->executeReinforce(player1, reinforcePhase);
+	humanStrat->executeFortify(player1, fortificationPhase);
+
 	cout << "End of program!" << endl;
 }
