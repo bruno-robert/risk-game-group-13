@@ -11,7 +11,7 @@
 
 #include "Observer.h"
 #include "Attack.h"
-#include "FortificationPhase.h"
+#include "FortificationPhase.hpp"
 #include "ReinforcePhase.h"
 #include <iostream>
 #include <vector>
