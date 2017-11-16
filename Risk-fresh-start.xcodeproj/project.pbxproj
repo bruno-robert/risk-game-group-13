@@ -6,10 +6,6 @@
 	objectVersion = 48;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		15D5D2831FBE2C0800D99889 /* mainDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D5D2811FBE2C0800D99889 /* mainDriver.cpp */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		158CA0E11FA3A47800920974 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -73,15 +69,13 @@
 		159BA10F1FA3A328006D4512 /* Map Target */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Map Target"; sourceTree = BUILT_PRODUCTS_DIR; };
 		159DA9FF1FAA64B60068EE78 /* PSP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PSP; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D2CFB51FB2AE71003B1845 /* Map Loader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Map Loader"; sourceTree = BUILT_PRODUCTS_DIR; };
-		15D5D27A1FBE2BC000D99889 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		15D5D27B1FBE2BC000D99889 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		15D5D27C1FBE2BC000D99889 /* Game */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Game; sourceTree = "<group>"; };
-		15D5D27D1FBE2BC000D99889 /* old Drivers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "old Drivers"; sourceTree = "<group>"; };
-		15D5D27E1FBE2BC000D99889 /* Player */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Player; sourceTree = "<group>"; };
-		15D5D27F1FBE2BC100D99889 /* Observer */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Observer; sourceTree = "<group>"; };
-		15D5D2801FBE2BC100D99889 /* Map */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Map; sourceTree = "<group>"; };
-		15D5D2811FBE2C0800D99889 /* mainDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mainDriver.cpp; sourceTree = "<group>"; };
-		15D5D2821FBE2C0800D99889 /* mainDriver.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = mainDriver.hpp; sourceTree = "<group>"; };
+		15D5D2841FBE353C00D99889 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		15D5D2851FBE353C00D99889 /* test */ = {isa = PBXFileReference; lastKnownFileType = folder; path = test; sourceTree = "<group>"; };
+		15D5D2861FBE353C00D99889 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
+		15D5D2871FBE353C00D99889 /* doc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = doc; sourceTree = "<group>"; };
+		15D5D2881FBE353C00D99889 /* bin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bin; sourceTree = "<group>"; };
+		15D5D2891FBE353C00D99889 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
+		15D5D28A1FBE353C00D99889 /* build */ = {isa = PBXFileReference; lastKnownFileType = folder; path = build; sourceTree = "<group>"; };
 		15F577A91FB522B700188771 /* PSP_windowsDriverClone_OSX */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PSP_windowsDriverClone_OSX; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -134,15 +128,13 @@
 		159BA0F81FA3A1EE006D4512 = {
 			isa = PBXGroup;
 			children = (
-				15D5D2811FBE2C0800D99889 /* mainDriver.cpp */,
-				15D5D2821FBE2C0800D99889 /* mainDriver.hpp */,
-				15D5D27C1FBE2BC000D99889 /* Game */,
-				15D5D2801FBE2BC100D99889 /* Map */,
-				15D5D27F1FBE2BC100D99889 /* Observer */,
-				15D5D27D1FBE2BC000D99889 /* old Drivers */,
-				15D5D27E1FBE2BC000D99889 /* Player */,
-				15D5D27A1FBE2BC000D99889 /* README.md */,
-				15D5D27B1FBE2BC000D99889 /* LICENSE */,
+				15D5D2881FBE353C00D99889 /* bin */,
+				15D5D28A1FBE353C00D99889 /* build */,
+				15D5D2871FBE353C00D99889 /* doc */,
+				15D5D2861FBE353C00D99889 /* include */,
+				15D5D2841FBE353C00D99889 /* README.md */,
+				15D5D2891FBE353C00D99889 /* src */,
+				15D5D2851FBE353C00D99889 /* test */,
 				159BA1021FA3A1EE006D4512 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -334,7 +326,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15D5D2831FBE2C0800D99889 /* mainDriver.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
