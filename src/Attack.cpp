@@ -543,7 +543,7 @@ void Attack::setDefendingPlayerData(Player* defendingPlayerData){
 	this->defendingPlayerData = defendingPlayerData;
 }
 void Attack::setMapData(Map* map){
-	this->mapData = mapData;
+	this->mapData = map;
 }
 
 vector<Player*> Attack::getPlayerListData(){
