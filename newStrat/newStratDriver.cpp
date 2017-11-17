@@ -7,7 +7,7 @@
 //
 
 #include <stdio.h>
-
+#include "include/GameStartOSX.h"
 using namespace std;
 
 int main() {

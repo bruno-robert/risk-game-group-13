@@ -7,10 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		15F04B9E1FBE81A500169562 /* src in Sources */ = {isa = PBXBuildFile; fileRef = 15D5D2891FBE353C00D99889 /* src */; };
-		15F04B9F1FBE81A500169562 /* include in Sources */ = {isa = PBXBuildFile; fileRef = 15D5D2861FBE353C00D99889 /* include */; };
 		15F04BA11FBE81C300169562 /* newStratDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BA01FBE81C300169562 /* newStratDriver.cpp */; };
+		15F04BE01FBE8F7C00169562 /* Subject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BBF1FBE8F7C00169562 /* Subject.cpp */; };
+		15F04BE11FBE8F7C00169562 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BC01FBE8F7C00169562 /* Player.cpp */; };
+		15F04BE21FBE8F7C00169562 /* StartupPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BC31FBE8F7C00169562 /* StartupPhase.cpp */; };
+		15F04BE31FBE8F7C00169562 /* dice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BC41FBE8F7C00169562 /* dice.cpp */; };
+		15F04BE41FBE8F7C00169562 /* ReinforcePhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BC51FBE8F7C00169562 /* ReinforcePhase.cpp */; };
+		15F04BE51FBE8F7C00169562 /* Cards.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BC61FBE8F7C00169562 /* Cards.cpp */; };
+		15F04BE61FBE8F7C00169562 /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BC71FBE8F7C00169562 /* Observer.cpp */; };
+		15F04BE71FBE8F7C00169562 /* Attack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BCB1FBE8F7C00169562 /* Attack.cpp */; };
+		15F04BE81FBE8F7C00169562 /* MapLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BCC1FBE8F7C00169562 /* MapLoader.cpp */; };
+		15F04BE91FBE8F7C00169562 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BCE1FBE8F7C00169562 /* Map.cpp */; };
+		15F04BEA1FBE8F7C00169562 /* GameLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BD21FBE8F7C00169562 /* GameLoop.cpp */; };
+		15F04BEB1FBE8F7C00169562 /* PSPatern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BD41FBE8F7C00169562 /* PSPatern.cpp */; };
+		15F04BEC1FBE8F7C00169562 /* PhaseObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BD51FBE8F7C00169562 /* PhaseObserver.cpp */; };
+		15F04BED1FBE8F7C00169562 /* GameStart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BD61FBE8F7C00169562 /* GameStart.cpp */; };
+		15F04BEE1FBE8F7C00169562 /* GameStatsObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BD81FBE8F7C00169562 /* GameStatsObserver.cpp */; };
+		15F04BEF1FBE8F7C00169562 /* GameStartOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BD91FBE8F7C00169562 /* GameStartOSX.cpp */; };
+		15F04BF01FBE8F7C00169562 /* MapLoaderOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BDA1FBE8F7C00169562 /* MapLoaderOSX.cpp */; };
+		15F04BF11FBE8F7C00169562 /* FortificationPhase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BDD1FBE8F7C00169562 /* FortificationPhase.cpp */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		15F04BA61FBE8F0500169562 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 159BA0F91FA3A1EE006D4512 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15F04B951FBE817C00169562;
+			remoteInfo = newStrat;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		15F04B941FBE817C00169562 /* CopyFiles */ = {
@@ -27,13 +53,65 @@
 /* Begin PBXFileReference section */
 		15D5D2841FBE353C00D99889 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		15D5D2851FBE353C00D99889 /* test */ = {isa = PBXFileReference; lastKnownFileType = folder; path = test; sourceTree = "<group>"; };
-		15D5D2861FBE353C00D99889 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
 		15D5D2871FBE353C00D99889 /* doc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = doc; sourceTree = "<group>"; };
-		15D5D2891FBE353C00D99889 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
 		15D5D2F51FBE7C8800D99889 /* build */ = {isa = PBXFileReference; lastKnownFileType = folder; path = build; sourceTree = "<group>"; };
 		15D5D2F61FBE7CBE00D99889 /* drivers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = drivers; sourceTree = "<group>"; };
 		15F04B961FBE817C00169562 /* newStrat */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = newStrat; sourceTree = BUILT_PRODUCTS_DIR; };
 		15F04BA01FBE81C300169562 /* newStratDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = newStratDriver.cpp; sourceTree = "<group>"; };
+		15F04BA91FBE8F7C00169562 /* GameStatsObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStatsObserver.h; sourceTree = "<group>"; };
+		15F04BAA1FBE8F7C00169562 /* Attack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attack.h; sourceTree = "<group>"; };
+		15F04BAB1FBE8F7C00169562 /* Observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observer.h; sourceTree = "<group>"; };
+		15F04BAC1FBE8F7C00169562 /* FortificationPhase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FortificationPhase.hpp; sourceTree = "<group>"; };
+		15F04BAD1FBE8F7C00169562 /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
+		15F04BAE1FBE8F7C00169562 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		15F04BAF1FBE8F7C00169562 /* MapLoaderOSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapLoaderOSX.h; sourceTree = "<group>"; };
+		15F04BB01FBE8F7C00169562 /* PSPatern.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PSPatern.hpp; sourceTree = "<group>"; };
+		15F04BB11FBE8F7C00169562 /* GameStart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStart.h; sourceTree = "<group>"; };
+		15F04BB21FBE8F7C00169562 /* MapLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapLoader.h; sourceTree = "<group>"; };
+		15F04BB31FBE8F7C00169562 /* GameStartOSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStartOSX.h; sourceTree = "<group>"; };
+		15F04BB41FBE8F7C00169562 /* StartupPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupPhase.h; sourceTree = "<group>"; };
+		15F04BB51FBE8F7C00169562 /* ReinforcePhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReinforcePhase.h; sourceTree = "<group>"; };
+		15F04BB61FBE8F7C00169562 /* Cards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cards.h; sourceTree = "<group>"; };
+		15F04BB71FBE8F7C00169562 /* PhaseObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhaseObserver.h; sourceTree = "<group>"; };
+		15F04BB81FBE8F7C00169562 /* GameLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLoop.h; sourceTree = "<group>"; };
+		15F04BB91FBE8F7C00169562 /* Subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subject.h; sourceTree = "<group>"; };
+		15F04BBA1FBE8F7C00169562 /* dice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dice.h; sourceTree = "<group>"; };
+		15F04BBC1FBE8F7C00169562 /* GameStatsObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStatsObserver.h; sourceTree = "<group>"; };
+		15F04BBD1FBE8F7C00169562 /* Attack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attack.h; sourceTree = "<group>"; };
+		15F04BBE1FBE8F7C00169562 /* Observer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Observer.h; sourceTree = "<group>"; };
+		15F04BBF1FBE8F7C00169562 /* Subject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Subject.cpp; sourceTree = "<group>"; };
+		15F04BC01FBE8F7C00169562 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		15F04BC11FBE8F7C00169562 /* FortificationPhase.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FortificationPhase.hpp; sourceTree = "<group>"; };
+		15F04BC21FBE8F7C00169562 /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
+		15F04BC31FBE8F7C00169562 /* StartupPhase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartupPhase.cpp; sourceTree = "<group>"; };
+		15F04BC41FBE8F7C00169562 /* dice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dice.cpp; sourceTree = "<group>"; };
+		15F04BC51FBE8F7C00169562 /* ReinforcePhase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ReinforcePhase.cpp; sourceTree = "<group>"; };
+		15F04BC61FBE8F7C00169562 /* Cards.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cards.cpp; sourceTree = "<group>"; };
+		15F04BC71FBE8F7C00169562 /* Observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Observer.cpp; sourceTree = "<group>"; };
+		15F04BC81FBE8F7C00169562 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		15F04BC91FBE8F7C00169562 /* MapLoaderOSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapLoaderOSX.h; sourceTree = "<group>"; };
+		15F04BCA1FBE8F7C00169562 /* PSPatern.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PSPatern.hpp; sourceTree = "<group>"; };
+		15F04BCB1FBE8F7C00169562 /* Attack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Attack.cpp; sourceTree = "<group>"; };
+		15F04BCC1FBE8F7C00169562 /* MapLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapLoader.cpp; sourceTree = "<group>"; };
+		15F04BCD1FBE8F7C00169562 /* GameStart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStart.h; sourceTree = "<group>"; };
+		15F04BCE1FBE8F7C00169562 /* Map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Map.cpp; sourceTree = "<group>"; };
+		15F04BCF1FBE8F7C00169562 /* MapLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapLoader.h; sourceTree = "<group>"; };
+		15F04BD01FBE8F7C00169562 /* GameStartOSX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStartOSX.h; sourceTree = "<group>"; };
+		15F04BD11FBE8F7C00169562 /* StartupPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupPhase.h; sourceTree = "<group>"; };
+		15F04BD21FBE8F7C00169562 /* GameLoop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameLoop.cpp; sourceTree = "<group>"; };
+		15F04BD31FBE8F7C00169562 /* ReinforcePhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReinforcePhase.h; sourceTree = "<group>"; };
+		15F04BD41FBE8F7C00169562 /* PSPatern.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PSPatern.cpp; sourceTree = "<group>"; };
+		15F04BD51FBE8F7C00169562 /* PhaseObserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhaseObserver.cpp; sourceTree = "<group>"; };
+		15F04BD61FBE8F7C00169562 /* GameStart.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameStart.cpp; sourceTree = "<group>"; };
+		15F04BD71FBE8F7C00169562 /* Cards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cards.h; sourceTree = "<group>"; };
+		15F04BD81FBE8F7C00169562 /* GameStatsObserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameStatsObserver.cpp; sourceTree = "<group>"; };
+		15F04BD91FBE8F7C00169562 /* GameStartOSX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameStartOSX.cpp; sourceTree = "<group>"; };
+		15F04BDA1FBE8F7C00169562 /* MapLoaderOSX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapLoaderOSX.cpp; sourceTree = "<group>"; };
+		15F04BDB1FBE8F7C00169562 /* PhaseObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhaseObserver.h; sourceTree = "<group>"; };
+		15F04BDC1FBE8F7C00169562 /* GameLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLoop.h; sourceTree = "<group>"; };
+		15F04BDD1FBE8F7C00169562 /* FortificationPhase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FortificationPhase.cpp; sourceTree = "<group>"; };
+		15F04BDE1FBE8F7C00169562 /* Subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subject.h; sourceTree = "<group>"; };
+		15F04BDF1FBE8F7C00169562 /* dice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dice.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,9 +128,9 @@
 		159BA0F81FA3A1EE006D4512 = {
 			isa = PBXGroup;
 			children = (
+				15F04BA81FBE8F7C00169562 /* include */,
+				15F04BBB1FBE8F7C00169562 /* src */,
 				15D5D2F61FBE7CBE00D99889 /* drivers */,
-				15D5D2891FBE353C00D99889 /* src */,
-				15D5D2861FBE353C00D99889 /* include */,
 				15D5D2871FBE353C00D99889 /* doc */,
 				15D5D2851FBE353C00D99889 /* test */,
 				15D5D2841FBE353C00D99889 /* README.md */,
@@ -78,6 +156,74 @@
 			path = newStrat;
 			sourceTree = "<group>";
 		};
+		15F04BA81FBE8F7C00169562 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				15F04BA91FBE8F7C00169562 /* GameStatsObserver.h */,
+				15F04BAA1FBE8F7C00169562 /* Attack.h */,
+				15F04BAB1FBE8F7C00169562 /* Observer.h */,
+				15F04BAC1FBE8F7C00169562 /* FortificationPhase.hpp */,
+				15F04BAD1FBE8F7C00169562 /* Map.h */,
+				15F04BAE1FBE8F7C00169562 /* Player.h */,
+				15F04BAF1FBE8F7C00169562 /* MapLoaderOSX.h */,
+				15F04BB01FBE8F7C00169562 /* PSPatern.hpp */,
+				15F04BB11FBE8F7C00169562 /* GameStart.h */,
+				15F04BB21FBE8F7C00169562 /* MapLoader.h */,
+				15F04BB31FBE8F7C00169562 /* GameStartOSX.h */,
+				15F04BB41FBE8F7C00169562 /* StartupPhase.h */,
+				15F04BB51FBE8F7C00169562 /* ReinforcePhase.h */,
+				15F04BB61FBE8F7C00169562 /* Cards.h */,
+				15F04BB71FBE8F7C00169562 /* PhaseObserver.h */,
+				15F04BB81FBE8F7C00169562 /* GameLoop.h */,
+				15F04BB91FBE8F7C00169562 /* Subject.h */,
+				15F04BBA1FBE8F7C00169562 /* dice.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		15F04BBB1FBE8F7C00169562 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				15F04BBC1FBE8F7C00169562 /* GameStatsObserver.h */,
+				15F04BBD1FBE8F7C00169562 /* Attack.h */,
+				15F04BBE1FBE8F7C00169562 /* Observer.h */,
+				15F04BBF1FBE8F7C00169562 /* Subject.cpp */,
+				15F04BC01FBE8F7C00169562 /* Player.cpp */,
+				15F04BC11FBE8F7C00169562 /* FortificationPhase.hpp */,
+				15F04BC21FBE8F7C00169562 /* Map.h */,
+				15F04BC31FBE8F7C00169562 /* StartupPhase.cpp */,
+				15F04BC41FBE8F7C00169562 /* dice.cpp */,
+				15F04BC51FBE8F7C00169562 /* ReinforcePhase.cpp */,
+				15F04BC61FBE8F7C00169562 /* Cards.cpp */,
+				15F04BC71FBE8F7C00169562 /* Observer.cpp */,
+				15F04BC81FBE8F7C00169562 /* Player.h */,
+				15F04BC91FBE8F7C00169562 /* MapLoaderOSX.h */,
+				15F04BCA1FBE8F7C00169562 /* PSPatern.hpp */,
+				15F04BCB1FBE8F7C00169562 /* Attack.cpp */,
+				15F04BCC1FBE8F7C00169562 /* MapLoader.cpp */,
+				15F04BCD1FBE8F7C00169562 /* GameStart.h */,
+				15F04BCE1FBE8F7C00169562 /* Map.cpp */,
+				15F04BCF1FBE8F7C00169562 /* MapLoader.h */,
+				15F04BD01FBE8F7C00169562 /* GameStartOSX.h */,
+				15F04BD11FBE8F7C00169562 /* StartupPhase.h */,
+				15F04BD21FBE8F7C00169562 /* GameLoop.cpp */,
+				15F04BD31FBE8F7C00169562 /* ReinforcePhase.h */,
+				15F04BD41FBE8F7C00169562 /* PSPatern.cpp */,
+				15F04BD51FBE8F7C00169562 /* PhaseObserver.cpp */,
+				15F04BD61FBE8F7C00169562 /* GameStart.cpp */,
+				15F04BD71FBE8F7C00169562 /* Cards.h */,
+				15F04BD81FBE8F7C00169562 /* GameStatsObserver.cpp */,
+				15F04BD91FBE8F7C00169562 /* GameStartOSX.cpp */,
+				15F04BDA1FBE8F7C00169562 /* MapLoaderOSX.cpp */,
+				15F04BDB1FBE8F7C00169562 /* PhaseObserver.h */,
+				15F04BDC1FBE8F7C00169562 /* GameLoop.h */,
+				15F04BDD1FBE8F7C00169562 /* FortificationPhase.cpp */,
+				15F04BDE1FBE8F7C00169562 /* Subject.h */,
+				15F04BDF1FBE8F7C00169562 /* dice.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
@@ -89,6 +235,7 @@
 			);
 			buildToolPath = /usr/bin/make;
 			dependencies = (
+				15F04BA71FBE8F0500169562 /* PBXTargetDependency */,
 			);
 			name = newStrats;
 			passBuildSettingsInEnvironment = 1;
@@ -156,13 +303,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15F04BE01FBE8F7C00169562 /* Subject.cpp in Sources */,
+				15F04BED1FBE8F7C00169562 /* GameStart.cpp in Sources */,
+				15F04BE21FBE8F7C00169562 /* StartupPhase.cpp in Sources */,
 				15F04BA11FBE81C300169562 /* newStratDriver.cpp in Sources */,
-				15F04B9E1FBE81A500169562 /* src in Sources */,
-				15F04B9F1FBE81A500169562 /* include in Sources */,
+				15F04BE41FBE8F7C00169562 /* ReinforcePhase.cpp in Sources */,
+				15F04BE51FBE8F7C00169562 /* Cards.cpp in Sources */,
+				15F04BF01FBE8F7C00169562 /* MapLoaderOSX.cpp in Sources */,
+				15F04BF11FBE8F7C00169562 /* FortificationPhase.cpp in Sources */,
+				15F04BEA1FBE8F7C00169562 /* GameLoop.cpp in Sources */,
+				15F04BEE1FBE8F7C00169562 /* GameStatsObserver.cpp in Sources */,
+				15F04BEB1FBE8F7C00169562 /* PSPatern.cpp in Sources */,
+				15F04BEF1FBE8F7C00169562 /* GameStartOSX.cpp in Sources */,
+				15F04BE91FBE8F7C00169562 /* Map.cpp in Sources */,
+				15F04BE71FBE8F7C00169562 /* Attack.cpp in Sources */,
+				15F04BEC1FBE8F7C00169562 /* PhaseObserver.cpp in Sources */,
+				15F04BE61FBE8F7C00169562 /* Observer.cpp in Sources */,
+				15F04BE81FBE8F7C00169562 /* MapLoader.cpp in Sources */,
+				15F04BE31FBE8F7C00169562 /* dice.cpp in Sources */,
+				15F04BE11FBE8F7C00169562 /* Player.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		15F04BA71FBE8F0500169562 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 15F04B951FBE817C00169562 /* newStrat */;
+			targetProxy = 15F04BA61FBE8F0500169562 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		159BA1061FA3A1EE006D4512 /* Debug */ = {

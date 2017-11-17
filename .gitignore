@@ -43,6 +43,7 @@
 ## Build generated
 build/
 DerivedData/
+index/
 
 ## Various settings
 *.pbxuser
