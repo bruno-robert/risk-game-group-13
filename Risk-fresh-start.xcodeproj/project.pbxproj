@@ -6,6 +6,22 @@
 	objectVersion = 48;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		15D5D3071FBE7E9500D99889 /* newStratDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D5D3061FBE7E9500D99889 /* newStratDriver.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		15D5D2FB1FBE7E0A00D99889 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		15D5D2841FBE353C00D99889 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		15D5D2851FBE353C00D99889 /* test */ = {isa = PBXFileReference; lastKnownFileType = folder; path = test; sourceTree = "<group>"; };
@@ -14,7 +30,19 @@
 		15D5D2891FBE353C00D99889 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
 		15D5D2F51FBE7C8800D99889 /* build */ = {isa = PBXFileReference; lastKnownFileType = folder; path = build; sourceTree = "<group>"; };
 		15D5D2F61FBE7CBE00D99889 /* drivers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = drivers; sourceTree = "<group>"; };
+		15D5D2FD1FBE7E0A00D99889 /* newStrats */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = newStrats; sourceTree = BUILT_PRODUCTS_DIR; };
+		15D5D3061FBE7E9500D99889 /* newStratDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = newStratDriver.cpp; path = drivers/newStratDriver.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		15D5D2FA1FBE7E0A00D99889 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		159BA0F81FA3A1EE006D4512 = {
@@ -24,10 +52,10 @@
 				15D5D2F51FBE7C8800D99889 /* build */,
 				15D5D2871FBE353C00D99889 /* doc */,
 				15D5D2F61FBE7CBE00D99889 /* drivers */,
-				15D5D2861FBE353C00D99889 /* include */,
-				15D5D2841FBE353C00D99889 /* README.md */,
 				15D5D2891FBE353C00D99889 /* src */,
+				15D5D2861FBE353C00D99889 /* include */,
 				15D5D2851FBE353C00D99889 /* test */,
+				15D5D2841FBE353C00D99889 /* README.md */,
 				159BA1021FA3A1EE006D4512 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -35,6 +63,7 @@
 		159BA1021FA3A1EE006D4512 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				15D5D2FD1FBE7E0A00D99889 /* newStrats */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -42,11 +71,32 @@
 		15D5D2F41FBE7C4200D99889 /* new strategies */ = {
 			isa = PBXGroup;
 			children = (
+				15D5D3061FBE7E9500D99889 /* newStratDriver.cpp */,
 			);
 			name = "new strategies";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		15D5D2FC1FBE7E0A00D99889 /* newStrats */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15D5D3011FBE7E0A00D99889 /* Build configuration list for PBXNativeTarget "newStrats" */;
+			buildPhases = (
+				15D5D2F91FBE7E0A00D99889 /* Sources */,
+				15D5D2FA1FBE7E0A00D99889 /* Frameworks */,
+				15D5D2FB1FBE7E0A00D99889 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = newStrats;
+			productName = newStrats;
+			productReference = 15D5D2FD1FBE7E0A00D99889 /* newStrats */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		159BA0F91FA3A1EE006D4512 /* Project object */ = {
@@ -54,6 +104,12 @@
 			attributes = {
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Bruno Robert";
+				TargetAttributes = {
+					15D5D2FC1FBE7E0A00D99889 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = 159BA0FC1FA3A1EE006D4512 /* Build configuration list for PBXProject "Risk-fresh-start" */;
 			compatibilityVersion = "Xcode 8.0";
@@ -67,9 +123,21 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				15D5D2FC1FBE7E0A00D99889 /* newStrats */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		15D5D2F91FBE7E0A00D99889 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15D5D3071FBE7E9500D99889 /* newStratDriver.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
 		159BA1061FA3A1EE006D4512 /* Debug */ = {
@@ -175,6 +243,24 @@
 			};
 			name = Release;
 		};
+		15D5D3021FBE7E0A00D99889 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		15D5D3031FBE7E0A00D99889 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -183,6 +269,15 @@
 			buildConfigurations = (
 				159BA1061FA3A1EE006D4512 /* Debug */,
 				159BA1071FA3A1EE006D4512 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15D5D3011FBE7E0A00D99889 /* Build configuration list for PBXNativeTarget "newStrats" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15D5D3021FBE7E0A00D99889 /* Debug */,
+				15D5D3031FBE7E0A00D99889 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
