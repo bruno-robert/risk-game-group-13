@@ -171,7 +171,7 @@ void Player::topDownCountSplitMerge(vector<CountryNode*>& b, int iBegin, int iEn
 void Player::inverseOwnedCountries() {
     vector<CountryNode*> temp = ownedCountry;
     ownedCountry.clear();
-    for(int i = (temp.size()-1); i >= 0;i--) {
+    for(int i = (int)(temp.size()-1); i >= 0;i--) {
         ownedCountry.push_back(temp.at(i));
     }
 }

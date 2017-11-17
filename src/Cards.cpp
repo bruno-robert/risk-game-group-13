@@ -63,7 +63,7 @@ Card Deck::draw() {
 	if (size > 0) {
 
 		srand((int)time(NULL));		//Random generation part. Gets me a random adress in my vector
-        rand() % size;// FIXME: un-used expression result
+        //rand() % size;// FIXME: un-used expression result
 		int luck = rand() % size;
 
 		drew = link.at(luck);
