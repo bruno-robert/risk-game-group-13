@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include "Player.h"
-#include "Dice.h"
+#include "dice.h"
 #include "Cards.h"
 #include "MapLoaderOSX.h"
 using namespace std;
