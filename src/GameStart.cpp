@@ -36,7 +36,7 @@ bool GameStart::setPlayers(int noPlayers)
 		{
 			vector<CountryNode*> owned;
 
-			Player* player = new Player(owned, Hand(), Dice());
+			Player* player = new Player(owned, Hand(), Dice(), NULL);
 
 			players.push_back(player);
 		}

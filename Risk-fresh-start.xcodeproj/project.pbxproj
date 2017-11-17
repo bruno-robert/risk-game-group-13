@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		15D5D3071FBE7E9500D99889 /* newStratDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15D5D3061FBE7E9500D99889 /* newStratDriver.cpp */; };
+		15F04B9E1FBE81A500169562 /* src in Sources */ = {isa = PBXBuildFile; fileRef = 15D5D2891FBE353C00D99889 /* src */; };
+		15F04B9F1FBE81A500169562 /* include in Sources */ = {isa = PBXBuildFile; fileRef = 15D5D2861FBE353C00D99889 /* include */; };
+		15F04BA11FBE81C300169562 /* newStratDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BA01FBE81C300169562 /* newStratDriver.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		15D5D2FB1FBE7E0A00D99889 /* CopyFiles */ = {
+		15F04B941FBE817C00169562 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -30,12 +32,12 @@
 		15D5D2891FBE353C00D99889 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
 		15D5D2F51FBE7C8800D99889 /* build */ = {isa = PBXFileReference; lastKnownFileType = folder; path = build; sourceTree = "<group>"; };
 		15D5D2F61FBE7CBE00D99889 /* drivers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = drivers; sourceTree = "<group>"; };
-		15D5D2FD1FBE7E0A00D99889 /* newStrats */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = newStrats; sourceTree = BUILT_PRODUCTS_DIR; };
-		15D5D3061FBE7E9500D99889 /* newStratDriver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = newStratDriver.cpp; path = drivers/newStratDriver.cpp; sourceTree = "<group>"; };
+		15F04B961FBE817C00169562 /* newStrat */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = newStrat; sourceTree = BUILT_PRODUCTS_DIR; };
+		15F04BA01FBE81C300169562 /* newStratDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = newStratDriver.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		15D5D2FA1FBE7E0A00D99889 /* Frameworks */ = {
+		15F04B931FBE817C00169562 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -48,14 +50,14 @@
 		159BA0F81FA3A1EE006D4512 = {
 			isa = PBXGroup;
 			children = (
-				15D5D2F41FBE7C4200D99889 /* new strategies */,
-				15D5D2F51FBE7C8800D99889 /* build */,
-				15D5D2871FBE353C00D99889 /* doc */,
 				15D5D2F61FBE7CBE00D99889 /* drivers */,
 				15D5D2891FBE353C00D99889 /* src */,
 				15D5D2861FBE353C00D99889 /* include */,
+				15D5D2871FBE353C00D99889 /* doc */,
 				15D5D2851FBE353C00D99889 /* test */,
 				15D5D2841FBE353C00D99889 /* README.md */,
+				15D5D2F51FBE7C8800D99889 /* build */,
+				15F04B971FBE817C00169562 /* newStrat */,
 				159BA1021FA3A1EE006D4512 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -63,37 +65,53 @@
 		159BA1021FA3A1EE006D4512 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				15D5D2FD1FBE7E0A00D99889 /* newStrats */,
+				15F04B961FBE817C00169562 /* newStrat */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		15D5D2F41FBE7C4200D99889 /* new strategies */ = {
+		15F04B971FBE817C00169562 /* newStrat */ = {
 			isa = PBXGroup;
 			children = (
-				15D5D3061FBE7E9500D99889 /* newStratDriver.cpp */,
+				15F04BA01FBE81C300169562 /* newStratDriver.cpp */,
 			);
-			name = "new strategies";
+			path = newStrat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
-/* Begin PBXNativeTarget section */
-		15D5D2FC1FBE7E0A00D99889 /* newStrats */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 15D5D3011FBE7E0A00D99889 /* Build configuration list for PBXNativeTarget "newStrats" */;
+/* Begin PBXLegacyTarget section */
+		15F04B181FBE801B00169562 /* newStrats */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 15F04B191FBE801B00169562 /* Build configuration list for PBXLegacyTarget "newStrats" */;
 			buildPhases = (
-				15D5D2F91FBE7E0A00D99889 /* Sources */,
-				15D5D2FA1FBE7E0A00D99889 /* Frameworks */,
-				15D5D2FB1FBE7E0A00D99889 /* CopyFiles */,
+			);
+			buildToolPath = /usr/bin/make;
+			dependencies = (
+			);
+			name = newStrats;
+			passBuildSettingsInEnvironment = 1;
+			productName = newStrats;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		15F04B951FBE817C00169562 /* newStrat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15F04B9A1FBE817C00169562 /* Build configuration list for PBXNativeTarget "newStrat" */;
+			buildPhases = (
+				15F04B921FBE817C00169562 /* Sources */,
+				15F04B931FBE817C00169562 /* Frameworks */,
+				15F04B941FBE817C00169562 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = newStrats;
-			productName = newStrats;
-			productReference = 15D5D2FD1FBE7E0A00D99889 /* newStrats */;
+			name = newStrat;
+			productName = newStrat;
+			productReference = 15F04B961FBE817C00169562 /* newStrat */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -105,7 +123,11 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Bruno Robert";
 				TargetAttributes = {
-					15D5D2FC1FBE7E0A00D99889 = {
+					15F04B181FBE801B00169562 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					15F04B951FBE817C00169562 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
 					};
@@ -123,17 +145,20 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				15D5D2FC1FBE7E0A00D99889 /* newStrats */,
+				15F04B181FBE801B00169562 /* newStrats */,
+				15F04B951FBE817C00169562 /* newStrat */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		15D5D2F91FBE7E0A00D99889 /* Sources */ = {
+		15F04B921FBE817C00169562 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15D5D3071FBE7E9500D99889 /* newStratDriver.cpp in Sources */,
+				15F04BA11FBE81C300169562 /* newStratDriver.cpp in Sources */,
+				15F04B9E1FBE81A500169562 /* src in Sources */,
+				15F04B9F1FBE81A500169562 /* include in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,20 +268,45 @@
 			};
 			name = Release;
 		};
-		15D5D3021FBE7E0A00D99889 /* Debug */ = {
+		15F04B1A1FBE801B00169562 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		15D5D3031FBE7E0A00D99889 /* Release */ = {
+		15F04B1B1FBE801B00169562 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QEYP2C3WEU;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		15F04B9B1FBE817C00169562 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		15F04B9C1FBE817C00169562 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -273,11 +323,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		15D5D3011FBE7E0A00D99889 /* Build configuration list for PBXNativeTarget "newStrats" */ = {
+		15F04B191FBE801B00169562 /* Build configuration list for PBXLegacyTarget "newStrats" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				15D5D3021FBE7E0A00D99889 /* Debug */,
-				15D5D3031FBE7E0A00D99889 /* Release */,
+				15F04B1A1FBE801B00169562 /* Debug */,
+				15F04B1B1FBE801B00169562 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15F04B9A1FBE817C00169562 /* Build configuration list for PBXNativeTarget "newStrat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15F04B9B1FBE817C00169562 /* Debug */,
+				15F04B9C1FBE817C00169562 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

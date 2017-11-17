@@ -1,15 +1,18 @@
 //
 //  newStratDriver.cpp
-//  newStrats
+//  newStrat
 //
 //  Created by Bruno Robert on 16/11/2017.
 //  Copyright © 2017 Bruno Robert. All rights reserved.
 //
 
-#include <iostream>
+#include <stdio.h>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+using namespace std;
+
+int main() {
+    
+    cout << "hello world" << endl;
+    
     return 0;
 }
