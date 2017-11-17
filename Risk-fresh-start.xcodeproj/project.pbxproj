@@ -6,137 +6,24 @@
 	objectVersion = 48;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		15D5D28C1FBE3C5400D99889 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 15D5D28B1FBE3C5400D99889 /* Makefile */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		158CA0E11FA3A47800920974 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-		159BA0FF1FA3A1EE006D4512 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-		159BA10D1FA3A328006D4512 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-		159DA9FD1FAA64B60068EE78 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-		15D2CFB31FB2AE71003B1845 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-		15F577A71FB522B700188771 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		158CA0E31FA3A47800920974 /* Cards Target */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Cards Target"; sourceTree = BUILT_PRODUCTS_DIR; };
-		159BA1011FA3A1EE006D4512 /* Risk-fresh-start */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Risk-fresh-start"; sourceTree = BUILT_PRODUCTS_DIR; };
-		159BA10F1FA3A328006D4512 /* Map Target */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Map Target"; sourceTree = BUILT_PRODUCTS_DIR; };
-		159DA9FF1FAA64B60068EE78 /* PSP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PSP; sourceTree = BUILT_PRODUCTS_DIR; };
-		15D2CFB51FB2AE71003B1845 /* Map Loader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Map Loader"; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D5D2841FBE353C00D99889 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		15D5D2851FBE353C00D99889 /* test */ = {isa = PBXFileReference; lastKnownFileType = folder; path = test; sourceTree = "<group>"; };
 		15D5D2861FBE353C00D99889 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
 		15D5D2871FBE353C00D99889 /* doc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = doc; sourceTree = "<group>"; };
-		15D5D2881FBE353C00D99889 /* bin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bin; sourceTree = "<group>"; };
 		15D5D2891FBE353C00D99889 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
-		15D5D28A1FBE353C00D99889 /* build */ = {isa = PBXFileReference; lastKnownFileType = folder; path = build; sourceTree = "<group>"; };
-		15D5D28B1FBE3C5400D99889 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		15F577A91FB522B700188771 /* PSP_windowsDriverClone_OSX */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PSP_windowsDriverClone_OSX; sourceTree = BUILT_PRODUCTS_DIR; };
+		15D5D2F51FBE7C8800D99889 /* build */ = {isa = PBXFileReference; lastKnownFileType = folder; path = build; sourceTree = "<group>"; };
+		15D5D2F61FBE7CBE00D99889 /* drivers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = drivers; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		158CA0E01FA3A47800920974 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		159BA0FE1FA3A1EE006D4512 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		159BA10C1FA3A328006D4512 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		159DA9FC1FAA64B60068EE78 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		15D2CFB21FB2AE71003B1845 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		15F577A61FB522B700188771 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		159BA0F81FA3A1EE006D4512 = {
 			isa = PBXGroup;
 			children = (
-				15D5D28B1FBE3C5400D99889 /* Makefile */,
-				15D5D2881FBE353C00D99889 /* bin */,
-				15D5D28A1FBE353C00D99889 /* build */,
+				15D5D2F41FBE7C4200D99889 /* new strategies */,
+				15D5D2F51FBE7C8800D99889 /* build */,
 				15D5D2871FBE353C00D99889 /* doc */,
+				15D5D2F61FBE7CBE00D99889 /* drivers */,
 				15D5D2861FBE353C00D99889 /* include */,
 				15D5D2841FBE353C00D99889 /* README.md */,
 				15D5D2891FBE353C00D99889 /* src */,
@@ -148,122 +35,18 @@
 		159BA1021FA3A1EE006D4512 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				159BA1011FA3A1EE006D4512 /* Risk-fresh-start */,
-				159BA10F1FA3A328006D4512 /* Map Target */,
-				158CA0E31FA3A47800920974 /* Cards Target */,
-				159DA9FF1FAA64B60068EE78 /* PSP */,
-				15D2CFB51FB2AE71003B1845 /* Map Loader */,
-				15F577A91FB522B700188771 /* PSP_windowsDriverClone_OSX */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
+		15D5D2F41FBE7C4200D99889 /* new strategies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "new strategies";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		158CA0E21FA3A47800920974 /* Cards Target */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 158CA0E71FA3A47800920974 /* Build configuration list for PBXNativeTarget "Cards Target" */;
-			buildPhases = (
-				158CA0DF1FA3A47800920974 /* Sources */,
-				158CA0E01FA3A47800920974 /* Frameworks */,
-				158CA0E11FA3A47800920974 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Cards Target";
-			productName = "Cards Target";
-			productReference = 158CA0E31FA3A47800920974 /* Cards Target */;
-			productType = "com.apple.product-type.tool";
-		};
-		159BA1001FA3A1EE006D4512 /* Risk-fresh-start */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 159BA1081FA3A1EE006D4512 /* Build configuration list for PBXNativeTarget "Risk-fresh-start" */;
-			buildPhases = (
-				159BA0FD1FA3A1EE006D4512 /* Sources */,
-				159BA0FE1FA3A1EE006D4512 /* Frameworks */,
-				159BA0FF1FA3A1EE006D4512 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Risk-fresh-start";
-			productName = "Risk-fresh-start";
-			productReference = 159BA1011FA3A1EE006D4512 /* Risk-fresh-start */;
-			productType = "com.apple.product-type.tool";
-		};
-		159BA10E1FA3A328006D4512 /* Map Target */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 159BA1131FA3A328006D4512 /* Build configuration list for PBXNativeTarget "Map Target" */;
-			buildPhases = (
-				159BA10B1FA3A328006D4512 /* Sources */,
-				159BA10C1FA3A328006D4512 /* Frameworks */,
-				159BA10D1FA3A328006D4512 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Map Target";
-			productName = "Map Target";
-			productReference = 159BA10F1FA3A328006D4512 /* Map Target */;
-			productType = "com.apple.product-type.tool";
-		};
-		159DA9FE1FAA64B60068EE78 /* PSP */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 159DAA051FAA64B60068EE78 /* Build configuration list for PBXNativeTarget "PSP" */;
-			buildPhases = (
-				159DA9FB1FAA64B60068EE78 /* Sources */,
-				159DA9FC1FAA64B60068EE78 /* Frameworks */,
-				159DA9FD1FAA64B60068EE78 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = PSP;
-			productName = PSP;
-			productReference = 159DA9FF1FAA64B60068EE78 /* PSP */;
-			productType = "com.apple.product-type.tool";
-		};
-		15D2CFB41FB2AE71003B1845 /* Map Loader */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 15D2CFB91FB2AE71003B1845 /* Build configuration list for PBXNativeTarget "Map Loader" */;
-			buildPhases = (
-				15D2CFB11FB2AE71003B1845 /* Sources */,
-				15D2CFB21FB2AE71003B1845 /* Frameworks */,
-				15D2CFB31FB2AE71003B1845 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Map Loader";
-			productName = "Map Loader";
-			productReference = 15D2CFB51FB2AE71003B1845 /* Map Loader */;
-			productType = "com.apple.product-type.tool";
-		};
-		15F577A81FB522B700188771 /* PSP_windowsDriverClone_OSX */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 15F577AD1FB522B700188771 /* Build configuration list for PBXNativeTarget "PSP_windowsDriverClone_OSX" */;
-			buildPhases = (
-				15F577A51FB522B700188771 /* Sources */,
-				15F577A61FB522B700188771 /* Frameworks */,
-				15F577A71FB522B700188771 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = PSP_windowsDriverClone_OSX;
-			productName = PSP_windowsDriverClone_OSX;
-			productReference = 15F577A91FB522B700188771 /* PSP_windowsDriverClone_OSX */;
-			productType = "com.apple.product-type.tool";
-		};
-/* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		159BA0F91FA3A1EE006D4512 /* Project object */ = {
@@ -271,32 +54,6 @@
 			attributes = {
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Bruno Robert";
-				TargetAttributes = {
-					158CA0E21FA3A47800920974 = {
-						CreatedOnToolsVersion = 9.0.1;
-						ProvisioningStyle = Automatic;
-					};
-					159BA1001FA3A1EE006D4512 = {
-						CreatedOnToolsVersion = 9.0.1;
-						ProvisioningStyle = Automatic;
-					};
-					159BA10E1FA3A328006D4512 = {
-						CreatedOnToolsVersion = 9.0.1;
-						ProvisioningStyle = Automatic;
-					};
-					159DA9FE1FAA64B60068EE78 = {
-						CreatedOnToolsVersion = 9.0.1;
-						ProvisioningStyle = Automatic;
-					};
-					15D2CFB41FB2AE71003B1845 = {
-						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
-					};
-					15F577A81FB522B700188771 = {
-						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
-					};
-				};
 			};
 			buildConfigurationList = 159BA0FC1FA3A1EE006D4512 /* Build configuration list for PBXProject "Risk-fresh-start" */;
 			compatibilityVersion = "Xcode 8.0";
@@ -310,81 +67,11 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				159BA1001FA3A1EE006D4512 /* Risk-fresh-start */,
-				159BA10E1FA3A328006D4512 /* Map Target */,
-				158CA0E21FA3A47800920974 /* Cards Target */,
-				159DA9FE1FAA64B60068EE78 /* PSP */,
-				15D2CFB41FB2AE71003B1845 /* Map Loader */,
-				15F577A81FB522B700188771 /* PSP_windowsDriverClone_OSX */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXSourcesBuildPhase section */
-		158CA0DF1FA3A47800920974 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		159BA0FD1FA3A1EE006D4512 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				15D5D28C1FBE3C5400D99889 /* Makefile in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		159BA10B1FA3A328006D4512 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		159DA9FB1FAA64B60068EE78 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		15D2CFB11FB2AE71003B1845 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		15F577A51FB522B700188771 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
 /* Begin XCBuildConfiguration section */
-		158CA0E81FA3A47800920974 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QEYP2C3WEU;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		158CA0E91FA3A47800920974 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QEYP2C3WEU;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		159BA1061FA3A1EE006D4512 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -488,158 +175,14 @@
 			};
 			name = Release;
 		};
-		159BA1091FA3A1EE006D4512 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QEYP2C3WEU;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		159BA10A1FA3A1EE006D4512 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QEYP2C3WEU;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		159BA1141FA3A328006D4512 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QEYP2C3WEU;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		159BA1151FA3A328006D4512 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QEYP2C3WEU;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		159DAA031FAA64B60068EE78 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QEYP2C3WEU;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		159DAA041FAA64B60068EE78 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QEYP2C3WEU;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		15D2CFBA1FB2AE71003B1845 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QEYP2C3WEU;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		15D2CFBB1FB2AE71003B1845 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QEYP2C3WEU;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		15F577AE1FB522B700188771 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QEYP2C3WEU;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		15F577AF1FB522B700188771 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QEYP2C3WEU;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		158CA0E71FA3A47800920974 /* Build configuration list for PBXNativeTarget "Cards Target" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				158CA0E81FA3A47800920974 /* Debug */,
-				158CA0E91FA3A47800920974 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		159BA0FC1FA3A1EE006D4512 /* Build configuration list for PBXProject "Risk-fresh-start" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				159BA1061FA3A1EE006D4512 /* Debug */,
 				159BA1071FA3A1EE006D4512 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		159BA1081FA3A1EE006D4512 /* Build configuration list for PBXNativeTarget "Risk-fresh-start" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				159BA1091FA3A1EE006D4512 /* Debug */,
-				159BA10A1FA3A1EE006D4512 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		159BA1131FA3A328006D4512 /* Build configuration list for PBXNativeTarget "Map Target" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				159BA1141FA3A328006D4512 /* Debug */,
-				159BA1151FA3A328006D4512 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		159DAA051FAA64B60068EE78 /* Build configuration list for PBXNativeTarget "PSP" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				159DAA031FAA64B60068EE78 /* Debug */,
-				159DAA041FAA64B60068EE78 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		15D2CFB91FB2AE71003B1845 /* Build configuration list for PBXNativeTarget "Map Loader" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				15D2CFBA1FB2AE71003B1845 /* Debug */,
-				15D2CFBB1FB2AE71003B1845 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		15F577AD1FB522B700188771 /* Build configuration list for PBXNativeTarget "PSP_windowsDriverClone_OSX" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				15F577AE1FB522B700188771 /* Debug */,
-				15F577AF1FB522B700188771 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
