@@ -25,5 +25,8 @@ int main() {
     gs.setPlayers(3);
     gs.setGameStart("World.map");
     
+    Map *m = gs.getMap();
+    vector<Player*> playerList = gs.getPlayers();
+    
     return 0;
 }
