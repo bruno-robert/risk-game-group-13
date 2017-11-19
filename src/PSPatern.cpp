@@ -589,3 +589,14 @@ void Benevolant::executeFortify(Player& user, FortificationPhase& fortification)
 
 }
 
+Random::Random() {
+    
+}
+
+Random::~Random() {
+    
+}
+
+void Random::executeFortify(Player& user, FortificationPhase& fortificationObj) {
+    
+}
