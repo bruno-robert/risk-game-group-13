@@ -589,6 +589,9 @@ void Benevolant::executeFortify(Player& user, FortificationPhase& fortification)
 
 }
 
+//-------------------
+//    Random PSP
+//-------------------
 Random::Random() {
     srand((int)time(NULL));
 }
@@ -647,4 +650,28 @@ void Random::executeReinforce(Player& user, Reinforce& reinforceObj) {
 }
 void Random::executeAttack(Player& user, Map& map, vector<Player*> playerList, Attack& attackObj) {
     //TODO: finish it!
+}
+
+//-------------------
+//    Cheater PSP
+//-------------------
+
+Cheater::Cheater() {
+    
+}
+
+Cheater::~Cheater() {
+    
+}
+
+void Cheater::executeReinforce(Player& user, Reinforce& reinforceObj) {
+    
+}
+
+void Cheater::executeAttack(Player& user, Map& map, vector<Player*> playerList, Attack& attackObj) {
+    
+}
+
+void Cheater::executeFortify(Player& user, FortificationPhase& fortificationObj) {
+    
 }
