@@ -665,14 +665,25 @@ Cheater::~Cheater() {
 }
 
 void Cheater::executeReinforce(Player& user, Reinforce& reinforceObj) {
+    for(CountryNode * ownedCountry : user.getCountryByRef()) {
+        ownedCountry->setNumberOfTroops((ownedCountry->getNumberOfTroops())*2);
+        notify("Troops Moved");
+    }
     
 }
 
 void Cheater::executeAttack(Player& user, Map& map, vector<Player*> playerList, Attack& attackObj) {
+    vector<CountryNode*> currentOwnedCountries = user.getCountry();
+    //for each owned coutry (at turn start)
+    for(CountryNode* ownedCountry : currentOwnedCountries) {
+        for (CountryNode* adjCountry : ownedCountry->getAdjCount()) {
+            user.addCountryToOwned(adjCountry, playerList);
+        }
+    }
     
 }
 
-void Cheater::executeFortify(Player& user, FortificationPhase& fortificationObj) {
+void Cheater::executeFortify(Player& user, FortificationPhase& fortification) {
     //for each friendly country, check weather they have a enemy country, and double their troops acordingly
     for(CountryNode * friendlyCountry: user.getCountryByRef()) {
         bool hasEnemy = false;
@@ -686,6 +697,9 @@ void Cheater::executeFortify(Player& user, FortificationPhase& fortificationObj)
         //if the friednly country has an adjacent enemy country, double it's troops
         if(hasEnemy) {
             friendlyCountry->setNumberOfTroops(friendlyCountry->getNumberOfTroops()*2);
+            fortification.setAmountTroopsMoved(friendlyCountry->getNumberOfTroops()*2);
+            
+            notify("Fortification occured");
         }
     }
 }
