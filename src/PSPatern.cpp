@@ -678,6 +678,7 @@ void Cheater::executeAttack(Player& user, Map& map, vector<Player*> playerList, 
     for(CountryNode* ownedCountry : currentOwnedCountries) {
         for (CountryNode* adjCountry : ownedCountry->getAdjCount()) {
             user.addCountryToOwned(adjCountry, playerList);
+            notify("Attacker conquered");
         }
     }
     
