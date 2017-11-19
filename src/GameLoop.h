@@ -20,7 +20,7 @@ private:
 public:
     MainGameLoop();
     ~MainGameLoop();
-    void startGame(Map* m ,int numberOfPlayers, int playerTurn, bool test, vector<Player *> playerList); //starts the game loop
+    void startGame(Map* m ,int numberOfPlayers, int playerTurn, vector<Player *>& playerList, int turnLimit); //starts the game loop
     
 };
 

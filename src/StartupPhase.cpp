@@ -11,18 +11,9 @@
 #include "StartupPhase.h"
 
 
-
-Startup::Startup(int numOfPlayers) {
-	this->numOfPlayers = numOfPlayers;
-}
-
-int Startup::getNumOfPlayers() {
-	return numOfPlayers;
-}
-
 //Rearranging  the players in a random order
 
-void Startup::playOrder(vector<Player>& players) {
+void Startup::playOrder(vector<Player*>& players) {
 
 	std::random_device rd;
 	std::mt19937 g(rd());
@@ -31,12 +22,12 @@ void Startup::playOrder(vector<Player>& players) {
 
 //Going through all the countries in the map and giving them to the specific player
 
-void Startup::countryDistribution(vector<CountryNode*>& countryList, vector<Player>& players) {
+void Startup::countryDistribution(vector<CountryNode*>& countryList, vector<Player*>& players) {
 
 	int countryIndex = 0;
 	while (countryIndex < countryList.size()) {
 		for (int i = 0; i < players.size() && countryIndex < countryList.size(); i++) {
-			players.at(i).getCountryByRef().push_back(countryList.at(countryIndex));
+			players.at(i)->addCountryToOwned(countryList.at(countryIndex), players);
 
 			countryIndex++;
 		}
@@ -45,10 +36,9 @@ void Startup::countryDistribution(vector<CountryNode*>& countryList, vector<Play
 
 //Distribute the units of a player to all of his countries in a round-robin fashion
 
-void Startup::unitDistribution(vector<Player>& players) {
-	int numPlayer = getNumOfPlayers();
+void Startup::unitDistribution(vector<Player*>& players, int numOfPlayers) {
 	int units;
-	switch (numPlayer)
+	switch (numOfPlayers)
 	{
 	case 2: units = 40;
 		break;
@@ -61,12 +51,13 @@ void Startup::unitDistribution(vector<Player>& players) {
 	case 6: units = 20;
 		break;
 	}
-	cout << "\nSince we have " << numPlayer << " players, every player will receive " << units << " units." << endl;
+	cout << "\nSince we have " << numOfPlayers << " players, every player will receive " << units << " units." << endl;
+
 	for (int i = 0; i < players.size();i++) {
 		int tempUnits = units;
 		while (tempUnits > 0) {
-			for (int j = 0; j < players.at(i).getCountry().size() && tempUnits > 0;j++) {
-				players.at(i).getCountryByRef().at(j)->setNumberOfTroops(players.at(i).getCountryByRef().at(j)->getNumberOfTroops() + 1);
+			for (int j = 0; j < players.at(i)->getCountry().size() && tempUnits > 0;j++) {
+				players.at(i)->getCountryByRef().at(j)->setNumberOfTroops(players.at(i)->getCountryByRef().at(j)->getNumberOfTroops() + 1);
 				tempUnits--;
 			};
 		}
