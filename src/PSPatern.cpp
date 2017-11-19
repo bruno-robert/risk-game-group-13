@@ -590,13 +590,61 @@ void Benevolant::executeFortify(Player& user, FortificationPhase& fortification)
 }
 
 Random::Random() {
-    
+    srand((int)time(NULL));
 }
 
 Random::~Random() {
     
 }
 
-void Random::executeFortify(Player& user, FortificationPhase& fortificationObj) {
+void Random::executeFortify(Player& user, FortificationPhase& fortification) {
+    CountryNode* startingCountry = NULL;
+    CountryNode* destinationCountry = NULL;
+    int numberOfTroopsToMove = 0;
     
+    int numOfCountries = (int) user.getCountryByRef().size();
+    int randomCountry1 = rand() % numOfCountries + 1;
+    
+    //loop until we find an owned country that has an adjacent friendly country (we start looking from a random friendly country)
+    while(true) {
+        //does the country have enought troups
+        if(user.getCountryByRef().at(randomCountry1)->getNumberOfTroops() > 1) {
+            //for each adjCoutry...
+            for(CountryNode * adjCountry : user.getCountryByRef().at(randomCountry1)->getAdjCount()) {
+                //check if adjCountry is friendly
+                if(adjCountry->getOwnedBy() == user.getPlayerID()) {
+                    
+                    //fortify a random number of troups
+                    startingCountry = user.getCountryByRef().at(randomCountry1);
+                    destinationCountry = adjCountry;
+                    
+                    numberOfTroopsToMove = rand() % (user.getCountryByRef().at(randomCountry1)->getNumberOfTroops() -1) + 1;
+                    //Removing troups from startingcountry
+                    startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
+                    
+                    //Adding troups to destinationCountry
+                    destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
+                    
+                    fortification.setAmountTroopsMoved(numberOfTroopsToMove);
+                    
+                    notify("Fortification occured");
+                    
+                    return;
+                }
+            }
+        }
+       
+        
+        randomCountry1++;
+        if(randomCountry1 >= numOfCountries) {
+            randomCountry1 = 0;
+        }
+    }//while loop
+}//Random::executeFortify
+
+void Random::executeReinforce(Player& user, Reinforce& reinforceObj) {
+    //TODO: finish it!
+}
+void Random::executeAttack(Player& user, Map& map, vector<Player*> playerList, Attack& attackObj) {
+    //TODO: finish it!
 }

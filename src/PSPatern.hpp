@@ -9,6 +9,10 @@
 #ifndef PSPatern_hpp
 #define PSPatern_hpp
 
+//used for generating random numbers
+#include <ctime>
+#include <cstdlib>
+
 #include <stdio.h>
 #include <vector>
 #include <iostream>
