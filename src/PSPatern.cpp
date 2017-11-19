@@ -673,5 +673,19 @@ void Cheater::executeAttack(Player& user, Map& map, vector<Player*> playerList, 
 }
 
 void Cheater::executeFortify(Player& user, FortificationPhase& fortificationObj) {
-    
+    //for each friendly country, check weather they have a enemy country, and double their troops acordingly
+    for(CountryNode * friendlyCountry: user.getCountryByRef()) {
+        bool hasEnemy = false;
+        //for each adjCountry to that friendly country
+        for(CountryNode * adjCountry : friendlyCountry->getAdjCount()) {
+            if(adjCountry->getOwnedBy() != user.getPlayerID()) {
+                hasEnemy = true;
+                break;
+            }
+        }
+        //if the friednly country has an adjacent enemy country, double it's troops
+        if(hasEnemy) {
+            friendlyCountry->setNumberOfTroops(friendlyCountry->getNumberOfTroops()*2);
+        }
+    }
 }
