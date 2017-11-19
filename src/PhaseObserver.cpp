@@ -26,6 +26,7 @@ void PhaseObserver::update(string message)
 {
 	{
 		// The basic "print this message to the observer" message:
+
 		if (message.find("PHASE_OBSERVER|") == 0) // If "PHASE_OBSERVER" is located at the very start of the string.
 		{
 			cout << "++++++++++++++++++++++++++++++++++++++++++" << message.substr(message.find_first_of("|") + 1) << endl;

@@ -237,7 +237,7 @@ void Aggressive::executeReinforce(Player& user, Reinforce& rein) {
 	user.getCountryByRef().at(maxIndex)->setNumberOfTroops(maxUnit + unitsReceived);
 	rein.setTroopsMoved(unitsReceived);
 	rein.setReinforcedCountryData(user.getCountryByRef().at(maxIndex));
-	notify("Troops moved");
+	rein.notify("Troops moved");
 }
 
 
@@ -247,7 +247,7 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
 	attackObj.setAttackingPlayerData(&user);
 	attackObj.setMapData(&map);
 
-	notify("Attack Started");
+	attackObj.notify("Attack Started");
 
 	//Finds your strongest country
 
@@ -279,8 +279,9 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
 	for (int i = 0; i < attacker->getAdjCount().size() && attacker->getNumberOfTroops() > 1; i++) {
 
 		CountryNode* defending = attacker->getAdjCount().at(i);
+		attackObj.setAttackingCountryData(attacker);
 		attackObj.setDefendingCountryData(defending);
-		notify("Attack to/from set");
+		attackObj.notify("Attack to/from set");
 
 
 		if (defending->getCountryId() != attacker->getCountryId()) {
@@ -337,7 +338,7 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
 				attackObj.setAttackerTroopLoss(attackerLoses);
 				attackObj.setDefenderTroopLoss(defenderLoses);
 
-				notify("Troop Loss");
+				attackObj.notify("Troop Loss");
 
 				cout << endl << attacker->getCountName() << " lost " << attackerLoses << " units and " << defending->getCountName() << " lost " << defenderLoses << " units." << endl;
 				defending->setNumberOfTroops(defending->getNumberOfTroops() - defenderLoses);
@@ -348,7 +349,7 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
 				defending->setNumberOfTroops(1);
 				attacker->setNumberOfTroops(attacker->getNumberOfTroops() - 1);
 
-				notify("Attacker conquered");
+				attackObj.notify("Attacker conquered");
 
 				cout << endl << "The aggressive computer player conquered " << defending->getCountName() << "." << endl;
 			}
@@ -412,6 +413,11 @@ void PlayerStrategyPattern::getPathToBiggest(CountryNode ** destinationCountry, 
 }
 
 void Aggressive::executeFortify(Player& user, FortificationPhase& fortification) {
+	
+	fortification.setFortifyingPlayer(&user);
+	fortification.notify("Fortification Started");
+
+
 	CountryNode* startingCountry = NULL;
 	CountryNode* destinationCountry = NULL;
 	int numberOfTroopsToMove = -1;
@@ -442,6 +448,12 @@ void Aggressive::executeFortify(Player& user, FortificationPhase& fortification)
 				//Adding troups to destinationCountry
 				destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
 
+				fortification.setStartingCountry(startingCountry);
+				fortification.setDestinationCountry(destinationCountry);
+				fortification.setAmountTroopsMoved(numberOfTroopsToMove);
+
+				fortification.notify("Fortification occured");
+
 				return;
 			}
 		}//else move to the next country
@@ -463,7 +475,7 @@ void Aggressive::executeFortify(Player& user, FortificationPhase& fortification)
 		//Adding troups to destinationCountry
 		destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
 
-		notify("Fortification occured");
+		fortification.notify("Fortification occured");
 	}
 
 }
@@ -481,7 +493,7 @@ Benevolant::~Benevolant() {
 void Benevolant::executeReinforce(Player& user, Reinforce& rein) {
 
 	rein.setReinforcingPlayer(&user);
-	notify("Reinforcing Started");
+	rein.notify("Reinforcing Started");
 	//Getting the number of units for my player
 	Reinforce unitsReinforced;
 
@@ -504,7 +516,9 @@ void Benevolant::executeReinforce(Player& user, Reinforce& rein) {
 		user.getCountryByRef().at(leastIndex)->setNumberOfTroops(leastUnit + 1);
 		//rein.set
 		units--;
-		notify("Troops Moved");
+		rein.setReinforcedCountryData(user.getCountryByRef().at(leastIndex));
+		rein.setTroopsMoved(1);
+		rein.notify("Troops Moved");
 	}
 }
 
@@ -513,7 +527,7 @@ void Benevolant::executeReinforce(Player& user, Reinforce& rein) {
 void Benevolant::executeAttack(Player& user, Map& map, vector<Player*> playerList, Attack& attackObj) {
 
 	attackObj.setAttackingPlayerData(&user);
-	notify("Attack Started");
+	attackObj.notify("Attack Started");
 	cout << "Since the benevolant computer does not attack no action is taken during this phase..." << endl;
 
 }
@@ -523,6 +537,9 @@ void Benevolant::executeFortify(Player& user, FortificationPhase& fortification)
 	CountryNode* startingCountry = NULL;
 	CountryNode* destinationCountry = NULL;
 	int numberOfTroopsToMove = -1;
+
+	fortification.setFortifyingPlayer(&user);
+	fortification.notify("Fortification Started");
 
 	//sort the user's countries
 	user.topDownCountMergeSort();
@@ -556,7 +573,7 @@ void Benevolant::executeFortify(Player& user, FortificationPhase& fortification)
                         
                         fortification.setAmountTroopsMoved(numberOfTroopsToMove);
                         
-                        notify("Fortification occured");
+                        fortification.notify("Fortification occured");
                         
                         return;
                     }
@@ -577,7 +594,7 @@ void Benevolant::executeFortify(Player& user, FortificationPhase& fortification)
                         
                         fortification.setAmountTroopsMoved(numberOfTroopsToMove);
                         
-                        notify("Fortification occured");
+						fortification.notify("Fortification occured");
                         
                         return;
                     }
