@@ -38,7 +38,7 @@ GameStatsObserver::~GameStatsObserver() { //DELETE
     for (Player* p : subjectPlayers)
         p->detach(this);
     
-    subjectAttack->detach(this);
+    //subjectAttack->detach(this);
 }
 
 void GameStatsObserver::setMap(Map* gameMap){
