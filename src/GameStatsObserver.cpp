@@ -38,38 +38,129 @@ GameStatsObserver::~GameStatsObserver() { //DELETE
     for (Player* p : subjectPlayers)
         p->detach(this);
     
-    //subjectAttack->detach(this);
+    subjectAttack->detach(this);
+}
+
+void GameStatsObserver::setMap(Map* gameMap){
+    this->map = gameMap;
 }
 
 void GameStatsObserver::update(string message){
     
     if(message == "Map Change")
-        printMapStats();
+        printTurn();
     
     //Else do nothing, the notify is not directed to this observer
     
 }
 
-void GameStatsObserver::printMapStats(){
+void GameStatsObserver::printTurn(){
     
-    int i = 1;
+    cout << "------------Turn: " << ++turn << "\n";
     
-    cout << "-------------------------------------------------------------------Map Ownership: ";
-    
-    for (Player* p : subjectPlayers)
-    {
-        vector<CountryNode*> ownedCountries = p->getCountry();
-        
-        for(CountryNode* c : ownedCountries)
-            cout << i;
-        
-        i++;
-    }
-    
-    cout << "\n";
 }
 
+int GameStatsObserver::gameStatsObserverMenu(){
+    
+    if(showMenu){
+        
+        //Menu display
+        cout << "--- Games Statistics Observer/Decorator Menu ---" << endl;
+        cout << "How much information do you want?" << endl;
+        cout << "1. BASIC - Show turn number" << endl;
+        cout << "2. PLAYER DOMINATION - Show percentage of map owned by each player" << endl;
+        cout << "3. PLAYER HAND - Show the hand of each player" << endl;
+        cout << "4. CONTINENT CONTROL - Show which continent(s) each player owns" <<endl;
+        
+        int answer;
+        string answerString = " ";
+        
+        bool done = false;
+        do{
+            //Ask question
+            cout << "Please select an option number." << endl;
+            cin >> answerString;
+            
+            done = true;    //assume input is correct
+            
+            //Verify if input is int
+            stringstream convert(answerString);
+            
+            if (!(convert >> answer)){
+                cout << "Please input an integer." << endl;
+                done = false;
+                continue;
+            }
+            
+            //Verify answer
+            if (answer < 1 || answer > 4){
+                
+                cout << "You must choose a number between 1 and 4" << endl;
+                done = false;
+                
+            }
+            
+        } while (!done);
+        
+        showMenu = yesNoQuestion("Do you want to see this menu again?");
+    }
+}
 
+bool GameStatsObserver::yesNoQuestion(string question)
+{
+    while (true)
+    {
+        cout << question << " y/n" << endl;
+        
+        string answer;
+        cin >> answer;
+        
+        transform(answer.begin(), answer.end(), answer.begin(), ::toupper);
+        
+        if (answer == "Y" || answer == "YES")
+        {
+            return true;
+        }
+        
+        else if (answer == "N" || answer == "NO")
+        {
+            return false;
+        }
+        
+        else
+        {
+            cout << "Please input either Yes or No as your answer." << endl;
+        }
+    }
+}
+
+GameStatsObserver* GameStatsObserver::createObserver(){
+    
+    //Het user input for observer amount
+    int answer = gameStatsObserverMenu();
+    
+    GameStatsObserver* observer = new GameStatsObserver;
+    
+    switch (answer) {
+        case 1:
+            //No action needed
+            break;
+        case 2:
+            observer = new DominationObserver(observer);
+            break;
+        case 3:
+            observer = new DominationObserver(observer);
+            observer = new HandObserver(observer);
+            break;
+        case 4:
+            observer = new DominationObserver(observer);
+            observer = new HandObserver(observer);
+            observer = new ControlObserver(observer);
+            break;
+    }
+    
+    return observer;
+}
 
 
 

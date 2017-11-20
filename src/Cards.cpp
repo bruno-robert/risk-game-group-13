@@ -203,3 +203,8 @@ string Hand::getExchangeString()
 {
 	return exchangeString;
 }
+
+vector<Card> Hand::getPlayerHand()
+{
+    return playerHand;
+}
