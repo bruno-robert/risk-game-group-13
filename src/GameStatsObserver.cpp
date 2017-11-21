@@ -8,6 +8,8 @@
 //============================================================================
 
 #include "GameStatsObserver.h"
+#include "GameStatsDecorator.h"
+#include "GameLoop.h"
 #include "Observer.h"
 #include "Player.h"
 #include "Attack.h"
@@ -15,6 +17,8 @@
 using namespace std;
 #include <vector>
 #include <algorithm>
+
+bool GameStatsObserver::showMenu = true;
 
 GameStatsObserver::GameStatsObserver(){
     //Empty
@@ -47,7 +51,7 @@ void GameStatsObserver::setMap(Map* gameMap){
 
 void GameStatsObserver::update(string message){
     
-    if(message == "Map Change")
+    if(message == "GameStats")
         printTurn();
     
     //Else do nothing, the notify is not directed to this observer
@@ -55,10 +59,21 @@ void GameStatsObserver::update(string message){
 }
 
 void GameStatsObserver::printTurn(){
+
+	turn++;
+
+	int amountPlayers = 0;
+
+	for (Player* p : subjectPlayers)
+		amountPlayers++;
+
+		if (turn % amountPlayers == 0)
+		round++;
     
-    cout << "------------Turn: " << ++turn << "\n";
+    cout << "------------Turn: " << round << "\n";
     
 }
+
 
 int GameStatsObserver::gameStatsObserverMenu(){
     
@@ -103,7 +118,11 @@ int GameStatsObserver::gameStatsObserverMenu(){
         } while (!done);
         
         showMenu = yesNoQuestion("Do you want to see this menu again?");
+
+		return answer;
     }
+
+	return 0;
 }
 
 bool GameStatsObserver::yesNoQuestion(string question)
@@ -134,13 +153,11 @@ bool GameStatsObserver::yesNoQuestion(string question)
     }
 }
 
-GameStatsObserver* GameStatsObserver::createObserver(){
+GameStatsObserver* GameStatsObserver::createObserver(GameStatsObserver* observer){
     
     //Het user input for observer amount
     int answer = gameStatsObserverMenu();
-    
-    GameStatsObserver* observer = new GameStatsObserver;
-    
+        
     switch (answer) {
         case 1:
             //No action needed

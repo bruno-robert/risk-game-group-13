@@ -25,14 +25,16 @@ public:
     void printTurn();
     int gameStatsObserverMenu();
     bool yesNoQuestion(string question);
-    GameStatsObserver* createObserver();
+	GameStatsObserver* createObserver(GameStatsObserver* observer);
     
 protected:
     vector<Player*> subjectPlayers; 
     Attack* subjectAttack;
     Map* map;
-    int turn;
-    bool showMenu = true;
+    int turn = 0;
+	int round = 0;
+	string view;
+    static bool showMenu;
 };
 
 
