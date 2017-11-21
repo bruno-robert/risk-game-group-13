@@ -274,7 +274,7 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
 	}
 	CountryNode* attacker = user.getCountryByRef().at(maxIndex);
 
-	cout << endl <<"The attacking country will be " << attacker->getCountName() << ".\n"<< endl;
+	cout << endl << "The attacking country will be " << attacker->getCountName() << ".\n" << endl;
 
 	for (int i = 0; i < attacker->getAdjCount().size() && attacker->getNumberOfTroops() > 1; i++) {
 
@@ -291,11 +291,11 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
 				int attackerDices = 0;
 
 				if (attacker->getNumberOfTroops() > 3)
-					attackerDices = 3;//FIXME: Value stored in attackerDices is never read...
+					attackerDices = 3;
 				if (attacker->getNumberOfTroops() == 3)
-					attackerDices = 2;//FIXME: Value stored in attackerDices is never read...
+					attackerDices = 2;
 				if (attacker->getNumberOfTroops() == 2)
-					attackerDices = 1;//FIXME: Value stored in attackerDices is never read...
+					attackerDices = 1;
 
 				int defenderDices = attackObj.defenderAmountOfDice(defending);
 
@@ -413,7 +413,7 @@ void PlayerStrategyPattern::getPathToBiggest(CountryNode ** destinationCountry, 
 }
 
 void Aggressive::executeFortify(Player& user, FortificationPhase& fortification) {
-	
+
 	fortification.setFortifyingPlayer(&user);
 	fortification.notify("Fortification Started");
 
@@ -550,59 +550,242 @@ void Benevolant::executeFortify(Player& user, FortificationPhase& fortification)
 
 		//for each adjacent country to the currentCoutry check if it has much more troops than the current Country
 		for (CountryNode* country : currentCountry->getAdjCount()) {
-            
-            //if the adjacent country is friendly then check them
-            if(country->getOwnedBy() == user.getPlayerID()){
-                int diff = (country->getNumberOfTroops() - currentCountry->getNumberOfTroops());//diff is the (difference in troops)^2
-                diff = diff * diff; //square so we only get positive results
-                if (diff >= 4) {//if diff ==1 then moving the troup will have no avail, if diff >= 4 then the difference in troops >= 2
-                    if (country->getNumberOfTroops() > currentCountry->getNumberOfTroops()) {
-                        startingCountry = country;
-                        destinationCountry = currentCountry;
-                        
-                        fortification.setStartingCountry(startingCountry);
-                        fortification.setDestinationCountry(destinationCountry);
-                        
-                        numberOfTroopsToMove = ((country->getNumberOfTroops() - currentCountry->getNumberOfTroops()) / 2);
-                        
-                        //Removing troups from startingcountry
-                        startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
-                        cout << "Moving " << numberOfTroopsToMove << " units from " << startingCountry->getCountName() << " to " << destinationCountry->getCountName() << endl;
-                        //Adding troups to destinationCountry
-                        destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
-                        
-                        fortification.setAmountTroopsMoved(numberOfTroopsToMove);
-                        
-                        fortification.notify("Fortification occured");
-                        
-                        return;
-                    }
-                    else {
-                        startingCountry = currentCountry;
-                        destinationCountry = country;
-                        
-                        fortification.setStartingCountry(startingCountry);
-                        fortification.setDestinationCountry(destinationCountry);
-                        
-                        numberOfTroopsToMove = ((currentCountry->getNumberOfTroops() - country->getNumberOfTroops()) / 2);
-                        
-                        //Removing troups from startingcountry
-                        startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
-                        
-                        //Adding troups to destinationCountry
-                        destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
-                        
-                        fortification.setAmountTroopsMoved(numberOfTroopsToMove);
-                        
+
+			//if the adjacent country is friendly then check them
+			if (country->getOwnedBy() == user.getPlayerID()) {
+				int diff = (country->getNumberOfTroops() - currentCountry->getNumberOfTroops());//diff is the (difference in troops)^2
+				diff = diff * diff; //square so we only get positive results
+				if (diff >= 4) {//if diff ==1 then moving the troup will have no avail, if diff >= 4 then the difference in troops >= 2
+					if (country->getNumberOfTroops() > currentCountry->getNumberOfTroops()) {
+						startingCountry = country;
+						destinationCountry = currentCountry;
+
+						fortification.setStartingCountry(startingCountry);
+						fortification.setDestinationCountry(destinationCountry);
+
+						numberOfTroopsToMove = ((country->getNumberOfTroops() - currentCountry->getNumberOfTroops()) / 2);
+
+						//Removing troups from startingcountry
+						startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
+						cout << "Moving " << numberOfTroopsToMove << " units from " << startingCountry->getCountName() << " to " << destinationCountry->getCountName() << endl;
+						//Adding troups to destinationCountry
+						destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
+
+						fortification.setAmountTroopsMoved(numberOfTroopsToMove);
+
 						fortification.notify("Fortification occured");
-                        
-                        return;
-                    }
-                }
-            }
-			
+
+						return;
+					}
+					else {
+						startingCountry = currentCountry;
+						destinationCountry = country;
+
+						fortification.setStartingCountry(startingCountry);
+						fortification.setDestinationCountry(destinationCountry);
+
+						numberOfTroopsToMove = ((currentCountry->getNumberOfTroops() - country->getNumberOfTroops()) / 2);
+
+						//Removing troups from startingcountry
+						startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
+
+						//Adding troups to destinationCountry
+						destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
+
+						fortification.setAmountTroopsMoved(numberOfTroopsToMove);
+
+						fortification.notify("Fortification occured");
+
+						return;
+					}
+				}
+			}
+
 		}
 	}
 
 }
 
+Random::Random() : PlayerStrategyPattern()
+{
+
+}
+
+Random::~Random() {
+
+}
+
+void Random::executeReinforce(Player& user, Reinforce& rein) {
+
+	rein.setReinforcingPlayer(&user);
+	rein.notify("Reinforcing Started");
+	//Getting the number of units for my player
+	Reinforce unitsReinforced;
+
+	int units = unitsReinforced.totalUnits(user);
+
+	//Finding the country to reinforce at random 
+
+	CountryNode* randomCountry;
+	int randomness = rand() % user.getCountryByRef().size();
+	randomCountry = user.getCountryByRef().at(randomness);
+
+	//Reinforcing
+
+	randomCountry->setNumberOfTroops(randomCountry->getNumberOfTroops() + units);
+
+	//Moving units
+
+	rein.setReinforcedCountryData(randomCountry);
+	rein.setTroopsMoved(units);
+	rein.notify("Troops Moved");
+
+	cout << "End of the reinforcement phase of the random computer" << endl;
+
+}
+
+
+
+void Random::executeAttack(Player& user, Map& map, vector<Player*> playerList, Attack& attackObj) {
+
+	attackObj.setPlayerListData(playerList);
+	attackObj.setAttackingPlayerData(&user);
+	attackObj.setMapData(&map);
+	attackObj.notify("Attack Started");
+
+	//Selecting my attacker at random 
+
+	CountryNode* randomAttacker;
+	int randomness = rand() % user.getCountryByRef().size();
+	randomAttacker = user.getCountryByRef().at(randomness);
+
+	cout << endl << "The attacking country will be " << randomAttacker->getCountName() << ".\n" << endl;
+
+	//Selecting my the attacked country at random
+
+	CountryNode* randomDefender;
+
+	//The next for loop serves to only target the enemy adjacent country
+
+	vector<CountryNode*> validTargets;
+	for (int i = 0; i < randomAttacker->getAdjCount().size(); i++) {
+		if (randomAttacker->getAdjCount().at(i)->getCountryId() != randomAttacker->getCountryId()) {
+			validTargets.push_back(randomAttacker->getAdjCount().at(i));
+		}
+	}
+
+	randomness = rand() % validTargets.size();
+
+	randomDefender = validTargets.at(randomness);
+
+
+	cout << endl << "The defending country will be " << randomDefender->getCountName() << ".\n" << endl;
+
+	//Selecting the number of attack we wish to conduct
+	//The maximum number of attack will be set to the combined number of units
+
+	attackObj.setAttackingCountryData(randomAttacker);
+	attackObj.setDefendingCountryData(randomDefender);
+	attackObj.notify("Attack to/from set");
+
+	int maxAttack = rand() % (randomAttacker->getNumberOfTroops() + randomDefender->getNumberOfTroops()) + 1;
+
+	Player* defender = attackObj.getAssociatedPlayer(playerList, randomDefender->getCountName());
+	attackObj.setDefendingPlayerData(defender);//May need to be moved into the loop
+
+	int numAttack = 0;
+
+	do {
+
+		cout << endl << "Attack number" << ++numAttack << endl;
+
+		int attackerDices = 0;
+
+		if (randomAttacker->getNumberOfTroops() > 3)
+			attackerDices = 3;
+		if (randomAttacker->getNumberOfTroops() == 3)
+			attackerDices = 2;
+		if (randomAttacker->getNumberOfTroops() == 2)
+			attackerDices = 1;
+
+		int defenderDices = 1;
+
+
+		attackObj.setDefendingPlayerData(defender);
+
+		int attackerDiceResults[3];
+		int defenderDiceResults[3];
+
+
+		user.getDiceByRef().roll(attackerDiceResults, attackerDices);
+		defender->getDiceByRef().roll(defenderDiceResults, defenderDices);
+
+
+		//Print dice results
+		cout << "Attacker rolled" << endl;
+		attackObj.printDiceResults(attackerDiceResults, attackerDices);
+
+		cout << "Defender rolled" << endl;
+		attackObj.printDiceResults(defenderDiceResults, defenderDices);
+
+		int mostRolled = defenderDices;
+		if (mostRolled > attackerDices)
+			mostRolled = attackerDices;
+
+		attackObj.reverseSortDiceResults(attackerDiceResults);
+		attackObj.reverseSortDiceResults(defenderDiceResults);
+
+
+		int attackerLoses = 0;
+		int defenderLoses = 0;
+
+		for (int i = 0; i < mostRolled; i++) {
+			if (attackerDiceResults[i] > defenderDiceResults[i])
+				defenderLoses++;
+			else
+				attackerLoses++;
+		}
+		attackObj.setAttackerTroopLoss(attackerLoses);
+		attackObj.setDefenderTroopLoss(defenderLoses);
+
+		attackObj.notify("Troop Loss");
+
+		cout << endl << randomAttacker->getCountName() << " lost " << attackerLoses << " units and " << randomDefender->getCountName() << " lost " << defenderLoses << " units." << endl;
+		randomDefender->setNumberOfTroops(randomDefender->getNumberOfTroops() - defenderLoses);
+		randomAttacker->setNumberOfTroops(randomAttacker->getNumberOfTroops() - attackerLoses);
+
+		
+
+	} while (numAttack <= maxAttack && randomDefender->getNumberOfTroops() > 0 && randomAttacker->getNumberOfTroops() > 1);
+
+	if (numAttack > maxAttack) {
+		cout << "The random number of attack has been reached. The assault will now cease. " << endl;
+	}
+
+	if (randomAttacker->getNumberOfTroops() == 1) {
+		cout << randomAttacker->getCountName() << " has failed to conquer " << randomDefender->getCountName() << endl;
+	}
+
+	if (randomDefender->getNumberOfTroops() == 0) {
+		cout << randomAttacker->getCountName() << " has conquered " << randomDefender->getCountName() << endl;
+		user.addCountryToOwned(randomDefender, playerList);
+		randomDefender->setNumberOfTroops(1);
+		randomAttacker->setNumberOfTroops(randomAttacker->getNumberOfTroops() - 1);
+
+		attackObj.notify("Attacker conquered");
+	}
+
+	cout << "End of the attack phase of the random computer" << endl;
+
+}
+
+void Random::executeFortify(Player& user, FortificationPhase& fortification) {
+
+	/*
+	/Missing the implementation of the fortification phase
+	/
+	*/
+
+	cout << "End of the fortification phase of the random computer" << endl;
+
+}
