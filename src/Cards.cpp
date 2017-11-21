@@ -79,6 +79,7 @@ Card Deck::draw() {
 		case 3:cout << "The player drew a artillery card." << endl;
 			break;
 		}
+
 	}
 	else
 		cout << "The deck is empty.\n";
@@ -202,4 +203,9 @@ int Hand::getSize() { return (int)playerHand.size(); };
 string Hand::getExchangeString()
 {
 	return exchangeString;
+}
+
+vector<Card> Hand::getPlayerHand()
+{
+    return playerHand;
 }
