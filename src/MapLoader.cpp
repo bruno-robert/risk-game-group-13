@@ -19,12 +19,26 @@ MapLoader::MapLoader()
 	map = new Map();
 }
 
-Map* MapLoader::getMap() { return map; }
+Map* MapLoader::getMap()
+{
+	Map* mapCopy = new Map();
+
+	mapCopy->setContinentList(map->getContinentList());
+	mapCopy->setCountryList(map->getCountryList());
+
+	return mapCopy;
+}
 
 void MapLoader::ReadFile(string FileName) // The function may throw a MapLoaderException or an std::invalid_argument exception.
 {
 	string currentLine;
 	ifstream mapFile(FileName);
+
+	if (map != NULL)
+	{
+		delete map;
+		map = new Map();
+	}
 
 	try
 	{
