@@ -10,14 +10,14 @@
 
 #include "Player.h"
 
-class Startup {
+static class Startup {
 
 public:
-	Startup(int numOfPlayers);
-	void playOrder(vector<Player>& players);
-	void countryDistribution(vector<CountryNode*>& countryList, vector<Player>& players);
-	void unitDistribution(vector<Player>& players);
-	int getNumOfPlayers();
-private:
-	int numOfPlayers;
+	// Takes vector of players and shuffles the players around.
+	static void playOrder(vector<Player*>& players);
+
+	// Distributes countries
+	static void countryDistribution(vector<CountryNode*>& countryList, vector<Player*>& players);
+
+	static void unitDistribution(vector<Player*>& players, int numOfPlayers);
 };

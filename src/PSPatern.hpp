@@ -103,4 +103,14 @@ public:
 };
 
 
+class Random : public PlayerStrategyPattern {
+
+public:
+	Random();
+	~Random();
+	void executeReinforce(Player& user, Reinforce& reinforceObj);
+	void executeAttack(Player& user, Map& map, vector<Player*> playerList, Attack& attackObj);
+	void executeFortify(Player& user, FortificationPhase& fortificationObj);
+};
+
 #endif /* PSPatern_hpp */

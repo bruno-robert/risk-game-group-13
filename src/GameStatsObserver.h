@@ -10,6 +10,7 @@
 #pragma once
 #include "Observer.h"
 #include "Attack.h"
+#include "Map.h"
 #include <vector>
 
 
@@ -19,12 +20,21 @@ public:
     ~GameStatsObserver();
     void setPlayerSubject(vector<Player*> playerList);
     void setAttackSubject(Attack* attack);
+    void setMap(Map* map);
     void update(string message);
-     void printMapStats();
+    void printTurn();
+    int gameStatsObserverMenu();
+    bool yesNoQuestion(string question);
+	GameStatsObserver* createObserver(GameStatsObserver* observer);
     
-private:
+protected:
     vector<Player*> subjectPlayers; 
     Attack* subjectAttack;
+    Map* map;
+    int turn = 0;
+	int round = 0;
+	string view;
+    static bool showMenu;
 };
 
 

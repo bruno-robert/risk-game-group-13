@@ -19,7 +19,10 @@
 #include "Subject.h"
 class PlayerStrategyPattern;
 #include "PSPatern.hpp"
-
+class PhaseObserver;
+class GameStatsObserver;
+#include "GameStatsObserver.h"
+#include "PhaseObserver.h"
 
 using namespace std;
 
@@ -48,9 +51,9 @@ public:
     Dice& getDiceByRef();
     vector<CountryNode *>& getCountryByRef();
     PlayerStrategyPattern* getStrategy();
-    void reinforce();//Player action methods
-    void attack(Map& m, vector<Player*> playerList);
-    void fortify();
+    void reinforce(PhaseObserver &po);//Player action methods
+    void attack(Map& m, vector<Player*> playerList, PhaseObserver &po, GameStatsObserver &gso);
+    void fortify(PhaseObserver &po);
     void setCountry(vector<CountryNode *> ownedCountry); //Setters
     void setPlayerID(int id);
     void setPSP(PlayerStrategyPattern *psp) {this->psp = psp;}

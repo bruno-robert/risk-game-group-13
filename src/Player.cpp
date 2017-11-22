@@ -10,7 +10,8 @@
 
 #include "Player.h"
 #include "Subject.h"
-
+#include "PhaseObserver.h"
+#include "GameStatsObserver.h"
 
 using namespace std;
 
@@ -58,16 +59,19 @@ void Player::addCountryToOwned(CountryNode* country, vector<Player*> playerList)
     ownedCountry.push_back(country);
     country->setOwnedBy(playerID);
     notify("Map Change");
-
+	notify("GameStats");
 }
 
-void Player::reinforce(){
+void Player::reinforce(PhaseObserver &po){
 	Reinforce reinforcementObj;
+	po.setReinforcePhaseSubject(&reinforcementObj);
     psp->executeReinforce((*this),reinforcementObj);
 }
 
-void Player::attack(Map& m, vector<Player*> playerList){
+void Player::attack(Map& m, vector<Player*> playerList, PhaseObserver &po, GameStatsObserver &gso){
 	Attack attackObj;
+	po.setAttackPhaseSubject(&attackObj);
+	gso.setAttackSubject(&attackObj);
     psp->executeAttack((*this), m, playerList,attackObj);
 }
 
@@ -75,8 +79,9 @@ void Player::attack(Map& m, vector<Player*> playerList){
  Players fortify method. Call the appropriate PSP.fortify method to get values, then it moves the troups.
  
  */
-void Player::fortify(){
+void Player::fortify(PhaseObserver &po){
 	FortificationPhase fortificationObj;
+	po.setFortifyPhaseSubject(&fortificationObj);
     psp->executeFortify((*this),fortificationObj);
 }
 

@@ -37,12 +37,17 @@ MainGameLoop::~MainGameLoop() {
 //checks if
 
 
-void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, bool test, vector<Player *> playerList) {
+void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, vector<Player *>& playerList, int turnLimit) {
     const int FIRST_PLAYER =  playerTurn;
     vector<bool> eliminationList;
     int turnCounter = 0;
     
+	PhaseObserver po;
+	GameStatsObserver* gso = new GameStatsObserver();
+	gso->setPlayerSubject(playerList);
+
     //give ownership to players if this is a demo
+	/*
     if(test){
         vector<CountryNode *> countryList = m->getCountryList();
         int i = 0;
@@ -50,7 +55,7 @@ void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, bool t
             (*iter)->setOwnedBy((i%2) + 1);
         }
     }
-    
+    */
     
     //initialising the elimination list to to false
     for(int i = 0; i < numberOfPlayers; i++) {
@@ -59,6 +64,8 @@ void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, bool t
     
     //game loop
     while (!isGameEnd) {
+		gso = gso->createObserver(gso);
+		notify("GameStats");
         turnCounter++; //incrementing the turn counter
         //if player isn't elliminated then let him/her play turn
         if(m->getNumberOfcountriesOwnedById(playerTurn) == 0) {
@@ -69,10 +76,27 @@ void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, bool t
             
             cout << "player " << playerTurn << "'s turn:" << endl;
             cout << "reinforce stage \nattack stage \nfortify stage\n\n" << endl;
-#warning commented out for demo
-//            playerList.at(playerTurn)->reinforce();
-//            playerList.at(playerTurn)->attack();
-//            playerList.at(playerTurn)->fortify();
+
+			// To paste if needed for debugging (otherwise remove)
+			cout << "\nPlayer " << playerList.at(0)->getPlayerID() << "'s list of countries and their units: " << endl;
+			for (int i = 0; i < playerList.at(0)->getCountry().size(); i++) {
+				cout << playerList.at(0)->getCountry().at(i)->getCountName() << " has " << playerList.at(0)->getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+			}
+
+			cout << "\nPlayer " << playerList.at(1)->getPlayerID() << "'s list of countries and their units: " << endl;
+			for (int i = 0; i < playerList.at(1)->getCountry().size(); i++) {
+				cout << playerList.at(1)->getCountry().at(i)->getCountName() << " has " << playerList.at(1)->getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+			}
+
+			cout << "--------------------------REINFORCEMENT---------------------------" << endl << endl;
+
+            playerList.at(playerTurn - 1)->reinforce(po);
+
+			cout << "--------------------------ATTACK---------------------------" << endl << endl;
+			playerList.at(playerTurn - 1)->attack(*m, playerList, po, *gso);
+			
+			cout << "--------------------------FORTIFY---------------------------" << endl << endl;
+            playerList.at(playerTurn - 1)->fortify(po);
             
         }
         
@@ -101,12 +125,18 @@ void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, bool t
         }
         
         //sets the ownership of all countries to player 1
-        #warning this part should be removed after the demo
-        if(test && turnCounter > 10) {
+        //warning this part should be removed after the demo
+        if(turnCounter > turnLimit) {
+			cout << "The game has reached " << turnLimit << " turns. Therefore, it is a draw." << endl;
+			// Return winning player?
+			break;
+
+			/*
             vector<CountryNode *> countryList = m->getCountryList();
             for(vector<CountryNode *>::iterator iter = countryList.begin(); iter != countryList.end(); iter++) {
                 (*iter)->setOwnedBy(1);
             }
+			*/
         }
         
         
