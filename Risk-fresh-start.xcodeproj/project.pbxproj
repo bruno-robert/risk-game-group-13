@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		152161571FC5E808004A8FB8 /* PhaseObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BD51FBE8F7C00169562 /* PhaseObserver.cpp */; };
+		152161581FC5E80E004A8FB8 /* GameStatsObserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BD81FBE8F7C00169562 /* GameStatsObserver.cpp */; };
+		1521615B1FC5E874004A8FB8 /* GameStatsDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 152161591FC5E874004A8FB8 /* GameStatsDecorator.cpp */; };
+		1521615C1FC5E88A004A8FB8 /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BC71FBE8F7C00169562 /* Observer.cpp */; };
 		15F04BA11FBE81C300169562 /* newStratDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BA01FBE81C300169562 /* newStratDriver.cpp */; };
 		15F04BF21FBF619A00169562 /* GameStartOSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BD91FBE8F7C00169562 /* GameStartOSX.cpp */; };
 		15F04BF31FBF61AB00169562 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15F04BC01FBE8F7C00169562 /* Player.cpp */; };
@@ -44,6 +48,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		152161591FC5E874004A8FB8 /* GameStatsDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameStatsDecorator.cpp; sourceTree = "<group>"; };
+		1521615A1FC5E874004A8FB8 /* GameStatsDecorator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStatsDecorator.h; sourceTree = "<group>"; };
 		15D5D2841FBE353C00D99889 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		15D5D2851FBE353C00D99889 /* test */ = {isa = PBXFileReference; lastKnownFileType = folder; path = test; sourceTree = "<group>"; };
 		15D5D2871FBE353C00D99889 /* doc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = doc; sourceTree = "<group>"; };
@@ -147,6 +153,8 @@
 				15F04BCD1FBE8F7C00169562 /* GameStart.h */,
 				15F04BD91FBE8F7C00169562 /* GameStartOSX.cpp */,
 				15F04BD01FBE8F7C00169562 /* GameStartOSX.h */,
+				152161591FC5E874004A8FB8 /* GameStatsDecorator.cpp */,
+				1521615A1FC5E874004A8FB8 /* GameStatsDecorator.h */,
 				15F04BD81FBE8F7C00169562 /* GameStatsObserver.cpp */,
 				15F04BBC1FBE8F7C00169562 /* GameStatsObserver.h */,
 				15F04BCE1FBE8F7C00169562 /* Map.cpp */,
@@ -255,14 +263,18 @@
 				15F04BF61FBF61BB00169562 /* MapLoaderOSX.cpp in Sources */,
 				15F04BFA1FBF621000169562 /* Attack.cpp in Sources */,
 				15F04BA11FBE81C300169562 /* newStratDriver.cpp in Sources */,
+				152161581FC5E80E004A8FB8 /* GameStatsObserver.cpp in Sources */,
 				15F04BF21FBF619A00169562 /* GameStartOSX.cpp in Sources */,
+				1521615C1FC5E88A004A8FB8 /* Observer.cpp in Sources */,
 				15F04BF31FBF61AB00169562 /* Player.cpp in Sources */,
 				15F04BFB1FBF621000169562 /* FortificationPhase.cpp in Sources */,
 				15F04BF91FBF61F400169562 /* PSPatern.cpp in Sources */,
 				15F04BF81FBF61E100169562 /* Subject.cpp in Sources */,
 				15F04BF51FBF61BB00169562 /* dice.cpp in Sources */,
+				1521615B1FC5E874004A8FB8 /* GameStatsDecorator.cpp in Sources */,
 				15F04BFC1FBF621000169562 /* ReinforcePhase.cpp in Sources */,
 				15F04BF71FBF61E100169562 /* Map.cpp in Sources */,
+				152161571FC5E808004A8FB8 /* PhaseObserver.cpp in Sources */,
 				15F04BF41FBF61BB00169562 /* Cards.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
