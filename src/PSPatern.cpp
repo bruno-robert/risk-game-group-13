@@ -623,6 +623,11 @@ void Benevolant::executeFortify(Player& user, FortificationPhase& fortification)
 
 }
 
+
+//-------------------
+//    Random PSP
+//-------------------
+
 Random::Random() : PlayerStrategyPattern()
 {
 
@@ -797,29 +802,6 @@ void Random::executeAttack(Player& user, Map& map, vector<Player*> playerList, A
 }
 
 void Random::executeFortify(Player& user, FortificationPhase& fortification) {
-
-	/*
-	/Missing the implementation of the fortification phase
-	/
-	*/
-
-	cout << "End of the fortification phase of the random computer" << endl;
-
-}
-}
-
-//-------------------
-//    Random PSP
-//-------------------
-Random::Random() {
-    srand((int)time(NULL));
-}
-
-Random::~Random() {
-
-}
-
-void Random::executeFortify(Player& user, FortificationPhase& fortification) {
     CountryNode* startingCountry = NULL;
     CountryNode* destinationCountry = NULL;
     int numberOfTroopsToMove = 0;
@@ -863,13 +845,6 @@ void Random::executeFortify(Player& user, FortificationPhase& fortification) {
         }
     }//while loop
 }//Random::executeFortify
-
-void Random::executeReinforce(Player& user, Reinforce& reinforceObj) {
-    //TODO: finish it!
-}
-void Random::executeAttack(Player& user, Map& map, vector<Player*> playerList, Attack& attackObj) {
-    //TODO: finish it!
-}
 
 //-------------------
 //    Cheater PSP
