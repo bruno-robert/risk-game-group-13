@@ -16,8 +16,6 @@ using namespace std;
 
 GameStatsDecorator::GameStatsObserver *decoratedGameStats;
 
-
-
 GameStatsDecorator::GameStatsDecorator(GameStatsObserver *decoratedGameStats){
 	this->decoratedGameStats = decoratedGameStats;
 }
@@ -30,6 +28,7 @@ void GameStatsDecorator::update(string message){
 
 
 
+
 DominationObserver::DominationObserver(GameStatsObserver *decoratedGameStats) : GameStatsDecorator(decoratedGameStats){
 	//Empty body
 }
@@ -37,7 +36,7 @@ DominationObserver::DominationObserver(GameStatsObserver *decoratedGameStats) : 
 void DominationObserver::update(string message){
 	if (message == "GameStats"){
 		printDominationStats();
-		return GameStatsDecorator::update(message); // + printDominationStats();
+		GameStatsDecorator::update(message); // + printDominationStats();
 	}
 }
 
@@ -57,8 +56,11 @@ void DominationObserver::printDominationStats(){
 	for (Player* p : subjectPlayers)
 	{
 		int playerID = p->getPlayerID();
+		int amount = 0;
 
-		int amount = map->getNumberOfcountriesOwnedById(playerID);
+			vector<CountryNode*> countryList = p->getCountry();
+			for (CountryNode* c : countryList)
+				amount++;
 
 		double percentage = (amount / (double)total) * 100.0;
 
@@ -78,20 +80,19 @@ HandObserver::HandObserver(GameStatsObserver *decoratedGameStats) : GameStatsDec
 void HandObserver::update(string message){
 	if (message == "GameStats"){
 		printHandInfo();
-		return GameStatsDecorator::update(message); // + printHandInfo();
+		GameStatsDecorator::update(message); // + printHandInfo();
 	}
 }
 
 void HandObserver::printHandInfo(){
 
-	cout << "------------Hand information: ";
+	cout << "------------Hand information: " << endl;
 
-	for (Player* p : subjectPlayers){
-
-		int playerID = p->getPlayerID();
+	for(Player* player : subjectPlayers){
+		int playerID = player->getPlayerID();
 
 		//Get players hand an it's size
-		Hand hand = p->getHandByRef();
+		Hand hand = player->getHand();
 		vector<Card> playerHand = hand.getPlayerHand();
 
 		int infantry = 0, cavalry = 0, artillery = 0;
@@ -109,7 +110,7 @@ void HandObserver::printHandInfo(){
 		}
 
 		//printing the statement for each player
-		cout << "Player " << playerID << ": " << infantry << " infantry, " << cavalry << " cavalry, " << artillery << " artillery" << endl;
+		cout << "------------\tPlayer " << playerID << ": " << infantry << " infantry, " << cavalry << " cavalry, " << artillery << " artillery" << endl;
 	}
 
 }
@@ -125,13 +126,13 @@ ControlObserver::ControlObserver(GameStatsObserver *decoratedGameStats) : GameSt
 void ControlObserver::update(string message){
 	if (message == "GameStats"){
 		printContinentControlInfo();
-		return GameStatsDecorator::update(message); // + printContinentControlInfo();
+		GameStatsDecorator::update(message); // + printContinentControlInfo();
 	}
 }
 
 void ControlObserver::printContinentControlInfo(){
 
-	cout << "------------Continent control: ";
+	cout << "------------Continent control: " << endl;
 
 
 	for (Player* player : subjectPlayers){
@@ -172,7 +173,7 @@ void ControlObserver::printContinentControlInfo(){
 		int playerID = player->getPlayerID();
 
 		//printing the statement for each player
-		cout << "Player " << playerID << ": " << owns << endl;
+		cout << "------------\tPlayer " << playerID << ": " << owns << endl;
 
 	}//end subjectPlayers iteration loop
 

@@ -43,8 +43,7 @@ void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, vector
     int turnCounter = 0;
     
 	PhaseObserver po;
-	GameStatsObserver* gso = new GameStatsObserver();
-	gso->setPlayerSubject(playerList);
+	GameStatsObserver* observerDummy = new GameStatsObserver();
 
     //give ownership to players if this is a demo
 	/*
@@ -64,8 +63,10 @@ void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, vector
     
     //game loop
     while (!isGameEnd) {
-		gso = gso->createObserver(gso);
-		notify("GameStats");
+		GameStatsObserver* gso = observerDummy->createObserver(observerDummy);
+		gso->setPlayerSubject(playerList);
+		gso->setMap(m);
+
         turnCounter++; //incrementing the turn counter
         //if player isn't elliminated then let him/her play turn
         if(m->getNumberOfcountriesOwnedById(playerTurn) == 0) {
@@ -126,7 +127,7 @@ void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, vector
         
         //sets the ownership of all countries to player 1
         //warning this part should be removed after the demo
-        if(turnCounter > turnLimit) {
+        if(turnCounter >= turnLimit) {
 			cout << "The game has reached " << turnLimit << " turns. Therefore, it is a draw." << endl;
 			// Return winning player?
 			break;
