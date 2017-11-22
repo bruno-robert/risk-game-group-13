@@ -11,6 +11,7 @@
 #include "Player.h"
 #include "Attack.h"
 #include "PSPatern.hpp"
+#include "GameStatsDecorator.h"
 #include <iostream>
 using namespace std;
 
@@ -126,6 +127,7 @@ int main (){
     GameStatsObserver gameStatsObserver;
     gameStatsObserver.setPlayerSubject(playerList);
     gameStatsObserver.setAttackSubject(&attack);
+    gameStatsObserver.setMap(&map);
    
     //Testing
     cout << "Pretend attack!"<<endl;
@@ -151,5 +153,7 @@ int main (){
     
     cout << "Player 1 attacks Player 3 and conquers a country." << endl;
     attack.conqueredCountry(&france, &canada, &player1, &player3);
+    
+    gameStatsObserver.gameStatsObserverMenu();
      
 }

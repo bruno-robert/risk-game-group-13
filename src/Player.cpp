@@ -59,7 +59,7 @@ void Player::addCountryToOwned(CountryNode* country, vector<Player*> playerList)
     ownedCountry.push_back(country);
     country->setOwnedBy(playerID);
     notify("Map Change");
-
+	notify("GameStats");
 }
 
 void Player::reinforce(PhaseObserver &po){
