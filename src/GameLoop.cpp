@@ -43,8 +43,8 @@ void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, vector
     int turnCounter = 0;
     
 	PhaseObserver po;
-	GameStatsObserver gso;
-	gso.setPlayerSubject(playerList);
+	GameStatsObserver* gso = new GameStatsObserver();
+	gso->setPlayerSubject(playerList);
 
     //give ownership to players if this is a demo
 	/*
@@ -64,6 +64,9 @@ void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, vector
     
     //game loop
     while (!isGameEnd) {
+		gso = gso->createObserver(gso);
+		notify("GameStats");
+
         turnCounter++; //incrementing the turn counter
         //if player isn't elliminated then let him/her play turn
         if(m->getNumberOfcountriesOwnedById(playerTurn) == 0) {
@@ -91,7 +94,7 @@ void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, vector
             playerList.at(playerTurn - 1)->reinforce(po);
 
 			cout << "--------------------------ATTACK---------------------------" << endl << endl;
-			playerList.at(playerTurn - 1)->attack(*m, playerList, po, gso);
+			playerList.at(playerTurn - 1)->attack(*m, playerList, po, *gso);
 			
 			cout << "--------------------------FORTIFY---------------------------" << endl << endl;
             playerList.at(playerTurn - 1)->fortify(po);

@@ -14,28 +14,25 @@
 #include <vector>
 
 
-class GameStatsObserver : public Observer{
+class GameStatsObserver : public Observer {
 public:
-    GameStatsObserver();
-    ~GameStatsObserver();
-    void setPlayerSubject(vector<Player*> playerList);
-    void setAttackSubject(Attack* attack);
-    void setMap(Map* map);
-    void update(string message);
-    void printTurn();
-    int gameStatsObserverMenu();
-    bool yesNoQuestion(string question);
+	GameStatsObserver();
+	~GameStatsObserver();
+	void setPlayerSubject(vector<Player*> playerList);
+	void setAttackSubject(Attack* attack);
+	void setMap(Map* map);
+	void update(string message);
+	void printTurn();
+	int gameStatsObserverMenu();
+	bool yesNoQuestion(string question);
 	GameStatsObserver* createObserver(GameStatsObserver* observer);
-    
+
 protected:
-    vector<Player*> subjectPlayers; 
-    Attack* subjectAttack;
-    Map* map;
-    int turn = 0;
+	vector<Player*> subjectPlayers;
+	Attack* subjectAttack;
+	Map* map;
+	int turn = 0;
 	int round = 0;
 	string view;
-    static bool showMenu;
+	static bool showMenu;
 };
-
-
-

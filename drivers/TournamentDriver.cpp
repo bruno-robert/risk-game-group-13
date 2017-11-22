@@ -9,6 +9,12 @@
 //============================================================================
 
 #include "Tournament.h"
+#include "GameLoop.h"
+#include "GameStart.h"
+#include "StartupPhase.h"
+#include "Player.h"
+#include "PhaseObserver.h"
+#include "GameStatsObserver.h"
 
 int main()
 {

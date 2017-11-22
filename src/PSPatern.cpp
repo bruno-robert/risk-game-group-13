@@ -20,10 +20,10 @@ PlayerStrategyPattern::~PlayerStrategyPattern() {
 }
 
 /**
- Checks if there is a country with a given id in the given vector
- @param a the id of the give ncountry
- @param vect the vector of countries to be checked
- */
+Checks if there is a country with a given id in the given vector
+@param a the id of the give ncountry
+@param vect the vector of countries to be checked
+*/
 bool PlayerStrategyPattern::isCountryInVector(int a, vector<CountryNode*> vect) {
 	for (CountryNode* country : vect) {
 		if (country->getCountryId() == a) {
@@ -44,12 +44,12 @@ Human::~Human() {
 }
 
 /**
- Takes a string and a Map and returns the Id of the country with the given name
- If the country doesn't exists, retursn -1
- @param countryName Name of the country
- @param p Player Object
- @return the ID of the country with name countryName. If the country doesn't exist, returns -1
- */
+Takes a string and a Map and returns the Id of the country with the given name
+If the country doesn't exists, retursn -1
+@param countryName Name of the country
+@param p Player Object
+@return the ID of the country with name countryName. If the country doesn't exist, returns -1
+*/
 int Human::countryNameToID(string countryName, Player& p) {
 	vector<CountryNode*> cl = p.getCountryByRef();
 	for (vector<CountryNode*>::iterator country = cl.begin(); country != cl.end(); country++) {
@@ -360,9 +360,9 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
 
 
 /**
- the recursiveGetPathToBiggest country starts from the the startingCountry, and makes its way to the nearest country that is owned by p and has troops
- It then returns a 1 length path to move troops cloesr to the original starting country
- */
+the recursiveGetPathToBiggest country starts from the the startingCountry, and makes its way to the nearest country that is owned by p and has troops
+It then returns a 1 length path to move troops cloesr to the original starting country
+*/
 vector<CountryNode*> PlayerStrategyPattern::recursiveGetPathToBiggest(CountryNode* startingCountry, CountryNode* destinationCountry, const Player& p, vector<CountryNode*>& visitedCountries) {
 	vector<CountryNode*> path;
 	if (isCountryInVector(startingCountry->getCountryId(), visitedCountries)) {
@@ -390,11 +390,10 @@ vector<CountryNode*> PlayerStrategyPattern::recursiveGetPathToBiggest(CountryNod
 }
 
 /**
-
- @param destinationCountry ptr to the coutry to witch you want to move troups (the method will modify it's value so that if you move troop to this country, they will be closer to the original country)
- @param startingCountry the method will change this to the country you should send the troups from
- @param p player
- */
+@param destinationCountry ptr to the coutry to witch you want to move troups (the method will modify it's value so that if you move troop to this country, they will be closer to the original country)
+@param startingCountry the method will change this to the country you should send the troups from
+@param p player
+*/
 void PlayerStrategyPattern::getPathToBiggest(CountryNode ** destinationCountry, CountryNode ** startingCountry, const Player& p) {
 	vector<CountryNode*> visitedCountries;
 	vector<CountryNode*> path = recursiveGetPathToBiggest(*destinationCountry, *startingCountry, p, visitedCountries);
@@ -754,7 +753,7 @@ void Random::executeAttack(Player& user, Map& map, vector<Player*> playerList, A
 		randomDefender->setNumberOfTroops(randomDefender->getNumberOfTroops() - defenderLoses);
 		randomAttacker->setNumberOfTroops(randomAttacker->getNumberOfTroops() - attackerLoses);
 
-		
+
 
 	} while (numAttack <= maxAttack && randomDefender->getNumberOfTroops() > 0 && randomAttacker->getNumberOfTroops() > 1);
 

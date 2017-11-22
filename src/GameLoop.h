@@ -13,7 +13,7 @@
 #include "Player.h"
 
 using namespace std;
-class MainGameLoop {
+class MainGameLoop : Subject {
 private:
     vector <Player*> playerLsit;
     bool isGameEnd = false;

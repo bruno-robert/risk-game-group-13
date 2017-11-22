@@ -12,6 +12,9 @@
 #include "GameLoop.h"
 #include "GameStart.h"
 #include "StartupPhase.h"
+#include "Player.h"
+#include "PhaseObserver.h"
+#include "GameStatsObserver.h"
 
 class Tournament
 {
@@ -30,4 +33,6 @@ public:
 	void addPlayers();
 	void setNoGamesAndTurns();
 	void playGames();
+	string getComputerType();
+	void outputResults();
 };
