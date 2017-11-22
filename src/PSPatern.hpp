@@ -31,8 +31,6 @@ public:
 	PlayerStrategyPattern();
 	virtual ~PlayerStrategyPattern();
 
-
-
 	virtual void executeFortify(Player& user, FortificationPhase& fortificationObj) = 0;
 	virtual void executeAttack(Player& user, Map& map, vector<Player*> playerList, Attack& attackObj) = 0;
 	virtual void executeReinforce(Player& user, Reinforce& reinforceObj) = 0;
