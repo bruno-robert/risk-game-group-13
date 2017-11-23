@@ -260,8 +260,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				153B2B921FC66A9D00A47C81 /* StartupPhase.cpp in Sources */,
+				153B2B8E1FC66A9D00A47C81 /* GameStatsObserver.cpp in Sources */,
+				153B2B8D1FC66A9D00A47C81 /* GameStart.cpp in Sources */,
 				15F04BF61FBF61BB00169562 /* MapLoaderOSX.cpp in Sources */,
+				153B2B8F1FC66A9D00A47C81 /* MapLoader.cpp in Sources */,
 				15F04BFA1FBF621000169562 /* Attack.cpp in Sources */,
+				153B2B911FC66A9D00A47C81 /* PhaseObserver.cpp in Sources */,
 				15F04BA11FBE81C300169562 /* newStratDriver.cpp in Sources */,
 				152161581FC5E80E004A8FB8 /* GameStatsObserver.cpp in Sources */,
 				15F04BF21FBF619A00169562 /* GameStartOSX.cpp in Sources */,
@@ -269,10 +274,12 @@
 				15F04BF31FBF61AB00169562 /* Player.cpp in Sources */,
 				15F04BFB1FBF621000169562 /* FortificationPhase.cpp in Sources */,
 				15F04BF91FBF61F400169562 /* PSPatern.cpp in Sources */,
+				153B2B901FC66A9D00A47C81 /* Observer.cpp in Sources */,
 				15F04BF81FBF61E100169562 /* Subject.cpp in Sources */,
 				15F04BF51FBF61BB00169562 /* dice.cpp in Sources */,
 				1521615B1FC5E874004A8FB8 /* GameStatsDecorator.cpp in Sources */,
 				15F04BFC1FBF621000169562 /* ReinforcePhase.cpp in Sources */,
+				153B2B8C1FC66A9D00A47C81 /* GameLoop.cpp in Sources */,
 				15F04BF71FBF61E100169562 /* Map.cpp in Sources */,
 				152161571FC5E808004A8FB8 /* PhaseObserver.cpp in Sources */,
 				15F04BF41FBF61BB00169562 /* Cards.cpp in Sources */,

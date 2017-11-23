@@ -416,6 +416,7 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
 				attacker->setNumberOfTroops(attacker->getNumberOfTroops() - 1);
 
 				attackObj.notify("Attacker conquered");
+				attackObj.notify("GameStats");
 
 				cout << endl << "The aggressive computer player conquered " << defending->getCountName() << "." << endl;
 			}
@@ -620,9 +621,6 @@ void Benevolant::executeFortify(Player& user, FortificationPhase& fortification)
 
 		}
 	}
-
-}
-
 
 //-------------------
 //    Random PSP
