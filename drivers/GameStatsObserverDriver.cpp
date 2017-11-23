@@ -117,6 +117,15 @@ int main (){
     player2Countries.push_back(&spain);
     player3Countries.push_back(&canada);
     player3Countries.push_back(&usa);
+
+	mongolia.setOwnedBy(2);
+	china.setOwnedBy(2);
+	france.setOwnedBy(2);
+	mexico.setOwnedBy(3);
+	uk.setOwnedBy(3);
+	spain.setOwnedBy(3);
+	canada.setOwnedBy(4);
+	usa.setOwnedBy(4);
     
     player1.setCountry(player1Countries);
     player2.setCountry(player2Countries);
@@ -141,11 +150,27 @@ int main (){
 	cout << "Player 1 conquers a country" << endl;
 	player1.addCountryToOwned(&canada, playerList);
 
-	cout << "Player 3 conquers a country" << endl;
+	cout << "Player 1 conquers a country" << endl;
 	player1.addCountryToOwned(&usa, playerList);
 
+	cout << "Player 1 conquers a country" << endl;
+	player1.addCountryToOwned(&mexico, playerList);
+
+	cout << "Player 3 conquers a country" << endl;
+	player3.addCountryToOwned(&mexico, playerList);
+
+	for (int i = 0; i <= 5; i++){
+		GameStatsObserver* dummy = new GameStatsObserver();
+		test = new GameStatsObserver();
+		test = dummy->createObserver(dummy);
+		string country;
+		cout << "Player 2 conquers a country (Spain, Canada, USA, Mexico)" << endl;
+		cin >> country;
+		CountryNode* countryNode = map.getCountryByName(country);
+		player1.addCountryToOwned(countryNode, playerList);
+
+	}
+    
 	system("pause");
-    
-    
      
 }
