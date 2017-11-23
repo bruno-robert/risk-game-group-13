@@ -66,7 +66,7 @@ int MainGameLoop::startGame(Map* m, int numberOfPlayers, vector<Player *>& playe
 	//game loop
 	while (!isGameEnd) {
 		gso = gso->createObserver(gso);
-		notify("GameStats");
+		
 
 
 		//if player isn't elliminated then let him/her play turn

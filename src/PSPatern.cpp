@@ -621,7 +621,7 @@ void Benevolant::executeFortify(Player& user, FortificationPhase& fortification)
 
 		}
 	}
-
+}
 //-------------------
 //    Random PSP
 //-------------------
