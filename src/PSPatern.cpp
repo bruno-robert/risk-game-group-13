@@ -11,6 +11,10 @@
 #include "Subject.h"
 using namespace std;
 
+//---------------------
+// Parent PSP
+//---------------------
+
 PlayerStrategyPattern::PlayerStrategyPattern() {
 
 }
@@ -34,6 +38,62 @@ bool PlayerStrategyPattern::isCountryInVector(int a, vector<CountryNode*> vect) 
 	return false;
 }
 
+/**
+ the recursiveGetPathToBiggest country starts from the the startingCountry, and makes its way to the nearest country that is owned by p and has troops
+ It then returns a 1 length path to move troops cloesr to the original starting country
+ */
+vector<CountryNode*> PlayerStrategyPattern::recursiveGetPathToBiggest(CountryNode* startingCountry, CountryNode* destinationCountry, const Player& p, vector<CountryNode*>& visitedCountries) {
+    vector<CountryNode*> path;
+    if (isCountryInVector(startingCountry->getCountryId(), visitedCountries)) {
+        return path;
+    }
+    else {
+        visitedCountries.push_back(startingCountry);
+        for (CountryNode* adjCountry : startingCountry->getAdjCount()) {
+            if (adjCountry->getOwnedBy() == p.getPlayerID() && adjCountry->getNumberOfTroops() > 1) {
+                destinationCountry = adjCountry;
+                path.push_back(startingCountry);
+                path.push_back(destinationCountry);
+                return path;
+            }
+        }
+        for (CountryNode* adjCountry : startingCountry->getAdjCount()) {
+            path = recursiveGetPathToBiggest(adjCountry, destinationCountry, p, visitedCountries);
+            if (path.size() > 0) {
+                return path;
+            }
+        }
+    }
+
+    return path;
+}
+
+/**
+
+ @param destinationCountry ptr to the coutry to witch you want to move troups (the method will modify it's value so that if you move troop to this country, they will be closer to the original country)
+ @param startingCountry the method will change this to the country you should send the troups from
+ @param p player
+ */
+void PlayerStrategyPattern::getPathToBiggest(CountryNode ** destinationCountry, CountryNode ** startingCountry, const Player& p) {
+    vector<CountryNode*> visitedCountries;
+    vector<CountryNode*> path = recursiveGetPathToBiggest(*destinationCountry, *startingCountry, p, visitedCountries);
+
+    if (path.size() >= 2) {
+        *destinationCountry = path.at(0);
+        *startingCountry = path.at(1);
+    }
+    else {
+        *destinationCountry = NULL;
+        *startingCountry = NULL;
+    }
+
+
+    return;
+}
+
+//---------------------
+// Human
+//---------------------
 
 Human::Human() : PlayerStrategyPattern() {
 
@@ -197,6 +257,10 @@ void Human::executeReinforce(Player& user, Reinforce& rein) {
 
 	rein.reinforceDistributions(user);
 }
+
+//---------------------
+// Agressive
+//---------------------
 
 Aggressive::Aggressive() : PlayerStrategyPattern()
 {
@@ -479,6 +543,10 @@ void Aggressive::executeFortify(Player& user, FortificationPhase& fortification)
 
 }
 
+//---------------------
+// Benevolent
+//---------------------
+
 
 Benevolant::Benevolant() : PlayerStrategyPattern()
 {
@@ -605,6 +673,11 @@ void Benevolant::executeFortify(Player& user, FortificationPhase& fortification)
 
 }
 
+
+//-------------------
+//    Random PSP
+//-------------------
+
 Random::Random() : PlayerStrategyPattern()
 {
 
@@ -623,7 +696,7 @@ void Random::executeReinforce(Player& user, Reinforce& rein) {
 
 	int units = unitsReinforced.totalUnits(user);
 
-	//Finding the country to reinforce at random 
+	//Finding the country to reinforce at random
 
 	CountryNode* randomCountry;
 	int randomness = rand() % user.getCountryByRef().size();
@@ -652,7 +725,7 @@ void Random::executeAttack(Player& user, Map& map, vector<Player*> playerList, A
 	attackObj.setMapData(&map);
 	attackObj.notify("Attack Started");
 
-	//Selecting my attacker at random 
+	//Selecting my attacker at random
 
 	CountryNode* randomAttacker;
 	int randomness = rand() % user.getCountryByRef().size();
@@ -779,12 +852,99 @@ void Random::executeAttack(Player& user, Map& map, vector<Player*> playerList, A
 }
 
 void Random::executeFortify(Player& user, FortificationPhase& fortification) {
+    CountryNode* startingCountry = NULL;
+    CountryNode* destinationCountry = NULL;
+    int numberOfTroopsToMove = 0;
 
-	/*
-	/Missing the implementation of the fortification phase
-	/
-	*/
+    int numOfCountries = (int) user.getCountryByRef().size();
+    int randomCountry1 = rand() % numOfCountries + 1;
 
-	cout << "End of the fortification phase of the random computer" << endl;
+    //loop until we find an owned country that has an adjacent friendly country (we start looking from a random friendly country)
+    while(true) {
+        //does the country have enought troups
+        if(user.getCountryByRef().at(randomCountry1)->getNumberOfTroops() > 1) {
+            //for each adjCoutry...
+            for(CountryNode * adjCountry : user.getCountryByRef().at(randomCountry1)->getAdjCount()) {
+                //check if adjCountry is friendly
+                if(adjCountry->getOwnedBy() == user.getPlayerID()) {
 
+                    //fortify a random number of troups
+                    startingCountry = user.getCountryByRef().at(randomCountry1);
+                    destinationCountry = adjCountry;
+
+                    numberOfTroopsToMove = rand() % (user.getCountryByRef().at(randomCountry1)->getNumberOfTroops() -1) + 1;
+                    //Removing troups from startingcountry
+                    startingCountry->setNumberOfTroops(startingCountry->getNumberOfTroops() - numberOfTroopsToMove);
+
+                    //Adding troups to destinationCountry
+                    destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
+
+                    fortification.setAmountTroopsMoved(numberOfTroopsToMove);
+
+                    notify("Fortification occured");
+
+                    return;
+                }
+            }
+        }
+
+
+        randomCountry1++;
+        if(randomCountry1 >= numOfCountries) {
+            randomCountry1 = 0;
+        }
+    }//while loop
+}//Random::executeFortify
+
+//-------------------
+//    Cheater PSP
+//-------------------
+
+Cheater::Cheater() {
+
+}
+
+Cheater::~Cheater() {
+
+}
+
+void Cheater::executeReinforce(Player& user, Reinforce& reinforceObj) {
+    for(CountryNode * ownedCountry : user.getCountryByRef()) {
+        ownedCountry->setNumberOfTroops((ownedCountry->getNumberOfTroops())*2);
+        notify("Troops Moved");
+    }
+
+}
+
+void Cheater::executeAttack(Player& user, Map& map, vector<Player*> playerList, Attack& attackObj) {
+    vector<CountryNode*> currentOwnedCountries = user.getCountry();
+    //for each owned coutry (at turn start)
+    for(CountryNode* ownedCountry : currentOwnedCountries) {
+        for (CountryNode* adjCountry : ownedCountry->getAdjCount()) {
+            user.addCountryToOwned(adjCountry, playerList);
+            notify("Attacker conquered");
+        }
+    }
+
+}
+
+void Cheater::executeFortify(Player& user, FortificationPhase& fortification) {
+    //for each friendly country, check weather they have a enemy country, and double their troops acordingly
+    for(CountryNode * friendlyCountry: user.getCountryByRef()) {
+        bool hasEnemy = false;
+        //for each adjCountry to that friendly country
+        for(CountryNode * adjCountry : friendlyCountry->getAdjCount()) {
+            if(adjCountry->getOwnedBy() != user.getPlayerID()) {
+                hasEnemy = true;
+                break;
+            }
+        }
+        //if the friednly country has an adjacent enemy country, double it's troops
+        if(hasEnemy) {
+            friendlyCountry->setNumberOfTroops(friendlyCountry->getNumberOfTroops()*2);
+            fortification.setAmountTroopsMoved(friendlyCountry->getNumberOfTroops()*2);
+
+            notify("Fortification occured");
+        }
+    }
 }
