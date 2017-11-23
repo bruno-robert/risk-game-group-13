@@ -15,11 +15,15 @@
 #include "Player.h"
 #include "PhaseObserver.h"
 #include "GameStatsObserver.h"
+#include <string>
+using namespace std;
 
 class Tournament
 {
 	vector<Map*> mapList;
 	vector<Player*> playerList;
+	vector<string> playerTypes;
+	vector<vector<string>> winners; //2D array containing winners
 	
 	GameStart gameStart;
 	MainGameLoop game;
@@ -33,6 +37,4 @@ public:
 	void addPlayers();
 	void setNoGamesAndTurns();
 	void playGames();
-	string getComputerType();
-	void outputResults();
 };

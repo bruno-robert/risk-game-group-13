@@ -8,13 +8,13 @@
 //               
 //============================================================================
 
-#include "Tournament.h"
-#include "GameLoop.h"
-#include "GameStart.h"
-#include "StartupPhase.h"
-#include "Player.h"
-#include "PhaseObserver.h"
-#include "GameStatsObserver.h"
+#include "../src/Tournament.h"
+#include "../src/GameLoop.h"
+#include "../src/GameStart.h"
+#include "../src/StartupPhase.h"
+#include "../src/Player.h"
+#include "../src/PhaseObserver.h"
+#include "../src/GameStatsObserver.h"
 
 int main()
 {

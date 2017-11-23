@@ -22,7 +22,7 @@ int main()
 	// Ask user how many players wanted
 
 	//if (gs.setGameStart("World.map"))
-	if (gs.setGameStart("C:\\Users\\Sim\\Dropbox\\University\\Comp345\\Repos\\risk-game-group-13\\doc\\World.map"))
+	if (gs.setGameStart("World.map"))
 	{
 		int players = 2;
 		gs.setPlayers(2);
