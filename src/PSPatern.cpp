@@ -23,6 +23,8 @@ PlayerStrategyPattern::~PlayerStrategyPattern() {
 
 }
 
+
+
 /**
 Checks if there is a country with a given id in the given vector
 @param a the id of the give ncountry
@@ -38,6 +40,58 @@ bool PlayerStrategyPattern::isCountryInVector(int a, vector<CountryNode*> vect) 
 	return false;
 }
 
+/**
+the recursiveGetPathToBiggest country starts from the the startingCountry, and makes its way to the nearest country that is owned by p and has troops
+It then returns a 1 length path to move troops cloesr to the original starting country
+*/
+vector<CountryNode*> PlayerStrategyPattern::recursiveGetPathToBiggest(CountryNode* startingCountry, CountryNode* destinationCountry, const Player& p, vector<CountryNode*>& visitedCountries) {
+	vector<CountryNode*> path;
+	if (isCountryInVector(startingCountry->getCountryId(), visitedCountries)) {
+		return path;
+	}
+	else {
+		visitedCountries.push_back(startingCountry);
+		for (CountryNode* adjCountry : startingCountry->getAdjCount()) {
+			if (adjCountry->getOwnedBy() == p.getPlayerID() && adjCountry->getNumberOfTroops() > 1) {
+				destinationCountry = adjCountry;
+				path.push_back(startingCountry);
+				path.push_back(destinationCountry);
+				return path;
+			}
+		}
+		for (CountryNode* adjCountry : startingCountry->getAdjCount()) {
+			path = recursiveGetPathToBiggest(adjCountry, destinationCountry, p, visitedCountries);
+			if (path.size() > 0) {
+				return path;
+			}
+		}
+	}
+
+	return path;
+}
+
+/**
+
+@param destinationCountry ptr to the coutry to witch you want to move troups (the method will modify it's value so that if you move troop to this country, they will be closer to the original country)
+@param startingCountry the method will change this to the country you should send the troups from
+@param p player
+*/
+void PlayerStrategyPattern::getPathToBiggest(CountryNode ** destinationCountry, CountryNode ** startingCountry, const Player& p) {
+	vector<CountryNode*> visitedCountries;
+	vector<CountryNode*> path = recursiveGetPathToBiggest(*destinationCountry, *startingCountry, p, visitedCountries);
+
+	if (path.size() >= 2) {
+		*destinationCountry = path.at(0);
+		*startingCountry = path.at(1);
+	}
+	else {
+		*destinationCountry = NULL;
+		*startingCountry = NULL;
+	}
+
+
+	return;
+}
 
 
 //---------------------
