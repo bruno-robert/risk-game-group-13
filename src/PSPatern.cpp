@@ -346,12 +346,11 @@ void Aggressive::executeAttack(Player& user, Map& map, vector<Player*> playerLis
 	for (int i = 0; i < attacker->getAdjCount().size() && attacker->getNumberOfTroops() > 1; i++) {
 
 		CountryNode* defending = attacker->getAdjCount().at(i);
-		attackObj.setAttackingCountryData(attacker);
-		attackObj.setDefendingCountryData(defending);
-		attackObj.notify("Attack to/from set");
 
-
-		if (defending->getCountryId() != attacker->getCountryId()) {
+		if (defending->getOwnedBy() != attacker->getOwnedBy()) {
+			attackObj.setAttackingCountryData(attacker);
+			attackObj.setDefendingCountryData(defending);
+			attackObj.notify("Attack to/from set");
 			cout << "The current enemy target is " << defending->getCountName() << endl;
 			while (attacker->getNumberOfTroops() > 1 && defending->getNumberOfTroops() > 0) {
 
@@ -437,8 +436,9 @@ void Aggressive::executeFortify(Player& user, FortificationPhase& fortification)
 
 	//sort the user's countries
 	user.topDownCountMergeSort();
-
-	for (CountryNode* currentCountry : user.getCountryByRef()) {
+	CountryNode* currentCountry;
+	for (int i = 0; i < user.getCountryByRef().size(); i++) {
+		CountryNode* currentCountry = user.getCountryByRef().at(i);
 		bool hasEnemy = false;
 		for (CountryNode* adjCountry : currentCountry->getAdjCount()) {
 			if (adjCountry->getOwnedBy() != user.getPlayerID()) {
@@ -691,7 +691,7 @@ void Random::executeAttack(Player& user, Map& map, vector<Player*> playerList, A
 
 	vector<CountryNode*> validTargets;
 	for (int i = 0; i < randomAttacker->getAdjCount().size(); i++) {
-		if (randomAttacker->getAdjCount().at(i)->getCountryId() != randomAttacker->getCountryId()) {
+		if (randomAttacker->getAdjCount().at(i)->getOwnedBy() != randomAttacker->getOwnedBy()) {
 			validTargets.push_back(randomAttacker->getAdjCount().at(i));
 		}
 	}
@@ -816,7 +816,7 @@ void Random::executeFortify(Player& user, FortificationPhase& fortification) {
     //loop until we find an owned country that has an adjacent friendly country (we start looking from a random friendly country)
 	int measure = 0;
     while(true) {
-		cout << "YOU THERE MA DUDE 2" << endl;
+	
         //does the country have enought troups
         if(user.getCountryByRef().at(randomCountry1)->getNumberOfTroops() > 1) {
             //for each adjCoutry...

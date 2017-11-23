@@ -52,12 +52,12 @@ void Player::addCountryToOwned(CountryNode* country, vector<Player*> playerList)
         }
     }
     if (playerLost != NULL) {
-        vector<CountryNode *> defendersCountries = playerLost->getCountry();
+        vector<CountryNode *> defendersCountries = playerLost->getCountryByRef();
         defendersCountries.erase(remove(defendersCountries.begin(), defendersCountries.end(), country), defendersCountries.end());
         playerLost->setCountry(defendersCountries);
     }
     ownedCountry.push_back(country);
-    country->setOwnedBy(playerID);
+    country->setOwnedBy(this->getPlayerID());
     notify("Map Change");
 	notify("Game Stats");
 

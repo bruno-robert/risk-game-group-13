@@ -8,6 +8,14 @@
 //               
 //============================================================================
 
+/*
+AGGRESSIVE 
+BENEVOLENT 
+RANDOM     
+CHEATER    
+DRAW       
+*/
+
 #include "Tournament.h"
 
 Tournament::Tournament() {}
@@ -68,21 +76,27 @@ void Tournament::addPlayers()
 			{
 				playerList.at(i)->setPSP(new Benevolant());
 				validValue = true;
+				playerTypes.push_back("BENEVOLENT");
 			}
 			else if (computerType == "aggressive")
 			{
 				playerList.at(i)->setPSP(new Aggressive());
 				validValue = true;
+				playerTypes.push_back("AGGRESSIVE");
 			}
-			/* //TO UNCOMMENT ONCE COMPUTER PLAYERS ARE SET
+			//TO UNCOMMENT ONCE COMPUTER PLAYERS ARE SET
 			else if (computerType == "random")
 			{
-				playerList.at(i)->setPSP(new Random());				
+				playerList.at(i)->setPSP(new Random());
+				validValue = true;
+				playerTypes.push_back("RANDOM    ");
 			}
 			else if (computerType == "cheater")
 			{
-				playerList.at(i)->setPSP(new Cheater());				
-			}*/
+				playerList.at(i)->setPSP(new Cheater());
+				validValue = true;
+				playerTypes.push_back("CHEATER   ");
+			}
 		}
 		while (!validValue);
 	}
@@ -118,6 +132,10 @@ void Tournament::setNoGamesAndTurns()
 
 void Tournament::playGames()
 {
+	// Create the appropriate # of rows for each game
+	winners = vector < vector<string> >(mapList.size());
+
+
 	for (int i = 0; i < mapList.size(); ++i)
 	{
 		for (Player* p : playerList)
@@ -139,9 +157,25 @@ void Tournament::playGames()
 
 			// GameLoop:
 
-			int firstPlayer = playerList.at(0)->getPlayerID();
-			game.startGame(mapList.at(i), 2, firstPlayer, playerList, maxTurns);
+			string winnerType;
+			int winnerIndex = game.startGame(mapList.at(i), 2, playerList, maxTurns);
+			if (winnerIndex != -1)
+				winnerType = playerTypes.at(playerList.at(i)->getPlayerID() - 1);
+			else
+				winnerType = "DRAW      ";
+
+			winners.at(i).push_back(winnerType);
 		}
-		
+	}
+
+	// Print out the results:
+
+	for (vector<string> i : winners)
+	{
+		for (string s : i)
+		{
+			cout << s << " | ";
+		}
+		cout << endl;
 	}
 }

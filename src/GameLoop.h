@@ -15,14 +15,17 @@
 using namespace std;
 class MainGameLoop : Subject {
 private:
-    vector <Player*> playerList;
+    vector <Player*> playerLsit;
     bool isGameEnd = false;
 public:
     MainGameLoop();
     ~MainGameLoop();
-    void startGame(Map* m ,int numberOfPlayers, vector<Player *>& playerList, int turnLimit); //starts the game loop
+	// Returns -1 if a draw, otherwise returns winning player ID.
+    int startGame(Map* m ,int numberOfPlayers, vector<Player *>& playerList, int turnLimit); //starts the game loop
     
 };
 
 
 #endif /* GameLoop_h */
+
+
