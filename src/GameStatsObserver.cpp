@@ -108,7 +108,7 @@ int GameStatsObserver::gameStatsObserverMenu() {
 			}
 
 			//Verify answer
-			if (answer < 1 || answer > 4) {
+			if (answer <= 1 || answer >= 4) {
 
 				cout << "You must choose a number between 1 and 4" << endl;
 				done = false;
