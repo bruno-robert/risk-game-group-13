@@ -26,7 +26,7 @@ public:
 	int gameStatsObserverMenu();
 	bool yesNoQuestion(string question);
 	GameStatsObserver* createObserver(GameStatsObserver* observer);
-	static vector<Player*> GameStatsObserver::null();
+    static vector<Player*> null();
 
 protected:
 	static vector<Player*> subjectPlayers;
