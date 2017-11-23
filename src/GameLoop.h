@@ -15,12 +15,12 @@
 using namespace std;
 class MainGameLoop : Subject {
 private:
-    vector <Player*> playerLsit;
+    vector <Player*> playerList;
     bool isGameEnd = false;
 public:
     MainGameLoop();
     ~MainGameLoop();
-    void startGame(Map* m ,int numberOfPlayers, int playerTurn, vector<Player *>& playerList, int turnLimit); //starts the game loop
+    void startGame(Map* m ,int numberOfPlayers, vector<Player *>& playerList, int turnLimit); //starts the game loop
     
 };
 

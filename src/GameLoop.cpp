@@ -37,10 +37,10 @@ MainGameLoop::~MainGameLoop() {
 //checks if
 
 
-void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, vector<Player *>& playerList, int turnLimit) {
-    const int FIRST_PLAYER =  playerTurn;
+void MainGameLoop::startGame(Map* m ,int numberOfPlayers, vector<Player *>& playerList, int turnLimit) {
+	int playerTurn = 0;
     vector<bool> eliminationList;
-    int turnCounter = 0;
+    int turnCounter = 1;
     
 	PhaseObserver po;
 	GameStatsObserver* gso = new GameStatsObserver();
@@ -67,15 +67,15 @@ void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, vector
 		gso = gso->createObserver(gso);
 		notify("GameStats");
 
-        turnCounter++; //incrementing the turn counter
+        
         //if player isn't elliminated then let him/her play turn
-        if(m->getNumberOfcountriesOwnedById(playerTurn) == 0) {
-            eliminationList.at(playerTurn-1) = true;
-            cout << "player " << playerTurn << " is elliminated" << endl;
+        if(m->getNumberOfcountriesOwnedById(playerList.at(playerTurn)->getPlayerID()) == 0) {
+            eliminationList.at(playerTurn) = true;
+            cout << "player " << playerList.at(playerTurn)->getPlayerID() << " is elliminated" << endl;
         }
-        if(eliminationList.at(playerTurn-1) == false) {
+        if(eliminationList.at(playerTurn) == false) {
             
-            cout << "player " << playerTurn << "'s turn:" << endl;
+            cout << "player " << playerList.at(playerTurn)->getPlayerID() << "'s turn:" << endl;
             cout << "reinforce stage \nattack stage \nfortify stage\n\n" << endl;
 
 			// To paste if needed for debugging (otherwise remove)
@@ -91,20 +91,21 @@ void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, vector
 
 			cout << "--------------------------REINFORCEMENT---------------------------" << endl << endl;
 
-            playerList.at(playerTurn - 1)->reinforce(po);
+            playerList.at(playerTurn)->reinforce(po);
 
 			cout << "--------------------------ATTACK---------------------------" << endl << endl;
-			playerList.at(playerTurn - 1)->attack(*m, playerList, po, *gso);
+			playerList.at(playerTurn)->attack(*m, playerList, po, *gso);
 			
 			cout << "--------------------------FORTIFY---------------------------" << endl << endl;
-            playerList.at(playerTurn - 1)->fortify(po);
+            playerList.at(playerTurn)->fortify(po);
             
         }
         
         //incrementing the player turn
         playerTurn++;
-        if(playerTurn > numberOfPlayers) {
-            playerTurn = 1;
+        if(playerTurn > numberOfPlayers-1) {
+            playerTurn = 0;
+			turnCounter++; //incrementing the turn counter
         }
         
         //checks if there are more than 1 player that are still not elliminated
@@ -117,17 +118,17 @@ void MainGameLoop::startGame(Map* m ,int numberOfPlayers, int playerTurn, vector
         if( ctr <= 1) {
             //1 player left, the game is over
             isGameEnd = true;
-            int i = 1;
+            int i = 0;
             for(vector<bool>::iterator iter = eliminationList.begin(); iter != eliminationList.end(); iter++, i++) {
                 if(!(*iter)){
-                    cout << "player " << i << " wins the game!!!" << endl;
+                    cout << "player " << playerList.at(i)->getPlayerID()  << " wins the game!!!" << endl;
                 }
             }
         }
         
         //sets the ownership of all countries to player 1
         //warning this part should be removed after the demo
-        if(turnCounter >= turnLimit) {
+        if(turnCounter > turnLimit) {
 			cout << "The game has reached " << turnLimit << " turns. Therefore, it is a draw." << endl;
 			// Return winning player?
 			break;

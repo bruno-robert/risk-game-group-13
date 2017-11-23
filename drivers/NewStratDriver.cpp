@@ -32,7 +32,7 @@ int main()
 		vector<Player*> playerList = gs.getPlayers();
 
 		PlayerStrategyPattern* psp1 = new Random();
-		PlayerStrategyPattern* psp2 = new Benevolant();
+		PlayerStrategyPattern* psp2 = new Random();
 
 		playerList.at(0)->setPSP(psp1);
 		playerList.at(1)->setPSP(psp2);
@@ -46,8 +46,8 @@ int main()
 		// GameLoop:
 
 		MainGameLoop theGame;
-		int firstPlayer = playerList.at(0)->getPlayerID();
-		theGame.startGame(map, 2, firstPlayer, playerList, 1);
+		//int firstPlayer = playerList.at(0)->getPlayerID();
+		theGame.startGame(map, 2, playerList, 30);
 	}
 	else
 	{
