@@ -1,22 +1,31 @@
 //============================================================================
 // Name        : TournamentDriver.cpp
 // Team        : Group 13
-// Team members: Bruno Robert 40003443, C Jeffrey Maher 40018878, Sabrina Rieck 40032864, Simon Roy 40030996
+// Team members: Bruno Robert 40003443, Jeffrey Maher 40018878, Sabrina Rieck 40032864, Simon Roy 40030996
 // Version     : 0.1
 // Copyright   : GNU Public license 3
 // Description : Checks to make sure that the Tournament class works correctly.
 //               
 //============================================================================
 
-#include "Player.h"
+#include "Tournament.h"
+#include "GameLoop.h"
 #include "GameStart.h"
 #include "StartupPhase.h"
-#include "GameLoop.h"
+#include "Player.h"
 #include "PhaseObserver.h"
 #include "GameStatsObserver.h"
 
 int main()
 {
+	Tournament tournament;
+
+	tournament.addMaps();
+	tournament.addPlayers();
+	tournament.setNoGamesAndTurns();
+	tournament.playGames();
+
+	
 	GameStart gs;
 	// Remember to add functionality for multiple maps!!
 	// Ask user how many players wanted
@@ -46,10 +55,11 @@ int main()
 
 		MainGameLoop theGame;
 		int firstPlayer = playerList.at(0)->getPlayerID();
-		theGame.startGame(map, 2, firstPlayer, playerList, 1);
+		theGame.startGame(map, 2, playerList, 1);
 	}
 	else
 	{
 		cout << "Map is invalid!" << endl;
 	}
+	
 }
