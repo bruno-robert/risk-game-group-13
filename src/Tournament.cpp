@@ -160,9 +160,9 @@ void Tournament::playGames()
 			string winnerType;
 			int winnerIndex = game.startGame(mapList.at(i), 2, playerList, maxTurns);
 			if (winnerIndex != -1)
-				winnerType = playerTypes.at(playerList.at(i)->getPlayerID() - 1);
+				winnerType = playerList.at(winnerIndex)->getStrategy()->getName();
 			else
-				winnerType = "DRAW      ";
+				winnerType = "DRAW";
 
 			winners.at(i).push_back(winnerType);
 		}

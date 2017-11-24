@@ -31,7 +31,11 @@ class Reinforce;
 using namespace std;
 //this is to be the parent class of Human Agressive and Benevolent
 class PlayerStrategyPattern : public Subject {
+
+	string name;
 public:
+	virtual string getName() = 0;
+	
 	PlayerStrategyPattern();
 	virtual ~PlayerStrategyPattern();
 
@@ -60,7 +64,12 @@ public:
 
 class Aggressive : public PlayerStrategyPattern {
 
+	string name = "aggressive";
 public:
+	 string getName() {
+		return "aggressive";
+	}
+
 	Aggressive();
 	~Aggressive();
 	void executeReinforce(Player& user, Reinforce& reinforceObj);
@@ -72,7 +81,11 @@ public:
 
 class Benevolant : public PlayerStrategyPattern {
 
+	string name = "benevolant";
 public:
+	 string getName() {
+		return "benevolant";
+	}
 	Benevolant();
 	~Benevolant();
 	void executeReinforce(Player& user, Reinforce& reinforceObj);
@@ -82,7 +95,12 @@ public:
 
 class Random : public PlayerStrategyPattern {
     
+	string name = "random";
 public:
+	 string getName() {
+		return "random";
+	}
+
     Random();
     ~Random();
     void executeReinforce(Player& user, Reinforce& reinforceObj);
@@ -91,8 +109,12 @@ public:
 };
 
 class Cheater : public PlayerStrategyPattern {
-    
+
+	string name = "cheater";
 public:
+	 string getName() {
+		return "cheater";
+	}
     Cheater();
     ~Cheater();
     void executeReinforce(Player& user, Reinforce& reinforceObj);
