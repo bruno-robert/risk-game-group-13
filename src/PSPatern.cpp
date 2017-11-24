@@ -676,26 +676,30 @@ void Random::executeAttack(Player& user, Map& map, vector<Player*> playerList, A
 	attackObj.notify("Attack Started");
 
 	//Selecting my attacker at random
-
+	int randomness = 0;
 	CountryNode* randomAttacker;
-	int randomness = rand() % user.getCountryByRef().size();
-	randomAttacker = user.getCountryByRef().at(randomness);
-
-	cout << endl << "The attacking country will be " << randomAttacker->getCountName() << ".\n" << endl;
-
-	//Selecting my the attacked country at random
-
 	CountryNode* randomDefender;
-
-	//The next for loop serves to only target the enemy adjacent country
-
 	vector<CountryNode*> validTargets;
-	for (int i = 0; i < randomAttacker->getAdjCount().size(); i++) {
-		if (randomAttacker->getAdjCount().at(i)->getOwnedBy() != randomAttacker->getOwnedBy()) {
-			validTargets.push_back(randomAttacker->getAdjCount().at(i));
-		}
-	}
+	do {
+		validTargets.clear();
+		randomness = rand() % user.getCountryByRef().size();
+		randomAttacker = user.getCountryByRef().at(randomness);
 
+		cout << endl << "The attacking country will be " << randomAttacker->getCountName() << ".\n" << endl;
+
+		//Selecting my the attacked country at random
+
+		CountryNode* randomDefender;
+
+		//The next for loop serves to only target the enemy adjacent country
+
+		
+		for (int i = 0; i < randomAttacker->getAdjCount().size(); i++) {
+			if (randomAttacker->getAdjCount().at(i)->getOwnedBy() != randomAttacker->getOwnedBy()) {
+				validTargets.push_back(randomAttacker->getAdjCount().at(i));
+			}
+		}
+	} while (validTargets.size() == 0);
 	randomness = rand() % validTargets.size();
 
 	randomDefender = validTargets.at(randomness);
