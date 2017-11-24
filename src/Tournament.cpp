@@ -119,7 +119,7 @@ void Tournament::setNoGamesAndTurns()
 	numberOfGames = number;
 	number = 0;
 
-	while (number < 1 || number > 50) // replace 1 with 10
+	while (number < 10 || number > 50)
 	{
 		cin.clear();
 		cin.ignore(10000, '\n'); // We skip everything up until the next newline character.
