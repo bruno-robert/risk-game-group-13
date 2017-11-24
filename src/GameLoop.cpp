@@ -65,10 +65,12 @@ int MainGameLoop::startGame(Map* m, int numberOfPlayers, vector<Player *>& playe
 
 	//game loop
 	while (!isGameEnd) {
+
 		delete gso;
 		gso = dummy->createObserver(dummy);
 		gso->setMap(m);
 		gso->setPlayerSubject(playerList);
+
 
 
 		//if player isn't elliminated then let him/her play turn
@@ -77,7 +79,9 @@ int MainGameLoop::startGame(Map* m, int numberOfPlayers, vector<Player *>& playe
 			cout << "player " << playerList.at(playerTurn)->getPlayerID() << " is elliminated" << endl;
 		}
 		if (eliminationList.at(playerTurn) == false) {
+
 			playerList.at(playerTurn)->notify("GameStats Turn");
+
 			cout << "player " << playerList.at(playerTurn)->getPlayerID() << "'s turn:" << endl;
 			cout << "reinforce stage \nattack stage \nfortify stage\n\n" << endl;
 

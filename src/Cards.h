@@ -50,8 +50,7 @@ public:
 	void add(Card card);	//Allows the addition of a card to the vector.
 	int getSize();			//Returns the size of the vector
 	string getExchangeString(); // The message that will be sent to the phase observer
-        vector<Card> getPlayerHand();
-
+	vector<Card> getPlayerHand();
 private:
 	string exchangeString;
 	vector<Card> playerHand;

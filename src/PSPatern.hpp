@@ -9,6 +9,10 @@
 #ifndef PSPatern_hpp
 #define PSPatern_hpp
 
+//used for generating random numbers
+#include <ctime>
+#include <cstdlib>
+
 #include <stdio.h>
 #include <vector>
 #include <iostream>
@@ -76,15 +80,24 @@ public:
 	void executeFortify(Player& user, FortificationPhase& fortificationObj);
 };
 
-
 class Random : public PlayerStrategyPattern {
-
+    
 public:
-	Random();
-	~Random();
-	void executeReinforce(Player& user, Reinforce& reinforceObj);
-	void executeAttack(Player& user, Map& map, vector<Player*> playerList, Attack& attackObj);
-	void executeFortify(Player& user, FortificationPhase& fortificationObj);
+    Random();
+    ~Random();
+    void executeReinforce(Player& user, Reinforce& reinforceObj);
+    void executeAttack(Player& user, Map& map, vector<Player*> playerList, Attack& attackObj);
+    void executeFortify(Player& user, FortificationPhase& fortificationObj);
+};
+
+class Cheater : public PlayerStrategyPattern {
+    
+public:
+    Cheater();
+    ~Cheater();
+    void executeReinforce(Player& user, Reinforce& reinforceObj);
+    void executeAttack(Player& user, Map& map, vector<Player*> playerList, Attack& attackObj);
+    void executeFortify(Player& user, FortificationPhase& fortificationObj);
 };
 
 #endif /* PSPatern_hpp */
