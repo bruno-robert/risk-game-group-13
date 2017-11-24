@@ -20,7 +20,7 @@ using namespace std;
 int Player::numberOfPlayers = 0;
 
 Player::Player(){ //Default constructor create empty players
-    playerID = ++numberOfPlayers;
+    playerID = numberOfPlayers++;
 }
 
 Player::~Player()
@@ -33,7 +33,7 @@ Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, PlayerS
     this->hand = hand;
     this->dice = dice;
     this-> psp = psp;
-    playerID = ++numberOfPlayers;
+    playerID = numberOfPlayers++;
 }
 
 /**
@@ -52,12 +52,12 @@ void Player::addCountryToOwned(CountryNode* country, vector<Player*> playerList)
         }
     }
     if (playerLost != NULL) {
-        vector<CountryNode *> defendersCountries = playerLost->getCountry();
+        vector<CountryNode *> defendersCountries = playerLost->getCountryByRef();
         defendersCountries.erase(remove(defendersCountries.begin(), defendersCountries.end(), country), defendersCountries.end());
         playerLost->setCountry(defendersCountries);
     }
     ownedCountry.push_back(country);
-    country->setOwnedBy(playerID);
+    country->setOwnedBy(this->getPlayerID());
     notify("Map Change");
 	notify("GameStats");
 

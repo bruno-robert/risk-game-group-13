@@ -20,9 +20,12 @@ private:
 public:
     MainGameLoop();
     ~MainGameLoop();
-    void startGame(Map* m ,int numberOfPlayers, int playerTurn, vector<Player *>& playerList, int turnLimit); //starts the game loop
+	// Returns -1 if a draw, otherwise returns winning player ID.
+    int startGame(Map* m ,int numberOfPlayers, vector<Player *>& playerList, int turnLimit); //starts the game loop
     
 };
 
 
 #endif /* GameLoop_h */
+
+

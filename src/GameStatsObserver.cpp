@@ -63,26 +63,18 @@ void GameStatsObserver::setMap(Map* gameMap) {
 
 void GameStatsObserver::update(string message) {
 
-	if (message == "GameStats")
+	if (message == "GameStats" || message == "GameStats Turn"){
+		if (message == "GameStats Turn")
+			turn++;
 		printTurn();
-
+	}
 	//Else do nothing, the notify is not directed to this observer
 
 }
 
 void GameStatsObserver::printTurn() {
 
-	turn++;
-
-	int amountPlayers = 0;
-
-	for (Player* p : subjectPlayers)
-		amountPlayers++;
-
-	if (turn % amountPlayers == 0)
-		round++;
-
-	cout << "------------Turn: " << round << "\n";
+	cout << "------------Turn: " << turn << "\n";
 
 }
 
