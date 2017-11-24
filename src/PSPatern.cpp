@@ -843,6 +843,7 @@ void Random::executeFortify(Player& user, FortificationPhase& fortification) {
                     //Adding troups to destinationCountry
                     destinationCountry->setNumberOfTroops(destinationCountry->getNumberOfTroops() + numberOfTroopsToMove);
 
+					cout << startingCountry->getCountName() << " moved " << numberOfTroopsToMove << " to " << destinationCountry->getCountName() << endl;
 					fortification.setStartingCountry(startingCountry);
 					fortification.setDestinationCountry(destinationCountry);
                     fortification.setAmountTroopsMoved(numberOfTroopsToMove);

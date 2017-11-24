@@ -48,7 +48,20 @@ int main()
 		MainGameLoop theGame;
 		//int firstPlayer = playerList.at(0)->getPlayerID();
 		theGame.startGame(map, 2, playerList, 5);
+
+		// To paste if needed for debugging (otherwise remove)
+		cout << "\nPlayer " << playerList.at(0)->getPlayerID() << "'s list of countries and their units: " << endl;
+		for (int i = 0; i < playerList.at(0)->getCountry().size(); i++) {
+			cout << playerList.at(0)->getCountry().at(i)->getCountName() << " has " << playerList.at(0)->getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+		}
+
+		cout << "\nPlayer " << playerList.at(1)->getPlayerID() << "'s list of countries and their units: " << endl;
+		for (int i = 0; i < playerList.at(1)->getCountry().size(); i++) {
+			cout << playerList.at(1)->getCountry().at(i)->getCountName() << " has " << playerList.at(1)->getCountry().at(i)->getNumberOfTroops() << " units." << endl;
+		}
 	}
+
+
 	else
 	{
 		cout << "Map is invalid!" << endl;
