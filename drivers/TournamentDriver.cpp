@@ -8,6 +8,15 @@
 //               
 //============================================================================
 
+// <<<<<<< Sabrina
+// #include "Tournament.h"
+// #include "GameLoop.h"
+// #include "GameStart.h"
+// #include "StartupPhase.h"
+// #include "Player.h"
+// #include "PhaseObserver.h"
+// #include "GameStatsObserver.h"
+// =======
 #include "../src/Tournament.h"
 #include "../src/GameLoop.h"
 #include "../src/GameStart.h"
@@ -15,6 +24,7 @@
 #include "../src/Player.h"
 #include "../src/PhaseObserver.h"
 #include "../src/GameStatsObserver.h"
+
 
 int main()
 {
@@ -25,7 +35,11 @@ int main()
 	tournament.setNoGamesAndTurns();
 	tournament.playGames();
 
+
+	
+
 	/*
+
 	GameStart gs;
 	// Remember to add functionality for multiple maps!!
 	// Ask user how many players wanted
@@ -55,11 +69,14 @@ int main()
 
 		MainGameLoop theGame;
 		int firstPlayer = playerList.at(0)->getPlayerID();
-		theGame.startGame(map, 2, firstPlayer, playerList, 1);
+
+		theGame.startGame(map, 2, playerList, 1);
 	}
 	else
 	{
 		cout << "Map is invalid!" << endl;
 	}
+	
 	*/
+
 }

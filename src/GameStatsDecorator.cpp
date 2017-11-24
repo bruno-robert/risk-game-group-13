@@ -34,7 +34,7 @@ DominationObserver::DominationObserver(GameStatsObserver *decoratedGameStats) : 
 }
 
 void DominationObserver::update(string message){
-	if (message == "GameStats"){
+	if (message == "GameStats" || message == "GameStats Turn"){
 		printDominationStats();
 		GameStatsDecorator::update(message); // + printDominationStats();
 	}
@@ -64,7 +64,7 @@ void DominationObserver::printDominationStats(){
 
 		double percentage = (amount / (double)total) * 100.0;
 
-		cout << "Player " << playerID << ": " << percentage << "%   ";  //<< setprecision(2)
+		cout << "Player " << playerID << ": " << percentage << "%   ";  
 	}
 
 	cout << "\n";
@@ -78,7 +78,7 @@ HandObserver::HandObserver(GameStatsObserver *decoratedGameStats) : GameStatsDec
 }
 
 void HandObserver::update(string message){
-	if (message == "GameStats"){
+	if (message == "GameStats" || message == "GameStats Turn"){
 		printHandInfo();
 		GameStatsDecorator::update(message); // + printHandInfo();
 	}
@@ -124,7 +124,7 @@ ControlObserver::ControlObserver(GameStatsObserver *decoratedGameStats) : GameSt
 }
 
 void ControlObserver::update(string message){
-	if (message == "GameStats"){
+	if (message == "GameStats" || message == "GameStats Turn"){
 		printContinentControlInfo();
 		GameStatsDecorator::update(message); // + printContinentControlInfo();
 	}

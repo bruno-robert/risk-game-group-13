@@ -20,7 +20,7 @@ using namespace std;
 int Player::numberOfPlayers = 0;
 
 Player::Player(){ //Default constructor create empty players
-    playerID = ++numberOfPlayers;
+    playerID = numberOfPlayers++;
 }
 
 Player::~Player()
@@ -33,7 +33,7 @@ Player::Player(vector<CountryNode *> ownedCountry, Hand hand, Dice dice, PlayerS
     this->hand = hand;
     this->dice = dice;
     this-> psp = psp;
-    playerID = ++numberOfPlayers;
+    playerID = numberOfPlayers++;
 }
 
 /**

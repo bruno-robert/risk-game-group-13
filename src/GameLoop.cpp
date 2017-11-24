@@ -44,8 +44,8 @@ int MainGameLoop::startGame(Map* m, int numberOfPlayers, vector<Player *>& playe
 	int turnCounter = 1;
 
 	PhaseObserver po;
-	GameStatsObserver* gso = new GameStatsObserver();
-	gso->setPlayerSubject(playerList);
+	GameStatsObserver* dummy = new GameStatsObserver();
+	GameStatsObserver* gso = NULL;
 
 	//give ownership to players if this is a demo
 	/*
@@ -65,8 +65,12 @@ int MainGameLoop::startGame(Map* m, int numberOfPlayers, vector<Player *>& playe
 
 	//game loop
 	while (!isGameEnd) {
-		gso = gso->createObserver(gso);
-		
+
+		delete gso;
+		gso = dummy->createObserver(dummy);
+		gso->setMap(m);
+		gso->setPlayerSubject(playerList);
+
 
 
 		//if player isn't elliminated then let him/her play turn
@@ -75,6 +79,8 @@ int MainGameLoop::startGame(Map* m, int numberOfPlayers, vector<Player *>& playe
 			cout << "player " << playerList.at(playerTurn)->getPlayerID() << " is elliminated" << endl;
 		}
 		if (eliminationList.at(playerTurn) == false) {
+
+			playerList.at(playerTurn)->notify("GameStats Turn");
 
 			cout << "player " << playerList.at(playerTurn)->getPlayerID() << "'s turn:" << endl;
 			cout << "reinforce stage \nattack stage \nfortify stage\n\n" << endl;
